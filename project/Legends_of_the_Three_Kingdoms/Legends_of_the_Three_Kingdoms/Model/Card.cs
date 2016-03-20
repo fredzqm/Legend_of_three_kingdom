@@ -36,10 +36,10 @@ namespace LOTK.Model
             }
             set
             {
-                //if (ls[i] == null)
-                ls[i] = value;
-                //else
-                //throw new Exception("Redefien Card");
+                if (ls[i] == null)
+                    ls[i] = value;
+                else
+                    throw new Exception("Redefien Card");
             }
         }
     }
