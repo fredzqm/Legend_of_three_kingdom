@@ -34,7 +34,20 @@ namespace LOTK_Test.ModelTest
             s.shuffle();
             Assert.AreSame(s.pop(), a);
         }
-       
+
+        [TestMethod]
+        public void ShuffleTwoCardTest()
+        {
+            Card a = new Card(CardSuit.Club, CardType.Attack);
+            Card b = new Card(CardSuit.Club, CardType.Miss);
+            CardSet s = new CardSet(2);
+            s[0] = a;
+            s[1] = b;
+            s.shuffle();
+            Card x = s.pop();
+            Card y = s.pop();
+            Assert.IsTrue(((a==x)&&(b==y)) || (a == y) && (b == x));
+        }
 
     }
 }
