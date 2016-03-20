@@ -51,8 +51,6 @@ namespace LOTK.Model
             }
         }
 
-
-
         public bool userResponse(UserAction userAction)
         {
             return currentStage.userInput(userAction);

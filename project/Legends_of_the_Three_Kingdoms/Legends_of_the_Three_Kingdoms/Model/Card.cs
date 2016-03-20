@@ -30,7 +30,7 @@ namespace LOTK.Model
         }
         public override string ToString()
         {
-            return String.Format("Card {0}  {1}",type,suit);
+            return String.Format("Card {0}  {1}{3}",type,suit, num);
         }
     }
 
