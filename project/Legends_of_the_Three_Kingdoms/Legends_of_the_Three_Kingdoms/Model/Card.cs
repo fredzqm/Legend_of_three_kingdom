@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
-    public struct Card
+    public class Card
     {
         private CardType type;
         private CardSuit suit;
