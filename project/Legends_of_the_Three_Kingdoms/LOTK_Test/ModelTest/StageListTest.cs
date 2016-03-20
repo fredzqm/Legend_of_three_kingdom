@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Model;
 
-namespace LOTK_Test
+namespace LOTK_Test.ModelTest
 {
     [TestClass]
     public class StageListTest
@@ -47,4 +47,5 @@ namespace LOTK_Test
             Assert.AreEqual(ls.pop().playerID, 2);
         }
     }
+
 }
