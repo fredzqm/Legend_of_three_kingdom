@@ -9,12 +9,8 @@ namespace LOTK.Model
     public interface Phase
     {
         PhaseList nextStage(Game g);
-        int playerID { get; }
-    }
-
-    public interface ResponsivePhase : Phase
-    {
         bool userInput(UserAction u);
+        int playerID { get; }
     }
     
     public class PlayerTurn : Phase
@@ -31,9 +27,13 @@ namespace LOTK.Model
             return new PhaseList(new JudgePhase(playerID));
         }
 
+        public bool userInput(UserAction u)
+        {
+            throw new NotImplementedException();
+        }
     }
 
-    public class JudgePhase : ResponsivePhase
+    public class JudgePhase : Phase
     {
         public int playerID { get; set; }
         public JudgePhase(int player)
@@ -50,7 +50,7 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
     }
-    public class DrawingPhase : ResponsivePhase
+    public class DrawingPhase : Phase
     {
         public int playerID { get; set; }
         public DrawingPhase(int player)
@@ -67,7 +67,7 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
     }
-    public class ActionPhase : ResponsivePhase
+    public class ActionPhase : Phase
     {
         public int playerID { get; set; }
         public ActionPhase(int player)
@@ -84,7 +84,7 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
     }
-    public class DiscardPhase : ResponsivePhase
+    public class DiscardPhase : Phase
     {
         public int playerID { get; set; }
         public DiscardPhase(int player)
