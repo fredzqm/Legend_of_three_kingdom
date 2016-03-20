@@ -105,7 +105,7 @@ namespace LOTK.Model
         }
 
         public bool userInput(UserAction u)
-        {
+        {  
             switch (u.type)
             {
                 case UserActionType.YES_OR_NO: return u.detail == UserAction.YES;
