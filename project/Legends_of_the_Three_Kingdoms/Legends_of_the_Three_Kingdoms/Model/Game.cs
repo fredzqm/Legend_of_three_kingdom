@@ -4,9 +4,14 @@ namespace LOTK.Model
 {
     public class Game
     {
-        private readonly int Num_Player;
+        public readonly int Num_Player;
         public PhaseList stages { get; set; }
-        public JudgePhase currentStage { get; set; }
+        public Phase currentStage {
+            get
+            {
+                return stages.peek();
+            }
+        }
 
         public Game(int Num_player)
         {
@@ -17,7 +22,7 @@ namespace LOTK.Model
 
         public void nextStage()
         {
-            throw new NotImplementedException();
+            stages.pushStageList(stages.pop().process(this));
         }
     }
 }

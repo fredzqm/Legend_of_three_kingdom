@@ -17,7 +17,7 @@ namespace LOTK_Test.ModelTest
         public void FourStageTest()
         {
             Game g = new Game(5);
-            Assert.IsTrue(g.currentStage is JudgePhase);
+            Assert.IsTrue(g.currentStage is PlayerTurn);
             g.nextStage();
             Assert.IsTrue(g.currentStage is JudgePhase);
             g.nextStage();

@@ -11,77 +11,89 @@ namespace LOTK.Model
         PhaseList process(Game g);
         int playerID { get; }
     }
-    public class JudgePhase : Phase
+    
+    public class PlayerTurn : Phase
     {
-        public int playerID
+        public int playerID { get; set; }
+
+        public PlayerTurn(int player)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            playerID = player;
         }
 
         public PhaseList process(Game g)
         {
-            throw new NotImplementedException();
+            return new PhaseList(new JudgePhase(playerID));
+        }
+    }
+
+    public class JudgePhase : Phase
+    {
+        public int playerID { get; set; }
+        public JudgePhase(int player)
+        {
+            playerID = player;
+        }
+        public PhaseList process(Game g)
+        {
+            return new PhaseList(new DrawingPhase(playerID));
         }
     }
     public class DrawingPhase : Phase
     {
-        public int playerID
+        public int playerID { get; set; }
+        public DrawingPhase(int player)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            playerID = player;
         }
-
         public PhaseList process(Game g)
         {
-            throw new NotImplementedException();
+            return new PhaseList(new ActionPhase(playerID));
         }
     }
     public class ActionPhase : Phase
     {
-        public int playerID
+        public int playerID { get; set; }
+        public ActionPhase(int player)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            playerID = player;
         }
-
         public PhaseList process(Game g)
         {
-            throw new NotImplementedException();
+            return new PhaseList(new DiscardPhase(playerID));
         }
     }
     public class DiscardPhase : Phase
     {
-        public int playerID
+        public int playerID { get; set; }
+        public DiscardPhase(int player)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            playerID = player;
         }
-
         public PhaseList process(Game g)
         {
-            throw new NotImplementedException();
+            return new PhaseList(new PlayerTurn((playerID+1)% g.Num_Player));
         }
     }
-
 
     public class PhaseList
     {
         private Node head;
         private Node tail;
+        private JudgePhase judgePhase;
 
         public PhaseList()
         {
             head = null;
             tail = null;
+        }
+
+        public PhaseList(params Phase[] phases) : this()
+        {
+            foreach (Phase p in phases)
+            {
+                add(p);
+            }
         }
 
         public void add(Phase s)
@@ -123,6 +135,12 @@ namespace LOTK.Model
             added.tail.next = head;
             head = added.head;
         }
+
+        public Phase peek()
+        {
+            return head.stage;
+        }
+
         class Node
         {
             internal Phase stage;
@@ -139,21 +157,6 @@ namespace LOTK.Model
                 this.next = node;
                 return node;
             }
-        }
-    }
-
-    public class PlayerTurn : Phase
-    {
-        public int playerID { get; set; }
-
-        public PlayerTurn(int player)
-        {
-            playerID = player;
-        }
-
-        public PhaseList process(Game g)
-        {
-            throw new NotImplementedException();
         }
     }
 
