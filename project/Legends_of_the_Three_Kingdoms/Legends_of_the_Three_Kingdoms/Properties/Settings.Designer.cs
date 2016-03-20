@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Legends_of_the_Three_Kingdoms.Properties
+namespace LOTK.Properties
 {
 
 

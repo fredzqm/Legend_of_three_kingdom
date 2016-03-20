@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LOTK")]
+[assembly: AssemblyTitle("LOTK_Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LOTK")]
+[assembly: AssemblyProduct("LOTK_Test")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5b582a66-6242-4c4e-a36b-e811449d7a19")]
+[assembly: Guid("8424a8e5-e18e-4a2c-87c8-bef2c27d4d0a")]
 
 // Version information for an assembly consists of the following four values:
 //
