@@ -4,13 +4,14 @@ using LOTK.Model;
 namespace LOTK_Test.ModelTest
 {
     [TestClass]
-    class CardTest
+    public class CardTest
     {
         [TestMethod]
-        public void testConstructCard() {
-            Card c = new Card(1, CardColor.Club, CardType.Attack);
-            Card.defineCard(1, CardColor.Club, CardType.Attack);
-            Assert.Equals(c, CardTest.find(1));
+        public void testConstructCardSet() {
+            Card c = new Card(CardSuit.Club, CardType.Attack);
+            CardSet s = new CardSet(10);
+            s[0] = c;
+            Assert.AreSame(c, s[0] );
         }
     }
 }
