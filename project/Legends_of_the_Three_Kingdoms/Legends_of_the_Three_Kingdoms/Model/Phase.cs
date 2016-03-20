@@ -28,7 +28,7 @@ namespace LOTK.Model
 
         public PhaseList nextStage(Game g)
         {
-            //g.setCurrentPlayerID(player);
+            g.setCurrentPlayerID(player);
             return new PhaseList(new JudgePhase(player), 
                 new PlayerTurn(g[(player + 1) % g.Num_Player]));
         }
