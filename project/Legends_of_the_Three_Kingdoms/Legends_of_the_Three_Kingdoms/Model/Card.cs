@@ -43,9 +43,9 @@ namespace LOTK.Model
             }
         }
 
-        public object pop()
+        public Card pop()
         {
-            throw new NotImplementedException();
+            return this[0];
         }
     }
 
