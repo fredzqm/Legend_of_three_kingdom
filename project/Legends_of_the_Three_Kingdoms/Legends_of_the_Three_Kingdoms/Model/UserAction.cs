@@ -2,8 +2,13 @@
 {
     public struct UserAction
     {
+        public const int YES = 1;
+        public const int NO = 0;
+
+
         public UserActionType type { get; set; }
-        int detail;
+
+        public int detail;
 
         public UserAction(UserActionType t, int v)
         {

@@ -63,8 +63,8 @@ namespace LOTK_Test.ModelTest
             Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
             g.nextStage();
             Assert.IsTrue(g.currentStage is ActionPhase);
-            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
             g.nextStage();
             Assert.IsTrue(g.currentStage is DiscardPhase);
             Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));

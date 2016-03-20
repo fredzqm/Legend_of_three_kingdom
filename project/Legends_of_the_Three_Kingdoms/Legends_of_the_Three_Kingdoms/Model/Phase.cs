@@ -47,7 +47,7 @@ namespace LOTK.Model
 
         public bool userInput(UserAction u)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
     public class DrawingPhase : ResponsivePhase
@@ -64,7 +64,7 @@ namespace LOTK.Model
 
         public bool userInput(UserAction u)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
     public class ActionPhase : ResponsivePhase
@@ -81,7 +81,11 @@ namespace LOTK.Model
 
         public bool userInput(UserAction u)
         {
-            throw new NotImplementedException();
+            switch (u.type)
+            {
+                case UserActionType.YES_OR_NO: return u.detail == UserAction.YES;
+                default: return false;
+            }
         }
     }
     public class DiscardPhase : ResponsivePhase
@@ -98,7 +102,11 @@ namespace LOTK.Model
 
         public bool userInput(UserAction u)
         {
-            throw new NotImplementedException();
+            switch (u.type)
+            {
+                case UserActionType.YES_OR_NO: return u.detail == UserAction.YES;
+                default: return false;
+            }
         }
     }
 

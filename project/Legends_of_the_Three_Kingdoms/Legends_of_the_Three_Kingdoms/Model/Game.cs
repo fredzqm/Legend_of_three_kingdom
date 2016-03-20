@@ -39,7 +39,7 @@ namespace LOTK.Model
         }
         public bool userResponse(UserAction userAction)
         {
-            throw new NotImplementedException();
+            return currentStage.userInput(userAction);
         }
     }
 }
