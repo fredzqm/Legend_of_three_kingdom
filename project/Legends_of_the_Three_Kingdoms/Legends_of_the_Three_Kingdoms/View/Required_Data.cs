@@ -9,6 +9,7 @@ namespace LOTK.View
     public class Required_Data
     {   
         public string this_player;
+        public string this_player_ab;
         public string upleft_player;
         public string upleft_player_ab;
         public string upright_player;
@@ -19,9 +20,18 @@ namespace LOTK.View
         public string downright_player_ab;
         public string[] hold_cards;
         public string[] pool_cards;
-
+        public  string this_player_stage;
+        public string tool_attack;
+        public string tool_attack_ab;
+        public string tool_defence;
+        public string tool_defence_ab;
         public Required_Data()
         {
+            tool_attack = "tool_attack";
+            tool_attack_ab = "tool_attack_ab";
+            tool_defence = "tool_defence";
+            tool_defence_ab = "tool_defence";
+            this_player_ab = "this_player_ab";
             this_player = "this_player";
             upleft_player = "upleft_player";
             upright_player = "upright_player";
@@ -33,6 +43,7 @@ namespace LOTK.View
             downright_player_ab = "downright_player_ab";
             hold_cards = new string[1] { "hold_cards" };
             pool_cards = new string[1] { "pool_cards" };
+            this_player_stage = "this_player_stage";
         }
     }
 }
