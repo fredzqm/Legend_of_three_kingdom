@@ -47,6 +47,11 @@ namespace LOTK.Model
         {
             return this[0];
         }
+
+        public void shuffle()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

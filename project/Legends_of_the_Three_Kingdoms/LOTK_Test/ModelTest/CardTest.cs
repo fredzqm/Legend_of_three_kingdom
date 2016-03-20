@@ -26,13 +26,15 @@ namespace LOTK_Test.ModelTest
             s[0] = b;
         }
 
-        [TestMethod]
-        public void PopCardOneTest()
+        public void ShuffleOneCardTest()
         {
             Card a = new Card(CardSuit.Club, CardType.Attack);
-            CardSet s = new CardSet(10);
+            CardSet s = new CardSet(1);
             s[0] = a;
+            s.shuffle();
             Assert.AreSame(s.pop(), a);
         }
+       
+
     }
 }
