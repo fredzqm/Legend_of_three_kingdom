@@ -5,18 +5,18 @@ using LOTK.Model;
 namespace LOTK_Test.ModelTest
 {
     [TestClass]
-    public class StageListTest
+    public class PhaseListTest
     {
         [TestMethod]
         public void TestConstruct()
         {
-            StageList ls = new StageList();
+            PhaseList ls = new PhaseList();
         }
 
         [TestMethod]
         public void TestAddPop()
         {
-            StageList ls = new StageList();
+            PhaseList ls = new PhaseList();
             ls.add(new PlayerTurn(0));
             ls.add(new PlayerTurn(1));
             ls.add(new PlayerTurn(2));
@@ -32,11 +32,11 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void TestPushStageList()
         {
-            StageList ls = new StageList();
+            PhaseList ls = new PhaseList();
             ls.add(new PlayerTurn(0));
             ls.add(new PlayerTurn(1));
             ls.add(new PlayerTurn(2));
-            StageList ls2 = new StageList();
+            PhaseList ls2 = new PhaseList();
             ls2.add(new PlayerTurn(3));
             ls2.add(new PlayerTurn(4));
             ls.pushStageList(ls2);
