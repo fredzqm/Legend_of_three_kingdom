@@ -14,6 +14,29 @@ namespace LOTK.Model
     public class StageList
     {
 
+        public void push(Stage turn)
+        {
+            throw new NotImplementedException();
+        }
+
+        public PlayerTurn pop()
+        {
+            throw new NotImplementedException();
+        }
+
+        //private class Node
+        //{
+        //    private Stage data;
+        //    private Node next;
+        //}
+    }
+
+    public class PlayerTurn : Stage
+    {
+        public StageList process(Game g)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -11,7 +11,8 @@ namespace LOTK_Test
         public void TestConstruct()
         {
             StageList ls = new StageList();
-            ls.push(new Turn());
         }
+
+        //public void Test
     }
 }
