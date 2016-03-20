@@ -17,8 +17,11 @@ namespace LOTK.Model
                 }
             }
         }
-        public int currentPlayerID { get { return stages.bottom().playerID; } }
         private Player[] players;
+        public Player this[int i] {get { return players[i]; } }
+        private int curRoundPlayerID;
+        public Player curRoundPlayer { get { return this[curRoundPlayerID]; } }
+
         public Game(int Num_player)
         {
             Num_Player = Num_player;
@@ -37,7 +40,10 @@ namespace LOTK.Model
             stages.pushStageList(stages.pop().nextStage(this));
             skipIrresponsivePhases();
         }
-
+        internal void setCurrentPlayerID(int curPlay)
+        {
+            curRoundPlayerID = curPlay;
+        }
         private void skipIrresponsivePhases()
         {
             while(! (stages.top() is ResponsivePhase))
@@ -48,11 +54,6 @@ namespace LOTK.Model
         public bool userResponse(UserAction userAction)
         {
             return currentStage.userInput(userAction);
-        }
-
-        internal Player nextPlayer(int playerID)
-        {
-            return players[(playerID + 1) % Num_Player];
         }
     }
 }

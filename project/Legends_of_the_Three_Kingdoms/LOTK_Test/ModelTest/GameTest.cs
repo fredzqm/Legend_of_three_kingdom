@@ -35,16 +35,40 @@ namespace LOTK_Test.ModelTest
                 for (int i = 0; i < 8; i++)
                 {
                     Assert.IsTrue(g.currentStage is JudgePhase);
-                    Assert.AreEqual(g.currentStage.playerID, i);
+                    Assert.AreEqual(g.currentStage.player, i);
                     g.nextStage();
                     Assert.IsTrue(g.currentStage is DrawingPhase);
-                    Assert.AreEqual(g.currentStage.playerID, i);
+                    Assert.AreEqual(g.currentStage.player, i);
                     g.nextStage();
                     Assert.IsTrue(g.currentStage is ActionPhase);
-                    Assert.AreEqual(g.currentStage.playerID, i);
+                    Assert.AreEqual(g.currentStage.player, i);
                     g.nextStage();
                     Assert.IsTrue(g.currentStage is DiscardPhase);
-                    Assert.AreEqual(g.currentStage.playerID, i);
+                    Assert.AreEqual(g.currentStage.player, i);
+                    g.nextStage();
+                }
+            }
+        }
+
+        [TestMethod]
+        public void CurrentPlayerTest()
+        {
+            Game g = new Game(8);
+            for (int j = 0; j < 1; j++)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    Assert.IsTrue(g.currentStage is JudgePhase);
+                    Assert.AreEqual(g.curRoundPlayer, i);
+                    g.nextStage();
+                    Assert.IsTrue(g.currentStage is DrawingPhase);
+                    Assert.AreEqual(g.curRoundPlayer, i);
+                    g.nextStage();
+                    Assert.IsTrue(g.currentStage is ActionPhase);
+                    Assert.AreEqual(g.curRoundPlayer, i);
+                    g.nextStage();
+                    Assert.IsTrue(g.currentStage is DiscardPhase);
+                    Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
                 }
             }

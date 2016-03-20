@@ -9,7 +9,7 @@ namespace LOTK.Model
     public interface Phase
     {
         PhaseList nextStage(Game g);
-        Player playerID { get; }
+        Player player { get; }
     }
 
     public interface ResponsivePhase : Phase
@@ -19,30 +19,32 @@ namespace LOTK.Model
     
     public class PlayerTurn : Phase
     {
-        public Player playerID { get; set; }
+        public Player player { get; set; }
 
         public PlayerTurn(Player player)
         {
-            playerID = player;
+            this.player = player;
         }
 
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList(new JudgePhase(playerID));
+            //g.setCurrentPlayerID(player);
+            return new PhaseList(new JudgePhase(player), 
+                new PlayerTurn(g[(player + 1) % g.Num_Player]));
         }
 
     }
 
     public class JudgePhase : ResponsivePhase
     {
-        public Player playerID { get; set; }
+        public Player player { get; set; }
         public JudgePhase(Player player)
         {
-            playerID = player;
+            this.player = player;
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList(new DrawingPhase(playerID));
+            return new PhaseList(new DrawingPhase(player), new ActionPhase(player));
         }
 
         public bool userInput(UserAction u)
@@ -52,14 +54,14 @@ namespace LOTK.Model
     }
     public class DrawingPhase : ResponsivePhase
     {
-        public Player playerID { get; set; }
+        public Player player { get; set; }
         public DrawingPhase(Player player)
         {
-            playerID = player;
+            this.player = player;
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList(new ActionPhase(playerID));
+            return new PhaseList();
         }
 
         public bool userInput(UserAction u)
@@ -69,14 +71,14 @@ namespace LOTK.Model
     }
     public class ActionPhase : ResponsivePhase
     {
-        public Player playerID { get; set; }
+        public Player player { get; set; }
         public ActionPhase(Player player)
         {
-            playerID = player;
+            this.player = player;
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList(new DiscardPhase(playerID));
+            return new PhaseList(new DiscardPhase(player));
         }
 
         public bool userInput(UserAction u)
@@ -90,14 +92,14 @@ namespace LOTK.Model
     }
     public class DiscardPhase : ResponsivePhase
     {
-        public Player playerID { get; set; }
+        public Player player { get; set; }
         public DiscardPhase(Player player)
         {
-            playerID = player;
+            this.player = player;
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList(new PlayerTurn(g.nextPlayer(playerID)));
+            return new PhaseList();
         }
 
         public bool userInput(UserAction u)
