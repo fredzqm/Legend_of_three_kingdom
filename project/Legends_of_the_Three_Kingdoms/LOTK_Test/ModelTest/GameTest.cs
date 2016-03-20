@@ -48,6 +48,7 @@ namespace LOTK_Test.ModelTest
                 g.nextStage();
                 Assert.IsTrue(g.currentStage is DiscardPhase);
                 Assert.AreEqual(g.currentStage.playerID, i);
+                g.nextStage();
             }
         }
     }
