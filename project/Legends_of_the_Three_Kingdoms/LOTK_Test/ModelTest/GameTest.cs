@@ -17,8 +17,6 @@ namespace LOTK_Test.ModelTest
         public void FourStageTest()
         {
             Game g = new Game(5);
-            Assert.IsTrue(g.currentStage is PlayerTurn);
-            g.nextStage();
             Assert.IsTrue(g.currentStage is JudgePhase);
             g.nextStage();
             Assert.IsTrue(g.currentStage is DrawingPhase);
@@ -34,9 +32,6 @@ namespace LOTK_Test.ModelTest
             Game g = new Game(8);
             for (int i = 0; i < 8; i++)
             {
-                //Assert.IsTrue(g.currentStage is PlayerTurn);
-                //Assert.AreEqual(g.currentStage.playerID, i);
-                //g.nextStage();
                 Assert.IsTrue(g.currentStage is JudgePhase);
                 Assert.AreEqual(g.currentStage.playerID, i);
                 g.nextStage();
