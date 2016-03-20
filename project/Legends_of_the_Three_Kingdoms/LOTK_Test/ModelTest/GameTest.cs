@@ -34,9 +34,9 @@ namespace LOTK_Test.ModelTest
             Game g = new Game(8);
             for (int i = 0; i < 8; i++)
             {
-                Assert.IsTrue(g.currentStage is PlayerTurn);
-                Assert.AreEqual(g.currentStage.playerID, i);
-                g.nextStage();
+                //Assert.IsTrue(g.currentStage is PlayerTurn);
+                //Assert.AreEqual(g.currentStage.playerID, i);
+                //g.nextStage();
                 Assert.IsTrue(g.currentStage is JudgePhase);
                 Assert.AreEqual(g.currentStage.playerID, i);
                 g.nextStage();
@@ -51,5 +51,14 @@ namespace LOTK_Test.ModelTest
                 g.nextStage();
             }
         }
+
+        //[TestMethod]
+        //public void UserInputTest()
+        //{
+        //    Game g = new Game(5);
+        //    Assert.IsFalse(g.userResponse(new UserAction(UserActionType.NO_YES_END, 0)));
+        //    Assert.IsFalse(g.userResponse(new UserAction(UserActionType.NO_YES_END, 1)));
+        //    Assert.IsFalse(g.userResponse(new UserAction(UserActionType.NO_YES_END, 2)));
+        //}
     }
 }

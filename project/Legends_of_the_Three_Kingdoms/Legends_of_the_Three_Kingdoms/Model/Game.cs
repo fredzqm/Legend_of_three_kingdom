@@ -19,5 +19,10 @@ namespace LOTK.Model
         {
             stages.pushStageList(stages.pop().nextStage(this));
         }
+
+        public bool userResponse(UserAction userAction)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

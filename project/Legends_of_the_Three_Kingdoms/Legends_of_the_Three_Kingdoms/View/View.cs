@@ -17,6 +17,6 @@ namespace LOTK.View
     {
         // Declare the delegate (if using non-generic pattern).        
         // Declare the event.
-        public event GUIResponse SampleEvent;
+        public event clickButton SampleEvent;
     }
 }
