@@ -41,8 +41,8 @@ namespace LOTK.View
             upright_player_ab = "upright_player_ab";
             downleft_player_ab = "downleft_player_ab";
             downright_player_ab = "downright_player_ab";
-            hold_cards = new string[1] { "hold_cards" };
-            pool_cards = new string[1] { "pool_cards" };
+            hold_cards = new string[3] { "hold_cards", "hold_cards2", "hold_cards3" };
+            pool_cards = new string[3] { "pool_cards", "pool_cards2", "pool_cards3" };
             this_player_stage = "this_player_stage";
         }
     }
