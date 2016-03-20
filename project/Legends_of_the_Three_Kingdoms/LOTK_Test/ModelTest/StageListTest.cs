@@ -1,14 +1,17 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using LOTK.Model;
 
 namespace LOTK_Test
 {
     [TestClass]
-    public class UnitTest1
+    public class StageListTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestConstruct()
         {
+            StageList ls = new StageList();
+            ls.push(new Turn());
         }
     }
 }

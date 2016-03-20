@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Legends_of_the_Three_Kingdoms
+namespace LOTK
 {
     static class Program
     {

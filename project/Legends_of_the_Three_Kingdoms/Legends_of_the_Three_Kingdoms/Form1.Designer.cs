@@ -1,4 +1,4 @@
-﻿namespace Legends_of_the_Three_Kingdoms
+﻿namespace LOTK
 {
     partial class Form1
     {
