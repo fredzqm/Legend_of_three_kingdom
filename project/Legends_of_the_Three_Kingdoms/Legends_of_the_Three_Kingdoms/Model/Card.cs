@@ -42,6 +42,11 @@ namespace LOTK.Model
                     throw new Exception("Redefien Card");
             }
         }
+
+        public object pop()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
