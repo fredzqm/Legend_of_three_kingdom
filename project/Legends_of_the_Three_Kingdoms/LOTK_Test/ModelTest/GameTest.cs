@@ -30,30 +30,45 @@ namespace LOTK_Test.ModelTest
         public void EightPeopleGameCycleTest()
         {
             Game g = new Game(8);
-            for (int i = 0; i < 8; i++)
+            for (int j = 0; j < 1; j++)
             {
-                Assert.IsTrue(g.currentStage is JudgePhase);
-                Assert.AreEqual(g.currentStage.playerID, i);
-                g.nextStage();
-                Assert.IsTrue(g.currentStage is DrawingPhase);
-                Assert.AreEqual(g.currentStage.playerID, i);
-                g.nextStage();
-                Assert.IsTrue(g.currentStage is ActionPhase);
-                Assert.AreEqual(g.currentStage.playerID, i);
-                g.nextStage();
-                Assert.IsTrue(g.currentStage is DiscardPhase);
-                Assert.AreEqual(g.currentStage.playerID, i);
-                g.nextStage();
+                for (int i = 0; i < 8; i++)
+                {
+                    Assert.IsTrue(g.currentStage is JudgePhase);
+                    Assert.AreEqual(g.currentStage.playerID, i);
+                    g.nextStage();
+                    Assert.IsTrue(g.currentStage is DrawingPhase);
+                    Assert.AreEqual(g.currentStage.playerID, i);
+                    g.nextStage();
+                    Assert.IsTrue(g.currentStage is ActionPhase);
+                    Assert.AreEqual(g.currentStage.playerID, i);
+                    g.nextStage();
+                    Assert.IsTrue(g.currentStage is DiscardPhase);
+                    Assert.AreEqual(g.currentStage.playerID, i);
+                    g.nextStage();
+                }
             }
         }
 
-        //[TestMethod]
-        //public void UserInputTest()
-        //{
-        //    Game g = new Game(5);
-        //    Assert.IsFalse(g.userResponse(new UserAction(UserActionType.NO_YES_END, 0)));
-        //    Assert.IsFalse(g.userResponse(new UserAction(UserActionType.NO_YES_END, 1)));
-        //    Assert.IsFalse(g.userResponse(new UserAction(UserActionType.NO_YES_END, 2)));
-        //}
+        [TestMethod]
+        public void UserInputYES_OR_NOTest()
+        {
+            Game g = new Game(5);
+            Assert.IsTrue(g.currentStage is JudgePhase);
+            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            g.nextStage();
+            Assert.IsTrue(g.currentStage is DrawingPhase);
+            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            g.nextStage();
+            Assert.IsTrue(g.currentStage is ActionPhase);
+            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            g.nextStage();
+            Assert.IsTrue(g.currentStage is DiscardPhase);
+            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+        }
     }
 }
