@@ -11,18 +11,31 @@ namespace LOTK.Model
         private CardType type;
         private CardSuit suit;
 
-
         public Card(CardSuit s, CardType t)
         {
             this.suit = s;
             this.type = t;
         }
-
+        
+        public override bool Equals(object obj)
+        {
+            Card x = obj as Card;
+            return (x != null) && (type == x.type) && (suit == x.suit);
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+        public override string ToString()
+        {
+            return String.Format("Card {0}  {1}",type,suit);
+        }
     }
 
     public class CardSet
     {
         private Card[] ls;
+        private LinkedList<Card> cardPile;
 
         public CardSet(int capacity)
         {
@@ -45,12 +58,15 @@ namespace LOTK.Model
 
         public Card pop()
         {
-            return this[0];
+            Card ret = cardPile.First();
+            cardPile.RemoveFirst();
+            return ret;
         }
 
         public void shuffle()
         {
-            throw new NotImplementedException();
+            cardPile = new LinkedList<Card>(ls);
+            cardPile.OrderBy(a => Guid.NewGuid());
         }
     }
 

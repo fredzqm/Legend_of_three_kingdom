@@ -12,7 +12,7 @@ namespace LOTK_Test.ModelTest
             Card c = new Card(CardSuit.Club, CardType.Attack);
             CardSet s = new CardSet(10);
             s[0] = c;
-            Assert.AreSame(c, s[0] );
+            Assert.AreSame(c, s[0]);
         }
 
         [TestMethod]
@@ -26,13 +26,14 @@ namespace LOTK_Test.ModelTest
             s[0] = b;
         }
 
+        [TestMethod]
         public void ShuffleOneCardTest()
         {
             Card a = new Card(CardSuit.Club, CardType.Attack);
             CardSet s = new CardSet(1);
             s[0] = a;
             s.shuffle();
-            Assert.AreSame(s.pop(), a);
+            Assert.AreEqual(a, s.pop());
         }
 
         [TestMethod]
@@ -46,7 +47,8 @@ namespace LOTK_Test.ModelTest
             s.shuffle();
             Card x = s.pop();
             Card y = s.pop();
-            Assert.IsTrue(((a==x)&&(b==y)) || (a == y) && (b == x));
+            Assert.IsTrue((a.Equals(x) && b.Equals(y)) 
+                || (a.Equals(y) && b.Equals(x)));
         }
 
     }
