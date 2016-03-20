@@ -14,7 +14,7 @@ namespace LOTK.Model
     public class StageList
     {
 
-        public void push(Stage turn)
+        public void add(Stage turn)
         {
             throw new NotImplementedException();
         }
@@ -33,6 +33,13 @@ namespace LOTK.Model
 
     public class PlayerTurn : Stage
     {
+        private int v;
+
+        public PlayerTurn(int v)
+        {
+            this.v = v;
+        }
+
         public StageList process(Game g)
         {
             throw new NotImplementedException();
