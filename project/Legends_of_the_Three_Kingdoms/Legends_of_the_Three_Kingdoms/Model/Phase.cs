@@ -8,7 +8,8 @@ namespace LOTK.Model
 {
     public interface Phase
     {
-        PhaseList process(Game g);
+        PhaseList nextStage(Game g);
+        bool userInput(UserAction u);
         int playerID { get; }
     }
     
@@ -21,9 +22,14 @@ namespace LOTK.Model
             playerID = player;
         }
 
-        public PhaseList process(Game g)
+        public PhaseList nextStage(Game g)
         {
             return new PhaseList(new JudgePhase(playerID));
+        }
+
+        public bool userInput(UserAction u)
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -34,9 +40,14 @@ namespace LOTK.Model
         {
             playerID = player;
         }
-        public PhaseList process(Game g)
+        public PhaseList nextStage(Game g)
         {
             return new PhaseList(new DrawingPhase(playerID));
+        }
+
+        public bool userInput(UserAction u)
+        {
+            throw new NotImplementedException();
         }
     }
     public class DrawingPhase : Phase
@@ -46,9 +57,14 @@ namespace LOTK.Model
         {
             playerID = player;
         }
-        public PhaseList process(Game g)
+        public PhaseList nextStage(Game g)
         {
             return new PhaseList(new ActionPhase(playerID));
+        }
+
+        public bool userInput(UserAction u)
+        {
+            throw new NotImplementedException();
         }
     }
     public class ActionPhase : Phase
@@ -58,9 +74,14 @@ namespace LOTK.Model
         {
             playerID = player;
         }
-        public PhaseList process(Game g)
+        public PhaseList nextStage(Game g)
         {
             return new PhaseList(new DiscardPhase(playerID));
+        }
+
+        public bool userInput(UserAction u)
+        {
+            throw new NotImplementedException();
         }
     }
     public class DiscardPhase : Phase
@@ -70,9 +91,14 @@ namespace LOTK.Model
         {
             playerID = player;
         }
-        public PhaseList process(Game g)
+        public PhaseList nextStage(Game g)
         {
             return new PhaseList(new PlayerTurn((playerID+1)% g.Num_Player));
+        }
+
+        public bool userInput(UserAction u)
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -136,9 +162,14 @@ namespace LOTK.Model
             head = added.head;
         }
 
-        public Phase peek()
+        public Phase top()
         {
             return head.stage;
+        }
+
+        public Phase bottom()
+        {
+            return tail.stage;
         }
 
         class Node

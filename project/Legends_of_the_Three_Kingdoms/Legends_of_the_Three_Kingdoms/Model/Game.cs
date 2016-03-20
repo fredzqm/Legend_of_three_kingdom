@@ -6,13 +6,8 @@ namespace LOTK.Model
     {
         public readonly int Num_Player;
         public PhaseList stages { get; set; }
-        public Phase currentStage {
-            get
-            {
-                return stages.peek();
-            }
-        }
-
+        public Phase currentStage { get { return stages.top(); } }
+        public int currentPlayerID { get { return stages.bottom().playerID; } }
         public Game(int Num_player)
         {
             Num_Player = Num_player;
@@ -22,7 +17,7 @@ namespace LOTK.Model
 
         public void nextStage()
         {
-            stages.pushStageList(stages.pop().process(this));
+            stages.pushStageList(stages.pop().nextStage(this));
         }
     }
 }
