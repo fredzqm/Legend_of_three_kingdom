@@ -12,6 +12,8 @@ namespace LOTK.Model
         Player player { get; }
     }
 
+    delegate PhaseList nextStageDelegate(Game g);
+
     public interface ResponsivePhase : Phase
     {
         bool userInput(UserAction u);
@@ -44,7 +46,7 @@ namespace LOTK.Model
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList(new DrawingPhase(player), new ActionPhase(player));
+            return player.judgePhase(g);
         }
 
         public bool userInput(UserAction u)
@@ -61,7 +63,7 @@ namespace LOTK.Model
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList();
+            return player.drawingPhase(g);
         }
 
         public bool userInput(UserAction u)
@@ -78,7 +80,7 @@ namespace LOTK.Model
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList(new DiscardPhase(player));
+            return player.actionPhase(g);
         }
 
         public bool userInput(UserAction u)
@@ -99,7 +101,7 @@ namespace LOTK.Model
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList();
+            return player.discardPhase(g);
         }
 
         public bool userInput(UserAction u)
@@ -116,7 +118,6 @@ namespace LOTK.Model
     {
         private Node head;
         private Node tail;
-        private JudgePhase judgePhase;
 
         public PhaseList()
         {

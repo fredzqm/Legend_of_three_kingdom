@@ -18,5 +18,24 @@ namespace LOTK.Model
         {
             return p.playerID;
         }
+
+        public PhaseList judgePhase(Game g)
+        {
+            return new PhaseList(new DrawingPhase(this), new ActionPhase(this));
+        }
+        public PhaseList drawingPhase(Game g)
+        {
+            return new PhaseList();
+        }
+
+        internal PhaseList actionPhase(Game g)
+        {
+            return new PhaseList(new DiscardPhase(this));
+        }
+
+        internal PhaseList discardPhase(Game g)
+        {
+            return new PhaseList();
+        }
     }
 }
