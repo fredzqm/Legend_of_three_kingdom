@@ -55,7 +55,13 @@ namespace LOTK.Model
             }
             return retStage;
         }
-
+        public void pushStageList(StageList added)
+        {
+            if (added.head == null)
+                return;
+            added.tail.next = head;
+            head = added.head;
+        }
         class Node
         {
             internal Stage stage;
@@ -72,11 +78,6 @@ namespace LOTK.Model
                 this.next = node;
                 return node;
             }
-        }
-
-        public void pushStageList(StageList ls2)
-        {
-            throw new NotImplementedException();
         }
     }
 

@@ -40,11 +40,11 @@ namespace LOTK_Test
             ls2.add(new PlayerTurn(3));
             ls2.add(new PlayerTurn(4));
             ls.pushStageList(ls2);
+            Assert.AreEqual(ls.pop().playerID, 3);
+            Assert.AreEqual(ls.pop().playerID, 4);
             Assert.AreEqual(ls.pop().playerID, 0);
             Assert.AreEqual(ls.pop().playerID, 1);
             Assert.AreEqual(ls.pop().playerID, 2);
-            Assert.AreEqual(ls.pop().playerID, 3);
-            Assert.AreEqual(ls.pop().playerID, 4);
         }
     }
 }
