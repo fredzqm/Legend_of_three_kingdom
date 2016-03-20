@@ -10,11 +10,13 @@ namespace LOTK.Model
     {
         private CardType type;
         private CardSuit suit;
+        private byte num;
 
-        public Card(CardSuit s, CardType t)
+        public Card(CardSuit s, CardType t, byte n)
         {
             this.suit = s;
             this.type = t;
+            this.num = n;
         }
         
         public override bool Equals(object obj)

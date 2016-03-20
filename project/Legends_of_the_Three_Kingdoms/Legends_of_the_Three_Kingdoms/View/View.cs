@@ -18,5 +18,10 @@ namespace LOTK.View
         // Declare the delegate (if using non-generic pattern).        
         // Declare the event.
         public event clickButton SampleEvent;
+
+        public View()
+        {
+            SampleEvent(1, 2);
+        }
     }
 }

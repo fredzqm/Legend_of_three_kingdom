@@ -6,7 +6,6 @@ namespace LOTK.Model
     {
         public readonly int Num_Player;
 
-
         public PhaseList stages { get; set; }
         public ResponsivePhase currentStage {
             get {
