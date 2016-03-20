@@ -9,7 +9,7 @@ namespace LOTK.Model
     public interface Phase
     {
         PhaseList nextStage(Game g);
-        int playerID { get; }
+        Player playerID { get; }
     }
 
     public interface ResponsivePhase : Phase
@@ -19,9 +19,9 @@ namespace LOTK.Model
     
     public class PlayerTurn : Phase
     {
-        public int playerID { get; set; }
+        public Player playerID { get; set; }
 
-        public PlayerTurn(int player)
+        public PlayerTurn(Player player)
         {
             playerID = player;
         }
@@ -35,8 +35,8 @@ namespace LOTK.Model
 
     public class JudgePhase : ResponsivePhase
     {
-        public int playerID { get; set; }
-        public JudgePhase(int player)
+        public Player playerID { get; set; }
+        public JudgePhase(Player player)
         {
             playerID = player;
         }
@@ -52,8 +52,8 @@ namespace LOTK.Model
     }
     public class DrawingPhase : ResponsivePhase
     {
-        public int playerID { get; set; }
-        public DrawingPhase(int player)
+        public Player playerID { get; set; }
+        public DrawingPhase(Player player)
         {
             playerID = player;
         }
@@ -69,8 +69,8 @@ namespace LOTK.Model
     }
     public class ActionPhase : ResponsivePhase
     {
-        public int playerID { get; set; }
-        public ActionPhase(int player)
+        public Player playerID { get; set; }
+        public ActionPhase(Player player)
         {
             playerID = player;
         }
@@ -90,14 +90,14 @@ namespace LOTK.Model
     }
     public class DiscardPhase : ResponsivePhase
     {
-        public int playerID { get; set; }
-        public DiscardPhase(int player)
+        public Player playerID { get; set; }
+        public DiscardPhase(Player player)
         {
             playerID = player;
         }
         public PhaseList nextStage(Game g)
         {
-            return new PhaseList(new PlayerTurn((playerID+1)% g.Num_Player));
+            return new PhaseList(new PlayerTurn(g.nextPlayer(playerID)));
         }
 
         public bool userInput(UserAction u)
