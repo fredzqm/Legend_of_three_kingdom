@@ -73,6 +73,11 @@ namespace LOTK.Model
                 return node;
             }
         }
+
+        public void pushStageList(StageList ls2)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class PlayerTurn : Stage
