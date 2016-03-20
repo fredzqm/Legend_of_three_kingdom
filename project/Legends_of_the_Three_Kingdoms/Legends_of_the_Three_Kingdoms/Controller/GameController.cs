@@ -16,5 +16,13 @@ namespace LOTK.Controller
         {
             game = new Game(NUM_OF_PLAYER);
         }
+
+        //public void applyUserResponse(UserAction userAction)
+        //{
+        //    if (game.userResponse(userAction))
+        //    {
+        //        game.nextStage();
+        //    }
+        //}
     }
 }
