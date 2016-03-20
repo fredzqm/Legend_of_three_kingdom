@@ -22,11 +22,11 @@ namespace LOTK_Test
             ls.add(new PlayerTurn(2));
             ls.add(new PlayerTurn(3));
             ls.add(new PlayerTurn(4));
-            Assert.Equals(ls.pop().getPlayer(), 0);
-            Assert.Equals(ls.pop().getPlayer(), 1);
-            Assert.Equals(ls.pop().getPlayer(), 2);
-            Assert.Equals(ls.pop().getPlayer(), 3);
-            Assert.Equals(ls.pop().getPlayer(), 4);
+            Assert.AreEqual(ls.pop().playerID, 0);
+            Assert.AreEqual(ls.pop().playerID, 1);
+            Assert.AreEqual(ls.pop().playerID, 2);
+            Assert.AreEqual(ls.pop().playerID, 3);
+            Assert.AreEqual(ls.pop().playerID, 4);
         }
     }
 }

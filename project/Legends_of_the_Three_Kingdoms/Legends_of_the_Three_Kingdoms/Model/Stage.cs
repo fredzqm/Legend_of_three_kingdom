@@ -9,35 +9,79 @@ namespace LOTK.Model
     public interface Stage
     {
         StageList process(Game g);
+        int playerID { get; }
     }
 
     public class StageList
     {
+        private Node head;
+        private Node tail;
 
-        public void add(Stage turn)
+        public StageList()
         {
-            throw new NotImplementedException();
+            head = null;
+            tail = null;
         }
 
-        public PlayerTurn pop()
+        public void add(Stage s)
         {
-            throw new NotImplementedException();
+            if (head == null)
+            {
+                head = new Node(s);
+                tail = head;
+            }
+            else
+            {
+                tail.next = new Node(s);
+                tail = tail.next;
+            }
         }
 
-        //private class Node
-        //{
-        //    private Stage data;
-        //    private Node next;
-        //}
+        public Stage pop()
+        {
+            if (head == null)
+            {
+                throw new Exception("Empty StageList Exception");
+            }
+            Stage retStage = head.stage;
+            if (head == tail)
+            { // empty
+                head = null;
+                tail = null;
+            }
+            else
+            {
+                head = head.next;
+            }
+            return retStage;
+        }
+
+        class Node
+        {
+            internal Stage stage;
+            internal Node next;
+
+            public Node(Stage s)
+            {
+                this.stage = s;
+                this.next = null;
+            }
+
+            internal Node setNext(Node node)
+            {
+                this.next = node;
+                return node;
+            }
+        }
     }
 
     public class PlayerTurn : Stage
     {
-        private int v;
+        public int playerID { get; set; }
 
-        public PlayerTurn(int v)
+        public PlayerTurn(int player)
         {
-            this.v = v;
+            playerID = player;
         }
 
         public StageList process(Game g)
