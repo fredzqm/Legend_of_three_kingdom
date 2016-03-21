@@ -48,6 +48,7 @@ namespace LOTK.Model
     {
         private Card[] ls;
         private LinkedList<Card> cardPile;
+        private LinkedList<Card> discardPile;
 
         public CardSet(int capacity)
         {
@@ -81,7 +82,11 @@ namespace LOTK.Model
         public Card pop()
         {
             if (cardPile.Count == 0)
-                shuffle();
+            {
+                reShuffle();
+                if (cardPile.Count == 0)
+                    throw new Exception("Run out of cards");
+            }
             Card ret = cardPile.First();
             cardPile.RemoveFirst();
             return ret;
@@ -90,6 +95,14 @@ namespace LOTK.Model
         public void shuffle()
         {
             cardPile = new LinkedList<Card>(ls);
+            discardPile = new LinkedList<Card>();
+            cardPile.OrderBy(a => Guid.NewGuid());
+        }
+
+        public void reShuffle()
+        {
+            cardPile = discardPile;
+            discardPile = new LinkedList<Card>();
             cardPile.OrderBy(a => Guid.NewGuid());
         }
     }

@@ -80,7 +80,6 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void CardPileRunoutTest()
         {
             List<Card> ls, lsbackup = new List<Card>();
@@ -104,7 +103,30 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void CardPileRunoutThrowTest()
+        [ExpectedException(typeof(Exception))]
+        public void CardPileRunoutExceptionTest()
+        {
+            List<Card> ls, lsbackup = new List<Card>();
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            lsbackup.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            lsbackup.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+
+            int size = lsbackup.Count;
+            CardSet s = new CardSet(lsbackup);
+
+            ls = new List<Card>(lsbackup);
+            for (int i = 0; i < size; i++)
+            {
+                Card c = s.pop();
+                ls.Remove(c);
+            }
+            s.pop();
+        }
+
+        [TestMethod]
+        public void CardPileRunoutTest()
         {
             List<Card> ls, lsbackup = new List<Card>();
             lsbackup.Add(new Card(CardSuit.Club, CardType.Attack, 0));
