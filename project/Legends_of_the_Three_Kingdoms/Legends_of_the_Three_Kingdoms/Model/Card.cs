@@ -54,14 +54,14 @@ namespace LOTK.Model
             ls = new Card[capacity];
         }
 
-        //public CardSet(List<Card> cls) : this(cls.Count)
-        //{
-        //    for (int i = 0; i < cls.Count; i++)
-        //    {
-        //        this[i] = cls[i];
-        //    }
-        //    shuffle();
-        //}
+        public CardSet(List<Card> cls) : this(cls.Count)
+        {
+            for (int i = 0; i < cls.Count; i++)
+            {
+                this[i] = cls[i];
+            }
+            shuffle();
+        }
 
         public Card this[int i]
         {
