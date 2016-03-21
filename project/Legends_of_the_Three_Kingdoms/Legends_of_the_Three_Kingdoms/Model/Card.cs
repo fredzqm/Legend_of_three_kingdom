@@ -13,20 +13,13 @@ namespace LOTK.Model
         private byte num;
 
         private int id = -1;
-        public int cardId
+        public int CardID { get { return id; } }
+
+        internal void setCardId(int value)
         {
-            get
-            {
-                if (id == -1)
-                    throw new Exception("CardID not specified (not placed into to a cardSet");
-                return id;
-            }
-            set
-            {
-                if (id == -2)
-                    throw new Exception("CardID cannot be redifined");
-                id = value;
-            }
+            if (id == -2)
+                throw new Exception("CardID cannot be redifined");
+            id = value;
         }
 
         public Card(CardSuit s, CardType t, byte n)
@@ -80,7 +73,7 @@ namespace LOTK.Model
             for (int i = 0; i < cls.Count; i++)
             {
                 this[i] = cls[i];
-                this[i].cardId = i;
+                this[i].setCardId(i);
             }
             shuffle();
         }
@@ -114,7 +107,9 @@ namespace LOTK.Model
         }
         public void discard(Card c)
         {
-            if (!this[c.cardId].Equals(c))
+            if (c.CardID == -1)
+                throw new Exception("Cannot discard a unspecified Card");
+            if (!this[c.CardID].Equals(c))
                 throw new Exception("Cannot discard a unspecified Card");
             discardPile.AddFirst(c);
         }
