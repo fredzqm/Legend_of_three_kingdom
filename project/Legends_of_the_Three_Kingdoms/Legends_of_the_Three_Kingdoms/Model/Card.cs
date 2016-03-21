@@ -12,25 +12,42 @@ namespace LOTK.Model
         private CardSuit suit;
         private byte num;
 
+        private int id = -1;
+        public int cardId
+        {
+            get
+            {
+                if (id == -1)
+                    throw new Exception("CardID not specified (not placed into to a cardSet");
+                return id;
+            }
+            set
+            {
+                if (id == -2)
+                    throw new Exception("CardID cannot be redifined");
+                id = value;
+            }
+        }
+
         public Card(CardSuit s, CardType t, byte n)
         {
             this.suit = s;
             this.type = t;
             this.num = n;
         }
-        
+
         public override bool Equals(object obj)
         {
             Card x = obj as Card;
-            return (x != null) && (type == x.type) && (suit == x.suit);
+            return (x != null) && (type == x.type) && (suit == x.suit) && (num == x.num);
         }
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return type.GetHashCode() + suit.GetHashCode() + num.GetHashCode();
         }
         public override string ToString()
         {
-            return String.Format("Card {0}  {1}{3}",type,suit, num);
+            return String.Format("Card {0}  {1}{3}", type, suit, num);
         }
 
         internal string getDescription()
@@ -50,9 +67,12 @@ namespace LOTK.Model
         private LinkedList<Card> cardPile;
         private LinkedList<Card> discardPile;
 
+        private Dictionary<Card, int> dict;
+
         public CardSet(int capacity)
         {
             ls = new Card[capacity];
+            dict = new Dictionary<Card, int>();
         }
 
         public CardSet(List<Card> cls) : this(cls.Count)
@@ -60,6 +80,7 @@ namespace LOTK.Model
             for (int i = 0; i < cls.Count; i++)
             {
                 this[i] = cls[i];
+                this[i].cardId = i;
             }
             shuffle();
         }
@@ -93,6 +114,8 @@ namespace LOTK.Model
         }
         public void discard(Card c)
         {
+            if (!this[c.cardId].Equals(c))
+                throw new Exception("Cannot discard a unspecified Card");
             discardPile.AddFirst(c);
         }
 
