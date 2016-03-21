@@ -78,5 +78,40 @@ namespace LOTK_Test.ModelTest
             }
             Assert.AreEqual(0,ls.Count);
         }
+
+        [TestMethod]
+        public void CardPileRunoutTest()
+        {
+            List<Card> ls = new List<Card>();
+            ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            ls.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            ls.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+
+            int size = ls.Count;
+            CardSet s = new CardSet(size);
+            for (int i = 0; i < size; i++)
+            {
+                s[i] = ls[i];
+            }
+            s.shuffle();
+
+            for (int i = 0; i < size; i++)
+            {
+                Card c = s.pop();
+                Assert.IsTrue(ls.Contains(c));
+                ls.Remove(c);
+            }
+            Assert.AreEqual(0, ls.Count);
+            // Second round, it should automatic shuffle
+            for (int i = 0; i < size; i++)
+            {
+                Card c = s.pop();
+                Assert.IsTrue(ls.Contains(c));
+                ls.Remove(c);
+            }
+            Assert.AreEqual(0, ls.Count);
+        }
     }
 }
