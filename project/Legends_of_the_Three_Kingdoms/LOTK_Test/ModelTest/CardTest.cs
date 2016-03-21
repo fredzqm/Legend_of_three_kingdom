@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 namespace LOTK_Test.ModelTest
 {
+    
     [TestClass]
     public class CardSetTest
     {
@@ -25,6 +26,20 @@ namespace LOTK_Test.ModelTest
             CardSet s = new CardSet(10);
             s[0] = c;
             s[0] = b;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void DiscardUndefinedCardExceptionTest()
+        {
+            List<Card> ls = new List<Card>();
+            ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            ls.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            ls.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+            CardSet s = new CardSet(ls);
+            s.discard(new Card(CardSuit.Spade, CardType.Wine, 5));
         }
 
         [TestMethod]
@@ -103,7 +118,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void CardPileRunoutTest()
+        public void CardPileRunoutWithDiscardTest()
         {
             List<Card> ls, lsbackup = new List<Card>();
             lsbackup.Add(new Card(CardSuit.Club, CardType.Attack, 0));
