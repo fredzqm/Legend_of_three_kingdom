@@ -99,8 +99,6 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void GameCarSetDrawTest()
         {
-            Game g = new Game(5);
-
             List<Card> ls = new List<Card>();
             ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
             ls.Add(new Card(CardSuit.Club, CardType.Miss, 1));
@@ -108,7 +106,8 @@ namespace LOTK_Test.ModelTest
             ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
             ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
             ls.Add(new Card(CardSuit.Spade, CardType.Attack, 5));
-            g.initializeCarset(ls);
+            Game g = new Game(5, ls);
+
             for (int i = 0; i < ls.Count; i += 2)
             {
                 List<Card> drawn = g.drawCard(2);

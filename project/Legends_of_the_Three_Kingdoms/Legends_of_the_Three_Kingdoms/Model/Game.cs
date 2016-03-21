@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LOTK.Model
 {
     public class Game
     {
         public readonly int Num_Player;
+
+        private CardSet cardpile;
 
         public PhaseList stages { get; set; }
         public ResponsivePhase currentStage {
@@ -34,6 +37,11 @@ namespace LOTK.Model
             skipIrresponsivePhases();
         }
 
+        public Game(int Num_player, List<Card> cardList) : this(Num_player)
+        {
+            cardpile = new CardSet(cardList);
+        }
+
         public void nextStage()
         {
             stages.pushStageList(stages.pop().nextStage(this));
@@ -54,6 +62,19 @@ namespace LOTK.Model
         public bool userResponse(UserAction userAction)
         {
             return currentStage.userInput(userAction);
+        }
+
+        internal void initializeCardPile(List<Card> ls)
+        {
+           
+        }
+
+        public List<Card> drawCard(int v)
+        {
+            List<Card> cards = new List<Card>();
+            for (int i = 0; i < v; i++)
+                cards.Add(cardpile.pop());
+            return cards;
         }
     }
 }
