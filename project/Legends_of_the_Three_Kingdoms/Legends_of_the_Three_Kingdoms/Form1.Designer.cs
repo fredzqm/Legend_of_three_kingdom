@@ -1,19 +1,24 @@
-﻿using LOTK.View;
+﻿using LOTK.Controller;
+using LOTK.View;
+using System.Windows.Forms;
 
 namespace LOTK
 {
-    partial class Form1
+    public class Form1 : Form
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-        private Required_Data data = new Required_Data();
+        private viewController controller;
+        private int position;
+        public Form1(viewController controller, int pos)
+        {
+            this.position = pos;
+            this.controller = controller;
+            InitializeComponent();
+        }
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+        private System.ComponentModel.IContainer components = null;
+        public Required_Data data {get { return controller.getData(position); }}
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -51,7 +56,7 @@ namespace LOTK
             this.Upperright.Name = "Upperright";
             this.Upperright.Size = new System.Drawing.Size(100, 96);
             this.Upperright.TabIndex = 5;
-            this.Upperright.Text = data.upright_player + "\n" + data.upright_player_ab;
+            this.Upperright.Text = data.players[2].name + "\n" + data.players[2].ability;
             // 
             // DownLeft
             // 
@@ -59,7 +64,7 @@ namespace LOTK
             this.DownLeft.Name = "DownLeft";
             this.DownLeft.Size = new System.Drawing.Size(100, 96);
             this.DownLeft.TabIndex = 6;
-            this.DownLeft.Text = data.downleft_player + "\n" + data.downleft_player_ab;
+            this.DownLeft.Text = data.players[4].name + "\n" + data.players[4].ability;
             // 
             // UpperLeft
             // 
@@ -67,7 +72,7 @@ namespace LOTK
             this.UpperLeft.Name = "UpperLeft";
             this.UpperLeft.Size = new System.Drawing.Size(100, 96);
             this.UpperLeft.TabIndex = 7;
-            this.UpperLeft.Text = data.upleft_player + "\n" + data.upleft_player_ab;
+            this.UpperLeft.Text = data.players[3].name + "\n" + data.players[3].ability;
             // 
             // DownRight
             // 
@@ -75,7 +80,7 @@ namespace LOTK
             this.DownRight.Name = "DownRight";
             this.DownRight.Size = new System.Drawing.Size(100, 96);
             this.DownRight.TabIndex = 8;
-            this.DownRight.Text = data.downright_player + "\n" + data.downright_player_ab;
+            this.DownRight.Text = data.players[1].name + "\n" + data.players[1].ability;
             // 
             // turn
             // 
@@ -84,7 +89,7 @@ namespace LOTK
             this.turn.Name = "turn";
             this.turn.Size = new System.Drawing.Size(0, 17);
             this.turn.TabIndex = 9;
-            this.turn.Text = data.this_player + "\n" + data.this_player_stage;
+            this.turn.Text = data.players[0].name + "\n" + data.this_player_stage;
             // 
             // thisPlayer
             // 
@@ -92,7 +97,7 @@ namespace LOTK
             this.thisPlayer.Name = "thisPlayer";
             this.thisPlayer.Size = new System.Drawing.Size(100, 96);
             this.thisPlayer.TabIndex = 10;
-            this.thisPlayer.Text = data.this_player + "\n" + data.this_player_ab;
+            this.thisPlayer.Text = data.players[0].name + "\n" + data.players[0].ability;
             // 
             // tool_attack
             // 
@@ -100,7 +105,7 @@ namespace LOTK
             this.tool_attack.Name = "tool_attack";
             this.tool_attack.Size = new System.Drawing.Size(100, 96);
             this.tool_attack.TabIndex = 11;
-            this.tool_attack.Text = data.tool_attack +": "+ data.tool_attack_ab;
+            this.tool_attack.Text = data.tool_attack.name +": "+ data.tool_attack.ability;
             // 
             // tool_defence
             // 
@@ -108,7 +113,7 @@ namespace LOTK
             this.tool_defence.Name = "tool_defence";
             this.tool_defence.Size = new System.Drawing.Size(100, 96);
             this.tool_defence.TabIndex = 12;
-            this.tool_defence.Text = data.tool_defence + ": " + data.tool_defence_ab;
+            this.tool_defence.Text = data.tool_defence.name + ": " + data.tool_defence.ability;
             // 
             // hand_cards
             // 
@@ -117,10 +122,10 @@ namespace LOTK
             this.hand_cards.Name = "hand_cards";
             this.hand_cards.Size = new System.Drawing.Size(320, 123);
             this.hand_cards.TabIndex = 13;
-            for (int i = 0; i < data.hold_cards.Length; i++)
+            for (int i = 0; i < data.hold_cards.Count; i++)
             {
 
-                this.hand_cards.Items.Insert(i, data.hold_cards[i]);
+                this.hand_cards.Items.Insert(i, data.hold_cards[i].name+"\n"+data.hold_cards[i].ability);
             }
             // 
             // Pool
@@ -130,11 +135,9 @@ namespace LOTK
             this.Pool.Size = new System.Drawing.Size(320, 206);
             this.Pool.TabIndex = 14;
             string temp2 = "";
-            for (int i = 0; i < data.pool_cards.Length; i++)
+            for (int i = 0; i < data.pool_cards.Count; i++)
             {
-                if (i > 0) { temp2 = temp2 + "\n" + data.pool_cards[i]; }
-                else
-                    temp2 = data.pool_cards[0];
+                temp2 = temp2 + data.pool_cards[i].name + "\n";
             }
             this.Pool.Text = temp2;
             // 
@@ -177,6 +180,8 @@ namespace LOTK
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            //this.Refresh();
+            //this.Update();
         }
 
         #endregion

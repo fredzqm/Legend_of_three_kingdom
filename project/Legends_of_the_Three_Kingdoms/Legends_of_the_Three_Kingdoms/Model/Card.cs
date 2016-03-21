@@ -32,6 +32,16 @@ namespace LOTK.Model
         {
             return String.Format("Card {0}  {1}{3}",type,suit, num);
         }
+
+        internal string getDescription()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal string getName()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class CardSet

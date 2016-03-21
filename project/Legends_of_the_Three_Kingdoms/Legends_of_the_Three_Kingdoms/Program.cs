@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LOTK.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,11 @@ namespace LOTK
         [STAThread]
         static void Main()
         {
+            viewController controller = new GameController();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form1(controller, 0));
         }
     }
 }

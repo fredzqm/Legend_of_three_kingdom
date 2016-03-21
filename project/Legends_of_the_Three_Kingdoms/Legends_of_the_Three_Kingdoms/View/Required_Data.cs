@@ -7,43 +7,64 @@ using System.Threading.Tasks;
 namespace LOTK.View
 {
     public class Required_Data
-    {   
-        public string this_player;
-        public string this_player_ab;
-        public string upleft_player;
-        public string upleft_player_ab;
-        public string upright_player;
-        public string upright_player_ab;
-        public string downleft_player;
-        public string downleft_player_ab;
-        public string downright_player;
-        public string downright_player_ab;
-        public string[] hold_cards;
-        public string[] pool_cards;
-        public  string this_player_stage;
-        public string tool_attack;
-        public string tool_attack_ab;
-        public string tool_defence;
-        public string tool_defence_ab;
+    {
+        public PlayerDisplay[] players = new PlayerDisplay[5];
+
+        public List<CardDisplay> hold_cards;
+        public List<CardDisplay> pool_cards;
+        public string this_player_stage;
+
+        public CardDisplay tool_attack;
+        public CardDisplay tool_defence;
+
         public Required_Data()
         {
-            tool_attack = "tool_attack";
-            tool_attack_ab = "tool_attack_ab";
-            tool_defence = "tool_defence";
-            tool_defence_ab = "tool_defence";
-            this_player_ab = "this_player_ab";
-            this_player = "this_player";
-            upleft_player = "upleft_player";
-            upright_player = "upright_player";
-            downleft_player = "downleft_player";
-            downright_player = "downright_player";
-            upleft_player_ab = "upleft_player_ab";
-            upright_player_ab = "upright_player_ab";
-            downleft_player_ab = "downleft_player_ab";
-            downright_player_ab = "downright_player_ab";
-            hold_cards = new string[3] { "hold_cards", "hold_cards2", "hold_cards3" };
-            pool_cards = new string[3] { "pool_cards", "pool_cards2", "pool_cards3" };
+            tool_attack.name = "tool_attack";
+            tool_attack.ability = "tool_attack_ab";
+            tool_defence.name = "tool_defence";
+            tool_defence.ability = "tool_defence";
+
+            players[0].ability = "this_player_ab";
+            players[0].name = "this_player";
+
+            players[1].ability = "downright_player_ab";
+            players[1].name = "downright_player";
+
+            players[2].ability = "upright_player_ab";
+            players[2].name = "upright_player";
+
+            players[3].ability = "upleft_player_ab";
+            players[3].name = "upleft_player";
+
+            players[4].ability = "downleft_player_ab";
+            players[4].name = "downleft_player";
+
+            hold_cards = new List<CardDisplay>();
+            hold_cards.Add(new CardDisplay("hold_cards", ""));
+            hold_cards.Add(new CardDisplay("hold_cards", ""));
+            hold_cards.Add(new CardDisplay("hold_cards", ""));
+            hold_cards.Add(new CardDisplay("hold_cards", ""));
+
+            pool_cards = new List<CardDisplay>();
+
             this_player_stage = "this_player_stage";
         }
     }
+
+        public struct PlayerDisplay{
+            public string name;
+            public string ability;
+        }
+
+        public struct CardDisplay
+        {
+            public string name;
+            public string ability;
+
+            public CardDisplay(string n, string a)
+            {
+                this.name = n;
+                this.ability = a;
+            }
+        }
 }
