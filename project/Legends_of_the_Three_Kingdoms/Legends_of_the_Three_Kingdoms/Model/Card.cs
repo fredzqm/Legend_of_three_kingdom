@@ -91,6 +91,10 @@ namespace LOTK.Model
             cardPile.RemoveFirst();
             return ret;
         }
+        public void discard(Card c)
+        {
+            discardPile.AddFirst(c);
+        }
 
         public void shuffle()
         {
@@ -105,6 +109,7 @@ namespace LOTK.Model
             discardPile = new LinkedList<Card>();
             cardPile.OrderBy(a => Guid.NewGuid());
         }
+
     }
 
 

@@ -80,29 +80,6 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void CardPileRunoutTest()
-        {
-            List<Card> ls, lsbackup = new List<Card>();
-            lsbackup.Add(new Card(CardSuit.Club, CardType.Attack, 0));
-            lsbackup.Add(new Card(CardSuit.Club, CardType.Miss, 1));
-            lsbackup.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
-            lsbackup.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
-            lsbackup.Add(new Card(CardSuit.Club, CardType.Wine, 4));
-
-            int size = lsbackup.Count;
-            CardSet s = new CardSet(lsbackup);
-
-            ls = new List<Card>(lsbackup);
-            for (int i = 0; i < size; i++)
-            {
-                Card c = s.pop();
-                Assert.IsTrue(ls.Contains(c));
-                ls.Remove(c);
-            }
-            Assert.AreEqual(0, ls.Count);
-        }
-
-        [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void CardPileRunoutExceptionTest()
         {
@@ -146,6 +123,7 @@ namespace LOTK_Test.ModelTest
                     Card c = s.pop();
                     Assert.IsTrue(ls.Contains(c));
                     ls.Remove(c);
+                    s.discard(c);
                 }
                 Assert.AreEqual(0, ls.Count);
             }
