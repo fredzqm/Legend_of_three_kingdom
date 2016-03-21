@@ -51,7 +51,7 @@ namespace LOTK.Model
 
         public CardSet(int capacity)
         {
-            ls = new Card[100];
+            ls = new Card[capacity];
         }
         public Card this[int i]
         {
@@ -70,6 +70,8 @@ namespace LOTK.Model
 
         public Card pop()
         {
+            if (cardPile.Count == 0)
+                shuffle();
             Card ret = cardPile.First();
             cardPile.RemoveFirst();
             return ret;

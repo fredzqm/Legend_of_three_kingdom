@@ -88,6 +88,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
             ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
             ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+            List<Card> ls2 = new List<Card>(ls);
 
             int size = ls.Count;
             CardSet s = new CardSet(size);
@@ -108,10 +109,10 @@ namespace LOTK_Test.ModelTest
             for (int i = 0; i < size; i++)
             {
                 Card c = s.pop();
-                Assert.IsTrue(ls.Contains(c));
-                ls.Remove(c);
+                Assert.IsTrue(ls2.Contains(c));
+                ls2.Remove(c);
             }
-            Assert.AreEqual(0, ls.Count);
+            Assert.AreEqual(0, ls2.Count);
         }
     }
 }
