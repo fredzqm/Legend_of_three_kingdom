@@ -82,6 +82,32 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void CardPileRunoutTest()
         {
+            List<Card> ls, lsbackup = new List<Card>();
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            lsbackup.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            lsbackup.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+
+            int size = lsbackup.Count;
+            CardSet s = new CardSet(lsbackup);
+
+            for (int j = 0; j < 12; j++)
+            {
+                ls = new List<Card>(lsbackup);
+                for (int i = 0; i < size; i++)
+                {
+                    Card c = s.pop();
+                    Assert.IsTrue(ls.Contains(c));
+                    ls.Remove(c);
+                }
+                Assert.AreEqual(0, ls.Count);
+            }
+        }
+
+        [TestMethod]
+        public void CardPileNotFUllTest()
+        {
             List<Card> ls = new List<Card>();
             ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
             ls.Add(new Card(CardSuit.Club, CardType.Miss, 1));
@@ -91,7 +117,7 @@ namespace LOTK_Test.ModelTest
             List<Card> ls2 = new List<Card>(ls);
 
             int size = ls.Count;
-            CardSet s = new CardSet(size);
+            CardSet s = new CardSet(size + 10);
             for (int i = 0; i < size; i++)
             {
                 s[i] = ls[i];
@@ -105,14 +131,7 @@ namespace LOTK_Test.ModelTest
                 ls.Remove(c);
             }
             Assert.AreEqual(0, ls.Count);
-            // Second round, it should automatic shuffle
-            for (int i = 0; i < size; i++)
-            {
-                Card c = s.pop();
-                Assert.IsTrue(ls2.Contains(c));
-                ls2.Remove(c);
-            }
-            Assert.AreEqual(0, ls2.Count);
         }
+
     }
 }
