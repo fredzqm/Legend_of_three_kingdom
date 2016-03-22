@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 namespace LOTK_Test.ModelTest
 {
+    
     [TestClass]
     public class CardSetTest
     {
@@ -25,6 +26,20 @@ namespace LOTK_Test.ModelTest
             CardSet s = new CardSet(10);
             s[0] = c;
             s[0] = b;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void DiscardUndefinedCardExceptionTest()
+        {
+            List<Card> ls = new List<Card>();
+            ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            ls.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            ls.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+            CardSet s = new CardSet(ls);
+            s.discard(new Card(CardSuit.Spade, CardType.Wine, 5));
         }
 
         [TestMethod]
@@ -78,5 +93,84 @@ namespace LOTK_Test.ModelTest
             }
             Assert.AreEqual(0,ls.Count);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void CardPileRunoutExceptionTest()
+        {
+            List<Card> ls, lsbackup = new List<Card>();
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            lsbackup.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            lsbackup.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+
+            int size = lsbackup.Count;
+            CardSet s = new CardSet(lsbackup);
+
+            ls = new List<Card>(lsbackup);
+            for (int i = 0; i < size; i++)
+            {
+                Card c = s.pop();
+                ls.Remove(c);
+            }
+            s.pop();
+        }
+
+        [TestMethod]
+        public void CardPileRunoutWithDiscardTest()
+        {
+            List<Card> ls, lsbackup = new List<Card>();
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            lsbackup.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            lsbackup.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+
+            int size = lsbackup.Count;
+            CardSet s = new CardSet(lsbackup);
+
+            for (int j = 0; j < 12; j++)
+            {
+                ls = new List<Card>(lsbackup);
+                for (int i = 0; i < size; i++)
+                {
+                    Card c = s.pop();
+                    Assert.IsTrue(ls.Contains(c));
+                    ls.Remove(c);
+                    s.discard(c);
+                }
+                Assert.AreEqual(0, ls.Count);
+            }
+        }
+
+        [TestMethod]
+        public void CardPileNotFullTest()
+        {
+            List<Card> ls = new List<Card>();
+            ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            ls.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            ls.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
+            List<Card> ls2 = new List<Card>(ls);
+
+            int size = ls.Count;
+            CardSet s = new CardSet(size + 10);
+            for (int i = 0; i < size; i++)
+            {
+                s[i] = ls[i];
+            }
+            s.shuffle();
+
+            for (int i = 0; i < size; i++)
+            {
+                Card c = s.pop();
+                Assert.IsTrue(ls.Contains(c));
+                ls.Remove(c);
+            }
+            Assert.AreEqual(0, ls.Count);
+        }
+
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LOTK.View;
 
 namespace LOTK.Model
 {
@@ -31,6 +32,31 @@ namespace LOTK.Model
         internal PhaseList actionPhase(Game g)
         {
             return new PhaseList(new DiscardPhase(this));
+        }
+
+        internal string getName()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<Card> getHoldCards()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal CardDisplay getWeapon()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal CardDisplay getDefense()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal string getAbilityDescription()
+        {
+            throw new NotImplementedException();
         }
 
         internal PhaseList discardPhase(Game g)
