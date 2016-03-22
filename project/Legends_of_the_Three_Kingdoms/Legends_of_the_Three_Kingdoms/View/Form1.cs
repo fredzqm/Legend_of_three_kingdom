@@ -27,5 +27,36 @@ namespace LOTK.View
             Required_Data data = controller.getData(position);
 
         }
+
+       
+
+        private void Ability_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Done_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpperLeft_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void LowerRight_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void LowerLeft_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void UpperRight_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
