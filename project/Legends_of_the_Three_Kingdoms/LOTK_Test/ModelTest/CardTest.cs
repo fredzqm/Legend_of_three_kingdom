@@ -140,33 +140,37 @@ namespace LOTK_Test.ModelTest
             }
         }
 
-        //[TestMethod]
-        //public void CardPileRepeatTest()
-        //{
-        //    List<Card> ls = new List<Card>();
-        //    ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
-        //    ls.Add(new Card(CardSuit.Club, CardType.Miss, 1));
-        //    ls.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
-        //    ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
-        //    ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
-        //    List<Card> ls2 = new List<Card>(ls);
+        [TestMethod]
+        public void CardPileRandomeDiscardBackTest()
+        {
+            List<Card> ls, lsbackup = new List<Card>();
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Miss, 1));
+            lsbackup.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
+            lsbackup.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
+            lsbackup.Add(new Card(CardSuit.Club, CardType.Wine, 4));
 
-        //    int size = ls.Count;
-        //    CardSet s = new CardSet(size + 10);
-        //    for (int i = 0; i < size; i++)
-        //    {
-        //        s[i] = ls[i];
-        //    }
-        //    s.shuffle();
+            int size = lsbackup.Count;
+            CardSet s = new CardSet(lsbackup);
 
-        //    for (int i = 0; i < size; i++)
-        //    {
-        //        Card c = s.pop();
-        //        Assert.IsTrue(ls.Contains(c));
-        //        ls.Remove(c);
-        //    }
-        //    Assert.AreEqual(0, ls.Count);
-        //}
+            Card c;
+            for (int j = 0; j < size; j++)
+            {
+                ls = new List<Card>(lsbackup);
+                for (int i = 0; i < size - 1; i++)
+                {
+                    c = s.pop();
+                    Assert.IsTrue(ls.Contains(c));
+                    ls.Remove(c);
+                    s.discard(c);
+                }
+                c = s.pop();
+                Assert.IsTrue(ls.Contains(c));
+                ls.Remove(c);
+                lsbackup.Remove(c);
+                Assert.AreEqual(0, ls.Count);
+            }
+        }
 
     }
 }
