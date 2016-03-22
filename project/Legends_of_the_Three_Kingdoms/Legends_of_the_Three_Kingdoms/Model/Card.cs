@@ -8,40 +8,35 @@ namespace LOTK.Model
 {
     public class CardSet
     {
-        private Card[] ls;
+        private readonly Card[] cardLs;
+        private Dictionary<Card, int> cardIDs;
         private LinkedList<Card> cardPile;
         private LinkedList<Card> discardPile;
 
         private Dictionary<Card, int> dict;
 
-        public CardSet(int capacity)
+        public CardSet(ICollection<Card> cls)
         {
-            ls = new Card[capacity];
+            cardLs = new Card[cls.Count];
             dict = new Dictionary<Card, int>();
-        }
-
-        public CardSet(List<Card> cls) : this(cls.Count)
-        {
+            cardIDs = new Dictionary<Card, int>();
+            IEnumerator<Card> itr =  cls.GetEnumerator();
             for (int i = 0; i < cls.Count; i++)
             {
-                this[i] = cls[i];
-                this[i].setCardId(i);
+                itr.MoveNext();
+                cardLs[i] = itr.Current;
+                cardIDs[cardLs[i]]= i;
             }
-            shuffle();
+            cardPile = new LinkedList<Card>(cardLs);
+            discardPile = new LinkedList<Card>();
+            cardPile.OrderBy(a => Guid.NewGuid());
         }
 
         public Card this[int i]
         {
             get
             {
-                return ls[i];
-            }
-            set
-            {
-                if (ls[i] == null)
-                    ls[i] = value;
-                else
-                    throw new Exception("Redefien Card");
+                return cardLs[i];
             }
         }
 
@@ -49,7 +44,9 @@ namespace LOTK.Model
         {
             if (cardPile.Count == 0)
             {
-                reShuffle();
+                cardPile = discardPile;
+                discardPile = new LinkedList<Card>();
+                cardPile.OrderBy(a => Guid.NewGuid());
                 if (cardPile.Count == 0)
                     throw new Exception("Run out of cards");
             }
@@ -59,25 +56,9 @@ namespace LOTK.Model
         }
         public void discard(Card c)
         {
-            if (c.CardID == -1)
-                throw new Exception("Cannot discard a unspecified Card");
-            if (!this[c.CardID].Equals(c))
-                throw new Exception("Cannot discard a unspecified Card");
+            if (!cardIDs.ContainsKey(c))
+                throw new Exception();
             discardPile.AddFirst(c);
-        }
-
-        public void shuffle()
-        {
-            cardPile = new LinkedList<Card>(ls);
-            discardPile = new LinkedList<Card>();
-            cardPile.OrderBy(a => Guid.NewGuid());
-        }
-
-        public void reShuffle()
-        {
-            cardPile = discardPile;
-            discardPile = new LinkedList<Card>();
-            cardPile.OrderBy(a => Guid.NewGuid());
         }
 
     }

@@ -51,7 +51,6 @@ namespace LOTK_Test.ModelTest
             ICollection<Card> ls = new List<Card>();
             ls.Add(a);
             CardSet s = new CardSet(ls);
-            s.shuffle();
             Assert.AreEqual(a, s.pop());
         }
 
@@ -64,7 +63,6 @@ namespace LOTK_Test.ModelTest
             ls.Add(a);
             ls.Add(b);
             CardSet s = new CardSet(ls);
-            s.shuffle();
             Card x = s.pop();
             Card y = s.pop();
             Assert.IsTrue((a.Equals(x) && b.Equals(y)) 
@@ -82,13 +80,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
 
             int size = ls.Count;
-            CardSet s = new CardSet(size);
-            for (int i = 0; i < size; i++)
-            {
-                s[i] = ls[i];
-            }
-            s.shuffle();
-
+            CardSet s = new CardSet(ls);
             for (int i = 0; i < size; i++)
             {
                 Card c = s.pop();
