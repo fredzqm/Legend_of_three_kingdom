@@ -11,13 +11,13 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void GameConstructTest()
         {
-            Game g = new Game(5);
+            Game g = new Game(5 , null);
         }
 
         [TestMethod]
         public void FourStageTest()
         {
-            Game g = new Game(5);
+            Game g = new Game(5 , null);
             Assert.IsTrue(g.currentStage is JudgePhase);
             g.nextStage();
             Assert.IsTrue(g.currentStage is DrawingPhase);
@@ -30,7 +30,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void EightPeopleGameCycleTest()
         {
-            Game g = new Game(8);
+            Game g = new Game(8 , null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
@@ -54,7 +54,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void CurrentPlayerTest()
         {
-            Game g = new Game(8);
+            Game g = new Game(8 , null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
@@ -78,7 +78,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void UserInputYES_OR_NOTest()
         {
-            Game g = new Game(5);
+            Game g = new Game(5 , null);
             Assert.IsTrue(g.currentStage is JudgePhase);
             Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
             Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));

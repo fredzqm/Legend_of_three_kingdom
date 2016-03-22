@@ -72,13 +72,6 @@ namespace LOTK.Model
         private int id = -1;
         public int CardID { get { return id; } }
 
-        internal void setCardId(int value)
-        {
-            if (id == -1)
-                throw new Exception("CardID cannot be redifined");
-            id = value;
-        }
-
         public Card(CardSuit s, CardType t, byte n)
         {
             this.suit = s;
@@ -91,10 +84,12 @@ namespace LOTK.Model
             Card x = obj as Card;
             return (x != null) && (type == x.type) && (suit == x.suit) && (num == x.num);
         }
+
         public override int GetHashCode()
         {
             return type.GetHashCode() + suit.GetHashCode() + num.GetHashCode();
         }
+
         public override string ToString()
         {
             return String.Format("Card {0}  {1}{3}", type, suit, num);
@@ -110,9 +105,7 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
     }
-
     
-
 
     public enum CardSuit
     {

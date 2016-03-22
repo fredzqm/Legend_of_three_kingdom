@@ -32,7 +32,7 @@ namespace LOTK.Model
         {
             g.setCurrentPlayerID(player);
             return new PhaseList(new JudgePhase(player), 
-                new PlayerTurn(g[(player + 1) % g.Num_Player]));
+                new PlayerTurn(g.players[(player + 1) % g.Num_Player]));
         }
 
     }

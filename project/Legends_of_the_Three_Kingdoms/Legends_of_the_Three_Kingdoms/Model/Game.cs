@@ -6,40 +6,36 @@ namespace LOTK.Model
     public class Game
     {
         public readonly int Num_Player;
-
-        private CardSet cardpile;
-
-        public PhaseList stages { get; set; }
-        public ResponsivePhase currentStage {
-            get {
-                try {
-                    return stages.top() as ResponsivePhase;
-                } catch (InvalidCastException) {
-                    throw new Exception("Still spinning");
-                }
+        public readonly Player[] players;
+        public readonly CardSet cards;
+        private int curRoundPlayerID;
+        public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
+        private PhaseList stages { get; set; }
+        public ResponsivePhase currentStage
+        {
+            get
+            {
+               ResponsivePhase ret = stages.top() as ResponsivePhase;
+                if (ret == null)
+                    throw new Exception("Still running");
+                return ret;
             }
         }
-        private Player[] players;
-        public Player this[int i] {get { return players[i]; } }
-        private int curRoundPlayerID;
-        public Player curRoundPlayer { get { return this[curRoundPlayerID]; } }
 
-        public Game(int Num_player)
+        public Game(int Num_player, List<Card> cardList)
         {
             Num_Player = Num_player;
             players = new Player[Num_Player];
-            for (int i = 0; i < Num_Player;i++)
+            if (cardList != null)
+                cards = new CardSet(cardList);
+
+            for (int i = 0; i < Num_Player; i++)
             {
                 players[i] = new Player(i);
             }
             stages = new PhaseList();
             stages.add(new PlayerTurn(players[0]));
             skipIrresponsivePhases();
-        }
-
-        public Game(int Num_player, List<Card> cardList) : this(Num_player)
-        {
-            cardpile = new CardSet(cardList);
         }
 
         public void nextStage()
@@ -64,16 +60,11 @@ namespace LOTK.Model
             return currentStage.userInput(userAction);
         }
 
-        internal void initializeCardPile(List<Card> ls)
-        {
-           
-        }
-
         public List<Card> drawCard(int v)
         {
             List<Card> cards = new List<Card>();
             for (int i = 0; i < v; i++)
-                cards.Add(cardpile.pop());
+                cards.Add(this.cards.pop());
             return cards;
         }
     }
