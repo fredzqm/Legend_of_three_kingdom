@@ -154,10 +154,10 @@ namespace LOTK_Test.ModelTest
             CardSet s = new CardSet(lsbackup);
 
             Card c;
-            for (int j = 0; j < size; j++)
+            for (int j = size; j > 0; j--)
             {
                 ls = new List<Card>(lsbackup);
-                for (int i = 0; i < size - 1; i++)
+                for (int i = 0; i < j - 1; i++)
                 {
                     c = s.pop();
                     Assert.IsTrue(ls.Contains(c));
