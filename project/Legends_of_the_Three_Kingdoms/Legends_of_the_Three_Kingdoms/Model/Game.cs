@@ -40,13 +40,16 @@ namespace LOTK.Model
 
         public void nextStage()
         {
-            stages.pushStageList(stages.pop().nextStage(this));
+            Phase currentPhase = stages.pop();
+            if (currentPhase is PlayerTurn)
+            { // when turn switches
+                curRoundPlayerID = currentPhase.player;
+            }
+            PhaseList followingPhases = currentPhase.player.handlePhase(currentPhase);
+            stages.pushStageList(followingPhases);
             skipIrresponsivePhases();
         }
-        internal void setCurrentPlayerID(int curPlay)
-        {
-            curRoundPlayerID = curPlay;
-        }
+
         private void skipIrresponsivePhases()
         {
             while(! (stages.top() is ResponsivePhase))

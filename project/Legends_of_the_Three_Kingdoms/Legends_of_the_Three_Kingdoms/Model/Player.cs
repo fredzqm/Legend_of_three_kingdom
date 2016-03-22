@@ -59,6 +59,11 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
 
+        internal PhaseList handlePhase(Phase currentPhase)
+        {
+            throw new NotImplementedException();
+        }
+
         internal PhaseList discardPhase(Game g)
         {
             return new PhaseList();
