@@ -54,8 +54,11 @@ namespace LOTK.Controller
         {
             switch (buttonID)
             {
-                case 
-                game.userResponse(new UserAction(UserActionType.YES_OR_NO, buttonID));
+                case ButtonID.OK:
+                    game.userResponse(new UserAction(UserActionType.YES_OR_NO, buttonID));
+                    break;
+                default:
+                    break;
             }
         }
 

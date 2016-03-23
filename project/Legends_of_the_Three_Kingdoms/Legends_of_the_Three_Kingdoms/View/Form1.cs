@@ -11,7 +11,7 @@ using LOTK.Controller;
 
 namespace LOTK.View
 {
-    public delegate void clickButton(int playerID, ButtonID buttonID);
+    public delegate void clickButton(int playerID, int buttonID);
 
     public delegate void clickCard(int playerID, int cardID); // maybe later changed to a card struct
 
