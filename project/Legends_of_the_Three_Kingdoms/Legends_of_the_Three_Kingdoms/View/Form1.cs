@@ -70,7 +70,7 @@ namespace LOTK.View
             
         }
 
-        private void Done_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
             clickbutton(position, 1);
         }
@@ -92,6 +92,11 @@ namespace LOTK.View
         private void UpperRight_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

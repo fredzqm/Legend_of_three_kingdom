@@ -90,6 +90,7 @@ namespace LOTK.View
             this.Pool.Size = new System.Drawing.Size(320, 206);
             this.Pool.TabIndex = 14;
             this.Pool.Text = "Pool Cards";
+
             // 
             // Ability
             // 
