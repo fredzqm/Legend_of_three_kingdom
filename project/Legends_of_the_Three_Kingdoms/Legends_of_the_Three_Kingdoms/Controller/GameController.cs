@@ -15,7 +15,15 @@ namespace LOTK.Controller
         public Game game { get; set; }
         public GameController()
         {
-            game = new Game(NUM_OF_PLAYER);
+            ICollection<Card> cardset = initialLizeCardSet();
+            game = new Game(NUM_OF_PLAYER, cardset);
+        }
+
+        private ICollection<Card> initialLizeCardSet()
+        {
+            ICollection<Card> ls = new List<Card>();
+            //ls.Add(new Card());
+            return ls;
         }
 
         public Required_Data getData(int ownPlayer)
@@ -23,29 +31,40 @@ namespace LOTK.Controller
             Required_Data rd = new Required_Data();
             for(int i = 0; i < NUM_OF_PLAYER; i++)
             {
-                rd.players[i].ability = game[(i + ownPlayer) % NUM_OF_PLAYER].getAbilityDescription();
-                rd.players[i].name = game[(i + ownPlayer) % NUM_OF_PLAYER].getName();
+                rd.players[i].ability = game.players[(i + ownPlayer) % NUM_OF_PLAYER].getAbilityDescription();
+                rd.players[i].name = game.players[(i + ownPlayer) % NUM_OF_PLAYER].getName();
             }
             rd.pool_cards = null;
-            rd.hold_cards = new List<CardDisplay>(game[ownPlayer].getHoldCards().Select(c => new CardDisplay(c.getName(), c.getDescription())));
+            rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].getHoldCards().Select(c => new CardDisplay(c.getName(), c.getDescription())));
             rd.this_player_stage = game.currentStage.ToString();
-            rd.tool_attack = game[ownPlayer].getWeapon();
-            rd.tool_defence = game[ownPlayer].getDefense();
+            rd.tool_attack = game.players[ownPlayer].getWeapon();
+            rd.tool_defence = game.players[ownPlayer].getDefense();
             return rd;
         }
 
-        //public void applyUserResponse(UserAction userAction)
-        //{
-        //    if (game.userResponse(userAction))
-        //    {
-        //        game.nextStage();
-        //    }
-        //}
+        public void applyUserResponse(UserAction userAction)
+        {
+            if (game.userResponse(userAction))
+            {
+                game.nextStage();
+            }
+        }
+
+        public void clickButton(int playerID, int buttonID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void clickCard(int playerID, int cardID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void clickPlayer(int playerID, int clickedPlayerID)
+        {
+            throw new NotImplementedException();
+        }
     }
 
-    public interface viewController
-    {
-        Required_Data getData(int ownPlayer);
-
-    }
+ 
 }

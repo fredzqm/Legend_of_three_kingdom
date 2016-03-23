@@ -15,23 +15,33 @@ namespace LOTK.Model
             playerID = pos;
         }
 
-        public static implicit operator int(Player p)
+        public static implicit operator int (Player p)
         {
             return p.playerID;
         }
 
-        public PhaseList judgePhase(Game g)
+        public PhaseList playerTurn(IGame g)
         {
-            return new PhaseList(new DrawingPhase(this), new ActionPhase(this));
+            return new PhaseList(new Phase(this, PhaseType.JudgePhase),
+                new Phase((playerID + 1) % g.Num_Player, PhaseType.PlayerTurn));
         }
-        public PhaseList drawingPhase(Game g)
+
+        public PhaseList judgePhase(IGame g)
+        {
+            return new PhaseList(new Phase(this, PhaseType.DrawingPhase), new Phase(this, PhaseType.ActionPhase));
+        }
+        public PhaseList drawingPhase(IGame g)
         {
             return new PhaseList();
         }
 
-        internal PhaseList actionPhase(Game g)
+        internal PhaseList actionPhase(IGame g)
         {
-            return new PhaseList(new DiscardPhase(this));
+            return new PhaseList(new Phase(this, PhaseType.DiscardPhase));
+        }
+        internal PhaseList discardPhase(IGame g)
+        {
+            return new PhaseList();
         }
 
         internal string getName()
@@ -59,9 +69,45 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
 
-        internal PhaseList discardPhase(Game g)
+        public PhaseList handlePhase(Phase curPhase, IGame game)
         {
-            return new PhaseList();
+            switch (curPhase.type)
+            {
+                case PhaseType.PlayerTurn:
+                    return playerTurn(game);
+                case PhaseType.JudgePhase:
+                    return judgePhase(game);
+                case PhaseType.DrawingPhase:
+                    return drawingPhase(game);
+                case PhaseType.ActionPhase:
+                    return actionPhase(game);
+                case PhaseType.DiscardPhase:
+                    return discardPhase(game);
+                default: throw new Exception("This type not defined");
+            }
+        }
+
+        internal bool UserInput(Phase curPhase, UserAction userAction)
+        {
+            if (!curPhase.needResponse())
+                return true;
+            switch (curPhase.type)
+            {
+                case PhaseType.ActionPhase:
+                    if (userAction.type == UserActionType.YES_OR_NO)
+                    {
+                        return (userAction.detail == 0);
+                    }
+                    return false;
+                case PhaseType.DiscardPhase:
+                    if (userAction.type == UserActionType.YES_OR_NO)
+                    {
+                        return true;
+                    }
+                    return false;
+                default:
+                    return false;
+            }
         }
     }
 }

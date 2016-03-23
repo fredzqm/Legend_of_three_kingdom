@@ -6,113 +6,42 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
-    public interface Phase
+    public class Phase
     {
-        PhaseList nextStage(Game g);
-        Player player { get; }
-    }
+        public int playerID { get; }
+        public PhaseType type { get;}
 
-    delegate PhaseList nextStageDelegate(Game g);
-
-    public interface ResponsivePhase : Phase
-    {
-        bool userInput(UserAction u);
-    }
-    
-    public class PlayerTurn : Phase
-    {
-        public Player player { get; set; }
-
-        public PlayerTurn(Player player)
+        public Phase(int playerID, PhaseType playerTurn)
         {
-            this.player = player;
+            this.playerID = playerID;
+            this.type = playerTurn;
         }
 
-        public PhaseList nextStage(Game g)
+        public bool needResponse()
         {
-            g.setCurrentPlayerID(player);
-            return new PhaseList(new JudgePhase(player), 
-                new PlayerTurn(g[(player + 1) % g.Num_Player]));
-        }
-
-    }
-
-    public class JudgePhase : ResponsivePhase
-    {
-        public Player player { get; set; }
-        public JudgePhase(Player player)
-        {
-            this.player = player;
-        }
-        public PhaseList nextStage(Game g)
-        {
-            return player.judgePhase(g);
-        }
-
-        public bool userInput(UserAction u)
-        {
-            return false;
-        }
-    }
-    public class DrawingPhase : ResponsivePhase
-    {
-        public Player player { get; set; }
-        public DrawingPhase(Player player)
-        {
-            this.player = player;
-        }
-        public PhaseList nextStage(Game g)
-        {
-            return player.drawingPhase(g);
-        }
-
-        public bool userInput(UserAction u)
-        {
-            return false;
-        }
-    }
-    public class ActionPhase : ResponsivePhase
-    {
-        public Player player { get; set; }
-        public ActionPhase(Player player)
-        {
-            this.player = player;
-        }
-        public PhaseList nextStage(Game g)
-        {
-            return player.actionPhase(g);
-        }
-
-        public bool userInput(UserAction u)
-        {
-            switch (u.type)
+            switch (type)
             {
-                case UserActionType.YES_OR_NO: return u.detail == UserAction.YES;
-                default: return false;
+                case PhaseType.PlayerTurn:
+                    return false;
+                case PhaseType.JudgePhase:
+                case PhaseType.DrawingPhase:
+                case PhaseType.ActionPhase:
+                case PhaseType.DiscardPhase:
+                    return true;
+                default: throw new Exception("This type not defined");
             }
         }
     }
-    public class DiscardPhase : ResponsivePhase
-    {
-        public Player player { get; set; }
-        public DiscardPhase(Player player)
-        {
-            this.player = player;
-        }
-        public PhaseList nextStage(Game g)
-        {
-            return player.discardPhase(g);
-        }
 
-        public bool userInput(UserAction u)
-        {  
-            switch (u.type)
-            {
-                case UserActionType.YES_OR_NO: return u.detail == UserAction.YES;
-                default: return false;
-            }
-        }
+    public enum PhaseType
+    {
+        PlayerTurn,
+        JudgePhase,
+        DrawingPhase,
+        ActionPhase,
+        DiscardPhase
     }
+
 
     public class PhaseList
     {
@@ -147,9 +76,14 @@ namespace LOTK.Model
             }
         }
 
+        public bool isEmpty()
+        {
+            return head == null;
+        }
+
         public Phase pop()
         {
-            if (head == null)
+            if (isEmpty())
             {
                 throw new Exception("Empty PhaseList Exception");
             }

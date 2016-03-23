@@ -11,41 +11,41 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void GameConstructTest()
         {
-            Game g = new Game(5);
+            Game g = new Game(5 , null);
         }
 
         [TestMethod]
         public void FourStageTest()
         {
-            Game g = new Game(5);
-            Assert.IsTrue(g.currentStage is JudgePhase);
+            Game g = new Game(5 , null);
+            Assert.AreEqual(PhaseType.JudgePhase , g.currentStage.type );
             g.nextStage();
-            Assert.IsTrue(g.currentStage is DrawingPhase);
+            Assert.AreEqual(PhaseType.DrawingPhase , g.currentStage.type );
             g.nextStage();
-            Assert.IsTrue(g.currentStage is ActionPhase);
+            Assert.AreEqual(PhaseType.ActionPhase , g.currentStage.type );
             g.nextStage();
-            Assert.IsTrue(g.currentStage is DiscardPhase);
+            Assert.AreEqual(PhaseType.DiscardPhase , g.currentStage.type );
         }
 
         [TestMethod]
         public void EightPeopleGameCycleTest()
         {
-            Game g = new Game(8);
+            Game g = new Game(8 , null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    Assert.IsTrue(g.currentStage is JudgePhase);
-                    Assert.AreEqual(g.currentStage.player, i);
+                    Assert.AreEqual(PhaseType.JudgePhase, g.currentStage.type);
+                    Assert.AreEqual(g.currentStage.playerID, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage is DrawingPhase);
-                    Assert.AreEqual(g.currentStage.player, i);
+                    Assert.AreEqual(PhaseType.DrawingPhase, g.currentStage.type);
+                    Assert.AreEqual(g.currentStage.playerID, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage is ActionPhase);
-                    Assert.AreEqual(g.currentStage.player, i);
+                    Assert.AreEqual( PhaseType.ActionPhase , g.currentStage.type );
+                    Assert.AreEqual(g.currentStage.playerID, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage is DiscardPhase);
-                    Assert.AreEqual(g.currentStage.player, i);
+                    Assert.AreEqual( PhaseType.DiscardPhase , g.currentStage.type );
+                    Assert.AreEqual(g.currentStage.playerID, i);
                     g.nextStage();
                 }
             }
@@ -54,21 +54,21 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void CurrentPlayerTest()
         {
-            Game g = new Game(8);
+            Game g = new Game(8, null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    Assert.IsTrue(g.currentStage is JudgePhase);
+                    Assert.AreEqual( PhaseType.JudgePhase , g.currentStage.type );
                     Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage is DrawingPhase);
+                    Assert.AreEqual( PhaseType.DrawingPhase , g.currentStage.type );
                     Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage is ActionPhase);
+                    Assert.AreEqual( PhaseType.ActionPhase , g.currentStage.type );
                     Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage is DiscardPhase);
+                    Assert.AreEqual( PhaseType.DiscardPhase , g.currentStage.type );
                     Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
                 }
@@ -78,21 +78,22 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void UserInputYES_OR_NOTest()
         {
-            Game g = new Game(5);
-            Assert.IsTrue(g.currentStage is JudgePhase);
-            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Game g = new Game(5 , null);
+            //Assert.AreEqual( PhaseType.JudgePhase , g.currentStage.type );
+            //Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            //Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            g.nextStage();
+            //Assert.AreEqual( PhaseType.DrawingPhase , g.currentStage.type );
+            //Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            //Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            g.nextStage();
+
+            Assert.AreEqual(PhaseType.ActionPhase , g.currentStage.type );
+            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
             Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
             g.nextStage();
-            Assert.IsTrue(g.currentStage is DrawingPhase);
-            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
-            g.nextStage();
-            Assert.IsTrue(g.currentStage is ActionPhase);
-            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
-            g.nextStage();
-            Assert.IsTrue(g.currentStage is DiscardPhase);
-            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.AreEqual(PhaseType.DiscardPhase , g.currentStage.type );
+            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
             Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
         }
 

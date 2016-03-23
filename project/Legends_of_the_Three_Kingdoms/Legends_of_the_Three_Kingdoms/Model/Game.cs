@@ -3,57 +3,53 @@ using System.Collections.Generic;
 
 namespace LOTK.Model
 {
-    public class Game
+
+    public interface IGame
     {
-        public readonly int Num_Player;
+        int Num_Player { get; }
+    }
 
-        private CardSet cardpile;
-
-        public PhaseList stages { get; set; }
-        public ResponsivePhase currentStage {
-            get {
-                try {
-                    return stages.top() as ResponsivePhase;
-                } catch (InvalidCastException) {
-                    throw new Exception("Still spinning");
-                }
-            }
-        }
-        private Player[] players;
-        public Player this[int i] {get { return players[i]; } }
+    public class Game : IGame
+    {
+        public int Num_Player { get; }
+        public readonly Player[] players;
+        public readonly CardSet cards;
         private int curRoundPlayerID;
-        public Player curRoundPlayer { get { return this[curRoundPlayerID]; } }
+        public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
+        private PhaseList stages { get; set; }
+        public Phase currentStage { get { return stages.top(); } }
 
-        public Game(int Num_player)
+        public Game(int Num_player, ICollection<Card> cardList)
         {
             Num_Player = Num_player;
             players = new Player[Num_Player];
-            for (int i = 0; i < Num_Player;i++)
+            if (cardList != null)
+                cards = new CardSet(cardList);
+
+            for (int i = 0; i < Num_Player; i++)
             {
                 players[i] = new Player(i);
             }
             stages = new PhaseList();
-            stages.add(new PlayerTurn(players[0]));
+            stages.add(new Phase(0, PhaseType.PlayerTurn));
             skipIrresponsivePhases();
-        }
-
-        public Game(int Num_player, List<Card> cardList) : this(Num_player)
-        {
-            cardpile = new CardSet(cardList);
         }
 
         public void nextStage()
         {
-            stages.pushStageList(stages.pop().nextStage(this));
+            Phase curPhase = stages.pop();
+            if (curPhase.type == PhaseType.PlayerTurn)
+            { // when turn switches
+                curRoundPlayerID = players[curPhase.playerID];
+            }
+            PhaseList followingPhases = players[curPhase.playerID].handlePhase(curPhase, this);
+            stages.pushStageList(followingPhases);
             skipIrresponsivePhases();
         }
-        internal void setCurrentPlayerID(int curPlay)
-        {
-            curRoundPlayerID = curPlay;
-        }
+
         private void skipIrresponsivePhases()
         {
-            while(! (stages.top() is ResponsivePhase))
+            while (!(stages.top().needResponse()))
             {
                 nextStage();
             }
@@ -61,19 +57,14 @@ namespace LOTK.Model
 
         public bool userResponse(UserAction userAction)
         {
-            return currentStage.userInput(userAction);
-        }
-
-        internal void initializeCardPile(List<Card> ls)
-        {
-           
+            return players[currentStage.playerID].UserInput(currentStage, userAction);
         }
 
         public List<Card> drawCard(int v)
         {
             List<Card> cards = new List<Card>();
             for (int i = 0; i < v; i++)
-                cards.Add(cardpile.pop());
+                cards.Add(this.cards.pop());
             return cards;
         }
     }
