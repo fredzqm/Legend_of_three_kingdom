@@ -2,6 +2,7 @@
 using LOTK.Model;
 using System;
 using System.Collections.Generic;
+using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK_Test.ModelTest
 {
@@ -29,7 +30,12 @@ namespace LOTK_Test.ModelTest
             ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
             ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
             CardSet s = new CardSet(ls);
-            s.discard(new Card(CardSuit.Spade, CardType.Wine, 5));
+            try {
+                s.discard(new Card(CardSuit.Spade, CardType.Wine, 5));
+            }
+            catch (NoCardException e) {
+                Console.WriteLine("NoCardException caught.", e);
+            }
         }
 
         [TestMethod]

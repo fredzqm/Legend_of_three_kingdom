@@ -56,8 +56,8 @@ namespace LOTK.Model
         }
         public void discard(Card c)
         {
-            if (!cardIDs.ContainsKey(c))
-                throw new Exception();
+ /*           if (!cardIDs.ContainsKey(c))
+                throw new Exception(); */
             discardPile.AddFirst(c);
         }
 
