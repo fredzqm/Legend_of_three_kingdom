@@ -22,11 +22,11 @@ namespace LOTK_Test.ModelTest
             ls.add(new PlayerTurn(new Player(2)));
             ls.add(new PlayerTurn(new Player(3)));
             ls.add(new PlayerTurn(new Player(4)));
-            Assert.AreEqual(ls.pop().player, 0);
-            Assert.AreEqual(ls.pop().player, 1);
-            Assert.AreEqual(ls.pop().player, 2);
-            Assert.AreEqual(ls.pop().player, 3);
-            Assert.AreEqual(ls.pop().player, 4);
+            Assert.AreEqual(ls.pop().playerID, 0);
+            Assert.AreEqual(ls.pop().playerID, 1);
+            Assert.AreEqual(ls.pop().playerID, 2);
+            Assert.AreEqual(ls.pop().playerID, 3);
+            Assert.AreEqual(ls.pop().playerID, 4);
         }
 
         [TestMethod]
@@ -40,11 +40,11 @@ namespace LOTK_Test.ModelTest
             ls2.add(new PlayerTurn(new Player(3)));
             ls2.add(new PlayerTurn(new Player(4)));
             ls.pushStageList(ls2);
-            Assert.AreEqual(ls.pop().player, 3);
-            Assert.AreEqual(ls.pop().player, 4);
-            Assert.AreEqual(ls.pop().player, 0);
-            Assert.AreEqual(ls.pop().player, 1);
-            Assert.AreEqual(ls.pop().player, 2);
+            Assert.AreEqual(ls.pop().playerID, 3);
+            Assert.AreEqual(ls.pop().playerID, 4);
+            Assert.AreEqual(ls.pop().playerID, 0);
+            Assert.AreEqual(ls.pop().playerID, 1);
+            Assert.AreEqual(ls.pop().playerID, 2);
         }
     }
 

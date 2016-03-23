@@ -36,16 +36,16 @@ namespace LOTK_Test.ModelTest
                 for (int i = 0; i < 8; i++)
                 {
                     Assert.IsTrue(g.currentStage is JudgePhase);
-                    Assert.AreEqual(g.currentStage.player, i);
+                    Assert.AreEqual(g.currentStage.playerID, i);
                     g.nextStage();
                     Assert.IsTrue(g.currentStage is DrawingPhase);
-                    Assert.AreEqual(g.currentStage.player, i);
+                    Assert.AreEqual(g.currentStage.playerID, i);
                     g.nextStage();
                     Assert.IsTrue(g.currentStage is ActionPhase);
-                    Assert.AreEqual(g.currentStage.player, i);
+                    Assert.AreEqual(g.currentStage.playerID, i);
                     g.nextStage();
                     Assert.IsTrue(g.currentStage is DiscardPhase);
-                    Assert.AreEqual(g.currentStage.player, i);
+                    Assert.AreEqual(g.currentStage.playerID, i);
                     g.nextStage();
                 }
             }
