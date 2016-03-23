@@ -18,18 +18,6 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(c, s[0]);
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(Exception))]
-        //public void RedefineCardTest()
-        //{
-        //    Card c = new Card(CardSuit.Club, CardType.Attack, 0);
-        //    Card b = new Card(CardSuit.Club, CardType.Miss, 1);
-        //    CardSet s = new CardSet(10);
-        //    s.addCard();
-        //    s[0] = c;
-        //    s[0] = b;
-        //}
-
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void DiscardUndefinedCardExceptionTest()

@@ -69,27 +69,45 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
 
-        public PhaseList handlePhase(Phase curPhase, IGame IGame)
+        public PhaseList handlePhase(Phase curPhase, IGame game)
         {
             switch (curPhase.type)
             {
                 case PhaseType.PlayerTurn:
-                    return playerTurn(IGame);
+                    return playerTurn(game);
                 case PhaseType.JudgePhase:
-                    return judgePhase(IGame);
+                    return judgePhase(game);
                 case PhaseType.DrawingPhase:
-                    return drawingPhase(IGame);
+                    return drawingPhase(game);
                 case PhaseType.ActionPhase:
-                    return actionPhase(IGame);
+                    return actionPhase(game);
                 case PhaseType.DiscardPhase:
-                    return discardPhase(IGame);
+                    return discardPhase(game);
                 default: throw new Exception("This type not defined");
             }
         }
 
-        internal bool UserInput(UserAction userAction)
+        internal bool UserInput(Phase curPhase, UserAction userAction)
         {
-            throw new NotImplementedException();
+            if (!curPhase.needResponse())
+                return true;
+            switch (curPhase.type)
+            {
+                case PhaseType.ActionPhase:
+                    if (userAction.type == UserActionType.YES_OR_NO)
+                    {
+                        return (userAction.detail == 0);
+                    }
+                    return false;
+                case PhaseType.DiscardPhase:
+                    if (userAction.type == UserActionType.YES_OR_NO)
+                    {
+                        return true;
+                    }
+                    return false;
+                default:
+                    return false;
+            }
         }
     }
 }

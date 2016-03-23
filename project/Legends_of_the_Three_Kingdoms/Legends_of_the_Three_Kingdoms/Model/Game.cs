@@ -57,7 +57,7 @@ namespace LOTK.Model
 
         public bool userResponse(UserAction userAction)
         {
-            return players[currentStage.playerID].UserInput(userAction);
+            return players[currentStage.playerID].UserInput(currentStage, userAction);
         }
 
         public List<Card> drawCard(int v)
