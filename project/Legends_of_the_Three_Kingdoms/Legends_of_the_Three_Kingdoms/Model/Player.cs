@@ -87,5 +87,9 @@ namespace LOTK.Model
             }
         }
 
+        internal bool UserInput(UserAction userAction)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -17,13 +17,7 @@ namespace LOTK.Model
         private int curRoundPlayerID;
         public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
         private PhaseList stages { get; set; }
-        public Phase currentStage
-        {
-            get
-            {
-                return stages.top();
-            }
-        }
+        public Phase currentStage { get { return stages.top(); } }
 
         public Game(int Num_player, List<Card> cardList)
         {
@@ -55,7 +49,7 @@ namespace LOTK.Model
 
         private void skipIrresponsivePhases()
         {
-            while(! (stages.top().needResponse()))
+            while (!(stages.top().needResponse()))
             {
                 nextStage();
             }
@@ -63,8 +57,7 @@ namespace LOTK.Model
 
         public bool userResponse(UserAction userAction)
         {
-            throw new NotImplementedException();
-            //return currentStage.userInput(userAction);
+            return players[currentStage.playerID].UserInput(userAction);
         }
 
         public List<Card> drawCard(int v)
