@@ -39,6 +39,10 @@ namespace LOTK.Model
         {
             return new PhaseList(new DiscardPhase(this));
         }
+        internal PhaseList discardPhase(IGame g)
+        {
+            return new PhaseList();
+        }
 
         internal string getName()
         {
@@ -88,9 +92,5 @@ namespace LOTK.Model
             throw new Exception("No such phase defined!");
         }
 
-        internal PhaseList discardPhase(IGame g)
-        {
-            return new PhaseList();
-        }
     }
 }

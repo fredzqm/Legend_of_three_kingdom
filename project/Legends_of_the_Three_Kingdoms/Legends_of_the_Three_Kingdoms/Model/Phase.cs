@@ -158,9 +158,14 @@ namespace LOTK.Model
             }
         }
 
+        public bool isEmpty()
+        {
+            return head == null;
+        }
+
         public Phase pop()
         {
-            if (head == null)
+            if (isEmpty())
             {
                 throw new Exception("Empty PhaseList Exception");
             }
