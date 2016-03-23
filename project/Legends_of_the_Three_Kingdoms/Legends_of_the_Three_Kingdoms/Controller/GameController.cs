@@ -8,13 +8,6 @@ using System.Threading.Tasks;
 
 namespace LOTK.Controller
 {
-    public interface viewController
-    {
-        Required_Data getData(int ownPlayer);
-
-    }
-
-
     class GameController : viewController
     {
         const int NUM_OF_PLAYER = 5;
@@ -55,6 +48,21 @@ namespace LOTK.Controller
             {
                 game.nextStage();
             }
+        }
+
+        public void clickButton(int playerID, int buttonID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void clickCard(int playerID, int cardID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void clickPlayer(int playerID, int clickedPlayerID)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -11,14 +11,29 @@ using LOTK.Controller;
 
 namespace LOTK.View
 {
+    public delegate void clickButton(int playerID, int buttonID);
+
+    public delegate void clickCard(int playerID, int cardID); // maybe later changed to a card struct
+
+    public delegate void clickPlayer(int playerID, int clickedPlayerID);
+
     public partial class Form1 : Form
     {
         private viewController controller;
         private int position;
+
+        private event clickButton clickbutton;
+        private event clickCard clickcard;
+        private event clickPlayer clickplayer;
+
         public Form1(viewController controller, int pos)
         {
             this.position = pos;
             this.controller = controller;
+            clickbutton = controller.clickButton;
+            clickcard = controller.clickCard;
+            clickplayer = controller.clickPlayer;
+
             InitializeComponent();
         }
 
@@ -46,10 +61,6 @@ namespace LOTK.View
             LowerLeft.Text = data.players[3].name + ": " + data.players[3].ability;
             LowerRight.Text = data.players[4].name + ": " + data.players[4].ability;
 
-
-
-
-
         }
 
 
@@ -61,7 +72,7 @@ namespace LOTK.View
 
         private void Done_Click(object sender, EventArgs e)
         {
-
+            clickbutton(position, 1);
         }
 
         private void UpperLeft_Click(object sender, EventArgs e)
