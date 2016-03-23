@@ -32,7 +32,7 @@ namespace LOTK.View
             this.hand_cards = new System.Windows.Forms.CheckedListBox();
             this.Pool = new System.Windows.Forms.RichTextBox();
             this.Ability = new System.Windows.Forms.Button();
-            this.Done = new System.Windows.Forms.Button();
+            this.OK = new System.Windows.Forms.Button();
             this.UpperLeft = new System.Windows.Forms.Button();
             this.UpperRight = new System.Windows.Forms.Button();
             this.LowerLeft = new System.Windows.Forms.Button();
@@ -90,6 +90,7 @@ namespace LOTK.View
             this.Pool.Size = new System.Drawing.Size(320, 206);
             this.Pool.TabIndex = 14;
             this.Pool.Text = "Pool Cards";
+
             // 
             // Ability
             // 
@@ -101,15 +102,15 @@ namespace LOTK.View
             this.Ability.UseVisualStyleBackColor = true;
             this.Ability.Click += new System.EventHandler(this.Ability_Click);
             // 
-            // Done
+            // OK
             // 
-            this.Done.Location = new System.Drawing.Point(488, 511);
-            this.Done.Name = "Done";
-            this.Done.Size = new System.Drawing.Size(75, 30);
-            this.Done.TabIndex = 16;
-            this.Done.Text = "Done";
-            this.Done.UseVisualStyleBackColor = true;
-            this.Done.Click += new System.EventHandler(this.Done_Click);
+            this.OK.Location = new System.Drawing.Point(488, 511);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(75, 30);
+            this.OK.TabIndex = 16;
+            this.OK.Text = "OK";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.Done_Click);
             // 
             // UpperLeft
             // 
@@ -126,7 +127,7 @@ namespace LOTK.View
             this.UpperRight.Location = new System.Drawing.Point(643, 12);
             this.UpperRight.Name = "UpperRight";
             this.UpperRight.Size = new System.Drawing.Size(108, 153);
-            this.UpperRight.TabIndex = 17;
+            this.UpperRight.TabIndex = 18;
             this.UpperRight.Text = "UpperRight";
             this.UpperRight.UseVisualStyleBackColor = true;
             this.UpperRight.Click += new System.EventHandler(this.UpperRight_Click);
@@ -136,7 +137,7 @@ namespace LOTK.View
             this.LowerLeft.Location = new System.Drawing.Point(26, 203);
             this.LowerLeft.Name = "LowerLeft";
             this.LowerLeft.Size = new System.Drawing.Size(108, 153);
-            this.LowerLeft.TabIndex = 17;
+            this.LowerLeft.TabIndex = 19;
             this.LowerLeft.Text = "LowerLeft";
             this.LowerLeft.UseVisualStyleBackColor = true;
             this.LowerLeft.Click += new System.EventHandler(this.LowerLeft_Click);
@@ -146,7 +147,7 @@ namespace LOTK.View
             this.LowerRight.Location = new System.Drawing.Point(643, 203);
             this.LowerRight.Name = "LowerRight";
             this.LowerRight.Size = new System.Drawing.Size(108, 153);
-            this.LowerRight.TabIndex = 17;
+            this.LowerRight.TabIndex = 20;
             this.LowerRight.Text = "LowerRight";
             this.LowerRight.UseVisualStyleBackColor = true;
             this.LowerRight.Click += new System.EventHandler(this.LowerRight_Click);
@@ -160,7 +161,7 @@ namespace LOTK.View
             this.Controls.Add(this.UpperRight);
             this.Controls.Add(this.LowerLeft);
             this.Controls.Add(this.LowerRight);
-            this.Controls.Add(this.Done);
+            this.Controls.Add(this.OK);
             this.Controls.Add(this.Ability);
             this.Controls.Add(this.Pool);
             this.Controls.Add(this.hand_cards);
@@ -184,7 +185,7 @@ namespace LOTK.View
         private System.Windows.Forms.CheckedListBox hand_cards;
         private System.Windows.Forms.RichTextBox Pool;
         private System.Windows.Forms.Button Ability;
-        private System.Windows.Forms.Button Done;
+        private System.Windows.Forms.Button OK;
         private Button UpperLeft;
         private Button UpperRight;
         private Button LowerLeft;

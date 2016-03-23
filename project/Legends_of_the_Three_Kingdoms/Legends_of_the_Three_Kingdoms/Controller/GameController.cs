@@ -52,7 +52,11 @@ namespace LOTK.Controller
 
         public void clickButton(int playerID, int buttonID)
         {
-            throw new NotImplementedException();
+            switch (buttonID)
+            {
+                case 
+                game.userResponse(new UserAction(UserActionType.YES_OR_NO, buttonID));
+            }
         }
 
         public void clickCard(int playerID, int cardID)

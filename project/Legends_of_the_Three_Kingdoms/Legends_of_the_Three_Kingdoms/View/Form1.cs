@@ -11,7 +11,7 @@ using LOTK.Controller;
 
 namespace LOTK.View
 {
-    public delegate void clickButton(int playerID, int buttonID);
+    public delegate void clickButton(int playerID, ButtonID buttonID);
 
     public delegate void clickCard(int playerID, int cardID); // maybe later changed to a card struct
 
@@ -70,9 +70,9 @@ namespace LOTK.View
             
         }
 
-        private void Done_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
-            clickbutton(position, 1);
+            clickbutton(position, ButtonID.OK);
         }
 
         private void UpperLeft_Click(object sender, EventArgs e)
@@ -92,6 +92,11 @@ namespace LOTK.View
         private void UpperRight_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
