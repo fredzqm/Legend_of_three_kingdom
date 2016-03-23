@@ -3,9 +3,15 @@ using System.Collections.Generic;
 
 namespace LOTK.Model
 {
-    public class Game
+
+    public interface IGame
     {
-        public readonly int Num_Player;
+        int Num_Player { get; }
+    }
+
+    public class Game : IGame
+    {
+        public int Num_Player { get; }
         public readonly Player[] players;
         public readonly CardSet cards;
         private int curRoundPlayerID;
@@ -45,7 +51,7 @@ namespace LOTK.Model
             { // when turn switches
                 curRoundPlayerID = players[curPhase.playerID];
             }
-            PhaseList followingPhases = players[curPhase.playerID].handlePhase(curPhase);
+            PhaseList followingPhases = players[curPhase.playerID].handlePhase(curPhase, this);
             stages.pushStageList(followingPhases);
             skipIrresponsivePhases();
         }

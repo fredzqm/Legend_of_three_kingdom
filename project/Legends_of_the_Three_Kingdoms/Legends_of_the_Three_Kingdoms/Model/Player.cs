@@ -20,16 +20,22 @@ namespace LOTK.Model
             return p.playerID;
         }
 
-        public PhaseList judgePhase(Game g)
+        public PhaseList playerTurn(IGame g)
+        {
+            return new PhaseList(new JudgePhase(playerID),
+                new PlayerTurn(g.players[(playerID + 1) % g.Num_Player]));
+        }
+
+        public PhaseList judgePhase(IGame g)
         {
             return new PhaseList(new DrawingPhase(this), new ActionPhase(this));
         }
-        public PhaseList drawingPhase(Game g)
+        public PhaseList drawingPhase(IGame g)
         {
             return new PhaseList();
         }
 
-        internal PhaseList actionPhase(Game g)
+        internal PhaseList actionPhase(IGame g)
         {
             return new PhaseList(new DiscardPhase(this));
         }
@@ -59,12 +65,30 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
 
-        public PhaseList handlePhase(Phase currentPhase)
+        public PhaseList handlePhase(Phase curPhase, IGame IGame)
         {
-            throw new NotImplementedException();
+            if (curPhase is PlayerTurn)
+            {
+                return playerTurn(IGame);
+            }else if (curPhase is JudgePhase)
+            {
+                return judgePhase(IGame);
+            }else if (curPhase is DrawingPhase)
+            {
+                return drawingPhase(IGame);
+            }
+            else if (curPhase is ActionPhase)
+            {
+                return actionPhase(IGame);
+            }
+            else if (curPhase is DiscardPhase)
+            {
+                return discardPhase(IGame);
+            }
+            throw new Exception("No such phase defined!");
         }
 
-        internal PhaseList discardPhase(Game g)
+        internal PhaseList discardPhase(IGame g)
         {
             return new PhaseList();
         }
