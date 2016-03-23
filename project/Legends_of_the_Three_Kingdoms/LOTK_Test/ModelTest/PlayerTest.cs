@@ -21,28 +21,29 @@ namespace LOTK_Test.ModelTest
             Player p = new Player(0);
             IGame testgame = new TestGame(5);
             PhaseList ls;
-            ls= p.handlePhase(new PlayerTurn(0), testgame);
-            Assert.IsInstanceOfType(ls.pop(), typeof(JudgePhase));
-            Assert.IsInstanceOfType(ls.pop(), typeof(PlayerTurn));
+            ls= p.handlePhase(new Phase(0, PhaseType.PlayerTurn), testgame);
+            Assert.AreEqual(ls.pop().type , PhaseType.PlayerTurn);
+            Assert.AreEqual(ls.pop().type , PhaseType.PlayerTurn);
             Assert.IsTrue(ls.isEmpty());
 
-            ls = p.handlePhase(new JudgePhase(0), testgame);
-            Assert.IsInstanceOfType(ls.pop(), typeof(DrawingPhase));
-            Assert.IsInstanceOfType(ls.pop(), typeof(ActionPhase));
+            ls = p.handlePhase(new Phase(0, PhaseType.JudgePhase), testgame);
+            Assert.AreEqual(ls.pop().type , PhaseType.DrawingPhase);
+            Assert.AreEqual(ls.pop().type , PhaseType.ActionPhase);
             Assert.IsTrue(ls.isEmpty());
 
-            ls = p.handlePhase(new DrawingPhase(0), testgame);
+            ls = p.handlePhase(new Phase(0, PhaseType.DrawingPhase), testgame);
             Assert.IsTrue(ls.isEmpty());
 
-            ls = p.handlePhase(new ActionPhase(0), testgame);
-            Assert.IsInstanceOfType(ls.pop(), typeof(DiscardPhase));
+            ls = p.handlePhase(new Phase(0, PhaseType.ActionPhase), testgame);
+            Assert.AreEqual(ls.pop().type , PhaseType.DiscardPhase);
             Assert.IsTrue(ls.isEmpty());
 
-            ls = p.handlePhase(new DiscardPhase(0), testgame);
+            ls = p.handlePhase(new Phase(0, PhaseType.DiscardPhase), testgame);
             Assert.IsTrue(ls.isEmpty());
 
         }
         
+
     }
 
     internal class TestGame : IGame

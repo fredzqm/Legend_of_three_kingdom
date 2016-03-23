@@ -17,14 +17,11 @@ namespace LOTK.Model
         private int curRoundPlayerID;
         public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
         private PhaseList stages { get; set; }
-        public ResponsivePhase currentStage
+        public Phase currentStage
         {
             get
             {
-               ResponsivePhase ret = stages.top() as ResponsivePhase;
-                if (ret == null)
-                    throw new Exception("Still running");
-                return ret;
+                return stages.top();
             }
         }
 
@@ -40,14 +37,14 @@ namespace LOTK.Model
                 players[i] = new Player(i);
             }
             stages = new PhaseList();
-            stages.add(new PlayerTurn(players[0]));
+            stages.add(new Phase(0, PhaseType.PlayerTurn));
             skipIrresponsivePhases();
         }
 
         public void nextStage()
         {
             Phase curPhase = stages.pop();
-            if (curPhase is PlayerTurn)
+            if (curPhase.type == PhaseType.PlayerTurn)
             { // when turn switches
                 curRoundPlayerID = players[curPhase.playerID];
             }
@@ -58,7 +55,7 @@ namespace LOTK.Model
 
         private void skipIrresponsivePhases()
         {
-            while(! (stages.top() is ResponsivePhase))
+            while(! (stages.top().needResponse()))
             {
                 nextStage();
             }
@@ -66,7 +63,8 @@ namespace LOTK.Model
 
         public bool userResponse(UserAction userAction)
         {
-            return currentStage.userInput(userAction);
+            throw new NotImplementedException();
+            //return currentStage.userInput(userAction);
         }
 
         public List<Card> drawCard(int v)

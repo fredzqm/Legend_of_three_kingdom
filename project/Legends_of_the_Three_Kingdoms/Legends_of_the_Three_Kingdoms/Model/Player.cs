@@ -15,20 +15,20 @@ namespace LOTK.Model
             playerID = pos;
         }
 
-        public static implicit operator int(Player p)
+        public static implicit operator int (Player p)
         {
             return p.playerID;
         }
 
         public PhaseList playerTurn(IGame g)
         {
-            return new PhaseList(new JudgePhase(playerID),
-                new PlayerTurn((playerID + 1) % g.Num_Player));
+            return new PhaseList(new Phase(this, PhaseType.JudgePhase),
+                new Phase((playerID + 1) % g.Num_Player, PhaseType.JudgePhase));
         }
 
         public PhaseList judgePhase(IGame g)
         {
-            return new PhaseList(new DrawingPhase(this), new ActionPhase(this));
+            return new PhaseList(new Phase(this, PhaseType.DrawingPhase), new Phase(this, PhaseType.ActionPhase));
         }
         public PhaseList drawingPhase(IGame g)
         {
@@ -37,7 +37,7 @@ namespace LOTK.Model
 
         internal PhaseList actionPhase(IGame g)
         {
-            return new PhaseList(new DiscardPhase(this));
+            return new PhaseList(new Phase(this, PhaseType.DiscardPhase));
         }
         internal PhaseList discardPhase(IGame g)
         {
@@ -71,25 +71,20 @@ namespace LOTK.Model
 
         public PhaseList handlePhase(Phase curPhase, IGame IGame)
         {
-            if (curPhase is PlayerTurn)
+            switch (curPhase.type)
             {
-                return playerTurn(IGame);
-            }else if (curPhase is JudgePhase)
-            {
-                return judgePhase(IGame);
-            }else if (curPhase is DrawingPhase)
-            {
-                return drawingPhase(IGame);
+                case PhaseType.PlayerTurn:
+                    return playerTurn(IGame);
+                case PhaseType.JudgePhase:
+                    return judgePhase(IGame);
+                case PhaseType.DrawingPhase:
+                    return drawingPhase(IGame);
+                case PhaseType.ActionPhase:
+                    return actionPhase(IGame);
+                case PhaseType.DiscardPhase:
+                    return discardPhase(IGame);
+                default: throw new Exception("This type not defined");
             }
-            else if (curPhase is ActionPhase)
-            {
-                return actionPhase(IGame);
-            }
-            else if (curPhase is DiscardPhase)
-            {
-                return discardPhase(IGame);
-            }
-            throw new Exception("No such phase defined!");
         }
 
     }

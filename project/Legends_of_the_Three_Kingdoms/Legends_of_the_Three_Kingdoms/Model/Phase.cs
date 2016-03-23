@@ -8,121 +8,40 @@ namespace LOTK.Model
 {
     public class Phase
     {
-        public virtual PhaseList nextStage(Game g)
-        {
-            return new PhaseList();
-        }
-        public Phase(int playerId)
-        {
-            playerID = playerId;
-        }
         public int playerID { get; }
+        public PhaseType type { get;}
+        public PhaseType playerTurn {get; }
+
+        public Phase(int playerID, PhaseType playerTurn)
+        {
+            this.playerID = playerID;
+            this.playerTurn = playerTurn;
+        }
+
+        public bool needResponse()
+        {
+            switch (type)
+            {
+                case PhaseType.PlayerTurn:
+                case PhaseType.JudgePhase:
+                case PhaseType.DrawingPhase:
+                    return false;
+                case PhaseType.ActionPhase:
+                case PhaseType.DiscardPhase:
+                    return true;
+                default: throw new Exception("This type not defined");
+            }
+        }
     }
 
-  
-    public class ResponsivePhase : Phase
+    public enum PhaseType
     {
-        public ResponsivePhase(int playerID) : base(playerID)
-        {
-
-        }
-
-        public virtual bool userInput(UserAction u)
-        {
-            return true;
-        }
+        PlayerTurn,
+        JudgePhase,
+        DrawingPhase,
+        ActionPhase,
+        DiscardPhase
     }
-    
-    public class PlayerTurn : Phase
-    {
-        public PlayerTurn(int playerID) : base(playerID)
-        {
-
-        }
-
-        //public PhaseList nextStage(Game g)
-        //{
-        //    return new PhaseList(new JudgePhase(player), 
-        //        new PlayerTurn(g.players[(player + 1) % g.Num_Player]));
-        //}
-
-    }
-
-    public class JudgePhase : ResponsivePhase
-    {
-        public JudgePhase(int playerID) : base(playerID)
-        {
-
-        }
-
-        //public PhaseList nextStage(Game g)
-        //{
-        //    return player.judgePhase(g);
-        //}
-
-        public bool userInput(UserAction u)
-        {
-            return false;
-        }
-    }
-    public class DrawingPhase : ResponsivePhase
-    {
-        public DrawingPhase(int playerID) : base(playerID)
-        {
-
-        }
-        //public PhaseList nextStage(Game g)
-        //{
-        //    return player.drawingPhase(g);
-        //}
-
-        //public bool userInput(UserAction u)
-        //{
-        //    return false;
-        //}
-    }
-    public class ActionPhase : ResponsivePhase
-    {
-        public ActionPhase(int playerID) : base(playerID)
-        {
-
-        }
-        //public PhaseList nextStage(Game g)
-        //{
-        //    return player.actionPhase(g);
-        //}
-
-        //public bool userInput(UserAction u)
-        //{
-        //    switch (u.type)
-        //    {
-        //        case UserActionType.YES_OR_NO: return u.detail == UserAction.YES;
-        //        default: return false;
-        //    }
-        //}
-    }
-    public class DiscardPhase : ResponsivePhase
-    {
-        public DiscardPhase(int playerID) : base(playerID)
-        {
-
-        }
-
-        //public PhaseList nextStage(Game g)
-        //{
-        //    return player.discardPhase(g);
-        //}
-
-        //public bool userInput(UserAction u)
-        //{  
-        //    switch (u.type)
-        //    {
-        //        case UserActionType.YES_OR_NO: return u.detail == UserAction.YES;
-        //        default: return false;
-        //    }
-        //}
-    }
-
 
 
     public class PhaseList
