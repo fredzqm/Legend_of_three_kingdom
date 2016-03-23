@@ -54,21 +54,21 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void CurrentPlayerTest()
         {
-            Game g = new Game(8 , null);
+            Game g = new Game(8, null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    Assert.IsTrue(g.currentStage.type ==PhaseType.JudgePhase);
+                    Assert.IsTrue(g.currentStage.type == PhaseType.JudgePhase);
                     Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage.type ==PhaseType.DrawingPhase);
+                    Assert.IsTrue(g.currentStage.type == PhaseType.DrawingPhase);
                     Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage.type ==PhaseType.ActionPhase);
+                    Assert.IsTrue(g.currentStage.type == PhaseType.ActionPhase);
                     Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
-                    Assert.IsTrue(g.currentStage.type ==PhaseType.DiscardPhase);
+                    Assert.IsTrue(g.currentStage.type == PhaseType.DiscardPhase);
                     Assert.AreEqual(g.curRoundPlayer, i);
                     g.nextStage();
                 }

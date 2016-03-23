@@ -23,7 +23,7 @@ namespace LOTK.Model
         public PhaseList playerTurn(IGame g)
         {
             return new PhaseList(new Phase(this, PhaseType.JudgePhase),
-                new Phase((playerID + 1) % g.Num_Player, PhaseType.JudgePhase));
+                new Phase((playerID + 1) % g.Num_Player, PhaseType.PlayerTurn));
         }
 
         public PhaseList judgePhase(IGame g)

@@ -10,12 +10,11 @@ namespace LOTK.Model
     {
         public int playerID { get; }
         public PhaseType type { get;}
-        public PhaseType playerTurn {get; }
 
         public Phase(int playerID, PhaseType playerTurn)
         {
             this.playerID = playerID;
-            this.playerTurn = playerTurn;
+            this.type = playerTurn;
         }
 
         public bool needResponse()

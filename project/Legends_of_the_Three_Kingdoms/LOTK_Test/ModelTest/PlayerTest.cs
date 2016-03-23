@@ -22,13 +22,13 @@ namespace LOTK_Test.ModelTest
             IGame testgame = new TestGame(5);
             PhaseList ls;
             ls= p.handlePhase(new Phase(0, PhaseType.PlayerTurn), testgame);
-            Assert.AreEqual(ls.pop().type , PhaseType.PlayerTurn);
-            Assert.AreEqual(ls.pop().type , PhaseType.PlayerTurn);
+            Assert.AreEqual( PhaseType.JudgePhase, ls.pop().type);
+            Assert.AreEqual( PhaseType.PlayerTurn, ls.pop().type );
             Assert.IsTrue(ls.isEmpty());
 
             ls = p.handlePhase(new Phase(0, PhaseType.JudgePhase), testgame);
-            Assert.AreEqual(ls.pop().type , PhaseType.DrawingPhase);
-            Assert.AreEqual(ls.pop().type , PhaseType.ActionPhase);
+            Assert.AreEqual(PhaseType.DrawingPhase, ls.pop().type);
+            Assert.AreEqual(PhaseType.ActionPhase, ls.pop().type);
             Assert.IsTrue(ls.isEmpty());
 
             ls = p.handlePhase(new Phase(0, PhaseType.DrawingPhase), testgame);

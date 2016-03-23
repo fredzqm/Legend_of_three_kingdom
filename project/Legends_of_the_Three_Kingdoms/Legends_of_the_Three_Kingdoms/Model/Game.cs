@@ -19,7 +19,7 @@ namespace LOTK.Model
         private PhaseList stages { get; set; }
         public Phase currentStage { get { return stages.top(); } }
 
-        public Game(int Num_player, List<Card> cardList)
+        public Game(int Num_player, ICollection<Card> cardList)
         {
             Num_Player = Num_player;
             players = new Player[Num_Player];

@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace LOTK.Controller
 {
+    public interface viewController
+    {
+        Required_Data getData(int ownPlayer);
+
+    }
+
+
     class GameController : viewController
     {
         const int NUM_OF_PLAYER = 5;
@@ -15,7 +22,15 @@ namespace LOTK.Controller
         public Game game { get; set; }
         public GameController()
         {
-            game = new Game(NUM_OF_PLAYER, null);
+            ICollection<Card> cardset = initialLizeCardSet();
+            game = new Game(NUM_OF_PLAYER, cardset);
+        }
+
+        private ICollection<Card> initialLizeCardSet()
+        {
+            ICollection<Card> ls = new List<Card>();
+            //ls.Add(new Card());
+            return ls;
         }
 
         public Required_Data getData(int ownPlayer)
@@ -34,18 +49,14 @@ namespace LOTK.Controller
             return rd;
         }
 
-        //public void applyUserResponse(UserAction userAction)
-        //{
-        //    if (game.userResponse(userAction))
-        //    {
-        //        game.nextStage();
-        //    }
-        //}
+        public void applyUserResponse(UserAction userAction)
+        {
+            if (game.userResponse(userAction))
+            {
+                game.nextStage();
+            }
+        }
     }
 
-    public interface viewController
-    {
-        Required_Data getData(int ownPlayer);
-
-    }
+ 
 }
