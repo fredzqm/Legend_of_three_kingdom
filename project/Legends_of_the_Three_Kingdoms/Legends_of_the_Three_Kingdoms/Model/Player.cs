@@ -59,7 +59,7 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
 
-        internal PhaseList handlePhase(Phase currentPhase)
+        public PhaseList handlePhase(Phase currentPhase)
         {
             throw new NotImplementedException();
         }

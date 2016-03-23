@@ -14,5 +14,14 @@ namespace LOTK_Test.ModelTest
             Player p = new Player(0);
 
         }
+
+        [TestMethod]
+        public void PlayerTurnPhaseTest()
+        {
+            Player p = new Player(0);
+            PhaseList ls = p.handlePhase(new PlayerTurn(0));
+            Assert.IsInstanceOfType(ls.pop(), typeof(JudgePhase));
+            Assert.IsInstanceOfType(ls.pop(), typeof(PlayerTurn));
+        }
     }
 }

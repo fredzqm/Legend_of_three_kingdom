@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
-    public interface Phase
+    public class Phase
     {
-        PhaseList nextStage(Game g);
+        public virtual PhaseList nextStage(Game g)
+        {
+            return new PhaseList();
+        }
         Player player { get; }
     }
 
