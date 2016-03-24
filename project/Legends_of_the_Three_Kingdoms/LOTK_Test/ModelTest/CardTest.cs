@@ -20,7 +20,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NoCardException))]
         public void DiscardUndefinedCardExceptionTest()
         {
             ICollection<Card> ls = new List<Card>();
@@ -30,12 +30,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
             ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
             CardSet s = new CardSet(ls);
-            try {
-                s.discard(new Card(CardSuit.Spade, CardType.Wine, 5));
-            }
-            catch (NoCardException e) {
-                Console.WriteLine("NoCardException caught.", e);
-            }
+            s.discard(new Card(CardSuit.Spade, CardType.Wine, 5));
         }
 
         [TestMethod]
