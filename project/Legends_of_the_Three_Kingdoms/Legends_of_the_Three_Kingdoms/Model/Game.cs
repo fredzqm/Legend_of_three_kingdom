@@ -43,13 +43,13 @@ namespace LOTK.Model
             }
             stages = new PhaseList();
             stages.add(new Phase(0, PhaseType.PlayerTurn));
-            skipIrresponsivePhases();
+            skipping();
         }
 
         /// <summary>
         /// Advancer the 
         /// </summary>
-        internal void nextStage()
+        public void nextStage()
         {
             Phase curPhase = stages.pop();
             if (curPhase.type == PhaseType.PlayerTurn)
@@ -58,10 +58,13 @@ namespace LOTK.Model
             }
             PhaseList followingPhases = players[curPhase.playerID].handlePhase(curPhase, this);
             stages.pushStageList(followingPhases);
-            skipIrresponsivePhases();
+            skipping();
         }
 
-         private void skipIrresponsivePhases()
+        /// <summary>
+        /// skipping those phases that does not require user response
+        /// </summary>
+        private void skipping()
         {
             while (!(stages.top().needResponse()))
             {
@@ -74,16 +77,25 @@ namespace LOTK.Model
            return players[currentStage.playerID].UserInput(currentStage, userAction);
         }
 
+        /// <summary>
+        /// handle user action
+        /// </summary>
+        /// <param name="userAction"></param>
         public void userResponse(UserAction userAction)
         {
             if (canProceed(userAction))
                 nextStage();
         }
 
-        public List<Card> drawCard(int v)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="num">Number of cards</param>
+        /// <returns>the card drown</returns>
+        public List<Card> drawCard(int num)
         {
             List<Card> cards = new List<Card>();
-            for (int i = 0; i < v; i++)
+            for (int i = 0; i < num; i++)
                 cards.Add(this.cards.pop());
             return cards;
         }

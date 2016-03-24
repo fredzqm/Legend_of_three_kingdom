@@ -7,9 +7,19 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
+    /// <summary>
+    /// Phase contains information that the game needs to process this phase
+    /// </summary>
     public class Phase
     {
+        /// <summary>
+        /// Whose phase
+        /// </summary>
         public int playerID { get; }
+
+        /// <summary>
+        /// The type of the phase
+        /// </summary>
         public PhaseType type { get;}
 
         public Phase(int playerID, PhaseType playerTurn)
@@ -18,6 +28,11 @@ namespace LOTK.Model
             this.type = playerTurn;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>true if this phase require user response,
+        /// fase if this phase should be invisible from outside</returns>
         public bool needResponse()
         {
             switch (type)
@@ -67,7 +82,9 @@ namespace LOTK.Model
         DiscardPhase
     }
 
-
+    /// <summary>
+    /// A simple data structure (linkedList) that used to store phases of game
+    /// </summary>
     public class PhaseList
     {
         private Node head;
@@ -124,6 +141,11 @@ namespace LOTK.Model
             }
             return retStage;
         }
+
+        /// <summary>
+        /// concatenate two phaseList together
+        /// </summary>
+        /// <param name="added"></param>
         public void pushStageList(PhaseList added)
         {
             if (added.head == null)
@@ -135,11 +157,6 @@ namespace LOTK.Model
         public Phase top()
         {
             return head.stage;
-        }
-
-        public Phase bottom()
-        {
-            return tail.stage;
         }
 
         class Node
