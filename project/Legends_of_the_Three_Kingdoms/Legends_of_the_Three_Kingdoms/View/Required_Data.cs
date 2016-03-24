@@ -8,7 +8,8 @@ namespace LOTK.View
 {
     public class Required_Data
     {
-        public PlayerDisplay[] players = new PlayerDisplay[5];
+        const int NUM_OF_PLAYER = 5;
+        public PlayerDisplay[] players = new PlayerDisplay[NUM_OF_PLAYER];
 
         public List<CardDisplay> hold_cards;
         public List<CardDisplay> pool_cards;
