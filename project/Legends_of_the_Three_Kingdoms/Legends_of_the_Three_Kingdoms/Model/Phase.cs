@@ -22,9 +22,9 @@ namespace LOTK.Model
             switch (type)
             {
                 case PhaseType.PlayerTurn:
+                    return false;
                 case PhaseType.JudgePhase:
                 case PhaseType.DrawingPhase:
-                    return false;
                 case PhaseType.ActionPhase:
                 case PhaseType.DiscardPhase:
                     return true;

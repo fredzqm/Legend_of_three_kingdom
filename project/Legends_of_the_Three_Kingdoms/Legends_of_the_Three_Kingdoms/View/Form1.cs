@@ -75,10 +75,16 @@ namespace LOTK.View
             clickbutton(position, ButtonID.OK);
         }
 
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            clickbutton(position, ButtonID.Cancel);
+        }
+
         private void UpperLeft_Click(object sender, EventArgs e)
         {
 
         }
+
         private void LowerRight_Click(object sender, EventArgs e)
         {
            
@@ -94,9 +100,6 @@ namespace LOTK.View
             
         }
 
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            clickbutton(position, ButtonID.Cancel);
-        }
+
     }
 }
