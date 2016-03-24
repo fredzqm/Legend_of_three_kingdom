@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LOTK.View;
+using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK.Model
 {
@@ -85,7 +86,7 @@ namespace LOTK.Model
                     return actionPhase(game);
                 case PhaseType.DiscardPhase:
                     return discardPhase(game);
-                default: throw new Exception("This type not defined");
+                default: throw new NotDefinedException("This type not defined");
             }
         }
 
