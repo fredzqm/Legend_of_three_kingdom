@@ -20,8 +20,10 @@ namespace LOTK.Model
         private LinkedList<Card> cardPile;
         private LinkedList<Card> discardPile;
 
-        private Dictionary<Card, int> dict;
-
+        /// <summary>
+        /// create a cardset given an list of cards
+       /// </summary>
+        /// <param name="cls">A collection for all cards</param>
         public CardSet(ICollection<Card> cls)
         {
             cardLs = new Card[cls.Count];
@@ -38,6 +40,13 @@ namespace LOTK.Model
             cardPile.OrderBy(a => Guid.NewGuid());
         }
 
+        /// <summary>
+        /// Known get the card instance with cardID
+        /// This should always be true
+        /// <seealso cref="CardSet.getCardID(Card)">
+        /// </summary>
+        /// <param name="i">cardID</param>
+        /// <returns>the corresponding Card instance</returns>
         public Card this[int i]
         {
             get
@@ -45,11 +54,20 @@ namespace LOTK.Model
                 return cardLs[i];
             }
         }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="a">Card instance</param>
+        /// <returns>CardID</returns>
         public int getCardID(Card a)
         {
             return cardIDs[a];
         }
 
+        /// <summary>
+        /// pop the top card on the cardpile
+        /// </summary>
+        /// <returns>The top card</returns>
         public Card pop()
         {
             if (cardPile.Count == 0)
@@ -64,6 +82,11 @@ namespace LOTK.Model
             cardPile.RemoveFirst();
             return ret;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="c">The card Discarded</param>
         public void discard(Card c)
         {
             if (!cardIDs.ContainsKey(c))
@@ -74,6 +97,9 @@ namespace LOTK.Model
  
     }
 
+    /// <summary>
+    /// An instance 
+    /// </summary>
     public class Card
     {
         private CardType type;
