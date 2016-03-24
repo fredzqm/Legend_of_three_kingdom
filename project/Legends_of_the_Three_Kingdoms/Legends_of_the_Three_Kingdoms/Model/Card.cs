@@ -111,6 +111,7 @@ namespace LOTK.Model
         {
             return "Card Name";
         }
+
     }
     
 
