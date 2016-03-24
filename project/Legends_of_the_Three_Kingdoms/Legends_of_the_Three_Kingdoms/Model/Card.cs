@@ -145,7 +145,9 @@ namespace LOTK.Model
 
     }
     
-
+    /// <summary>
+    /// Four kind of Suits
+    /// </summary>
     public enum CardSuit
     {
         Heart,
@@ -153,6 +155,10 @@ namespace LOTK.Model
         Diamond,
         Club,
     }
+
+    /// <summary>
+    /// Incomplete now, 
+    /// </summary>
     public enum CardType
     {
         Attack,

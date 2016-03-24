@@ -10,16 +10,26 @@ namespace LOTK.Model
         int Num_Player { get; }
     }
 
+    /// <summary>
+    /// The main model representing the game
+    /// </summary>
     public class Game : IGame
     {
+
         public int Num_Player { get; }
-        public readonly Player[] players;
-        public readonly CardSet cards;
+        public Player[] players { get; }
+        public CardSet cards { get; }
+
         private int curRoundPlayerID;
         public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
         private PhaseList stages { get; set; }
         public Phase currentStage { get { return stages.top(); } }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Num_player">The number of players</param>
+        /// <param name="cardList">The list of cards</param>
         public Game(int Num_player, ICollection<Card> cardList)
         {
             Num_Player = Num_player;
@@ -36,7 +46,10 @@ namespace LOTK.Model
             skipIrresponsivePhases();
         }
 
-        public void nextStage()
+        /// <summary>
+        /// Advancer the 
+        /// </summary>
+        internal void nextStage()
         {
             Phase curPhase = stages.pop();
             if (curPhase.type == PhaseType.PlayerTurn)
