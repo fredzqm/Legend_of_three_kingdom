@@ -41,7 +41,7 @@ namespace LOTK.View
         {
             Required_Data data = controller.getData(position);
             turn.Text = data.this_player_stage;
-            thisPlayer.Text = data.players[0].name;
+            ThisPlayer.Text = data.players[0].name + ": "+ data.players[0].ability;
             tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
             tool_defence.Text = data.tool_defence.name + ": " + data.tool_defence.ability;
             for (int i = 0; i < data.hold_cards.Count; i++)
@@ -100,6 +100,9 @@ namespace LOTK.View
             
         }
 
+        private void ThisPlayer_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
