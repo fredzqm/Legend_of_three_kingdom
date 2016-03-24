@@ -104,7 +104,12 @@ namespace LOTK_Test.ModelTest
                 Card c = s.pop();
                 ls.Remove(c);
             }
-            s.pop();
+            try {
+                s.pop();
+            } catch (EmptyException e)
+            {
+                Console.WriteLine("Empty Exception caught.", e);
+            }
         }
 
         [TestMethod]
