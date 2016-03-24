@@ -76,25 +76,25 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void UserInputYES_OR_NOTest()
+        public void UserResponseYES_OR_NOTest()
         {
-            Game g = new Game(5 , null);
+            Game g = new Game(5, null);
             Assert.AreEqual(PhaseType.JudgePhase, g.currentStage.type);
-            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 1)));
-            g.nextStage();
+            // advance
+            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0));
             Assert.AreEqual(PhaseType.DrawingPhase, g.currentStage.type);
-            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 1)));
-            g.nextStage();
-
-            Assert.AreEqual(PhaseType.ActionPhase , g.currentStage.type );
-            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsFalse(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 1)));
-            g.nextStage();
-            Assert.AreEqual(PhaseType.DiscardPhase , g.currentStage.type );
-            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 1)));
+            // advance
+            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0));
+            Assert.AreEqual(PhaseType.ActionPhase, g.currentStage.type);
+            // not advance
+            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1));
+            Assert.AreEqual(PhaseType.ActionPhase, g.currentStage.type);
+            // advance
+            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0));
+            Assert.AreEqual(PhaseType.DiscardPhase, g.currentStage.type);
+            // advance
+            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1));
+            Assert.AreEqual(PhaseType.JudgePhase, g.currentStage.type);
         }
 
         [TestMethod]

@@ -58,9 +58,17 @@ namespace LOTK.Model
 
         /// <summary>
         /// </summary>
-        /// <param name="a">Card instance</param>
+        /// <param name="c">Card instance</param>
         /// <returns>CardID</returns>
-        public int getCardID(Card a)
+        public int this[Card c]
+        {
+            get
+            {
+                return cardIDs[c];
+            }
+        }
+
+       public int getCardID(Card a)
         {
             return cardIDs[a];
         }

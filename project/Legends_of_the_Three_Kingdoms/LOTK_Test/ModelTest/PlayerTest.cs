@@ -97,6 +97,28 @@ namespace LOTK_Test.ModelTest
 
         }
 
+        [TestMethod]
+        public void UserInputYES_OR_NOTest()
+        {
+            Player g = new Player(0);
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.JudgePhase), 
+                new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.JudgePhase),
+                new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DrawingPhase),
+                new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DrawingPhase),
+                new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.ActionPhase),
+                new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsFalse(g.UserInput(new Phase(0, PhaseType.ActionPhase),
+                new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DiscardPhase),
+                new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DiscardPhase),
+                new UserAction(UserActionType.YES_OR_NO, 1)));
+        }
+
         internal class TestGame : IGame
         {
             public int Num_Player { get; }

@@ -15,7 +15,7 @@ namespace LOTK.View
         void clickCard(int playerID, int cardID);
         void clickPlayer(int playerID, int clickedPlayerID);
     }
-
+ 
     public class ButtonID
     {
         public const int OK = 1;

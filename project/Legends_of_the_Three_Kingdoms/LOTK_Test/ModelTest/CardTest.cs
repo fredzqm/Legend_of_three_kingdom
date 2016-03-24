@@ -179,11 +179,11 @@ namespace LOTK_Test.ModelTest
             ls.Add(e);
             CardSet s = new CardSet(ls);
 
-            Assert.AreEqual(a, s[s.getCardID(a)]);
-            Assert.AreEqual(b, s[s.getCardID(b)]);
-            Assert.AreEqual(c, s[s.getCardID(c)]);
-            Assert.AreEqual(d, s[s.getCardID(d)]);
-            Assert.AreEqual(e, s[s.getCardID(e)]);
+            Assert.AreEqual(a, s[s[a]]);
+            Assert.AreEqual(b, s[s[b]]);
+            Assert.AreEqual(c, s[s[c]]);
+            Assert.AreEqual(d, s[s[d]]);
+            Assert.AreEqual(e, s[s[e]]);
         }
 
     }

@@ -4,7 +4,9 @@ using LOTK.View;
 
 namespace LOTK.Model
 {
-
+    /// <summary>
+    /// This is created for the purpose of dependency injection
+    /// </summary>
     public interface IGame
     {
         int Num_Player { get; }
@@ -22,6 +24,7 @@ namespace LOTK.Model
 
         private int curRoundPlayerID;
         public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
+
         private PhaseList stages { get; set; }
         public Phase currentStage { get { return stages.top(); } }
 
@@ -43,47 +46,35 @@ namespace LOTK.Model
             }
             stages = new PhaseList();
             stages.add(new Phase(0, PhaseType.PlayerTurn));
-            skipping();
+            nextStage();
         }
 
         /// <summary>
-        /// Advancer the 
+        /// Advance the stage
         /// </summary>
         public void nextStage()
         {
             Phase curPhase = stages.pop();
             if (curPhase.type == PhaseType.PlayerTurn)
             { // when turn switches
-                curRoundPlayerID = players[curPhase.playerID];
+                curRoundPlayerID = curPhase.playerID;
             }
             PhaseList followingPhases = players[curPhase.playerID].handlePhase(curPhase, this);
             stages.pushStageList(followingPhases);
-            skipping();
-        }
-
-        /// <summary>
-        /// skipping those phases that does not require user response
-        /// </summary>
-        private void skipping()
-        {
             while (!(stages.top().needResponse()))
-            {
+            { // skipping all of those phases that do need user response.
                 nextStage();
             }
         }
 
-        public bool canProceed(UserAction userAction)
-        {
-           return players[currentStage.playerID].UserInput(currentStage, userAction);
-        }
-
         /// <summary>
+        /// This is the entry for user response
         /// handle user action
         /// </summary>
         /// <param name="userAction"></param>
         public void userResponse(UserAction userAction)
         {
-            if (canProceed(userAction))
+            if (players[currentStage.playerID].UserInput(currentStage, userAction))
                 nextStage();
         }
 
