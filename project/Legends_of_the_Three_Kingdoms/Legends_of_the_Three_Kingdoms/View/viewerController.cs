@@ -15,7 +15,9 @@ namespace LOTK.View
         void clickCard(int playerID, int cardID);
         void clickPlayer(int playerID, int clickedPlayerID);
     }
-
+    /// <summary>
+    /// Set Different constant to different value
+    /// </summary>
     public class ButtonID
     {
         public const int OK = 1;

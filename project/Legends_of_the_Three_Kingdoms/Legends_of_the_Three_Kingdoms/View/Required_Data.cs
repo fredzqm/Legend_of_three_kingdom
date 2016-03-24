@@ -16,7 +16,9 @@ namespace LOTK.View
 
         public CardDisplay tool_attack;
         public CardDisplay tool_defence;
-
+        /// <summary>
+        /// Setting all the required data to default
+        /// </summary>
         public Required_Data()
         {
             tool_attack.name = "tool_attack";
@@ -50,12 +52,16 @@ namespace LOTK.View
             this_player_stage = "this_player_stage";
         }
     }
-
+    /// <summary>
+    /// subclass for playerDisplay
+    /// </summary>
         public struct PlayerDisplay{
             public string name;
             public string ability;
         }
-
+    /// <summary>
+    /// subclass for CardDisplay
+    /// </summary>
         public struct CardDisplay
         {
             public string name;
