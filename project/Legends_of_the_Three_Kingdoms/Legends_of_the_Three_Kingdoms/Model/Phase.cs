@@ -22,15 +22,39 @@ namespace LOTK.Model
             switch (type)
             {
                 case PhaseType.PlayerTurn:
-                    return false;
                 case PhaseType.JudgePhase:
                 case PhaseType.DrawingPhase:
+                    return false;
                 case PhaseType.ActionPhase:
                 case PhaseType.DiscardPhase:
                     return true;
                 default: throw new Exception("This type not defined");
             }
         }
+
+        public override string ToString()
+        {
+            string str = "";
+            switch (type)
+            {
+                case PhaseType.JudgePhase:
+                    str = "JudgePhase";
+                    break;
+                case PhaseType.DrawingPhase:
+                    str = "DrawingPhase";
+                    break;
+                case PhaseType.ActionPhase:
+                    str = "ActionPhase";
+                    break;
+                case PhaseType.DiscardPhase:
+                    str = "DiscardPhase";
+                    break;
+                default:
+                    break;
+            }
+            return "Plyaer "+playerID+ " at " + str;
+        }
+
     }
 
     public enum PhaseType

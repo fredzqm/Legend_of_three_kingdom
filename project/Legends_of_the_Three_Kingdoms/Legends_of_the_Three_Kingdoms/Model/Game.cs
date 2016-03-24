@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LOTK.View;
 
 namespace LOTK.Model
 {
@@ -47,7 +48,7 @@ namespace LOTK.Model
             skipIrresponsivePhases();
         }
 
-        private void skipIrresponsivePhases()
+         private void skipIrresponsivePhases()
         {
             while (!(stages.top().needResponse()))
             {
@@ -55,9 +56,15 @@ namespace LOTK.Model
             }
         }
 
-        public bool userResponse(UserAction userAction)
+        public bool canProceed(UserAction userAction)
         {
-            return players[currentStage.playerID].UserInput(currentStage, userAction);
+           return players[currentStage.playerID].UserInput(currentStage, userAction);
+        }
+
+        public void userResponse(UserAction userAction)
+        {
+            if (canProceed(userAction))
+                nextStage();
         }
 
         public List<Card> drawCard(int v)

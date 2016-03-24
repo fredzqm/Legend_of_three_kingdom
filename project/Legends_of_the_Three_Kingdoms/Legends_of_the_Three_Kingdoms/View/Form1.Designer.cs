@@ -5,7 +5,7 @@ using System;
 
 namespace LOTK.View
 {
-    public partial class Form1
+    public partial class GameView
     {
         private System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)

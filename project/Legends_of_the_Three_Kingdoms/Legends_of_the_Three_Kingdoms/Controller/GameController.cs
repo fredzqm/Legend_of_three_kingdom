@@ -5,18 +5,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LOTK.Controller
 {
     class GameController : viewController
     {
         const int NUM_OF_PLAYER = 5;
+        public GameView view { get; }
+        public Game game { get; }
 
-        public Game game { get; set; }
         public GameController()
         {
             ICollection<Card> cardset = initialLizeCardSet();
             game = new Game(NUM_OF_PLAYER, cardset);
+            view =  new GameView(this, 0);
         }
 
         private ICollection<Card> initialLizeCardSet()
@@ -34,20 +37,17 @@ namespace LOTK.Controller
                 rd.players[i].ability = game.players[(i + ownPlayer) % NUM_OF_PLAYER].getAbilityDescription();
                 rd.players[i].name = game.players[(i + ownPlayer) % NUM_OF_PLAYER].getName();
             }
-            rd.pool_cards = null;
+            rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].getHoldCards().Select(c => new CardDisplay(c.getName(), c.getDescription())));
             rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].getHoldCards().Select(c => new CardDisplay(c.getName(), c.getDescription())));
             rd.this_player_stage = game.currentStage.ToString();
-            rd.tool_attack = game.players[ownPlayer].getWeapon();
-            rd.tool_defence = game.players[ownPlayer].getDefense();
+            rd.tool_attack = CardToCardDisplay( game.players[ownPlayer].getWeapon());
+            rd.tool_defence = CardToCardDisplay( game.players[ownPlayer].getDefense());
             return rd;
         }
 
-        public void applyUserResponse(UserAction userAction)
+        private CardDisplay CardToCardDisplay(Card card)
         {
-            if (game.userResponse(userAction))
-            {
-                game.nextStage();
-            }
+            return new CardDisplay(card.getName(), card.getDescription());
         }
 
         public void clickButton(int playerID, int buttonID)
@@ -55,11 +55,15 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    game.userResponse(new UserAction(UserActionType.YES_OR_NO, buttonID));
+                    game.userResponse(new UserAction(UserActionType.YES_OR_NO, 1));
+                    break;
+                case ButtonID.Cancel:
+                    game.userResponse(new UserAction(UserActionType.YES_OR_NO, 0));
                     break;
                 default:
                     break;
             }
+            view.updateForm();
         }
 
         public void clickCard(int playerID, int cardID)
