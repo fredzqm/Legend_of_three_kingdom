@@ -2,6 +2,7 @@
 using LOTK.Model;
 using System;
 using System.Collections.Generic;
+using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK_Test.ModelTest
 {
@@ -20,7 +21,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NoCardException))]
         public void DiscardUndefinedCardExceptionTest()
         {
             ICollection<Card> ls = new List<Card>();
@@ -80,7 +81,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NoCardException))]
         public void CardPileRunoutExceptionTest()
         {
             List<Card> ls, lsbackup = new List<Card>();

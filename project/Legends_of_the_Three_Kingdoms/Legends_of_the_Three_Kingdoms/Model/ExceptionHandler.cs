@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Legends_of_the_Three_Kingdoms.Model
 {
-    public class NotDefineException: Exception
+    public class NotDefinedException: Exception
     {
-        public NotDefineException(String message)
+        public NotDefinedException(String message)
             : base(message) { 
         }
     }

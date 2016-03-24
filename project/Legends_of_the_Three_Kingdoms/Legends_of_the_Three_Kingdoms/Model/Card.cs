@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Legends_of_the_Three_Kingdoms.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -76,7 +77,7 @@ namespace LOTK.Model
                 discardPile = new LinkedList<Card>();
                 cardPile.OrderBy(a => Guid.NewGuid());
                 if (cardPile.Count == 0)
-                    throw new Exception("Run out of cards");
+                    throw new NoCardException("Run out of cards");
             }
             Card ret = cardPile.First();
             cardPile.RemoveFirst();
@@ -90,7 +91,7 @@ namespace LOTK.Model
         public void discard(Card c)
         {
             if (!cardIDs.ContainsKey(c))
-                throw new Exception();
+                throw new NoCardException("Such Card Cannot be Found"); 
             discardPile.AddFirst(c);
         }
 
