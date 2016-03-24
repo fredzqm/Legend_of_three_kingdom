@@ -79,8 +79,35 @@ namespace LOTK.Model
                     return actionPhase(game);
                 case PhaseType.DiscardPhase:
                     return discardPhase(game);
-                default: throw new NotDefinedException("This type not defined");
+                default:
+                    return handleSpecialPhase(curPhase, game);
             }
+        }
+
+        public virtual PhaseList handleSpecialPhase(Phase curPhase, IGame game)
+        {
+            throw new NotDefinedException("This type not defined");
+        }
+
+        public bool autoPhase(Phase curPhase)
+        {
+            switch (curPhase.type)
+            {
+                case PhaseType.JudgePhase:
+                case PhaseType.DrawingPhase:
+                    return true;
+                case PhaseType.ActionPhase:
+                    return false;
+                case PhaseType.DiscardPhase:
+                    return false;
+                default:
+                    return autoPhase(curPhase);
+            }
+        }
+
+        public virtual bool autoSpecialPhase(Phase curPhase, IGame game)
+        {
+            throw new NotDefinedException("This type not defined");
         }
 
         /// <summary>

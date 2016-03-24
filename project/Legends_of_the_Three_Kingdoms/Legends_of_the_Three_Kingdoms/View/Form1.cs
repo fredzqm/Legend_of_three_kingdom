@@ -37,7 +37,18 @@ namespace LOTK.View
             InitializeComponent();
         }
 
+
+        delegate void updateDelegate();
+
         public void updateForm()
+        {
+            if (this.InvokeRequired)
+                this.Invoke(new updateDelegate(this.updateFormDelegate));
+            else
+                this.updateFormDelegate();
+        }
+
+        private void updateFormDelegate()
         {
             Required_Data data = controller.getData(position);
             turn.Text = data.this_player_stage;

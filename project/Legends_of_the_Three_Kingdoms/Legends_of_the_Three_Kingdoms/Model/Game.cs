@@ -22,11 +22,17 @@ namespace LOTK.Model
         public Player[] players { get; }
         public CardSet cards { get; }
 
+
+        private PhaseList stages;
+        public Phase curPhase { get { return stages.top(); } }
+        public Player curPhasePlayer { get { return players[curPhase.playerID]; } }
+
+        public bool timerAutoAdvance;
+        public bool timerVisit;
+
         private int curRoundPlayerID;
         public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
 
-        private PhaseList stages { get; set; }
-        public Phase currentStage { get { return stages.top(); } }
 
         /// <summary>
         /// 
@@ -50,21 +56,53 @@ namespace LOTK.Model
         }
 
         /// <summary>
-        /// Advance the stage
+        /// Advance the next stage and skip the following stages that do not need user response
         /// </summary>
         public void nextStage()
         {
-            Phase curPhase = stages.pop();
+            timerAutoAdvance = false;
+            advanceStage();
+            while (!(stages.top().needResponse()))
+            { // skipping all of those phases that do not need response
+                advanceStage();
+            }
+            timerVisit = false;
+            timerAutoAdvance = curPhasePlayer.autoPhase(curPhase);
+        }
+
+        private void advanceStage()
+        {
             if (curPhase.type == PhaseType.PlayerTurn)
             { // when turn switches
                 curRoundPlayerID = curPhase.playerID;
             }
-            PhaseList followingPhases = players[curPhase.playerID].handlePhase(curPhase, this);
+            PhaseList followingPhases = curPhasePlayer.handlePhase(curPhase, this);
+            stages.pop();
             stages.pushStageList(followingPhases);
-            while (!(stages.top().needResponse()))
-            { // skipping all of those phases that do need user response.
-                nextStage();
+        }
+
+        /// <summary>
+        /// Under certain circumstances, the player might have only one option.
+        /// In those cases, we want the game to pause for a small interval
+        /// and then automactially advance to the next stage.
+        /// This can save the player from unnesessary clicks.
+        /// 
+        /// This method will be called from the controller at specific interval.
+        /// This interval is customizable by controller not the game itself.
+        /// </summary>
+        /// <returns>True if the game is auto advanced and the GUI should update correspondedly</returns>
+        public bool tick()
+        {
+            if (timerAutoAdvance)
+            {
+                if (timerVisit)
+                {
+                    nextStage();
+                    return true;
+                }
+                timerVisit = true;
             }
+            return false;
         }
 
         /// <summary>
@@ -74,7 +112,7 @@ namespace LOTK.Model
         /// <param name="userAction"></param>
         public void userResponse(UserAction userAction)
         {
-            if (players[currentStage.playerID].UserInput(currentStage, userAction))
+            if (players[curPhase.playerID].UserInput(curPhase, userAction))
                 nextStage();
         }
 

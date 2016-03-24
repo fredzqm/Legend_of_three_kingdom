@@ -116,8 +116,7 @@ namespace LOTK.Model
         private byte num;
 
         private int id = -1;
-        public int CardID { get { return id; } }
-
+        
         public Card(CardSuit s, CardType t, byte n)
         {
             this.suit = s;
@@ -143,11 +142,13 @@ namespace LOTK.Model
 
         internal string getDescription()
         {
+            // TODO:
             return "Card Description";
         }
 
         internal string getName()
         {
+            // TODO:
             return "Card Name";
         }
 
