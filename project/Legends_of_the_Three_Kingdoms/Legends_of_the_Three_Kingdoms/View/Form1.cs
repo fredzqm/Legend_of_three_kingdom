@@ -23,7 +23,7 @@ namespace LOTK.View
         private int position;
 
         private event clickButton clickbutton;
-        private event clickCard clickcard;
+        private event clickCard clickcard; 
         private event clickPlayer clickplayer;
 
         public GameView(viewController controller, int pos)
