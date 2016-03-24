@@ -44,6 +44,7 @@ namespace LOTK_Test.ModelTest
 
         }
 
+        [TestMethod]
         public void PlayerFiveAdvancePhaseTest()
         {
             Player p = new Player(0);
