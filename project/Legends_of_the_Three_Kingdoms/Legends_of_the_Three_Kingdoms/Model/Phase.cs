@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Legends_of_the_Three_Kingdoms.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,10 +84,10 @@ namespace LOTK.Model
 
         public Phase pop()
         {
-            if (isEmpty())
+/*            if (isEmpty())
             {
-                throw new Exception("Empty PhaseList Exception");
-            }
+                throw new EmptyException("Empty PhaseList Exception");
+            } */
             Phase retStage = head.stage;
             if (head == tail)
             { // empty
