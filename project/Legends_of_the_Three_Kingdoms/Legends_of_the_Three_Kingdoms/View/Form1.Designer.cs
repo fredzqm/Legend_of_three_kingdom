@@ -37,6 +37,7 @@ namespace LOTK.View
             this.UpperRight = new System.Windows.Forms.Button();
             this.LowerLeft = new System.Windows.Forms.Button();
             this.LowerRight = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // turn
@@ -90,7 +91,6 @@ namespace LOTK.View
             this.Pool.Size = new System.Drawing.Size(320, 206);
             this.Pool.TabIndex = 14;
             this.Pool.Text = "Pool Cards";
-
             // 
             // Ability
             // 
@@ -104,7 +104,7 @@ namespace LOTK.View
             // 
             // OK
             // 
-            this.OK.Location = new System.Drawing.Point(488, 511);
+            this.OK.Location = new System.Drawing.Point(382, 518);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 30);
             this.OK.TabIndex = 16;
@@ -152,11 +152,22 @@ namespace LOTK.View
             this.LowerRight.UseVisualStyleBackColor = true;
             this.LowerRight.Click += new System.EventHandler(this.LowerRight_Click);
             // 
-            // Form1
+            // Cancel
+            // 
+            this.Cancel.Location = new System.Drawing.Point(488, 518);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(75, 30);
+            this.Cancel.TabIndex = 21;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            // 
+            // GameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.Cancel);
             this.Controls.Add(this.UpperLeft);
             this.Controls.Add(this.UpperRight);
             this.Controls.Add(this.LowerLeft);
@@ -169,7 +180,7 @@ namespace LOTK.View
             this.Controls.Add(this.tool_attack);
             this.Controls.Add(this.thisPlayer);
             this.Controls.Add(this.turn);
-            this.Name = "Form1";
+            this.Name = "GameView";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +201,7 @@ namespace LOTK.View
         private Button UpperRight;
         private Button LowerLeft;
         private Button LowerRight;
+        private Button Cancel;
     }
 }
 

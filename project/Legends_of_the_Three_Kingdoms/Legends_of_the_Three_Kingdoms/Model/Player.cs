@@ -96,6 +96,9 @@ namespace LOTK.Model
                 return true;
             switch (curPhase.type)
             {
+                case PhaseType.JudgePhase:
+                case PhaseType.DrawingPhase:
+                    return true;
                 case PhaseType.ActionPhase:
                     if (userAction.type == UserActionType.YES_OR_NO)
                     {
