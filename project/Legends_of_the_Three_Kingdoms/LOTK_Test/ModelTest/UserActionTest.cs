@@ -11,13 +11,8 @@ namespace LOTK_Test.ModelTest
     [TestClass]
     public class UserActionTest
     {
-        [TestMethod]
-        public void ActiveUserTest
-        {
-           Player p1=new Player(1);
 
-        }
-        
-    {
+
+    }
 
 }
