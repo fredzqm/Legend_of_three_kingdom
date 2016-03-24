@@ -5,12 +5,13 @@ using System.Collections.Generic;
 
 namespace LOTK_Test.ModelTest
 {
-    
+
     [TestClass]
     public class CardSetTest
     {
         [TestMethod]
-        public void CardSetConstructTest() {
+        public void CardSetConstructTest()
+        {
             Card c = new Card(CardSuit.Club, CardType.Attack, 0);
             ICollection<Card> ls = new List<Card>();
             ls.Add(c);
@@ -53,7 +54,7 @@ namespace LOTK_Test.ModelTest
             CardSet s = new CardSet(ls);
             Card x = s.pop();
             Card y = s.pop();
-            Assert.IsTrue((a.Equals(x) && b.Equals(y)) 
+            Assert.IsTrue((a.Equals(x) && b.Equals(y))
                 || (a.Equals(y) && b.Equals(x)));
         }
 
@@ -75,7 +76,7 @@ namespace LOTK_Test.ModelTest
                 Assert.IsTrue(ls.Contains(c));
                 ls.Remove(c);
             }
-            Assert.AreEqual(0,ls.Count);
+            Assert.AreEqual(0, ls.Count);
         }
 
         [TestMethod]
@@ -184,5 +185,5 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(e, s[s.getCardID(e)]);
         }
 
-
     }
+}

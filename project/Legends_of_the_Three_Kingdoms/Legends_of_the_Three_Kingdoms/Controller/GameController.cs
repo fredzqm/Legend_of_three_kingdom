@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace LOTK.Controller
 {
-    class GameController : viewController
+    public class GameController : viewController
     {
         const int NUM_OF_PLAYER = 5;
         public GameView view { get; }

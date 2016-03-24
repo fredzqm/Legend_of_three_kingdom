@@ -25,7 +25,6 @@ namespace LOTK.Model
         public CardSet(ICollection<Card> cls)
         {
             cardLs = new Card[cls.Count];
-            dict = new Dictionary<Card, int>();
             cardIDs = new Dictionary<Card, int>();
             IEnumerator<Card> itr =  cls.GetEnumerator();
             for (int i = 0; i < cls.Count; i++)
@@ -45,6 +44,10 @@ namespace LOTK.Model
             {
                 return cardLs[i];
             }
+        }
+        public int getCardID(Card a)
+        {
+            return cardIDs[a];
         }
 
         public Card pop()
@@ -68,6 +71,7 @@ namespace LOTK.Model
             discardPile.AddFirst(c);
         }
 
+ 
     }
 
     public class Card
