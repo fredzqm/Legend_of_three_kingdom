@@ -84,10 +84,10 @@ namespace LOTK.Model
 
         public Phase pop()
         {
-/*            if (isEmpty())
+            if (isEmpty())
             {
                 throw new EmptyException("Empty PhaseList Exception");
-            } */
+            } 
             Phase retStage = head.stage;
             if (head == tail)
             { // empty

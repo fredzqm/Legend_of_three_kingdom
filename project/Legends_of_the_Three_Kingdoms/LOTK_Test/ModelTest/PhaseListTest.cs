@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Model;
+using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK_Test.ModelTest
 {
@@ -27,6 +28,14 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(ls.pop().playerID, 2);
             Assert.AreEqual(ls.pop().playerID, 3);
             Assert.AreEqual(ls.pop().playerID, 4);
+            try
+            {
+                ls.pop();
+            }
+            catch (EmptyException e)
+            {
+                Console.WriteLine("Pop Empty List Exception caught.", e);
+            }
         }
 
         [TestMethod]
