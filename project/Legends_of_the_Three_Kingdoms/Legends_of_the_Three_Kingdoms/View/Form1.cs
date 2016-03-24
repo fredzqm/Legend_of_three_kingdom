@@ -17,16 +17,16 @@ namespace LOTK.View
 
     public delegate void clickPlayer(int playerID, int clickedPlayerID);
 
-    public partial class Form1 : Form
+    public partial class GameView : Form
     {
         private viewController controller;
         private int position;
 
         private event clickButton clickbutton;
-        private event clickCard clickcard;
+        private event clickCard clickcard; 
         private event clickPlayer clickplayer;
 
-        public Form1(viewController controller, int pos)
+        public GameView(viewController controller, int pos)
         {
             this.position = pos;
             this.controller = controller;
@@ -41,7 +41,7 @@ namespace LOTK.View
         {
             Required_Data data = controller.getData(position);
             turn.Text = data.this_player_stage;
-            thisPlayer.Text = data.players[0].name;
+            ThisPlayer.Text = data.players[0].name + ": "+ data.players[0].ability;
             tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
             tool_defence.Text = data.tool_defence.name + ": " + data.tool_defence.ability;
             for (int i = 0; i < data.hold_cards.Count; i++)
@@ -70,15 +70,21 @@ namespace LOTK.View
             
         }
 
-        private void Done_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
-            clickbutton(position, 1);
+            clickbutton(position, ButtonID.OK);
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            clickbutton(position, ButtonID.Cancel);
         }
 
         private void UpperLeft_Click(object sender, EventArgs e)
         {
 
         }
+
         private void LowerRight_Click(object sender, EventArgs e)
         {
            
@@ -92,6 +98,11 @@ namespace LOTK.View
         private void UpperRight_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void ThisPlayer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

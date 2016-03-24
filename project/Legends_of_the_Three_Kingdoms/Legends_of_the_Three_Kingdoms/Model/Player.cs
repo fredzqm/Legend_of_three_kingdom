@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LOTK.View;
+using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK.Model
 {
@@ -46,27 +47,29 @@ namespace LOTK.Model
 
         internal string getName()
         {
-            throw new NotImplementedException();
+            return "Player Name";
         }
 
         internal List<Card> getHoldCards()
         {
-            throw new NotImplementedException();
+            List<Card> ls = new List<Card>();
+            ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            return ls;
         }
 
-        internal CardDisplay getWeapon()
+        internal Card getWeapon()
         {
-            throw new NotImplementedException();
+            return new Card(CardSuit.Club, CardType.Attack, 0);
         }
 
-        internal CardDisplay getDefense()
+        internal Card getDefense()
         {
-            throw new NotImplementedException();
+            return new Card(CardSuit.Club, CardType.Attack, 0);
         }
 
         internal string getAbilityDescription()
         {
-            throw new NotImplementedException();
+            return "Ability Description";
         }
 
         public PhaseList handlePhase(Phase curPhase, IGame game)
@@ -83,7 +86,7 @@ namespace LOTK.Model
                     return actionPhase(game);
                 case PhaseType.DiscardPhase:
                     return discardPhase(game);
-                default: throw new Exception("This type not defined");
+                default: throw new NotDefinedException("This type not defined");
             }
         }
 
@@ -93,6 +96,9 @@ namespace LOTK.Model
                 return true;
             switch (curPhase.type)
             {
+                case PhaseType.JudgePhase:
+                case PhaseType.DrawingPhase:
+                    return true;
                 case PhaseType.ActionPhase:
                     if (userAction.type == UserActionType.YES_OR_NO)
                     {

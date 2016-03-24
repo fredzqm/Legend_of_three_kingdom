@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Legends_of_the_Three_Kingdoms.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,30 @@ namespace LOTK.Model
                 default: throw new Exception("This type not defined");
             }
         }
+
+        public override string ToString()
+        {
+            string str = "";
+            switch (type)
+            {
+                case PhaseType.JudgePhase:
+                    str = "JudgePhase";
+                    break;
+                case PhaseType.DrawingPhase:
+                    str = "DrawingPhase";
+                    break;
+                case PhaseType.ActionPhase:
+                    str = "ActionPhase";
+                    break;
+                case PhaseType.DiscardPhase:
+                    str = "DiscardPhase";
+                    break;
+                default:
+                    break;
+            }
+            return "Plyaer "+playerID+ " at " + str;
+        }
+
     }
 
     public enum PhaseType
@@ -85,8 +110,8 @@ namespace LOTK.Model
         {
             if (isEmpty())
             {
-                throw new Exception("Empty PhaseList Exception");
-            }
+                throw new EmptyException("Empty PhaseList Exception");
+            } 
             Phase retStage = head.stage;
             if (head == tail)
             { // empty

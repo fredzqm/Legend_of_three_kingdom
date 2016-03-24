@@ -2,15 +2,17 @@
 using LOTK.Model;
 using System;
 using System.Collections.Generic;
+using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK_Test.ModelTest
 {
-    
+
     [TestClass]
     public class CardSetTest
     {
         [TestMethod]
-        public void CardSetConstructTest() {
+        public void CardSetConstructTest()
+        {
             Card c = new Card(CardSuit.Club, CardType.Attack, 0);
             ICollection<Card> ls = new List<Card>();
             ls.Add(c);
@@ -19,7 +21,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NoCardException))]
         public void DiscardUndefinedCardExceptionTest()
         {
             ICollection<Card> ls = new List<Card>();
@@ -53,7 +55,7 @@ namespace LOTK_Test.ModelTest
             CardSet s = new CardSet(ls);
             Card x = s.pop();
             Card y = s.pop();
-            Assert.IsTrue((a.Equals(x) && b.Equals(y)) 
+            Assert.IsTrue((a.Equals(x) && b.Equals(y))
                 || (a.Equals(y) && b.Equals(x)));
         }
 
@@ -75,11 +77,11 @@ namespace LOTK_Test.ModelTest
                 Assert.IsTrue(ls.Contains(c));
                 ls.Remove(c);
             }
-            Assert.AreEqual(0,ls.Count);
+            Assert.AreEqual(0, ls.Count);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NoCardException))]
         public void CardPileRunoutExceptionTest()
         {
             List<Card> ls, lsbackup = new List<Card>();
@@ -158,6 +160,30 @@ namespace LOTK_Test.ModelTest
                 lsbackup.Remove(c);
                 Assert.AreEqual(0, ls.Count);
             }
+        }
+
+
+        [TestMethod]
+        public void getCardIDTest()
+        {
+            List<Card> ls = new List<Card>();
+            Card a = new Card(CardSuit.Club, CardType.Attack, 0);
+            ls.Add(a);
+            Card b = new Card(CardSuit.Club, CardType.Miss, 1);
+            ls.Add(b);
+            Card c = new Card(CardSuit.Diamond, CardType.Miss, 2);
+            ls.Add(c);
+            Card d = new Card(CardSuit.Spade, CardType.Attack, 3);
+            ls.Add(d);
+            Card e = new Card(CardSuit.Club, CardType.Wine, 4);
+            ls.Add(e);
+            CardSet s = new CardSet(ls);
+
+            Assert.AreEqual(a, s[s.getCardID(a)]);
+            Assert.AreEqual(b, s[s.getCardID(b)]);
+            Assert.AreEqual(c, s[s.getCardID(c)]);
+            Assert.AreEqual(d, s[s.getCardID(d)]);
+            Assert.AreEqual(e, s[s.getCardID(e)]);
         }
 
     }

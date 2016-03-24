@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Legends_of_the_Three_Kingdoms.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
+    /// <summary>
+    /// CardSet is literally what it means. It represents the cardpile for this game
+    /// The user can pop() the top of the cardStack, discard() card back to the cardpile.
+    /// When the cardpile is empty, it will automatically shuffle the discarded card.
+    /// 
+    /// Each Card is associated with an ID, which can be get with get 
+    /// </summary>
     public class CardSet
     {
         private readonly Card[] cardLs;
@@ -13,12 +21,13 @@ namespace LOTK.Model
         private LinkedList<Card> cardPile;
         private LinkedList<Card> discardPile;
 
-        private Dictionary<Card, int> dict;
-
+        /// <summary>
+        /// create a cardset given an list of cards
+       /// </summary>
+        /// <param name="cls">A collection for all cards</param>
         public CardSet(ICollection<Card> cls)
         {
             cardLs = new Card[cls.Count];
-            dict = new Dictionary<Card, int>();
             cardIDs = new Dictionary<Card, int>();
             IEnumerator<Card> itr =  cls.GetEnumerator();
             for (int i = 0; i < cls.Count; i++)
@@ -32,6 +41,13 @@ namespace LOTK.Model
             cardPile.OrderBy(a => Guid.NewGuid());
         }
 
+        /// <summary>
+        /// Known get the card instance with cardID
+        /// This should always be true
+        /// <seealso cref="CardSet.getCardID(Card)">
+        /// </summary>
+        /// <param name="i">cardID</param>
+        /// <returns>the corresponding Card instance</returns>
         public Card this[int i]
         {
             get
@@ -40,6 +56,19 @@ namespace LOTK.Model
             }
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="a">Card instance</param>
+        /// <returns>CardID</returns>
+        public int getCardID(Card a)
+        {
+            return cardIDs[a];
+        }
+
+        /// <summary>
+        /// pop the top card on the cardpile
+        /// </summary>
+        /// <returns>The top card</returns>
         public Card pop()
         {
             if (cardPile.Count == 0)
@@ -48,21 +77,30 @@ namespace LOTK.Model
                 discardPile = new LinkedList<Card>();
                 cardPile.OrderBy(a => Guid.NewGuid());
                 if (cardPile.Count == 0)
-                    throw new Exception("Run out of cards");
+                    throw new NoCardException("Run out of cards");
             }
             Card ret = cardPile.First();
             cardPile.RemoveFirst();
             return ret;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="c">The card Discarded</param>
         public void discard(Card c)
         {
             if (!cardIDs.ContainsKey(c))
-                throw new Exception();
+                throw new NoCardException("Such Card Cannot be Found"); 
             discardPile.AddFirst(c);
         }
 
+ 
     }
 
+    /// <summary>
+    /// An instance 
+    /// </summary>
     public class Card
     {
         private CardType type;
@@ -97,16 +135,19 @@ namespace LOTK.Model
 
         internal string getDescription()
         {
-            throw new NotImplementedException();
+            return "Card Description";
         }
 
         internal string getName()
         {
-            throw new NotImplementedException();
+            return "Card Name";
         }
+
     }
     
-
+    /// <summary>
+    /// Four kind of Suits
+    /// </summary>
     public enum CardSuit
     {
         Heart,
@@ -114,6 +155,10 @@ namespace LOTK.Model
         Diamond,
         Club,
     }
+
+    /// <summary>
+    /// Incomplete now, 
+    /// </summary>
     public enum CardType
     {
         Attack,

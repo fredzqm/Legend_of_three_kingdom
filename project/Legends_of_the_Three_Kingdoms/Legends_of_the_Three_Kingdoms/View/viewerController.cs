@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LOTK.View
 {
@@ -15,4 +16,10 @@ namespace LOTK.View
         void clickPlayer(int playerID, int clickedPlayerID);
     }
 
+    public class ButtonID
+    {
+        public const int OK = 1;
+        public const int Cancel = 0;
+        public const int Ability = 10;
+    }
 }
