@@ -98,12 +98,12 @@ namespace LOTK.Model
 
         internal string getDescription()
         {
-            throw new NotImplementedException();
+            return "Card Description";
         }
 
         internal string getName()
         {
-            throw new NotImplementedException();
+            return "Card Name";
         }
     }
     

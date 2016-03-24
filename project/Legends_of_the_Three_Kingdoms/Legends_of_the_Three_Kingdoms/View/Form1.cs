@@ -17,7 +17,7 @@ namespace LOTK.View
 
     public delegate void clickPlayer(int playerID, int clickedPlayerID);
 
-    public partial class Form1 : Form
+    public partial class GameView : Form
     {
         private viewController controller;
         private int position;
@@ -26,7 +26,7 @@ namespace LOTK.View
         private event clickCard clickcard;
         private event clickPlayer clickplayer;
 
-        public Form1(viewController controller, int pos)
+        public GameView(viewController controller, int pos)
         {
             this.position = pos;
             this.controller = controller;

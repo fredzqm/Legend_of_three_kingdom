@@ -79,22 +79,22 @@ namespace LOTK_Test.ModelTest
         public void UserInputYES_OR_NOTest()
         {
             Game g = new Game(5 , null);
-            //Assert.AreEqual( PhaseType.JudgePhase , g.currentStage.type );
-            //Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
-            //Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.AreEqual(PhaseType.JudgePhase, g.currentStage.type);
+            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 1)));
             g.nextStage();
-            //Assert.AreEqual( PhaseType.DrawingPhase , g.currentStage.type );
-            //Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
-            //Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.AreEqual(PhaseType.DrawingPhase, g.currentStage.type);
+            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 1)));
             g.nextStage();
 
             Assert.AreEqual(PhaseType.ActionPhase , g.currentStage.type );
-            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsFalse(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsFalse(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 1)));
             g.nextStage();
             Assert.AreEqual(PhaseType.DiscardPhase , g.currentStage.type );
-            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0)));
-            Assert.IsTrue(g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.canProceed(new UserAction(UserActionType.YES_OR_NO, 1)));
         }
 
         [TestMethod]
