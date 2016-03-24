@@ -12,7 +12,7 @@ namespace LOTK_Test.ModelTest
     public class UserActionTest
     {
         [TestMethod]
-        public void ActionTest()
+        public void CreateActionTest()
         {
             Player p = new Player(0);
             int v = 0;
