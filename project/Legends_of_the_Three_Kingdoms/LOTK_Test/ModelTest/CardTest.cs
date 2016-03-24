@@ -80,7 +80,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NoCardException))]
         public void CardPileRunoutExceptionTest()
         {
             List<Card> ls, lsbackup = new List<Card>();
@@ -99,6 +99,7 @@ namespace LOTK_Test.ModelTest
                 Card c = s.pop();
                 ls.Remove(c);
             }
+            s.pop();
         }
 
         [TestMethod]
