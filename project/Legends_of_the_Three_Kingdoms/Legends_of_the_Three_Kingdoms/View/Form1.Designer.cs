@@ -26,7 +26,6 @@ namespace LOTK.View
         private void InitializeComponent()
         {
             this.turn = new System.Windows.Forms.Label();
-            this.thisPlayer = new System.Windows.Forms.RichTextBox();
             this.tool_attack = new System.Windows.Forms.RichTextBox();
             this.tool_defence = new System.Windows.Forms.RichTextBox();
             this.hand_cards = new System.Windows.Forms.CheckedListBox();
@@ -38,6 +37,7 @@ namespace LOTK.View
             this.LowerLeft = new System.Windows.Forms.Button();
             this.LowerRight = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
+            this.ThisPlayer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // turn
@@ -48,14 +48,6 @@ namespace LOTK.View
             this.turn.Size = new System.Drawing.Size(38, 17);
             this.turn.TabIndex = 9;
             this.turn.Text = "Turn";
-            // 
-            // thisPlayer
-            // 
-            this.thisPlayer.Location = new System.Drawing.Point(607, 409);
-            this.thisPlayer.Name = "thisPlayer";
-            this.thisPlayer.Size = new System.Drawing.Size(100, 96);
-            this.thisPlayer.TabIndex = 10;
-            this.thisPlayer.Text = "The player";
             // 
             // tool_attack
             // 
@@ -162,11 +154,22 @@ namespace LOTK.View
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
+            // ThisPlayer
+            // 
+            this.ThisPlayer.Location = new System.Drawing.Point(633, 382);
+            this.ThisPlayer.Name = "ThisPlayer";
+            this.ThisPlayer.Size = new System.Drawing.Size(108, 146);
+            this.ThisPlayer.TabIndex = 22;
+            this.ThisPlayer.Text = "ThisPlayer";
+            this.ThisPlayer.UseVisualStyleBackColor = true;
+            this.ThisPlayer.Click += new System.EventHandler(this.ThisPlayer_Click);
+            // 
             // GameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.ThisPlayer);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.UpperLeft);
             this.Controls.Add(this.UpperRight);
@@ -178,7 +181,6 @@ namespace LOTK.View
             this.Controls.Add(this.hand_cards);
             this.Controls.Add(this.tool_defence);
             this.Controls.Add(this.tool_attack);
-            this.Controls.Add(this.thisPlayer);
             this.Controls.Add(this.turn);
             this.Name = "GameView";
             this.ResumeLayout(false);
@@ -190,7 +192,6 @@ namespace LOTK.View
 
         #endregion
         private System.Windows.Forms.Label turn;
-        private System.Windows.Forms.RichTextBox thisPlayer;
         private System.Windows.Forms.RichTextBox tool_attack;
         private System.Windows.Forms.RichTextBox tool_defence;
         private System.Windows.Forms.CheckedListBox hand_cards;
@@ -202,6 +203,7 @@ namespace LOTK.View
         private Button LowerLeft;
         private Button LowerRight;
         private Button Cancel;
+        private Button ThisPlayer;
     }
 }
 
