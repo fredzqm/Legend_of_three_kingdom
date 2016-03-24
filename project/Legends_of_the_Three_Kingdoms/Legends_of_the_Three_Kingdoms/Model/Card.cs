@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
+    /// <summary>
+    /// CardSet is literally what it means. It represents the cardpile for this game
+    /// The user can pop() the top of the cardStack, discard() card back to the cardpile.
+    /// When the cardpile is empty, it will automatically shuffle the discarded card.
+    /// 
+    /// Each Card is associated with an ID, which can be get with get 
+    /// </summary>
     public class CardSet
     {
         private readonly Card[] cardLs;

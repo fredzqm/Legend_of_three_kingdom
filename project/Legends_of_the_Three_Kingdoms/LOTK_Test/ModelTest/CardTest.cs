@@ -160,5 +160,29 @@ namespace LOTK_Test.ModelTest
             }
         }
 
+
+        [TestMethod]
+        public void getCardIDTest()
+        {
+            List<Card> ls = new List<Card>();
+            Card a = new Card(CardSuit.Club, CardType.Attack, 0);
+            ls.Add(a);
+            Card b = new Card(CardSuit.Club, CardType.Miss, 1);
+            ls.Add(b);
+            Card c = new Card(CardSuit.Diamond, CardType.Miss, 2);
+            ls.Add(c);
+            Card d = new Card(CardSuit.Spade, CardType.Attack, 3);
+            ls.Add(d);
+            Card e = new Card(CardSuit.Club, CardType.Wine, 4);
+            ls.Add(e);
+            CardSet s = new CardSet(ls);
+
+            Assert.AreEqual(a, s[a.getCardID()]);
+            Assert.AreEqual(b, s[b.getCardID()]);
+            Assert.AreEqual(c, s[c.getCardID()]);
+            Assert.AreEqual(d, s[d.getCardID()]);
+            Assert.AreEqual(e, s[e.getCardID()]);
+        }
+
+
     }
-}
