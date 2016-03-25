@@ -93,15 +93,15 @@ namespace LOTK.Model
         /// <returns>True if the game is auto advanced and the GUI should update correspondedly</returns>
         public bool tick()
         {
-            //if (timerAutoAdvance)
-            //{
-            //    if (timerVisit)
-            //    {
-            //        nextStage();
-            //        return true;
-            //    }
-            //    timerVisit = true;
-            //}
+            if (timerAutoAdvance)
+            {
+                if (timerVisit)
+                {
+                    nextStage();
+                    return true;
+                }
+                timerVisit = true;
+            }
             return false;
         }
 
