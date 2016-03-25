@@ -80,10 +80,10 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    game.userResponse(new UserAction(UserActionType.YES_OR_NO, 1));
+                    game.nextStage(new UserAction(UserActionType.YES_OR_NO, 1));
                     break;
                 case ButtonID.Cancel:
-                    game.userResponse(new UserAction(UserActionType.YES_OR_NO, 0));
+                    game.nextStage(new UserAction(UserActionType.YES_OR_NO, 0));
                     break;
                 default:
                     break;

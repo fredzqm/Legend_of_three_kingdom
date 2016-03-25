@@ -44,118 +44,26 @@ namespace LOTK.Model
         // The codes below specify the default behaviour of the player
         // Many methods can be overriden by a character class.
 
-        /// <summary>
-        /// handle this phase.
-        /// It checks the type of the phases and call corresponding method, 
-        /// which can be overriden
-        /// </summary>
-        /// <param name="curPhase"></param>
-        /// <param name="game"></param>
-        /// <returns>The phases following the phase,
-        /// they will pushed into the phase stack in game</returns>
-        public PhaseList handlePhase(Phase curPhase, IGame game)
+        public virtual PhaseList playerTurn(PlayerTurn curPhase, IGame g)
         {
-            return handlePhase(curPhase, null, game);
+            return new PhaseList(new JudgePhase(this), new PlayerTurn((this + 1)%g.Num_Player));
         }
 
-        public PhaseList handlePhase(Phase curPhase, UserAction userAction, IGame game)
+        public virtual PhaseList judgePhase(JudgePhase curPhase, UserAction userAction, IGame g)
         {
-            switch (curPhase.type)
-            {
-                case PhaseType.PlayerTurn:
-                    return playerTurn(curPhase, game);
-                case PhaseType.JudgePhase:
-                    return judgePhase(curPhase, userAction, game);
-                case PhaseType.DrawingPhase:
-                    return drawingPhase(curPhase, userAction, game);
-                case PhaseType.ActionPhase:
-                    return actionPhase(curPhase, userAction, game);
-                case PhaseType.DiscardPhase:
-                    return discardPhase(curPhase, userAction, game);
-                default:
-                    return handleSpecialPhase(curPhase, game);
-            }
+            return new PhaseList(new DrawingPhase(this), new ActionPhase(this));
         }
 
-        public virtual PhaseList handleSpecialPhase(Phase curPhase, IGame game)
-        {
-            throw new NotDefinedException("This type not defined");
-        }
-
-        public bool autoPhase(Phase curPhase)
-        {
-            switch (curPhase.type)
-            {
-                case PhaseType.JudgePhase:
-                case PhaseType.DrawingPhase:
-                    return true;
-                case PhaseType.ActionPhase:
-                    return false;
-                case PhaseType.DiscardPhase:
-                    return false;
-                default:
-                    return autoSpecialPhase(curPhase);
-            }
-        }
-
-        public virtual bool autoSpecialPhase(Phase curPhase)
-        {
-            throw new NotDefinedException("This type not defined");
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="curPhase"></param>
-        /// <param name="userAction"></param>
-        /// <returns>true if this user action can cause the game to proceed to the next phase, otherwise it should remain in the same phase</returns>
-        public bool UserInput(Phase curPhase, UserAction userAction)
-        {
-            if (!curPhase.needResponse())
-                return true;
-            switch (curPhase.type)
-            {
-                case PhaseType.JudgePhase:
-                case PhaseType.DrawingPhase:
-                    return true;
-                case PhaseType.ActionPhase:
-                    if (userAction.type == UserActionType.YES_OR_NO)
-                    {
-                        return (userAction.detail == 0);
-                    }
-                    return false;
-                case PhaseType.DiscardPhase:
-                    if (userAction.type == UserActionType.YES_OR_NO)
-                    {
-                        return true;
-                    }
-                    return false;
-                default:
-                    return false;
-            }
-        }
-
-
-        public virtual PhaseList playerTurn(Phase curPhase, IGame g)
-        {
-            return new PhaseList(new Phase(this, PhaseType.JudgePhase),
-                new Phase((playerID + 1) % g.Num_Player, PhaseType.PlayerTurn));
-        }
-
-        public virtual PhaseList judgePhase(Phase curPhase, UserAction userAction, IGame g)
-        {
-            return new PhaseList(new Phase(this, PhaseType.DrawingPhase), new Phase(this, PhaseType.ActionPhase));
-        }
-        public PhaseList drawingPhase(Phase curPhase, UserAction userAction, IGame g)
+        public PhaseList drawingPhase(DrawingPhase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList();
         }
 
-        internal virtual PhaseList actionPhase(Phase curPhase, UserAction userAction, IGame g)
+        internal virtual PhaseList actionPhase(ActionPhase curPhase, UserAction userAction, IGame g)
         {
-            return new PhaseList(new Phase(this, PhaseType.DiscardPhase));
+            return new PhaseList(new DiscardPhase(this));
         }
-        internal virtual PhaseList discardPhase(Phase curPhase, UserAction userAction, IGame g)
+        internal virtual PhaseList discardPhase(DiscardPhase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList();
         }

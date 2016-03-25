@@ -81,19 +81,19 @@ namespace LOTK_Test.ModelTest
             Game g = new Game(5, null);
             Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
             // advance
-            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0));
+            g.nextStage(new UserAction(UserActionType.YES_OR_NO, 0));
             Assert.AreEqual(PhaseType.DrawingPhase, g.curPhase.type);
             // advance
-            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0));
+            g.nextStage(new UserAction(UserActionType.YES_OR_NO, 0));
             Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
             // not advance
-            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1));
+            g.nextStage(new UserAction(UserActionType.YES_OR_NO, 1));
             Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
             // advance
-            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 0));
+            g.nextStage(new UserAction(UserActionType.YES_OR_NO, 0));
             Assert.AreEqual(PhaseType.DiscardPhase, g.curPhase.type);
             // advance
-            g.userResponse(new UserAction(UserActionType.YES_OR_NO, 1));
+            g.nextStage(new UserAction(UserActionType.YES_OR_NO, 1));
             Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
         }
 

@@ -110,6 +110,22 @@ namespace LOTK_Test.ModelTest
         {
             public int Num_Player { get; }
 
+            public Player[] players
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
+            public CardSet cards
+            {
+                get
+                {
+                    throw new NotImplementedException();
+                }
+            }
+
             public TestGame(int n)
             {
                 Num_Player = n;

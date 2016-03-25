@@ -10,6 +10,8 @@ namespace LOTK.Model
     public interface IGame
     {
         int Num_Player { get; }
+        Player[] players { get; }
+        CardSet cards { get; }
     }
 
     /// <summary>
@@ -17,7 +19,6 @@ namespace LOTK.Model
     /// </summary>
     public class Game : IGame
     {
-
         public int Num_Player { get; }
         public Player[] players { get; }
         public CardSet cards { get; }
@@ -51,47 +52,39 @@ namespace LOTK.Model
                 players[i] = new Player(i, "Player Name", "Player Description");
             }
             stages = new PhaseList();
-            stages.add(new Phase(0, PhaseType.PlayerTurn));
-            nextStage();
+            stages.add(new PlayerTurn(0));
+            nextStage(null);
         }
-
-        /// <summary>
-        /// This is the entry for user response
-        /// handle user action
-        /// </summary>
-        /// <param name="userAction"></param>
-        public void userResponse(UserAction userAction)
-        {
-            if (players[curPhase.playerID].UserInput(curPhase, userAction))
-                nextStage();
-        }
-
 
         /// <summary>
         /// Advance the next stage and skip the following stages that do not need user response
         /// </summary>
-        public void nextStage()
+        public void nextStage(UserAction userAction)
         {
             timerAutoAdvance = false;
-            advanceStage();
-            while (!(stages.top().needResponse()))
-            { // skipping all of those phases that do not need response
-                advanceStage();
-            }
             timerVisit = false;
-            timerAutoAdvance = curPhasePlayer.autoPhase(curPhase);
-        }
-
-        private void advanceStage()
-        {
-            if (curPhase.type == PhaseType.PlayerTurn)
-            { // when turn switches
-                curRoundPlayerID = curPhase.playerID;
+            while (true)
+            {
+                if (curPhase is PlayerTurn)
+                { // when turn switches
+                    curRoundPlayerID = curPhase.playerID;
+                }
+                PhaseList followingPhases = curPhase.handleResponse(userAction, this);
+                if (followingPhases == null)
+                {
+                    return;
+                }
+                stages.pop();
+                stages.pushStageList(followingPhases);
+                if (curPhase.needResponse())
+                {
+                    timerAutoAdvance = false;
+                    return;
+                }
             }
-            PhaseList followingPhases = curPhasePlayer.handlePhase(curPhase, this);
-            stages.pop();
-            stages.pushStageList(followingPhases);
+            
         }
+        
 
         /// <summary>
         /// Under certain circumstances, the player might have only one option.
@@ -109,7 +102,7 @@ namespace LOTK.Model
             {
                 if (timerVisit)
                 {
-                    nextStage();
+                    nextStage(null);
                     return true;
                 }
                 timerVisit = true;
