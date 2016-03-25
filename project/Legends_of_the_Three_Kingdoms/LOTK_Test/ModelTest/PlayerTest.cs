@@ -80,14 +80,22 @@ namespace LOTK_Test.ModelTest
         public void UserInputYES_OR_NOTest()
         {
             Player g = new Player(0, "Player Name", "Player Description");
-            Assert.IsTrue(g.UserInputYesOrNo(new Phase(0, PhaseType.JudgePhase), 0);
-            Assert.IsTrue(g.UserInputYesOrNo(new Phase(0, PhaseType.JudgePhase), 1);
-            Assert.IsTrue(g.UserInputYesOrNo(new Phase(0, PhaseType.DrawingPhase), 0);
-            Assert.IsTrue(g.UserInputYesOrNo(new Phase(0, PhaseType.DrawingPhase), 1);
-            Assert.IsTrue(g.UserInputYesOrNo(new Phase(0, PhaseType.ActionPhase), 0);
-            Assert.IsFalse(g.UserInputYesOrNo(new Phase(0, PhaseType.ActionPhase), 1);
-            Assert.IsTrue(g.UserInputYesOrNo(new Phase(0, PhaseType.DiscardPhase), 0);
-            Assert.IsTrue(g.UserInputYesOrNo(new Phase(0, PhaseType.DiscardPhase), 1);
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.JudgePhase), 
+                new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.JudgePhase),
+                new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DrawingPhase),
+                new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DrawingPhase),
+                new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.ActionPhase),
+                new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsFalse(g.UserInput(new Phase(0, PhaseType.ActionPhase),
+                new UserAction(UserActionType.YES_OR_NO, 1)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DiscardPhase),
+                new UserAction(UserActionType.YES_OR_NO, 0)));
+            Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DiscardPhase),
+                new UserAction(UserActionType.YES_OR_NO, 1)));
         }
 
         [TestMethod]

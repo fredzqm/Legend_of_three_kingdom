@@ -104,7 +104,7 @@ namespace LOTK.Model
         /// <param name="curPhase"></param>
         /// <param name="userAction"></param>
         /// <returns>true if this user action can cause the game to proceed to the next phase, otherwise it should remain in the same phase</returns>
-        public bool UserInputYesOrNo(Phase curPhase, UserAction userAction)
+        public bool UserInput(Phase curPhase, UserAction userAction)
         {
             if (!curPhase.needResponse())
                 return true;
