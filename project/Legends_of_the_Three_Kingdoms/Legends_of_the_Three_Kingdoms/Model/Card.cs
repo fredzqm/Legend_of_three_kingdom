@@ -23,18 +23,18 @@ namespace LOTK.Model
 
         /// <summary>
         /// create a cardset given an list of cards
-       /// </summary>
+        /// </summary>
         /// <param name="cls">A collection for all cards</param>
         public CardSet(ICollection<Card> cls)
         {
             cardLs = new Card[cls.Count];
             cardIDs = new Dictionary<Card, int>();
-            IEnumerator<Card> itr =  cls.GetEnumerator();
+            IEnumerator<Card> itr = cls.GetEnumerator();
             for (int i = 0; i < cls.Count; i++)
             {
                 itr.MoveNext();
                 cardLs[i] = itr.Current;
-                cardIDs[cardLs[i]]= i;
+                cardIDs[cardLs[i]] = i;
             }
             cardPile = new LinkedList<Card>(cardLs);
             discardPile = new LinkedList<Card>();
@@ -68,7 +68,7 @@ namespace LOTK.Model
             }
         }
 
-       public int getCardID(Card a)
+        public int getCardID(Card a)
         {
             return cardIDs[a];
         }
@@ -99,11 +99,11 @@ namespace LOTK.Model
         public void discard(Card c)
         {
             if (!cardIDs.ContainsKey(c))
-                throw new NoCardException("Such Card Cannot be Found"); 
+                throw new NoCardException("Such Card Cannot be Found");
             discardPile.AddFirst(c);
         }
 
- 
+
     }
 
     /// <summary>
@@ -116,7 +116,7 @@ namespace LOTK.Model
         private byte num;
 
         private int id = -1;
-        
+
         public Card(CardSuit s, CardType t, byte n)
         {
             this.suit = s;
@@ -142,7 +142,8 @@ namespace LOTK.Model
 
         public string getDescription()
         {
-            switch (this.type){
+            switch (this.type)
+            {
                 case CardType.Attack:
                     return "Attack description";
                 case CardType.Miss:
@@ -229,10 +230,52 @@ namespace LOTK.Model
             }
         }
 
-
-
+        public CardCategory getCardCategory()
+        {
+            switch (this.type)
+            {
+                case CardType.Attack:
+                    return CardCategory.Basic;
+                case CardType.Miss:
+                    return CardCategory.Basic;
+                case CardType.Wine:
+                    return CardCategory.Basic;
+                case CardType.Peach:
+                    return CardCategory.Basic;
+                case CardType.Negate:
+                    return CardCategory.Tool;
+                case CardType.Barbarians:
+                    return CardCategory.Tool;
+                case CardType.HailofArrow:
+                    return CardCategory.Tool;
+                case CardType.PeachGarden:
+                    return CardCategory.Tool;
+                case CardType.Wealth:
+                    return CardCategory.Tool;
+                case CardType.Steal:
+                    return CardCategory.Tool;
+                case CardType.Break:
+                    return CardCategory.Tool;
+                case CardType.Capture:
+                    return CardCategory.Tool;
+                case CardType.Starvation:
+                    return CardCategory.Tool;
+                case CardType.Crossbow:
+                    return CardCategory.Equipment;
+                case CardType.IceSword:
+                    return CardCategory.Equipment;
+                case CardType.Scimitar:
+                    return CardCategory.Equipment;
+                case CardType.BlackShield:
+                    return CardCategory.Equipment;
+                case CardType.EightTrigrams:
+                    return CardCategory.Equipment;
+                default:
+                    throw new Exception();
+            }
+        }
     }
-    
+
     /// <summary>
     /// Four kind of Suits
     /// </summary>
