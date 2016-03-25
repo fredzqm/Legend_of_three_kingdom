@@ -21,6 +21,7 @@
         }
     }
 
+
     public enum UserActionType
     {
         YES_OR_NO, // 1 or 0

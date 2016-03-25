@@ -112,7 +112,7 @@ namespace LOTK.Model
         /// <param name="userAction"></param>
         public void userResponse(UserAction userAction)
         {
-            if (players[curPhase.playerID].UserInput(curPhase, userAction))
+            if (players[curPhase.playerID].UserInputYesOrNo(curPhase, userAction))
                 nextStage();
         }
 
