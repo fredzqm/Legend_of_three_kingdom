@@ -4,7 +4,7 @@
     /// The class used to specify the user action.
     /// Like click buttons
     /// </summary>
-    public struct UserAction
+    public class UserAction
     {
         public const int YES = 1;
         public const int NO = 0;

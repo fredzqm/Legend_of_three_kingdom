@@ -40,10 +40,10 @@ namespace LOTK.Model
             return p.playerID;
         }
 
- // ----------------------------------------------------
- // The codes below specify the default behaviour of the player
- // Many methods can be overriden by a character class.
-         
+        // ----------------------------------------------------
+        // The codes below specify the default behaviour of the player
+        // Many methods can be overriden by a character class.
+
         /// <summary>
         /// handle this phase.
         /// It checks the type of the phases and call corresponding method, 
@@ -55,18 +55,23 @@ namespace LOTK.Model
         /// they will pushed into the phase stack in game</returns>
         public PhaseList handlePhase(Phase curPhase, IGame game)
         {
+            return handlePhase(curPhase, null, game);
+        }
+
+        public PhaseList handlePhase(Phase curPhase, UserAction userAction, IGame game)
+        {
             switch (curPhase.type)
             {
                 case PhaseType.PlayerTurn:
-                    return playerTurn(game);
+                    return playerTurn(curPhase, game);
                 case PhaseType.JudgePhase:
-                    return judgePhase(game);
+                    return judgePhase(curPhase, userAction, game);
                 case PhaseType.DrawingPhase:
-                    return drawingPhase(game);
+                    return drawingPhase(curPhase, userAction, game);
                 case PhaseType.ActionPhase:
-                    return actionPhase(game);
+                    return actionPhase(curPhase, userAction, game);
                 case PhaseType.DiscardPhase:
-                    return discardPhase(game);
+                    return discardPhase(curPhase, userAction, game);
                 default:
                     return handleSpecialPhase(curPhase, game);
             }
@@ -131,26 +136,26 @@ namespace LOTK.Model
         }
 
 
-        public virtual PhaseList playerTurn(IGame g)
+        public virtual PhaseList playerTurn(Phase curPhase, IGame g)
         {
             return new PhaseList(new Phase(this, PhaseType.JudgePhase),
                 new Phase((playerID + 1) % g.Num_Player, PhaseType.PlayerTurn));
         }
 
-        public virtual PhaseList judgePhase(IGame g)
+        public virtual PhaseList judgePhase(Phase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList(new Phase(this, PhaseType.DrawingPhase), new Phase(this, PhaseType.ActionPhase));
         }
-        public PhaseList drawingPhase(IGame g)
+        public PhaseList drawingPhase(Phase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList();
         }
 
-        internal virtual PhaseList actionPhase(IGame g)
+        internal virtual PhaseList actionPhase(Phase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList(new Phase(this, PhaseType.DiscardPhase));
         }
-        internal virtual PhaseList discardPhase(IGame g)
+        internal virtual PhaseList discardPhase(Phase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList();
         }

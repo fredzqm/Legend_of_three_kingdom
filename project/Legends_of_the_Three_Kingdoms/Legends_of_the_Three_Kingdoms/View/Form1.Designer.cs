@@ -45,7 +45,7 @@ namespace LOTK.View
             this.turn.AutoSize = true;
             this.turn.Location = new System.Drawing.Point(362, 33);
             this.turn.Name = "turn";
-            this.turn.Size = new System.Drawing.Size(38, 17);
+            this.turn.Size = new System.Drawing.Size(35, 16);
             this.turn.TabIndex = 9;
             this.turn.Text = "Turn";
             // 
@@ -75,6 +75,7 @@ namespace LOTK.View
             this.hand_cards.Name = "hand_cards";
             this.hand_cards.Size = new System.Drawing.Size(320, 123);
             this.hand_cards.TabIndex = 13;
+            this.hand_cards.SelectedIndexChanged += new System.EventHandler(this.hand_cards_SelectedIndexChanged);
             // 
             // Pool
             // 

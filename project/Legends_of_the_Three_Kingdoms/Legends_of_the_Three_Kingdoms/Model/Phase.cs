@@ -23,9 +23,6 @@ namespace LOTK.Model
         public PhaseType type { get;}
 
         private object[] extraInfor;
-        private int v1;
-        private double v2;
-        private int v3;
 
         public Phase(int playerID, PhaseType playerTurn)
         {

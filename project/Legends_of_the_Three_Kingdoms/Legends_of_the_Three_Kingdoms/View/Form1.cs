@@ -166,5 +166,10 @@ namespace LOTK.View
         {
 
         }
+
+        private void hand_cards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.Write("triggerd");
+        }
     }
 }

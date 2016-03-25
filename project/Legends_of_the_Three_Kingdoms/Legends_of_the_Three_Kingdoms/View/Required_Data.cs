@@ -62,11 +62,15 @@ namespace LOTK.View
         public string ability;
         private int name1;
         private object description;
+        // TODO:
+        private int id;
 
-        public PlayerDisplay(string name, string description) : this()
+
+        public PlayerDisplay(string name, string description, int id) : this()
         {
             this.name = name;
             this.ability = description;
+            this.id = id;
         }
 
         public PlayerDisplay(int name1, object description) : this()
@@ -82,11 +86,21 @@ namespace LOTK.View
         {
             public string name;
             public string ability;
+            // TODO:
+            private int id;
 
-            public CardDisplay(string n, string a)
+
+        public CardDisplay(string n, string a)
+        {
+            this.name = n;
+            this.ability = a;
+        }
+
+        public CardDisplay(string n, string a, int id)
             {
                 this.name = n;
                 this.ability = a;
+                this.id = id;
             }
         }
 }

@@ -56,6 +56,18 @@ namespace LOTK.Model
         }
 
         /// <summary>
+        /// This is the entry for user response
+        /// handle user action
+        /// </summary>
+        /// <param name="userAction"></param>
+        public void userResponse(UserAction userAction)
+        {
+            if (players[curPhase.playerID].UserInput(curPhase, userAction))
+                nextStage();
+        }
+
+
+        /// <summary>
         /// Advance the next stage and skip the following stages that do not need user response
         /// </summary>
         public void nextStage()
@@ -103,17 +115,6 @@ namespace LOTK.Model
                 timerVisit = true;
             }
             return false;
-        }
-
-        /// <summary>
-        /// This is the entry for user response
-        /// handle user action
-        /// </summary>
-        /// <param name="userAction"></param>
-        public void userResponse(UserAction userAction)
-        {
-            if (players[curPhase.playerID].UserInput(curPhase, userAction))
-                nextStage();
         }
 
         /// <summary>
