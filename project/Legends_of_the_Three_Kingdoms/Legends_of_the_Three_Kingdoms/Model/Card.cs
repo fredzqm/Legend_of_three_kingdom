@@ -257,9 +257,9 @@ namespace LOTK.Model
                 case CardType.Break:
                     return CardCategory.Tool;
                 case CardType.Capture:
-                    return CardCategory.Tool;
+                    return CardCategory.DelayTool;
                 case CardType.Starvation:
-                    return CardCategory.Tool;
+                    return CardCategory.DelayTool;
                 case CardType.Crossbow:
                     return CardCategory.Weapon;
                 case CardType.IceSword:
