@@ -186,5 +186,31 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(e, s[s[e]]);
         }
 
+
+        [TestMethod]
+        public void CardCategoryTest()
+        {
+            Assert.AreEqual(CardCategory.Basic, (new Card(CardSuit.Club, CardType.Attack, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Basic, (new Card(CardSuit.Club, CardType.Miss, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Basic, (new Card(CardSuit.Club, CardType.Wine, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Basic, (new Card(CardSuit.Club, CardType.Peach, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Negate, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Barbarians, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.HailofArrow, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.PeachGarden, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Wealth, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Steal, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Break, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Capture, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Starvation, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Equipment, (new Card(CardSuit.Club, CardType.Crossbow, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Equipment, (new Card(CardSuit.Club, CardType.Crossbow, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Equipment, (new Card(CardSuit.Club, CardType.IceSword, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Equipment, (new Card(CardSuit.Club, CardType.Scimitar, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Equipment, (new Card(CardSuit.Club, CardType.BlackShield, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Equipment, (new Card(CardSuit.Club, CardType.EightTrigrams, 0)).getCardCategory());
+
+        }
+
     }
 }

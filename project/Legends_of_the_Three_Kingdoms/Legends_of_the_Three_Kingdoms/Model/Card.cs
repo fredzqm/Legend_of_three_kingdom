@@ -140,17 +140,96 @@ namespace LOTK.Model
             return String.Format("Card {0}  {1}{3}", type, suit, num);
         }
 
-        internal string getDescription()
+        public string getDescription()
         {
-            // TODO:
-            return "Card Description";
+            switch (this.type){
+                case CardType.Attack:
+                    return "Attack description";
+                case CardType.Miss:
+                    return "Miss description";
+                case CardType.Wine:
+                    return "Wine description";
+                case CardType.Peach:
+                    return "Peach description";
+                case CardType.Negate:
+                    return "Negate description";
+                case CardType.Barbarians:
+                    return "Barbarians description";
+                case CardType.HailofArrow:
+                    return "HailofArrow description";
+                case CardType.PeachGarden:
+                    return "PeachGarden description";
+                case CardType.Wealth:
+                    return "Wealth description";
+                case CardType.Steal:
+                    return "Steal description";
+                case CardType.Break:
+                    return "Break description";
+                case CardType.Capture:
+                    return "Capture description";
+                case CardType.Starvation:
+                    return "Starvation description";
+                case CardType.Crossbow:
+                    return "Crossbow description";
+                case CardType.IceSword:
+                    return "IceSword description";
+                case CardType.Scimitar:
+                    return "Scimitar description";
+                case CardType.BlackShield:
+                    return "BlackShield description";
+                case CardType.EightTrigrams:
+                    return "EightTrigrams description";
+                default:
+                    throw new Exception();
+            }
         }
 
-        internal string getName()
+        public string getName()
         {
-            // TODO:
-            return "Card Name";
+            switch (this.type)
+            {
+                case CardType.Attack:
+                    return "Attack";
+                case CardType.Miss:
+                    return "Miss";
+                case CardType.Wine:
+                    return "Wine";
+                case CardType.Peach:
+                    return "Peach";
+                case CardType.Negate:
+                    return "Negate";
+                case CardType.Barbarians:
+                    return "Barbarians";
+                case CardType.HailofArrow:
+                    return "HailofArrow";
+                case CardType.PeachGarden:
+                    return "PeachGarden";
+                case CardType.Wealth:
+                    return "Wealth";
+                case CardType.Steal:
+                    return "Steal";
+                case CardType.Break:
+                    return "Break";
+                case CardType.Capture:
+                    return "Capture";
+                case CardType.Starvation:
+                    return "Starvation";
+                case CardType.Crossbow:
+                    return "Crossbow";
+                case CardType.IceSword:
+                    return "IceSword";
+                case CardType.Scimitar:
+                    return "Scimitar";
+                case CardType.BlackShield:
+                    return "BlackShield";
+                case CardType.EightTrigrams:
+                    return "EightTrigrams";
+                default:
+                    throw new Exception();
+            }
         }
+
+
 
     }
     
@@ -165,6 +244,12 @@ namespace LOTK.Model
         Club,
     }
 
+    public enum CardCategory
+    {
+        Basic,
+        Tool,
+        Equipment
+    }
     /// <summary>
     /// Incomplete now, 
     /// </summary>
@@ -172,6 +257,21 @@ namespace LOTK.Model
     {
         Attack,
         Miss,
-        Wine
+        Wine,
+        Peach,
+        Negate,
+        Barbarians,
+        HailofArrow,
+        PeachGarden,
+        Wealth,
+        Steal,
+        Break,
+        Capture,
+        Starvation,
+        Crossbow,
+        IceSword,
+        Scimitar,
+        BlackShield,
+        EightTrigrams,
     }
 }
