@@ -185,7 +185,11 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(d, s[s[d]]);
             Assert.AreEqual(e, s[s[e]]);
         }
-
+    }
+    
+    [TestClass]
+    public class CardTest
+    {
 
         [TestMethod]
         public void CardCategoryTest()
@@ -208,8 +212,7 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(CardCategory.Weapon, (new Card(CardSuit.Club, CardType.Scimitar, 0)).getCardCategory());
             Assert.AreEqual(CardCategory.Shield, (new Card(CardSuit.Club, CardType.BlackShield, 0)).getCardCategory());
             Assert.AreEqual(CardCategory.Shield, (new Card(CardSuit.Club, CardType.EightTrigrams, 0)).getCardCategory());
-
         }
-
+        
     }
 }

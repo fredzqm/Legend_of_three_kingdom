@@ -14,7 +14,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void CreateActionTest()
         {
-            Player p = new Player(0);
+            Player p = new Player(0, "Player Name", "Player Description");
             int v = 0;
             UserActionType t = new UserActionType();
             UserAction ua = new UserAction(t,v);

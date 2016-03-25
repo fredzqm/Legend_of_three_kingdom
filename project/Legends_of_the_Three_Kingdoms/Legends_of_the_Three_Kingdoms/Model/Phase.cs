@@ -22,12 +22,18 @@ namespace LOTK.Model
         /// </summary>
         public PhaseType type { get;}
 
+        private object[] extraInfor;
         public Phase(int playerID, PhaseType playerTurn)
         {
             this.playerID = playerID;
             this.type = playerTurn;
         }
 
+        //public Phase(int playerID, PhaseType playerTurn, params object[] info) : this(playerID, playerTurn)
+        //{
+        //    extraInfor = new object[info.Count];
+            
+        //}
         /// <summary>
         /// 
         /// </summary>
@@ -50,25 +56,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            string str = "";
-            switch (type)
-            {
-                case PhaseType.JudgePhase:
-                    str = "JudgePhase";
-                    break;
-                case PhaseType.DrawingPhase:
-                    str = "DrawingPhase";
-                    break;
-                case PhaseType.ActionPhase:
-                    str = "ActionPhase";
-                    break;
-                case PhaseType.DiscardPhase:
-                    str = "DiscardPhase";
-                    break;
-                default:
-                    break;
-            }
-            return "Plyaer "+playerID+ " at " + str;
+            return "Plyaer "+playerID+ " at " + type.ToString();
         }
 
     }

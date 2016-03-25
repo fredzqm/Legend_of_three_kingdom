@@ -14,13 +14,10 @@ namespace LOTK.Model
     /// </summary>
     public class Player
     {
-        private int i;
-
         // basic and readonly properties, initialized in contructor
         public int playerID { get; }
         public string name { get; }
         public string description { get; }
-
 
         public List<Card> handCards { get; }
         public Card weapon { get; set; }
@@ -36,14 +33,6 @@ namespace LOTK.Model
             handCards.Add(new Card(CardSuit.Club, CardType.Attack, 0));
             weapon = new Card(CardSuit.Club, CardType.Attack, 0);
             shield = new Card(CardSuit.Club, CardType.Attack, 0);
-        }
-
-        /// <summary>
-        /// a default constructor solely for the purpose of testing
-        /// </summary>
-        /// <param name="i"></param>
-        public Player(int i):this(i, "Player Name", "Player Description")
-        {
         }
 
         public static implicit operator int (Player p)
@@ -100,11 +89,11 @@ namespace LOTK.Model
                 case PhaseType.DiscardPhase:
                     return false;
                 default:
-                    return autoPhase(curPhase);
+                    return autoSpecialPhase(curPhase);
             }
         }
 
-        public virtual bool autoSpecialPhase(Phase curPhase, IGame game)
+        public virtual bool autoSpecialPhase(Phase curPhase)
         {
             throw new NotDefinedException("This type not defined");
         }
