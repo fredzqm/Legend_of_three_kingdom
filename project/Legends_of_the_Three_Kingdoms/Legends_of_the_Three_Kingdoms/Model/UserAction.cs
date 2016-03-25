@@ -1,5 +1,9 @@
 ﻿namespace LOTK.Model
 {
+    /// <summary>
+    /// The class used to specify the user action.
+    /// Like click buttons
+    /// </summary>
     public struct UserAction
     {
         public const int YES = 1;

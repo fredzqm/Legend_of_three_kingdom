@@ -179,11 +179,36 @@ namespace LOTK_Test.ModelTest
             ls.Add(e);
             CardSet s = new CardSet(ls);
 
-            Assert.AreEqual(a, s[s.getCardID(a)]);
-            Assert.AreEqual(b, s[s.getCardID(b)]);
-            Assert.AreEqual(c, s[s.getCardID(c)]);
-            Assert.AreEqual(d, s[s.getCardID(d)]);
-            Assert.AreEqual(e, s[s.getCardID(e)]);
+            Assert.AreEqual(a, s[s[a]]);
+            Assert.AreEqual(b, s[s[b]]);
+            Assert.AreEqual(c, s[s[c]]);
+            Assert.AreEqual(d, s[s[d]]);
+            Assert.AreEqual(e, s[s[e]]);
+        }
+
+
+        [TestMethod]
+        public void CardCategoryTest()
+        {
+            Assert.AreEqual(CardCategory.Basic, (new Card(CardSuit.Club, CardType.Attack, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Basic, (new Card(CardSuit.Club, CardType.Miss, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Basic, (new Card(CardSuit.Club, CardType.Wine, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Basic, (new Card(CardSuit.Club, CardType.Peach, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Negate, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Barbarians, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.HailofArrow, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.PeachGarden, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Wealth, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Steal, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Tool, (new Card(CardSuit.Club, CardType.Break, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.DelayTool, (new Card(CardSuit.Club, CardType.Capture, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.DelayTool, (new Card(CardSuit.Club, CardType.Starvation, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Weapon, (new Card(CardSuit.Club, CardType.Crossbow, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Weapon, (new Card(CardSuit.Club, CardType.IceSword, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Weapon, (new Card(CardSuit.Club, CardType.Scimitar, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Shield, (new Card(CardSuit.Club, CardType.BlackShield, 0)).getCardCategory());
+            Assert.AreEqual(CardCategory.Shield, (new Card(CardSuit.Club, CardType.EightTrigrams, 0)).getCardCategory());
+
         }
 
     }

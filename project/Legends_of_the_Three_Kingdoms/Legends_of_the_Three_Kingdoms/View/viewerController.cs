@@ -30,6 +30,7 @@ namespace LOTK.View
         /// <param name="clickedPlayerID"></param>
         void clickPlayer(int playerID, int clickedPlayerID);
     }
+
     /// <summary>
     /// Set Different constant to different value
     /// </summary>

@@ -23,18 +23,18 @@ namespace LOTK.Model
 
         /// <summary>
         /// create a cardset given an list of cards
-       /// </summary>
+        /// </summary>
         /// <param name="cls">A collection for all cards</param>
         public CardSet(ICollection<Card> cls)
         {
             cardLs = new Card[cls.Count];
             cardIDs = new Dictionary<Card, int>();
-            IEnumerator<Card> itr =  cls.GetEnumerator();
+            IEnumerator<Card> itr = cls.GetEnumerator();
             for (int i = 0; i < cls.Count; i++)
             {
                 itr.MoveNext();
                 cardLs[i] = itr.Current;
-                cardIDs[cardLs[i]]= i;
+                cardIDs[cardLs[i]] = i;
             }
             cardPile = new LinkedList<Card>(cardLs);
             discardPile = new LinkedList<Card>();
@@ -58,8 +58,16 @@ namespace LOTK.Model
 
         /// <summary>
         /// </summary>
-        /// <param name="a">Card instance</param>
+        /// <param name="c">Card instance</param>
         /// <returns>CardID</returns>
+        public int this[Card c]
+        {
+            get
+            {
+                return cardIDs[c];
+            }
+        }
+
         public int getCardID(Card a)
         {
             return cardIDs[a];
@@ -91,11 +99,11 @@ namespace LOTK.Model
         public void discard(Card c)
         {
             if (!cardIDs.ContainsKey(c))
-                throw new NoCardException("Such Card Cannot be Found"); 
+                throw new NoCardException("Such Card Cannot be Found");
             discardPile.AddFirst(c);
         }
 
- 
+
     }
 
     /// <summary>
@@ -108,7 +116,6 @@ namespace LOTK.Model
         private byte num;
 
         private int id = -1;
-        public int CardID { get { return id; } }
 
         public Card(CardSuit s, CardType t, byte n)
         {
@@ -133,18 +140,142 @@ namespace LOTK.Model
             return String.Format("Card {0}  {1}{3}", type, suit, num);
         }
 
-        internal string getDescription()
+        public string getDescription()
         {
-            return "Card Description";
+            switch (this.type)
+            {
+                case CardType.Attack:
+                    return "Attack description";
+                case CardType.Miss:
+                    return "Miss description";
+                case CardType.Wine:
+                    return "Wine description";
+                case CardType.Peach:
+                    return "Peach description";
+                case CardType.Negate:
+                    return "Negate description";
+                case CardType.Barbarians:
+                    return "Barbarians description";
+                case CardType.HailofArrow:
+                    return "HailofArrow description";
+                case CardType.PeachGarden:
+                    return "PeachGarden description";
+                case CardType.Wealth:
+                    return "Wealth description";
+                case CardType.Steal:
+                    return "Steal description";
+                case CardType.Break:
+                    return "Break description";
+                case CardType.Capture:
+                    return "Capture description";
+                case CardType.Starvation:
+                    return "Starvation description";
+                case CardType.Crossbow:
+                    return "Crossbow description";
+                case CardType.IceSword:
+                    return "IceSword description";
+                case CardType.Scimitar:
+                    return "Scimitar description";
+                case CardType.BlackShield:
+                    return "BlackShield description";
+                case CardType.EightTrigrams:
+                    return "EightTrigrams description";
+                default:
+                    throw new Exception();
+            }
         }
 
-        internal string getName()
+        public string getName()
         {
-            return "Card Name";
+            switch (this.type)
+            {
+                case CardType.Attack:
+                    return "Attack";
+                case CardType.Miss:
+                    return "Miss";
+                case CardType.Wine:
+                    return "Wine";
+                case CardType.Peach:
+                    return "Peach";
+                case CardType.Negate:
+                    return "Negate";
+                case CardType.Barbarians:
+                    return "Barbarians";
+                case CardType.HailofArrow:
+                    return "HailofArrow";
+                case CardType.PeachGarden:
+                    return "PeachGarden";
+                case CardType.Wealth:
+                    return "Wealth";
+                case CardType.Steal:
+                    return "Steal";
+                case CardType.Break:
+                    return "Break";
+                case CardType.Capture:
+                    return "Capture";
+                case CardType.Starvation:
+                    return "Starvation";
+                case CardType.Crossbow:
+                    return "Crossbow";
+                case CardType.IceSword:
+                    return "IceSword";
+                case CardType.Scimitar:
+                    return "Scimitar";
+                case CardType.BlackShield:
+                    return "BlackShield";
+                case CardType.EightTrigrams:
+                    return "EightTrigrams";
+                default:
+                    throw new Exception();
+            }
         }
 
+        public CardCategory getCardCategory()
+        {
+            switch (this.type)
+            {
+                case CardType.Attack:
+                    return CardCategory.Basic;
+                case CardType.Miss:
+                    return CardCategory.Basic;
+                case CardType.Wine:
+                    return CardCategory.Basic;
+                case CardType.Peach:
+                    return CardCategory.Basic;
+                case CardType.Negate:
+                    return CardCategory.Tool;
+                case CardType.Barbarians:
+                    return CardCategory.Tool;
+                case CardType.HailofArrow:
+                    return CardCategory.Tool;
+                case CardType.PeachGarden:
+                    return CardCategory.Tool;
+                case CardType.Wealth:
+                    return CardCategory.Tool;
+                case CardType.Steal:
+                    return CardCategory.Tool;
+                case CardType.Break:
+                    return CardCategory.Tool;
+                case CardType.Capture:
+                    return CardCategory.DelayTool;
+                case CardType.Starvation:
+                    return CardCategory.DelayTool;
+                case CardType.Crossbow:
+                    return CardCategory.Weapon;
+                case CardType.IceSword:
+                    return CardCategory.Weapon;
+                case CardType.Scimitar:
+                    return CardCategory.Weapon;
+                case CardType.BlackShield:
+                    return CardCategory.Shield;
+                case CardType.EightTrigrams:
+                    return CardCategory.Shield;
+                default:
+                    throw new Exception();
+            }
+        }
     }
-    
+
     /// <summary>
     /// Four kind of Suits
     /// </summary>
@@ -156,6 +287,14 @@ namespace LOTK.Model
         Club,
     }
 
+    public enum CardCategory
+    {
+        Basic,
+        Tool,
+        DelayTool,
+        Weapon,
+        Shield
+    }
     /// <summary>
     /// Incomplete now, 
     /// </summary>
@@ -163,6 +302,21 @@ namespace LOTK.Model
     {
         Attack,
         Miss,
-        Wine
+        Wine,
+        Peach,
+        Negate,
+        Barbarians,
+        HailofArrow,
+        PeachGarden,
+        Wealth,
+        Steal,
+        Break,
+        Capture,
+        Starvation,
+        Crossbow,
+        IceSword,
+        Scimitar,
+        BlackShield,
+        EightTrigrams,
     }
 }
