@@ -105,15 +105,15 @@ namespace LOTK_Test.ModelTest
         public void PhaseExtraInfoListTest()
         {
             Phase x = new Phase(0, PhaseType.ActionPhase, 1, 2.7, 3);
-            Assert.AreEqual(1, x.getInfor(1));
-            Assert.AreEqual(2.7, x.getInfor(2));
-            Assert.AreEqual(3, x.getInfor(3));
+            Assert.AreEqual(1, x.getInfor(0));
+            Assert.AreEqual(2.7, x.getInfor(1));
+            Assert.AreEqual(3, x.getInfor(2));
 
             Card c = new Card(CardSuit.Club, CardType.Attack, 3);
             Phase y = new Phase(0, PhaseType.ActionPhase, PhaseType.ActionPhase, c , 2);
-            Assert.AreEqual(PhaseType.ActionPhase, y.getInfor(1));
-            Assert.AreEqual(c, y.getInfor(2));
-            Assert.AreEqual(2, y.getInfor(3));
+            Assert.AreEqual(PhaseType.ActionPhase, y.getInfor(0));
+            Assert.AreEqual(c, y.getInfor(1));
+            Assert.AreEqual(2, y.getInfor(2));
         }
     }
 

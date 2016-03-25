@@ -23,17 +23,29 @@ namespace LOTK.Model
         public PhaseType type { get;}
 
         private object[] extraInfor;
+        private int v1;
+        private double v2;
+        private int v3;
+
         public Phase(int playerID, PhaseType playerTurn)
         {
             this.playerID = playerID;
             this.type = playerTurn;
         }
 
-        //public Phase(int playerID, PhaseType playerTurn, params object[] info) : this(playerID, playerTurn)
-        //{
-        //    extraInfor = new object[info.Count];
-            
-        //}
+        public Phase(int playerID, PhaseType playerTurn, params object[] info) : this(playerID, playerTurn)
+        {
+            extraInfor = new object[info.Length];
+            for (int i = 0; i < info.Length; i++)
+            {
+                extraInfor[i] = info[i];
+            }
+        }
+
+        public object getInfor(int i)
+        {
+            return extraInfor[i];
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -58,6 +70,7 @@ namespace LOTK.Model
         {
             return "Plyaer "+playerID+ " at " + type.ToString();
         }
+
 
     }
 
