@@ -261,15 +261,15 @@ namespace LOTK.Model
                 case CardType.Starvation:
                     return CardCategory.Tool;
                 case CardType.Crossbow:
-                    return CardCategory.Equipment;
+                    return CardCategory.Weapon;
                 case CardType.IceSword:
-                    return CardCategory.Equipment;
+                    return CardCategory.Weapon;
                 case CardType.Scimitar:
-                    return CardCategory.Equipment;
+                    return CardCategory.Weapon;
                 case CardType.BlackShield:
-                    return CardCategory.Equipment;
+                    return CardCategory.Shield;
                 case CardType.EightTrigrams:
-                    return CardCategory.Equipment;
+                    return CardCategory.Shield;
                 default:
                     throw new Exception();
             }
@@ -291,7 +291,9 @@ namespace LOTK.Model
     {
         Basic,
         Tool,
-        Equipment
+        DelayTool,
+        Weapon,
+        Shield
     }
     /// <summary>
     /// Incomplete now, 
