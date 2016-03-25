@@ -42,10 +42,10 @@ namespace LOTK.Model
         public Game(int Num_player, ICollection<Card> cardList)
         {
             Num_Player = Num_player;
-            players = new Player[Num_Player];
             if (cardList != null)
                 cards = new CardSet(cardList);
 
+            players = new Player[Num_Player];
             for (int i = 0; i < Num_Player; i++)
             {
                 players[i] = new Player(i);
@@ -93,15 +93,15 @@ namespace LOTK.Model
         /// <returns>True if the game is auto advanced and the GUI should update correspondedly</returns>
         public bool tick()
         {
-            if (timerAutoAdvance)
-            {
-                if (timerVisit)
-                {
-                    nextStage();
-                    return true;
-                }
-                timerVisit = true;
-            }
+            //if (timerAutoAdvance)
+            //{
+            //    if (timerVisit)
+            //    {
+            //        nextStage();
+            //        return true;
+            //    }
+            //    timerVisit = true;
+            //}
             return false;
         }
 

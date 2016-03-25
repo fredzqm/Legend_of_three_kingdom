@@ -13,7 +13,6 @@ namespace LOTK_Test.ModelTest
         public void PlayerConstructTest()
         {
             Player p = new Player(0);
-
         }
 
         [TestMethod]
@@ -118,6 +117,7 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(g.UserInput(new Phase(0, PhaseType.DiscardPhase),
                 new UserAction(UserActionType.YES_OR_NO, 1)));
         }
+
 
         internal class TestGame : IGame
         {

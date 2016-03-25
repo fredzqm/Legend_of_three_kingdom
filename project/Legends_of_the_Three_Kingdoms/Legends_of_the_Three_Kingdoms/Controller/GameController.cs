@@ -54,7 +54,6 @@ namespace LOTK.Controller
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            Console.Write("Timers");
             if (game.tick())
                 updateForm();
         }
@@ -64,16 +63,16 @@ namespace LOTK.Controller
             Required_Data rd = new Required_Data();
             for(int i = 0; i < NUM_OF_PLAYER; i++)
             {
-                rd.players[i].ability = game.players[(i + ownPlayer) % NUM_OF_PLAYER].getAbilityDescription();
-                rd.players[i].name = game.players[(i + ownPlayer) % NUM_OF_PLAYER].getName();
+                rd.players[i] = PlayerToPlayerDisplay(game.players[(i + ownPlayer) % NUM_OF_PLAYER]);
             }
-            rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].getHoldCards().Select(c => new CardDisplay(c.getName(), c.getDescription())));
-            rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].getHoldCards().Select(c => new CardDisplay(c.getName(), c.getDescription())));
+            rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => new CardDisplay(c.getName(), c.getDescription())));
+            rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => new CardDisplay(c.getName(), c.getDescription())));
             rd.this_player_stage = game.curPhase.ToString();
-            rd.tool_attack = CardToCardDisplay( game.players[ownPlayer].getWeapon());
-            rd.tool_defence = CardToCardDisplay( game.players[ownPlayer].getDefense());
+            rd.tool_attack = CardToCardDisplay( game.players[ownPlayer].weapon);
+            rd.tool_defence = CardToCardDisplay( game.players[ownPlayer].shield);
             return rd;
         }
+
 
 
         public void clickButton(int playerID, int buttonID)
@@ -103,14 +102,17 @@ namespace LOTK.Controller
             throw new NotImplementedException();
         }
 
+        // -------------------------------------------------------------------------------------
+        // helper methods to convert model objects to view objects.
+        private PlayerDisplay PlayerToPlayerDisplay(Player player)
+        {
+            return new PlayerDisplay(player.name, player.description);
+        }
 
-
-
-
-            private static CardDisplay CardToCardDisplay(Card card)
-            {
-                return new CardDisplay(card.getName(), card.getDescription());
-            }
+        private static CardDisplay CardToCardDisplay(Card card)
+        {
+            return new CardDisplay(card.getName(), card.getDescription());
+        }
     }
 
  

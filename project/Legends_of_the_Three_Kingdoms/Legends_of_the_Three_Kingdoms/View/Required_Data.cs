@@ -54,7 +54,21 @@ namespace LOTK.View
         public struct PlayerDisplay{
             public string name;
             public string ability;
+        private int name1;
+        private object description;
+
+        public PlayerDisplay(string name, string description) : this()
+        {
+            this.name = name;
+            this.ability = description;
         }
+
+        public PlayerDisplay(int name1, object description) : this()
+        {
+            this.name1 = name1;
+            this.description = description;
+        }
+    }
 
         public struct CardDisplay
         {

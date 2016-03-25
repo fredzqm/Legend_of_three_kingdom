@@ -98,7 +98,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void GameCarSetDrawTest()
+        public void CardSetDrawTest()
         {
             List<Card> ls = new List<Card>();
             ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
@@ -118,6 +118,31 @@ namespace LOTK_Test.ModelTest
                 ls.Remove(drawn[0]);
                 ls.Remove(drawn[1]);
             }
+        }
+
+        [TestMethod]
+        public void AutoAdvancedTest()
+        {
+            Game g = new Game(5, null);
+            Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
+            g.tick();
+            Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
+            g.tick();
+            Assert.AreEqual(PhaseType.DrawingPhase, g.curPhase.type);
+            g.tick();
+            Assert.AreEqual(PhaseType.DrawingPhase, g.curPhase.type);
+            g.tick();
+            Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
+            g.tick();
+            Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
+            g.tick();
+            Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
+            g.nextStage();
+            Assert.AreEqual(PhaseType.DiscardPhase, g.curPhase.type);
+            g.tick();
+            Assert.AreEqual(PhaseType.DiscardPhase, g.curPhase.type);
+            g.tick();
+            Assert.AreEqual(PhaseType.DiscardPhase, g.curPhase.type);
         }
     }
 }

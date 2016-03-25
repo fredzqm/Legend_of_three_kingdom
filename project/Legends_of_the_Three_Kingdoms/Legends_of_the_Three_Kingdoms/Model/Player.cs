@@ -14,42 +14,41 @@ namespace LOTK.Model
     /// </summary>
     public class Player
     {
-        public int playerID { get; set; }
-        public Player(int pos)
+        private int i;
+
+        // basic and readonly properties, initialized in contructor
+        public int playerID { get; }
+        public string name { get; }
+        public string description { get; }
+
+
+        public List<Card> handCards { get; }
+        public Card weapon { get; set; }
+        public Card shield { get; set; }
+
+        public Player(int pos, string name, string descript)
         {
             playerID = pos;
+            handCards = new List<Card>();
+            // just for testing purpose
+            this.name = name;
+            this.description = descript;
+            handCards.Add(new Card(CardSuit.Club, CardType.Attack, 0));
+            weapon = new Card(CardSuit.Club, CardType.Attack, 0);
+            shield = new Card(CardSuit.Club, CardType.Attack, 0);
+        }
+
+        /// <summary>
+        /// a default constructor solely for the purpose of testing
+        /// </summary>
+        /// <param name="i"></param>
+        public Player(int i):this(i, "Player Name", "Player Description")
+        {
         }
 
         public static implicit operator int (Player p)
         {
             return p.playerID;
-        }
-
-        public string getName()
-        {
-            return "Player Name";
-        }
-
-        public List<Card> getHoldCards()
-        {
-            List<Card> ls = new List<Card>();
-            ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
-            return ls;
-        }
-
-        public Card getWeapon()
-        {
-            return new Card(CardSuit.Club, CardType.Attack, 0);
-        }
-
-        public Card getDefense()
-        {
-            return new Card(CardSuit.Club, CardType.Attack, 0);
-        }
-
-        public string getAbilityDescription()
-        {
-            return "Ability Description";
         }
 
  // ----------------------------------------------------

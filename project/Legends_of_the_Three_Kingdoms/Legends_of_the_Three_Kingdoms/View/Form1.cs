@@ -39,7 +39,6 @@ namespace LOTK.View
 
 
         delegate void updateDelegate();
-
         public void updateForm()
         {
             if (this.InvokeRequired)
