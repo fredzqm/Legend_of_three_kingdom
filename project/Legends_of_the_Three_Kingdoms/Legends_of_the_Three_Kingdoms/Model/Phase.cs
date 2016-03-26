@@ -38,10 +38,7 @@ namespace LOTK.Model
 
     public abstract class BackGroundPhase : Phase
     {
-        public BackGroundPhase(int playerID) : base(playerID)
-        {
-
-        }
+        public BackGroundPhase(int playerID) : base(playerID) { }
 
         public override sealed bool needResponse()
         {
@@ -51,10 +48,7 @@ namespace LOTK.Model
 
     public abstract class ResponsivePhase : Phase
     {
-        public ResponsivePhase(int playerID) : base(playerID)
-        {
-
-        }
+        public ResponsivePhase(int playerID) : base(playerID) { }
 
         public sealed override bool needResponse()
         {
@@ -64,10 +58,7 @@ namespace LOTK.Model
 
     public class PlayerTurn : BackGroundPhase
     {
-        public PlayerTurn(int playerID) : base(playerID)
-        {
-
-        }
+        public PlayerTurn(int playerID) : base(playerID) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
@@ -82,10 +73,7 @@ namespace LOTK.Model
 
     public class JudgePhase : ResponsivePhase
     {
-        public JudgePhase(int playerID) : base(playerID)
-        {
-
-        }
+        public JudgePhase(int playerID) : base(playerID) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
@@ -100,10 +88,7 @@ namespace LOTK.Model
 
     public class DrawingPhase : ResponsivePhase
     {
-        public DrawingPhase(int playerID) : base(playerID)
-        {
-
-        }
+        public DrawingPhase(int playerID) : base(playerID) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
@@ -118,10 +103,7 @@ namespace LOTK.Model
 
     public class ActionPhase : ResponsivePhase
     {
-        public ActionPhase(int playerID) : base(playerID)
-        {
-
-        }
+        public ActionPhase(int playerID) : base(playerID) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
@@ -136,10 +118,7 @@ namespace LOTK.Model
 
     public class DiscardPhase : ResponsivePhase
     {
-        public DiscardPhase(int playerID) : base(playerID)
-        {
-
-        }
+        public DiscardPhase(int playerID) : base(playerID) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {

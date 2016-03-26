@@ -33,6 +33,8 @@ namespace LOTK.Model
     public class UseCardAction : UserAction
     {
         public Card card { get; }
+        public Player[] targets { get; }
+        public int targetCount { get { return targets.Length; } }
 
         public UseCardAction(Card card) : base(UserActionType.CARD)
         {
@@ -40,7 +42,7 @@ namespace LOTK.Model
         }
         public UseCardAction(Card card, params Player[] targets) : this(card)
         {
-
+            this.targets = targets;
         }
         public UseCardAction(int CardID, Game game) : this(game.cards[CardID]) { }
     }

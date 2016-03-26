@@ -190,6 +190,7 @@ namespace LOTK.Model
             }
         }
 
+        public abstract Phase createUsePhase(Player player, UseCardAction a);
     }
 
     public abstract class BasicCard : Card

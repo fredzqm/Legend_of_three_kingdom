@@ -72,28 +72,10 @@ namespace LOTK.Model
                         return null;
                 case UserActionType.CARD:
                     UseCardAction a = userAction as UseCardAction;
-                    switch (a.card.type)
-                    {
-                        case CardType.Attack: break;
-                        case CardType.Miss: break;
-                        case CardType.Wine: break;
-                        case CardType.Peach: break;
-                        case CardType.Negate: break;
-                        case CardType.Barbarians: break;
-                        case CardType.HailofArrow: break;
-                        case CardType.PeachGarden: break;
-                        case CardType.Wealth: break;
-                        case CardType.Steal: break;
-                        case CardType.Break: break;
-                        case CardType.Capture: break;
-                        case CardType.Starvation: break;
-                        case CardType.Crossbow: break;
-                        case CardType.IceSword: break;
-                        case CardType.Scimitar: break;
-                        case CardType.BlackShield: break;
-                        case CardType.EightTrigrams: break;
-                    }
-                    return null;
+                    Card c = a.card;
+                    if (c.numOfTargets() != a.targetCount)
+                        return null;
+                    return new PhaseList(c.createUsePhase(this, a), curPhase);
                 default:
                     return null;
             }
