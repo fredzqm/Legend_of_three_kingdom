@@ -66,10 +66,34 @@ namespace LOTK.Model
             switch (userAction.type)
             {
                 case UserActionType.YES_OR_NO:
-                    if ((userAction as UserActionYesOrNo).no)
+                    if ((userAction as YesOrNoAction).no)
                         return new PhaseList(new DiscardPhase(this));
                     else
                         return null;
+                case UserActionType.CARD:
+                    UseCardAction a = userAction as UseCardAction;
+                    switch (a.card.type)
+                    {
+                        case CardType.Attack: break;
+                        case CardType.Miss: break;
+                        case CardType.Wine: break;
+                        case CardType.Peach: break;
+                        case CardType.Negate: break;
+                        case CardType.Barbarians: break;
+                        case CardType.HailofArrow: break;
+                        case CardType.PeachGarden: break;
+                        case CardType.Wealth: break;
+                        case CardType.Steal: break;
+                        case CardType.Break: break;
+                        case CardType.Capture: break;
+                        case CardType.Starvation: break;
+                        case CardType.Crossbow: break;
+                        case CardType.IceSword: break;
+                        case CardType.Scimitar: break;
+                        case CardType.BlackShield: break;
+                        case CardType.EightTrigrams: break;
+                    }
+                    return null;
                 default:
                     return null;
             }

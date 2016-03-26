@@ -30,35 +30,35 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual( typeof(DrawingPhase) , ls.pop().GetType());
             Assert.AreEqual( typeof(ActionPhase) , ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
-            ls = p.judgePhase(new JudgePhase(0), new UserActionYesOrNo(true), testgame);
+            ls = p.judgePhase(new JudgePhase(0), new YesOrNoAction(true), testgame);
             Assert.AreEqual(typeof(DrawingPhase), ls.pop().GetType());
             Assert.AreEqual(typeof(ActionPhase), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
-            ls = p.judgePhase(new JudgePhase(0), new UserActionYesOrNo(false), testgame);
+            ls = p.judgePhase(new JudgePhase(0), new YesOrNoAction(false), testgame);
             Assert.AreEqual(typeof(DrawingPhase), ls.pop().GetType());
             Assert.AreEqual(typeof(ActionPhase), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
 
             ls = p.drawingPhase(new DrawingPhase(0), null, testgame);
             Assert.IsTrue(ls.isEmpty());
-            ls = p.drawingPhase(new DrawingPhase(0), new UserActionYesOrNo(true), testgame);
+            ls = p.drawingPhase(new DrawingPhase(0), new YesOrNoAction(true), testgame);
             Assert.IsTrue(ls.isEmpty());
-            ls = p.drawingPhase(new DrawingPhase(0), new UserActionYesOrNo(false), testgame);
+            ls = p.drawingPhase(new DrawingPhase(0), new YesOrNoAction(false), testgame);
             Assert.IsTrue(ls.isEmpty());
 
             ls = p.actionPhase(new ActionPhase(0), null, testgame);
             Assert.IsNull(ls);
-            ls = p.actionPhase(new ActionPhase(0), new UserActionYesOrNo(true), testgame);
+            ls = p.actionPhase(new ActionPhase(0), new YesOrNoAction(true), testgame);
             Assert.IsNull(ls);
-            ls = p.actionPhase(new ActionPhase(0), new UserActionYesOrNo(false), testgame);
+            ls = p.actionPhase(new ActionPhase(0), new YesOrNoAction(false), testgame);
             Assert.AreEqual(typeof(DiscardPhase), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
 
             ls = p.discardPhase(new DiscardPhase(0), null, testgame);
             Assert.IsNull(ls); // in the future this will be changed to true
-            ls = p.discardPhase(new DiscardPhase(0), new UserActionYesOrNo(true), testgame);
+            ls = p.discardPhase(new DiscardPhase(0), new YesOrNoAction(true), testgame);
             Assert.IsTrue(ls.isEmpty());
-            ls = p.discardPhase(new DiscardPhase(0), new UserActionYesOrNo(false), testgame);
+            ls = p.discardPhase(new DiscardPhase(0), new YesOrNoAction(false), testgame);
             Assert.IsTrue(ls.isEmpty());
         }
 
@@ -67,21 +67,21 @@ namespace LOTK_Test.ModelTest
         {
             Player g = new Player(0, "Player Name", "Player Description");
             Assert.IsTrue(g.judgePhase(new JudgePhase(0), 
-                new UserActionYesOrNo(false), null) != null);
+                new YesOrNoAction(false), null) != null);
             Assert.IsTrue(g.judgePhase(new JudgePhase(0),
-                new UserActionYesOrNo(true), null) != null);
+                new YesOrNoAction(true), null) != null);
             Assert.IsTrue(g.drawingPhase(new DrawingPhase(0),
-                new UserActionYesOrNo(false), null) != null);
+                new YesOrNoAction(false), null) != null);
             Assert.IsTrue(g.drawingPhase(new DrawingPhase(0),
-                new UserActionYesOrNo(true), null) != null);
+                new YesOrNoAction(true), null) != null);
             Assert.IsTrue(g.actionPhase(new ActionPhase(0),
-                new UserActionYesOrNo(false), null) != null);
+                new YesOrNoAction(false), null) != null);
             Assert.IsFalse(g.actionPhase(new ActionPhase(0),
-                new UserActionYesOrNo(true), null) != null);
+                new YesOrNoAction(true), null) != null);
             Assert.IsTrue(g.discardPhase(new DiscardPhase(0),
-                new UserActionYesOrNo(false), null) != null);
+                new YesOrNoAction(false), null) != null);
             Assert.IsTrue(g.discardPhase(new DiscardPhase(0),
-                new UserActionYesOrNo(true), null) != null);
+                new YesOrNoAction(true), null) != null);
         }
 
         [TestMethod]

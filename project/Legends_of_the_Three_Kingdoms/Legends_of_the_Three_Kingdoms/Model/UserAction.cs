@@ -20,25 +20,29 @@ namespace LOTK.Model
         }
     }
 
-    public class UserActionYesOrNo : UserAction
+    public class YesOrNoAction : UserAction
     {
         public bool yes { get; }
         public bool no { get { return !yes; } }
-        public UserActionYesOrNo(bool yesOrNo) : base(UserActionType.YES_OR_NO)
+        public YesOrNoAction(bool yesOrNo) : base(UserActionType.YES_OR_NO)
         {
             this.yes = yesOrNo;
         }
     }
 
-    public class UserActionCard : UserAction
+    public class UseCardAction : UserAction
     {
         public Card card { get; }
 
-        public UserActionCard(Card card) : base(UserActionType.CARD)
+        public UseCardAction(Card card) : base(UserActionType.CARD)
         {
             this.card = card;
         }
-        public UserActionCard(int CardID, Game game) : this(game.cards[CardID]) { }
+        public UseCardAction(Card card, params Player[] targets) : this(card)
+        {
+
+        }
+        public UseCardAction(int CardID, Game game) : this(game.cards[CardID]) { }
     }
 
     public class UserActionCards : UserAction

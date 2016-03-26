@@ -111,9 +111,9 @@ namespace LOTK.Model
     /// </summary>
     public abstract class Card
     {
-        private CardType type;
-        private CardSuit suit;
-        private byte num;
+        public CardType type { get; }
+        public CardSuit suit { get; }
+        public byte num { get; }
 
         public Card(CardSuit s, CardType t, byte n)
         {
@@ -135,6 +135,14 @@ namespace LOTK.Model
 
         public abstract string getDescription();
 
+        /// <summary>
+        /// Really for the purpose of testing.
+        /// This is a uniform format for constructing a Card.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="v"></param>
+        /// <returns></returns>
         public static Card ConstructCard(CardSuit s, CardType t, byte v)
         {
             switch (t)
@@ -183,7 +191,7 @@ namespace LOTK.Model
 
     public abstract class BasicCard : Card
     {
-        public BasicCard(CardSuit s, CardType t , byte n):base(s, t, n) { }
+        public BasicCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
     }
     public abstract class ToolCard : Card
     {
@@ -237,7 +245,28 @@ namespace LOTK.Model
         EightTrigrams,
     }
 
-
+    // Some helpful templete
+    // switch(c.type) {
+    //     case CardType.Attack: break;
+    //     case CardType.Miss: break;
+    //     case CardType.Wine: break;
+    //     case CardType.Peach: break;
+    //     case CardType.Negate: break;
+    //     case CardType.Barbarians: break;
+    //     case CardType.HailofArrow: break;
+    //     case CardType.PeachGarden: break;
+    //     case CardType.Wealth: break;
+    //     case CardType.Steal: break;
+    //     case CardType.Break: break;
+    //     case CardType.Capture: break;
+    //     case CardType.Starvation: break;
+    //     case CardType.Crossbow: break;
+    //     case CardType.IceSword: break;
+    //     case CardType.Scimitar: break;
+    //     case CardType.BlackShield: break;
+    //     case CardType.EightTrigrams: break;
+    //     default: break;
+    // }
 
     /// <summary>
     /// Four kind of Suits
