@@ -46,7 +46,7 @@ namespace LOTK.Model
 
         public virtual PhaseList playerTurn(PlayerTurn curPhase, IGame g)
         {
-            return new PhaseList(new JudgePhase(this), new PlayerTurn((this + 1)%g.Num_Player));
+            return new PhaseList(new JudgePhase(this), new PlayerTurn(g.players[(this + 1)%g.Num_Player]));
         }
 
         public virtual PhaseList judgePhase(JudgePhase curPhase, UserAction userAction, IGame g)
