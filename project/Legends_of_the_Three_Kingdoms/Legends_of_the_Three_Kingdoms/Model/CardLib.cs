@@ -8,7 +8,7 @@ namespace LOTK.Model
 {
 
 
-    public class Attack : Card
+    public class Attack : BasicCard
     {
 
         public Attack(CardSuit s, byte n) : base(s, CardType.Attack, n) { }
@@ -23,7 +23,7 @@ namespace LOTK.Model
             return "Attack";
         }
     }
-    public class Miss : Card
+    public class Miss : BasicCard
     {
 
         public Miss(CardSuit s, byte n) : base(s, CardType.Miss, n) { }
@@ -38,7 +38,7 @@ namespace LOTK.Model
             return "Miss";
         }
     }
-    public class Wine : Card
+    public class Wine : BasicCard
     {
 
         public Wine(CardSuit s, byte n) : base(s, CardType.Wine, n) { }
@@ -53,7 +53,7 @@ namespace LOTK.Model
             return "Wine";
         }
     }
-    public class Peach : Card
+    public class Peach : BasicCard
     {
 
         public Peach(CardSuit s, byte n) : base(s, CardType.Peach, n) { }
@@ -68,7 +68,7 @@ namespace LOTK.Model
             return "Peach";
         }
     }
-    public class Negate : Card
+    public class Negate : NonDelayToolCard
     {
 
         public Negate(CardSuit s, byte n) : base(s, CardType.Negate, n) { }
@@ -83,7 +83,7 @@ namespace LOTK.Model
             return "Negate";
         }
     }
-    public class Barbarians : Card
+    public class Barbarians : NonDelayToolCard
     {
 
         public Barbarians(CardSuit s, byte n) : base(s, CardType.Barbarians, n) { }
@@ -98,7 +98,7 @@ namespace LOTK.Model
             return "Barbarians";
         }
     }
-    public class HailofArrow : Card
+    public class HailofArrow : NonDelayToolCard
     {
 
         public HailofArrow(CardSuit s, byte n) : base(s, CardType.HailofArrow, n) { }
@@ -113,7 +113,7 @@ namespace LOTK.Model
             return "HailofArrow";
         }
     }
-    public class PeachGarden : Card
+    public class PeachGarden : NonDelayToolCard
     {
 
         public PeachGarden(CardSuit s, byte n) : base(s, CardType.PeachGarden, n) { }
@@ -128,7 +128,7 @@ namespace LOTK.Model
             return "PeachGarden";
         }
     }
-    public class Wealth : Card
+    public class Wealth : NonDelayToolCard
     {
 
         public Wealth(CardSuit s, byte n) : base(s, CardType.Wealth, n) { }
@@ -143,7 +143,7 @@ namespace LOTK.Model
             return "Wealth";
         }
     }
-    public class Steal : Card
+    public class Steal : NonDelayToolCard
     {
 
         public Steal(CardSuit s, byte n) : base(s, CardType.Steal, n) { }
@@ -158,7 +158,7 @@ namespace LOTK.Model
             return "Steal";
         }
     }
-    public class Break : Card
+    public class Break : NonDelayToolCard
     {
 
         public Break(CardSuit s, byte n) : base(s, CardType.Break, n) { }
@@ -173,7 +173,7 @@ namespace LOTK.Model
             return "Break";
         }
     }
-    public class Capture : Card
+    public class Capture : DelayToolCard
     {
 
         public Capture(CardSuit s, byte n) : base(s, CardType.Capture, n) { }
@@ -188,7 +188,7 @@ namespace LOTK.Model
             return "Capture";
         }
     }
-    public class Starvation : Card
+    public class Starvation : DelayToolCard
     {
 
         public Starvation(CardSuit s, byte n) : base(s, CardType.Starvation, n) { }
@@ -203,7 +203,7 @@ namespace LOTK.Model
             return "Starvation";
         }
     }
-    public class Crossbow : Card
+    public class Crossbow : Weapon
     {
 
         public Crossbow(CardSuit s, byte n) : base(s, CardType.Crossbow, n) { }
@@ -218,7 +218,7 @@ namespace LOTK.Model
             return "Crossbow";
         }
     }
-    public class IceSword : Card
+    public class IceSword : Weapon
     {
 
         public IceSword(CardSuit s, byte n) : base(s, CardType.IceSword, n) { }
@@ -233,7 +233,7 @@ namespace LOTK.Model
             return "IceSword";
         }
     }
-    public class Scimitar : Card
+    public class Scimitar : Weapon
     {
 
         public Scimitar(CardSuit s, byte n) : base(s, CardType.Scimitar, n) { }
@@ -248,7 +248,7 @@ namespace LOTK.Model
             return "Scimitar";
         }
     }
-    public class BlackShield : Card
+    public class BlackShield : Shield
     {
 
         public BlackShield(CardSuit s, byte n) : base(s, CardType.BlackShield, n) { }
@@ -263,7 +263,7 @@ namespace LOTK.Model
             return "BlackShield";
         }
     }
-    public class EightTrigrams : Card
+    public class EightTrigrams : Shield
     {
 
         public EightTrigrams(CardSuit s, byte n) : base(s, CardType.EightTrigrams, n) { }
