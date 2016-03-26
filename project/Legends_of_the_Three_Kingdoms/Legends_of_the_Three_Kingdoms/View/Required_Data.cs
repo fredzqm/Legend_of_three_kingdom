@@ -43,10 +43,10 @@ namespace LOTK.View
             players[4].name = "downleft_player";
 
             hold_cards = new List<CardDisplay>();
-            hold_cards.Add(new CardDisplay("hold_cards", ""));
-            hold_cards.Add(new CardDisplay("hold_cards", ""));
-            hold_cards.Add(new CardDisplay("hold_cards", ""));
-            hold_cards.Add(new CardDisplay("hold_cards", ""));
+            hold_cards.Add(new CardDisplay("hold_cards", "", 1));
+            hold_cards.Add(new CardDisplay("hold_cards", "", 2));
+            hold_cards.Add(new CardDisplay("hold_cards", "", 3));
+            hold_cards.Add(new CardDisplay("hold_cards", "", 4));
 
             pool_cards = new List<CardDisplay>();
 
@@ -82,25 +82,19 @@ namespace LOTK.View
     /// <summary>
     /// subclass for CardDisplay
     /// </summary>
-        public struct CardDisplay
-        {
-            public string name;
-            public string ability;
-            // TODO:
-            private int id;
+    public struct CardDisplay
+    {
+        public string name;
+        public string ability;
+        // TODO:
+        private int id;
 
 
-        public CardDisplay(string n, string a)
+        public CardDisplay(string n, string a, int id)
         {
             this.name = n;
             this.ability = a;
+            this.id = id;
         }
-
-        public CardDisplay(string n, string a, int id)
-            {
-                this.name = n;
-                this.ability = a;
-                this.id = id;
-            }
-        }
+    }
 }

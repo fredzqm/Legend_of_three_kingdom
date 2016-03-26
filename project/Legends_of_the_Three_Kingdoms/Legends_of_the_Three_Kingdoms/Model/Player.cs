@@ -59,11 +59,11 @@ namespace LOTK.Model
             return new PhaseList();
         }
 
-        internal virtual PhaseList actionPhase(ActionPhase curPhase, UserAction userAction, IGame g)
+        public virtual PhaseList actionPhase(ActionPhase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList(new DiscardPhase(this));
         }
-        internal virtual PhaseList discardPhase(DiscardPhase curPhase, UserAction userAction, IGame g)
+        public virtual PhaseList discardPhase(DiscardPhase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList();
         }

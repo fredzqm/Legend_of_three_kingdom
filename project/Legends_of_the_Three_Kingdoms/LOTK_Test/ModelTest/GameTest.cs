@@ -18,13 +18,13 @@ namespace LOTK_Test.ModelTest
         public void FourStageTest()
         {
             Game g = new Game(5 , null);
-            Assert.AreEqual(PhaseType.JudgePhase , g.curPhase.type );
-            g.nextStage();
-            Assert.AreEqual(PhaseType.DrawingPhase , g.curPhase.type );
-            g.nextStage();
-            Assert.AreEqual(PhaseType.ActionPhase , g.curPhase.type );
-            g.nextStage();
-            Assert.AreEqual(PhaseType.DiscardPhase , g.curPhase.type );
+            Assert.AreEqual(typeof(JudgePhase) , g.curPhase.GetType() );
+            g.nextStage(null);
+            Assert.AreEqual(typeof(DrawingPhase) , g.curPhase.GetType() );
+            g.nextStage(null);
+            Assert.AreEqual(typeof(ActionPhase) , g.curPhase.GetType() );
+            g.nextStage(null);
+            Assert.AreEqual(typeof(DiscardPhase) , g.curPhase.GetType() );
         }
 
         [TestMethod]
@@ -35,18 +35,18 @@ namespace LOTK_Test.ModelTest
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
+                    Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
                     Assert.AreEqual(g.curPhase.playerID, i);
-                    g.nextStage();
-                    Assert.AreEqual(PhaseType.DrawingPhase, g.curPhase.type);
+                    g.nextStage(null);
+                    Assert.AreEqual(typeof(DrawingPhase), g.curPhase.GetType());
                     Assert.AreEqual(g.curPhase.playerID, i);
-                    g.nextStage();
-                    Assert.AreEqual( PhaseType.ActionPhase , g.curPhase.type );
+                    g.nextStage(null);
+                    Assert.AreEqual( typeof(ActionPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curPhase.playerID, i);
-                    g.nextStage();
-                    Assert.AreEqual( PhaseType.DiscardPhase , g.curPhase.type );
+                    g.nextStage(null);
+                    Assert.AreEqual( typeof(DiscardPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curPhase.playerID, i);
-                    g.nextStage();
+                    g.nextStage(null);
                 }
             }
         }
@@ -59,18 +59,18 @@ namespace LOTK_Test.ModelTest
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    Assert.AreEqual( PhaseType.JudgePhase , g.curPhase.type );
+                    Assert.AreEqual( typeof(JudgePhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curRoundPlayer, i);
-                    g.nextStage();
-                    Assert.AreEqual( PhaseType.DrawingPhase , g.curPhase.type );
+                    g.nextStage(null);
+                    Assert.AreEqual( typeof(DrawingPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curRoundPlayer, i);
-                    g.nextStage();
-                    Assert.AreEqual( PhaseType.ActionPhase , g.curPhase.type );
+                    g.nextStage(null);
+                    Assert.AreEqual( typeof(ActionPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curRoundPlayer, i);
-                    g.nextStage();
-                    Assert.AreEqual( PhaseType.DiscardPhase , g.curPhase.type );
+                    g.nextStage(null);
+                    Assert.AreEqual( typeof(DiscardPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curRoundPlayer, i);
-                    g.nextStage();
+                    g.nextStage(null);
                 }
             }
         }
@@ -79,22 +79,22 @@ namespace LOTK_Test.ModelTest
         public void UserResponseYES_OR_NOTest()
         {
             Game g = new Game(5, null);
-            Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
+            Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
             // advance
             g.nextStage(new UserAction(UserActionType.YES_OR_NO, 0));
-            Assert.AreEqual(PhaseType.DrawingPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(DrawingPhase), g.curPhase.GetType());
             // advance
             g.nextStage(new UserAction(UserActionType.YES_OR_NO, 0));
-            Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
             // not advance
             g.nextStage(new UserAction(UserActionType.YES_OR_NO, 1));
-            Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
             // advance
             g.nextStage(new UserAction(UserActionType.YES_OR_NO, 0));
-            Assert.AreEqual(PhaseType.DiscardPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());
             // advance
             g.nextStage(new UserAction(UserActionType.YES_OR_NO, 1));
-            Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
+            Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
         }
 
         [TestMethod]
@@ -124,25 +124,25 @@ namespace LOTK_Test.ModelTest
         public void AutoAdvancedTest()
         {
             Game g = new Game(5, null);
-            Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
+            Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
             g.tick();
-            Assert.AreEqual(PhaseType.JudgePhase, g.curPhase.type);
+            Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
             g.tick();
-            Assert.AreEqual(PhaseType.DrawingPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(DrawingPhase), g.curPhase.GetType());
             g.tick();
-            Assert.AreEqual(PhaseType.DrawingPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(DrawingPhase), g.curPhase.GetType());
             g.tick();
-            Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
             g.tick();
-            Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
             g.tick();
-            Assert.AreEqual(PhaseType.ActionPhase, g.curPhase.type);
-            g.nextStage();
-            Assert.AreEqual(PhaseType.DiscardPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
+            g.nextStage(null);
+            Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());
             g.tick();
-            Assert.AreEqual(PhaseType.DiscardPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());
             g.tick();
-            Assert.AreEqual(PhaseType.DiscardPhase, g.curPhase.type);
+            Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());
         }
     }
 }

@@ -65,8 +65,8 @@ namespace LOTK.Controller
             {
                 rd.players[i] = PlayerToPlayerDisplay(game.players[(i + ownPlayer) % NUM_OF_PLAYER]);
             }
-            rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => new CardDisplay(c.getName(), c.getDescription())));
-            rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => new CardDisplay(c.getName(), c.getDescription())));
+            rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
+            rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
             rd.this_player_stage = game.curPhase.ToString();
             rd.tool_attack = CardToCardDisplay( game.players[ownPlayer].weapon);
             rd.tool_defence = CardToCardDisplay( game.players[ownPlayer].shield);
