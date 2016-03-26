@@ -15,14 +15,15 @@ namespace LOTK.Model
         /// <summary>
         /// Whose phase
         /// </summary>
-        public int playerID { get; }
+        public int playerID { get { return player.playerID; } }
+        public Player player { get; }
 
         /// <summary>
         /// The type of the phase
         /// </summary>
-        public Phase(int playerID)
+        public Phase(Player player)
         {
-            this.playerID = playerID;
+            this.player = player;
         }
 
         /// <summary>
@@ -36,19 +37,9 @@ namespace LOTK.Model
 
     }
 
-    public abstract class BackGroundPhase : Phase
+    public abstract class FundamentalPhase : Phase
     {
-        public BackGroundPhase(int playerID) : base(playerID) { }
-
-        public override sealed bool needResponse()
-        {
-            return false;
-        }
-    }
-
-    public abstract class ResponsivePhase : Phase
-    {
-        public ResponsivePhase(int playerID) : base(playerID) { }
+        public FundamentalPhase(Player player) : base(player) { }
 
         public sealed override bool needResponse()
         {
@@ -56,28 +47,32 @@ namespace LOTK.Model
         }
     }
 
-    public class PlayerTurn : BackGroundPhase
+    public class PlayerTurn : Phase
     {
-        public PlayerTurn(int playerID) : base(playerID) { }
+        public PlayerTurn(Player player) : base(player) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
-            return game.players[playerID].playerTurn(this, game);
+            return this.player.playerTurn(this, game);
         }
 
         public override string ToString()
         {
             return "Plyaer " + playerID + " at PlayerTurn";
         }
+        public override sealed bool needResponse()
+        {
+            return false;
+        }
     }
 
-    public class JudgePhase : ResponsivePhase
+    public class JudgePhase : FundamentalPhase
     {
-        public JudgePhase(int playerID) : base(playerID) { }
+        public JudgePhase(Player player) : base(player) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
-            return game.players[playerID].judgePhase(this, userAction,  game);
+            return this.player.judgePhase(this, userAction,  game);
         }
 
         public override string ToString()
@@ -86,13 +81,13 @@ namespace LOTK.Model
         }
     }
 
-    public class DrawingPhase : ResponsivePhase
+    public class DrawingPhase : FundamentalPhase
     {
-        public DrawingPhase(int playerID) : base(playerID) { }
+        public DrawingPhase(Player player) : base(player) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
-            return game.players[playerID].drawingPhase(this, userAction, game);
+            return this.player.drawingPhase(this, userAction, game);
         }
 
         public override string ToString()
@@ -101,13 +96,13 @@ namespace LOTK.Model
         }
     }
 
-    public class ActionPhase : ResponsivePhase
+    public class ActionPhase : FundamentalPhase
     {
-        public ActionPhase(int playerID) : base(playerID) { }
+        public ActionPhase(Player player) : base(player) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
-            return game.players[playerID].actionPhase(this, userAction, game);
+            return this.player.actionPhase(this, userAction, game);
         }
 
         public override string ToString()
@@ -116,18 +111,79 @@ namespace LOTK.Model
         }
     }
 
-    public class DiscardPhase : ResponsivePhase
+    public class DiscardPhase : FundamentalPhase
     {
-        public DiscardPhase(int playerID) : base(playerID) { }
+        public DiscardPhase(Player player) : base(player) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
-            return game.players[playerID].discardPhase(this, userAction, game);
+            return this.player.discardPhase(this, userAction, game);
         }
 
         public override string ToString()
         {
             return "Plyaer " + playerID + " at DiscardPhase";
+        }
+    }
+
+    public class UsagePhase : Phase
+    {
+        Card card;
+        Player[] targets;
+        public UsagePhase(Player player, Card card, Player[] targets) : base(player) {
+            this.card = card;
+            this.targets = targets;
+        }
+
+        public override PhaseList handleResponse(UserAction userAction, Game game)
+        {
+            return null;
+            //switch (t)
+            //{
+            //    case CardType.Attack:
+            //        return new Attack(s, v);
+            //    case CardType.Miss:
+            //        return new Miss(s, v);
+            //    case CardType.Wine:
+            //        return new Wine(s, v);
+            //    case CardType.Peach:
+            //        return new Peach(s, v);
+            //    case CardType.Negate:
+            //        return new Negate(s, v);
+            //    case CardType.Barbarians:
+            //        return new Barbarians(s, v);
+            //    case CardType.HailofArrow:
+            //        return new HailofArrow(s, v);
+            //    case CardType.PeachGarden:
+            //        return new PeachGarden(s, v);
+            //    case CardType.Wealth:
+            //        return new Wealth(s, v);
+            //    case CardType.Steal:
+            //        return new Steal(s, v);
+            //    case CardType.Break:
+            //        return new Break(s, v);
+            //    case CardType.Capture:
+            //        return new Capture(s, v);
+            //    case CardType.Starvation:
+            //        return new Starvation(s, v);
+            //    case CardType.Crossbow:
+            //        return new Crossbow(s, v);
+            //    case CardType.IceSword:
+            //        return new IceSword(s, v);
+            //    case CardType.Scimitar:
+            //        return new Scimitar(s, v);
+            //    case CardType.BlackShield:
+            //        return new BlackShield(s, v);
+            //    case CardType.EightTrigrams:
+            //        return new EightTrigrams(s, v);
+            //    default:
+            //        throw new NotImplementedException();
+            //}
+        }
+
+        public override bool needResponse()
+        {
+            return false;
         }
     }
 

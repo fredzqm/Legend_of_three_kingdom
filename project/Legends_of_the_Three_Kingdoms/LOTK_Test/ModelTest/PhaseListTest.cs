@@ -18,11 +18,11 @@ namespace LOTK_Test.ModelTest
         public void TestAddPop()
         {
             PhaseList ls = new PhaseList();
-            ls.add(new PlayerTurn(0));
-            ls.add(new PlayerTurn(1));
-            ls.add(new PlayerTurn(2));
-            ls.add(new PlayerTurn(3));
-            ls.add(new PlayerTurn(4));
+            ls.add(new PhaseSimple(0));
+            ls.add(new PhaseSimple(1));
+            ls.add(new PhaseSimple(2));
+            ls.add(new PhaseSimple(3));
+            ls.add(new PhaseSimple(4));
             Assert.AreEqual(ls.pop().playerID, 0);
             Assert.AreEqual(ls.pop().playerID, 1);
             Assert.AreEqual(ls.pop().playerID, 2);
@@ -42,7 +42,7 @@ namespace LOTK_Test.ModelTest
         public void TestPushOneStageList()
         {
             PhaseList ls = new PhaseList();
-            ls.add(new PlayerTurn(0));
+            ls.add(new PhaseSimple(0));
             Assert.AreEqual(ls.pop().playerID, 0);
             try
             {
@@ -58,12 +58,12 @@ namespace LOTK_Test.ModelTest
         public void TestPushStageList()
         {
             PhaseList ls = new PhaseList();
-            ls.add(new PlayerTurn(0));
-            ls.add(new PlayerTurn(1));
-            ls.add(new PlayerTurn(2));
+            ls.add(new PhaseSimple(0));
+            ls.add(new PhaseSimple(1));
+            ls.add(new PhaseSimple(2));
             PhaseList ls2 = new PhaseList();
-            ls2.add(new PlayerTurn(3));
-            ls2.add(new PlayerTurn(4));
+            ls2.add(new PhaseSimple(3));
+            ls2.add(new PhaseSimple(4));
             ls.pushStageList(ls2); 
             Assert.AreEqual(ls.pop().playerID, 3);
             Assert.AreEqual(ls.pop().playerID, 4); 
@@ -76,12 +76,12 @@ namespace LOTK_Test.ModelTest
         public void TestPushStageListTillEmpty()
         {
             PhaseList ls = new PhaseList();
-            ls.add(new PlayerTurn(0));
-            ls.add(new PlayerTurn(1));
-            ls.add(new PlayerTurn(2));
+            ls.add(new PhaseSimple(0));
+            ls.add(new PhaseSimple(1));
+            ls.add(new PhaseSimple(2));
             PhaseList ls2 = new PhaseList();
-            ls2.add(new PlayerTurn(3));
-            ls2.add(new PlayerTurn(4));
+            ls2.add(new PhaseSimple(3));
+            ls2.add(new PhaseSimple(4));
             ls.pushStageList(ls2);
             Assert.AreEqual(ls.pop().playerID, 3);
             Assert.AreEqual(ls.pop().playerID, 4);
@@ -94,6 +94,22 @@ namespace LOTK_Test.ModelTest
             } catch (EmptyException e)
             {
                 Console.WriteLine("Pop Empty List Exception caught.", e);
+            }
+        }
+
+        internal class PhaseSimple : Phase
+        {
+    
+            public PhaseSimple(int i) : base(new Player(i, null, null)) { }
+
+            public override PhaseList handleResponse(UserAction userAction, Game game)
+            {
+                throw new NotImplementedException();
+            }
+
+            public override bool needResponse()
+            {
+                throw new NotImplementedException();
             }
         }
     }

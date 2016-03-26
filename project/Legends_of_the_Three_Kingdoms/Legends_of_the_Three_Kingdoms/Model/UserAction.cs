@@ -70,7 +70,7 @@ namespace LOTK.Model
         {
             this.player = player;
         }
-        public UserActionPlayer(int playerID, Game game) : this(game.players[playerID]) { }
+        public UserActionPlayer(int playerID, Game game) : this(this.player) { }
     }
     public enum UserActionType
     {

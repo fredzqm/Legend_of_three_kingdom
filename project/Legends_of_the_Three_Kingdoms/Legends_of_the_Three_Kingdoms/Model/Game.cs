@@ -52,7 +52,7 @@ namespace LOTK.Model
                 players[i] = new Player(i, "Player Name", "Player Description");
             }
             stages = new PhaseList();
-            stages.add(new PlayerTurn(0));
+            stages.add(new PlayerTurn(players[0]));
             nextStage(null);
         }
 

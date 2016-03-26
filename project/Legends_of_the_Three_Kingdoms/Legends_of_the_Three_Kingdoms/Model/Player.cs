@@ -75,7 +75,7 @@ namespace LOTK.Model
                     Card c = a.card;
                     if (c.numOfTargets() != a.targetCount)
                         return null;
-                    return new PhaseList(c.createUsePhase(this, a), curPhase);
+                    return new PhaseList(new UsagePhase(this, c, a.targets), curPhase);
                 default:
                     return null;
             }
