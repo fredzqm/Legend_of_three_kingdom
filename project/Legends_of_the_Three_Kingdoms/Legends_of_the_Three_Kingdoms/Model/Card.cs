@@ -203,6 +203,12 @@ namespace LOTK.Model
     public abstract class DelayToolCard : ToolCard
     {
         public DelayToolCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
+
+        public override int numOfTargets()
+        {
+            return 1;
+        }
+
     }
     public abstract class NonDelayToolCard : ToolCard
     {
@@ -212,6 +218,10 @@ namespace LOTK.Model
     public abstract class Equipment : Card
     {
         public Equipment(CardSuit s, CardType t, byte n) : base(s, t, n) { }
+        public override int numOfTargets()
+        {
+            return 0;
+        }
     }
 
     public abstract class Weapon : Equipment

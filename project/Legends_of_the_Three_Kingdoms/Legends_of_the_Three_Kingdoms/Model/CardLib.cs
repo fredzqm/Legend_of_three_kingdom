@@ -18,6 +18,11 @@ namespace LOTK.Model
             return "Attack Description";
         }
 
+        public override int numOfTargets()
+        {
+            return 1;
+        }
+
         public override string ToString()
         {
             return "Attack";
@@ -31,6 +36,10 @@ namespace LOTK.Model
         public override string getDescription()
         {
             return "Miss Description";
+        }
+        public override int numOfTargets()
+        {
+            return -1;
         }
 
         public override string ToString()
@@ -47,6 +56,10 @@ namespace LOTK.Model
         {
             return "Wine Description";
         }
+        public override int numOfTargets()
+        {
+            return 0;
+        }
 
         public override string ToString()
         {
@@ -61,6 +74,10 @@ namespace LOTK.Model
         public override string getDescription()
         {
             return "Peach Description";
+        }
+        public override int numOfTargets()
+        {
+            return 0;
         }
 
         public override string ToString()
@@ -77,6 +94,10 @@ namespace LOTK.Model
         {
             return "Negate Description";
         }
+        public override int numOfTargets()
+        {
+            return -1;
+        }
 
         public override string ToString()
         {
@@ -91,6 +112,10 @@ namespace LOTK.Model
         public override string getDescription()
         {
             return "Barbarians Description";
+        }
+        public override int numOfTargets()
+        {
+            return 0;
         }
 
         public override string ToString()
@@ -107,6 +132,10 @@ namespace LOTK.Model
         {
             return "HailofArrow Description";
         }
+        public override int numOfTargets()
+        {
+            return 0;
+        }
 
         public override string ToString()
         {
@@ -121,6 +150,10 @@ namespace LOTK.Model
         public override string getDescription()
         {
             return "PeachGarden Description";
+        }
+        public override int numOfTargets()
+        {
+            return 0;
         }
 
         public override string ToString()
@@ -137,6 +170,10 @@ namespace LOTK.Model
         {
             return "Wealth Description";
         }
+        public override int numOfTargets()
+        {
+            return 0;
+        }
 
         public override string ToString()
         {
@@ -152,6 +189,10 @@ namespace LOTK.Model
         {
             return "Steal Description";
         }
+        public override int numOfTargets()
+        {
+            return 1;
+        }
 
         public override string ToString()
         {
@@ -166,6 +207,10 @@ namespace LOTK.Model
         public override string getDescription()
         {
             return "Break Description";
+        }
+        public override int numOfTargets()
+        {
+            return 1;
         }
 
         public override string ToString()
