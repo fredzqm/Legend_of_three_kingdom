@@ -19,7 +19,9 @@ namespace LOTK_Test.ModelTest
         public void PlayerFiveAdvancePhaseTest()
         {
             Player p = new Player(0, "Player Name", "Player Description");
-            IGame testgame = new TestGame(5);
+            Player p2 = new Player(0, "Player Name1", "Player Description1");
+            Player p3 = new Player(0, "Player Name2", "Player Description2");
+            IGame testgame = new TestGame(5, p , p2, p3);
             PhaseList ls;
             ls = p.playerTurn(new PlayerTurn(p), testgame);
             Assert.AreEqual( typeof(JudgePhase) , ls.pop().GetType());
@@ -94,27 +96,24 @@ namespace LOTK_Test.ModelTest
 
         internal class TestGame : IGame
         {
+            private Player p;
+            private Player p2;
+            private Player p3;
+
             public int Num_Player { get; }
 
-            public Player[] players
-            {
-                get
-                {
-                    throw new NotImplementedException();
-                }
-            }
+            public Player[] players { get; set; }
 
-            public CardSet cards
-            {
-                get
-                {
-                    throw new NotImplementedException();
-                }
-            }
+            public CardSet cards { get; set; }
 
             public TestGame(int n)
             {
                 Num_Player = n;
+            }
+
+            public TestGame(int n, params Player[] players) : this(n)
+            {
+                this.players = players;
             }
         }
     }
