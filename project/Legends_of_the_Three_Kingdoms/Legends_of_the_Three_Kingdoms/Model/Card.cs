@@ -115,8 +115,6 @@ namespace LOTK.Model
         private CardSuit suit;
         private byte num;
 
-        private int id = -1;
-
         public Card(CardSuit s, CardType t, byte n)
         {
             this.suit = s;
