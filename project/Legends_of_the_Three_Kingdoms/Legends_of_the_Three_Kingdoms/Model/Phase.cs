@@ -34,15 +34,11 @@ namespace LOTK.Model
 
         public abstract PhaseList handleResponse(UserAction userAction, Game game);
 
-        public override string ToString()
-        {
-            return "Plyaer "+playerID+ " at ";
-        }
     }
 
-    public abstract class HiddenPhase : Phase
+    public abstract class BackGroundPhase : Phase
     {
-        public HiddenPhase(int playerID) : base(playerID)
+        public BackGroundPhase(int playerID) : base(playerID)
         {
 
         }
@@ -66,7 +62,7 @@ namespace LOTK.Model
         }
     }
 
-    public class PlayerTurn : ResponsivePhase
+    public class PlayerTurn : BackGroundPhase
     {
         public PlayerTurn(int playerID) : base(playerID)
         {
@@ -78,6 +74,10 @@ namespace LOTK.Model
             return game.players[playerID].playerTurn(this, game);
         }
 
+        public override string ToString()
+        {
+            return "Plyaer " + playerID + " at PlayerTurn";
+        }
     }
 
     public class JudgePhase : ResponsivePhase
@@ -92,6 +92,10 @@ namespace LOTK.Model
             return game.players[playerID].judgePhase(this, userAction,  game);
         }
 
+        public override string ToString()
+        {
+            return "Plyaer " + playerID + " at JudgePhase";
+        }
     }
 
     public class DrawingPhase : ResponsivePhase
@@ -106,6 +110,10 @@ namespace LOTK.Model
             return game.players[playerID].drawingPhase(this, userAction, game);
         }
 
+        public override string ToString()
+        {
+            return "Plyaer " + playerID + " at DrawingPhase";
+        }
     }
 
     public class ActionPhase : ResponsivePhase
@@ -120,6 +128,10 @@ namespace LOTK.Model
             return game.players[playerID].actionPhase(this, userAction, game);
         }
 
+        public override string ToString()
+        {
+            return "Plyaer " + playerID + " at ActionPhase";
+        }
     }
 
     public class DiscardPhase : ResponsivePhase
@@ -134,6 +146,10 @@ namespace LOTK.Model
             return game.players[playerID].discardPhase(this, userAction, game);
         }
 
+        public override string ToString()
+        {
+            return "Plyaer " + playerID + " at DiscardPhase";
+        }
     }
 
     /// <summary>

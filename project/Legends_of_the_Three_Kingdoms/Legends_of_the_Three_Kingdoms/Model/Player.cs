@@ -66,7 +66,7 @@ namespace LOTK.Model
             switch (userAction.type)
             {
                 case UserActionType.YES_OR_NO:
-                    if ((userAction as UserActionYesOrNo).yes)
+                    if ((userAction as UserActionYesOrNo).no)
                         return new PhaseList(new DiscardPhase(this));
                     else
                         return null;

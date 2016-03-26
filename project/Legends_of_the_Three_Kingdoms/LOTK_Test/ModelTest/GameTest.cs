@@ -19,12 +19,19 @@ namespace LOTK_Test.ModelTest
         {
             Game g = new Game(5 , null);
             Assert.AreEqual(typeof(JudgePhase) , g.curPhase.GetType() );
+            Assert.AreEqual(0, g.curPhase.playerID);
             g.nextStage(null);
             Assert.AreEqual(typeof(DrawingPhase) , g.curPhase.GetType() );
+            Assert.AreEqual(0, g.curPhase.playerID);
             g.nextStage(null);
             Assert.AreEqual(typeof(ActionPhase) , g.curPhase.GetType() );
-            g.nextStage(null);
+            Assert.AreEqual(0, g.curPhase.playerID);
+            g.nextStage(new UserActionYesOrNo(false));
             Assert.AreEqual(typeof(DiscardPhase) , g.curPhase.GetType() );
+            Assert.AreEqual(0, g.curPhase.playerID);
+            g.nextStage(new UserActionYesOrNo(false));
+            Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
+            Assert.AreEqual(1, g.curPhase.playerID);
         }
 
         [TestMethod]
@@ -43,10 +50,10 @@ namespace LOTK_Test.ModelTest
                     g.nextStage(null);
                     Assert.AreEqual( typeof(ActionPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curPhase.playerID, i);
-                    g.nextStage(null);
+                    g.nextStage(new UserActionYesOrNo(false));
                     Assert.AreEqual( typeof(DiscardPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curPhase.playerID, i);
-                    g.nextStage(null);
+                    g.nextStage(new UserActionYesOrNo(false));
                 }
             }
         }
@@ -67,10 +74,10 @@ namespace LOTK_Test.ModelTest
                     g.nextStage(null);
                     Assert.AreEqual( typeof(ActionPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curRoundPlayer, i);
-                    g.nextStage(null);
+                    g.nextStage(new UserActionYesOrNo(false));
                     Assert.AreEqual( typeof(DiscardPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curRoundPlayer, i);
-                    g.nextStage(null);
+                    g.nextStage(new UserActionYesOrNo(false));
                 }
             }
         }
@@ -137,7 +144,7 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
             g.tick();
             Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
-            g.nextStage(null);
+            g.nextStage(new UserActionYesOrNo(false));
             Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());
             g.tick();
             Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());

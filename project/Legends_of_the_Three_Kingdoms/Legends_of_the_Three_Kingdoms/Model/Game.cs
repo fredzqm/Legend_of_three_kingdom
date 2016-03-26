@@ -71,14 +71,15 @@ namespace LOTK.Model
                 }
                 PhaseList followingPhases = curPhase.handleResponse(userAction, this);
                 if (followingPhases == null)
-                {
+                { // the next state need a user action for future decison
                     return;
                 }
                 stages.pop();
                 stages.pushStageList(followingPhases);
                 if (curPhase.needResponse())
-                {
-                    timerAutoAdvance = false;
+                { // the next state need a user action for future decison
+                  // but since it is supposed to be a responsive phase, pause a while before autoadvance
+                    timerAutoAdvance = true;
                     return;
                 }
             }

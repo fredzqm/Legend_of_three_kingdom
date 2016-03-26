@@ -16,34 +16,6 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void PlayerFiveBasicPhaseTest()
-        {
-            Player p = new Player(0, "Player Name", "Player Description");
-            IGame testgame = new TestGame(5);
-            PhaseList ls;
-            ls = p.playerTurn(new PlayerTurn(0), testgame);
-            Assert.AreEqual( typeof(JudgePhase) , ls.pop().GetType());
-            Assert.AreEqual( typeof(PlayerTurn) , ls.pop().GetType());
-            Assert.IsTrue(ls.isEmpty());
-
-            ls = p.judgePhase(new JudgePhase(0), null, testgame);
-            Assert.AreEqual( typeof(DrawingPhase) , ls.pop().GetType());
-            Assert.AreEqual( typeof(ActionPhase) , ls.pop().GetType());
-            Assert.IsTrue(ls.isEmpty());
-
-            ls = p.drawingPhase(new DrawingPhase(0), null, testgame);
-            Assert.IsTrue(ls.isEmpty());
-
-            ls = p.actionPhase(new ActionPhase(0), null, testgame);
-            Assert.AreEqual( typeof(DiscardPhase) , ls.pop().GetType());
-            Assert.IsTrue(ls.isEmpty());
-
-            ls = p.discardPhase(new DiscardPhase(0), null, testgame);
-            Assert.IsTrue(ls.isEmpty());
-
-        }
-
-        [TestMethod]
         public void PlayerFiveAdvancePhaseTest()
         {
             Player p = new Player(0, "Player Name", "Player Description");
@@ -58,22 +30,36 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual( typeof(DrawingPhase) , ls.pop().GetType());
             Assert.AreEqual( typeof(ActionPhase) , ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
+            ls = p.judgePhase(new JudgePhase(0), new UserActionYesOrNo(true), testgame);
+            Assert.AreEqual(typeof(DrawingPhase), ls.pop().GetType());
+            Assert.AreEqual(typeof(ActionPhase), ls.pop().GetType());
+            Assert.IsTrue(ls.isEmpty());
+            ls = p.judgePhase(new JudgePhase(0), new UserActionYesOrNo(false), testgame);
+            Assert.AreEqual(typeof(DrawingPhase), ls.pop().GetType());
+            Assert.AreEqual(typeof(ActionPhase), ls.pop().GetType());
+            Assert.IsTrue(ls.isEmpty());
 
             ls = p.drawingPhase(new DrawingPhase(0), null, testgame);
             Assert.IsTrue(ls.isEmpty());
+            ls = p.drawingPhase(new DrawingPhase(0), new UserActionYesOrNo(true), testgame);
+            Assert.IsTrue(ls.isEmpty());
+            ls = p.drawingPhase(new DrawingPhase(0), new UserActionYesOrNo(false), testgame);
+            Assert.IsTrue(ls.isEmpty());
 
             ls = p.actionPhase(new ActionPhase(0), null, testgame);
+            Assert.IsNull(ls);
+            ls = p.actionPhase(new ActionPhase(0), new UserActionYesOrNo(true), testgame);
+            Assert.IsNull(ls);
+            ls = p.actionPhase(new ActionPhase(0), new UserActionYesOrNo(false), testgame);
             Assert.AreEqual(typeof(DiscardPhase), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
 
             ls = p.discardPhase(new DiscardPhase(0), null, testgame);
+            Assert.IsNull(ls); // in the future this will be changed to true
+            ls = p.discardPhase(new DiscardPhase(0), new UserActionYesOrNo(true), testgame);
             Assert.IsTrue(ls.isEmpty());
-            try { ls.pop(); }
-            catch (EmptyException e)
-            {
-                Console.WriteLine("Empty Exception caught.", e);
-            }
-
+            ls = p.discardPhase(new DiscardPhase(0), new UserActionYesOrNo(false), testgame);
+            Assert.IsTrue(ls.isEmpty());
         }
 
         [TestMethod]
