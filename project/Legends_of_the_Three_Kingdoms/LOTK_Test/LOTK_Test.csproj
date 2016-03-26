@@ -51,7 +51,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ModelTest\CardTest.cs" />
-    <Compile Include="ModelTest\UserActionTest.cs" />
     <Compile Include="ModelTest\PlayerTest.cs" />
     <Compile Include="ModelTest\GameTest.cs" />
     <Compile Include="ModelTest\PhaseListTest.cs" />

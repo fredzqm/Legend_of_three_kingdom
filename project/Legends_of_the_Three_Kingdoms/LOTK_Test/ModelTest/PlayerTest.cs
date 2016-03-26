@@ -81,21 +81,21 @@ namespace LOTK_Test.ModelTest
         {
             Player g = new Player(0, "Player Name", "Player Description");
             Assert.IsTrue(g.judgePhase(new JudgePhase(0), 
-                new UserAction(UserActionType.YES_OR_NO, 0), null) != null);
+                new UserActionYesOrNo(false), null) != null);
             Assert.IsTrue(g.judgePhase(new JudgePhase(0),
-                new UserAction(UserActionType.YES_OR_NO, 1), null) != null);
+                new UserActionYesOrNo(true), null) != null);
             Assert.IsTrue(g.drawingPhase(new DrawingPhase(0),
-                new UserAction(UserActionType.YES_OR_NO, 0), null) != null);
+                new UserActionYesOrNo(false), null) != null);
             Assert.IsTrue(g.drawingPhase(new DrawingPhase(0),
-                new UserAction(UserActionType.YES_OR_NO, 1), null) != null);
+                new UserActionYesOrNo(true), null) != null);
             Assert.IsTrue(g.actionPhase(new ActionPhase(0),
-                new UserAction(UserActionType.YES_OR_NO, 0), null) != null);
+                new UserActionYesOrNo(false), null) != null);
             Assert.IsFalse(g.actionPhase(new ActionPhase(0),
-                new UserAction(UserActionType.YES_OR_NO, 1), null) != null);
+                new UserActionYesOrNo(true), null) != null);
             Assert.IsTrue(g.discardPhase(new DiscardPhase(0),
-                new UserAction(UserActionType.YES_OR_NO, 0), null) != null);
+                new UserActionYesOrNo(false), null) != null);
             Assert.IsTrue(g.discardPhase(new DiscardPhase(0),
-                new UserAction(UserActionType.YES_OR_NO, 1), null) != null);
+                new UserActionYesOrNo(true), null) != null);
         }
 
         [TestMethod]

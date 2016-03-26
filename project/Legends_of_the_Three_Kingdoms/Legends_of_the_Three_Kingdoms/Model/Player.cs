@@ -61,10 +61,23 @@ namespace LOTK.Model
 
         public virtual PhaseList actionPhase(ActionPhase curPhase, UserAction userAction, IGame g)
         {
-            return new PhaseList(new DiscardPhase(this));
+            if (userAction == null)
+                return null;
+            switch (userAction.type)
+            {
+                case UserActionType.YES_OR_NO:
+                    if ((userAction as UserActionYesOrNo).yes)
+                        return new PhaseList(new DiscardPhase(this));
+                    else
+                        return null;
+                default:
+                    return null;
+            }
         }
         public virtual PhaseList discardPhase(DiscardPhase curPhase, UserAction userAction, IGame g)
         {
+            if (userAction == null)
+                return null;
             return new PhaseList();
         }
 
