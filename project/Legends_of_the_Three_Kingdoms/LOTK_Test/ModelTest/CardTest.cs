@@ -219,56 +219,40 @@ namespace LOTK_Test.ModelTest
         {
             Card x;
             x = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(1, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Miss, 0);
-            Assert.IsFalse(x.usagable());
+            Assert.AreEqual(-1, x.numOfTargets()); // this means not usable
             x = Card.ConstructCard(CardSuit.Club, CardType.Wine, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Peach, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Negate, 0);
-            Assert.IsFalse(x.usagable());
+            Assert.AreEqual(-1, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Barbarians, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.HailofArrow, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.PeachGarden, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Wealth, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Steal, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(1, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Break, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(1, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Capture, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(1, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Starvation, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(1, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Crossbow, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.IceSword, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.Scimitar, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.BlackShield, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
             x = Card.ConstructCard(CardSuit.Club, CardType.EightTrigrams, 0);
-            Assert.IsTrue(x.usagable());
             Assert.AreEqual(0, x.numOfTargets());
         }
 

@@ -133,6 +133,8 @@ namespace LOTK.Model
             return type.GetHashCode() + suit.GetHashCode() + num.GetHashCode();
         }
 
+        public abstract int numOfTargets();
+
         public abstract string getDescription();
 
         /// <summary>
@@ -187,6 +189,7 @@ namespace LOTK.Model
                     throw new NotImplementedException();
             }
         }
+
     }
 
     public abstract class BasicCard : Card
