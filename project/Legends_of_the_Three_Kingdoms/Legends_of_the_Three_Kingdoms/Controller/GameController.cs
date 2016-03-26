@@ -48,7 +48,7 @@ namespace LOTK.Controller
         private ICollection<Card> initialLizeCardSet()
         {
             ICollection<Card> ls = new List<Card>();
-            //ls.Add(new Card());
+            //ls.Add(Card.ConstructCard());
             return ls;
         }
 
@@ -111,7 +111,7 @@ namespace LOTK.Controller
 
         private CardDisplay CardToCardDisplay(Card card)
         {
-            return new CardDisplay(card.getName(), card.getDescription(), game.cards[card] );
+            return new CardDisplay(card.ToString(), card.getDescription(), game.cards[card] );
         }
     }
  

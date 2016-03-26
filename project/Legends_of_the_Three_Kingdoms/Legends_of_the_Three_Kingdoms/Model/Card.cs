@@ -109,7 +109,7 @@ namespace LOTK.Model
     /// <summary>
     /// An instance 
     /// </summary>
-    public class Card
+    public abstract class Card
     {
         private CardType type;
         private CardSuit suit;
@@ -133,166 +133,85 @@ namespace LOTK.Model
             return type.GetHashCode() + suit.GetHashCode() + num.GetHashCode();
         }
 
-        public override string ToString()
-        {
-            return String.Format("Card {0}  {1}{3}", type, suit, num);
-        }
+        public abstract string getDescription();
 
-        public string getDescription()
+        public static Card ConstructCard(CardSuit s, CardType t, byte v)
         {
-            switch (this.type)
+            switch (t)
             {
                 case CardType.Attack:
-                    return "Attack description";
+                    return new Attack(s, v);
                 case CardType.Miss:
-                    return "Miss description";
+                    return new Miss(s, v);
                 case CardType.Wine:
-                    return "Wine description";
+                    return new Wine(s, v);
                 case CardType.Peach:
-                    return "Peach description";
+                    return new Peach(s, v);
                 case CardType.Negate:
-                    return "Negate description";
+                    return new Negate(s, v);
                 case CardType.Barbarians:
-                    return "Barbarians description";
+                    return new Barbarians(s, v);
                 case CardType.HailofArrow:
-                    return "HailofArrow description";
+                    return new HailofArrow(s, v);
                 case CardType.PeachGarden:
-                    return "PeachGarden description";
+                    return new PeachGarden(s, v);
                 case CardType.Wealth:
-                    return "Wealth description";
+                    return new Wealth(s, v);
                 case CardType.Steal:
-                    return "Steal description";
+                    return new Steal(s, v);
                 case CardType.Break:
-                    return "Break description";
+                    return new Break(s, v);
                 case CardType.Capture:
-                    return "Capture description";
+                    return new Capture(s, v);
                 case CardType.Starvation:
-                    return "Starvation description";
+                    return new Starvation(s, v);
                 case CardType.Crossbow:
-                    return "Crossbow description";
+                    return new Crossbow(s, v);
                 case CardType.IceSword:
-                    return "IceSword description";
+                    return new IceSword(s, v);
                 case CardType.Scimitar:
-                    return "Scimitar description";
+                    return new Scimitar(s, v);
                 case CardType.BlackShield:
-                    return "BlackShield description";
+                    return new BlackShield(s, v);
                 case CardType.EightTrigrams:
-                    return "EightTrigrams description";
+                    return new EightTrigrams(s, v);
                 default:
-                    throw new Exception();
-            }
-        }
-
-        public string getName()
-        {
-            switch (this.type)
-            {
-                case CardType.Attack:
-                    return "Attack";
-                case CardType.Miss:
-                    return "Miss";
-                case CardType.Wine:
-                    return "Wine";
-                case CardType.Peach:
-                    return "Peach";
-                case CardType.Negate:
-                    return "Negate";
-                case CardType.Barbarians:
-                    return "Barbarians";
-                case CardType.HailofArrow:
-                    return "HailofArrow";
-                case CardType.PeachGarden:
-                    return "PeachGarden";
-                case CardType.Wealth:
-                    return "Wealth";
-                case CardType.Steal:
-                    return "Steal";
-                case CardType.Break:
-                    return "Break";
-                case CardType.Capture:
-                    return "Capture";
-                case CardType.Starvation:
-                    return "Starvation";
-                case CardType.Crossbow:
-                    return "Crossbow";
-                case CardType.IceSword:
-                    return "IceSword";
-                case CardType.Scimitar:
-                    return "Scimitar";
-                case CardType.BlackShield:
-                    return "BlackShield";
-                case CardType.EightTrigrams:
-                    return "EightTrigrams";
-                default:
-                    throw new Exception();
-            }
-        }
-
-        public CardCategory getCardCategory()
-        {
-            switch (this.type)
-            {
-                case CardType.Attack:
-                    return CardCategory.Basic;
-                case CardType.Miss:
-                    return CardCategory.Basic;
-                case CardType.Wine:
-                    return CardCategory.Basic;
-                case CardType.Peach:
-                    return CardCategory.Basic;
-                case CardType.Negate:
-                    return CardCategory.Tool;
-                case CardType.Barbarians:
-                    return CardCategory.Tool;
-                case CardType.HailofArrow:
-                    return CardCategory.Tool;
-                case CardType.PeachGarden:
-                    return CardCategory.Tool;
-                case CardType.Wealth:
-                    return CardCategory.Tool;
-                case CardType.Steal:
-                    return CardCategory.Tool;
-                case CardType.Break:
-                    return CardCategory.Tool;
-                case CardType.Capture:
-                    return CardCategory.DelayTool;
-                case CardType.Starvation:
-                    return CardCategory.DelayTool;
-                case CardType.Crossbow:
-                    return CardCategory.Weapon;
-                case CardType.IceSword:
-                    return CardCategory.Weapon;
-                case CardType.Scimitar:
-                    return CardCategory.Weapon;
-                case CardType.BlackShield:
-                    return CardCategory.Shield;
-                case CardType.EightTrigrams:
-                    return CardCategory.Shield;
-                default:
-                    throw new Exception();
+                    throw new NotImplementedException();
             }
         }
     }
 
-    /// <summary>
-    /// Four kind of Suits
-    /// </summary>
-    public enum CardSuit
+    public abstract class BasicCard : Card
     {
-        Heart,
-        Spade,
-        Diamond,
-        Club,
+        public BasicCard(CardSuit s, CardType t , byte n):base(s, t, n) { }
+    }
+    public abstract class ToolCard : Card
+    {
+        public ToolCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
+    }
+    public abstract class DelayToolCard : ToolCard
+    {
+        public DelayToolCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
+    }
+    public abstract class NonDelayToolCard : ToolCard
+    {
+        public NonDelayToolCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
     }
 
-    public enum CardCategory
+    public abstract class Equipment : Card
     {
-        Basic,
-        Tool,
-        DelayTool,
-        Weapon,
-        Shield
+        public Equipment(CardSuit s, CardType t, byte n) : base(s, t, n) { }
     }
+
+    public abstract class Weapon : Equipment
+    {
+        public Weapon(CardSuit s, CardType t, byte n) : base(s, t, n) { }
+    }
+    public abstract class Shield : Equipment
+    {
+        public Shield(CardSuit s, CardType t, byte n) : base(s, t, n) { }
+    }
+
     /// <summary>
     /// Incomplete now, 
     /// </summary>
@@ -317,4 +236,27 @@ namespace LOTK.Model
         BlackShield,
         EightTrigrams,
     }
+
+
+
+    /// <summary>
+    /// Four kind of Suits
+    /// </summary>
+    public enum CardSuit
+    {
+        Heart,
+        Spade,
+        Diamond,
+        Club,
+    }
+
+    public enum CardCategory
+    {
+        Basic,
+        Tool,
+        DelayTool,
+        Weapon,
+        Shield
+    }
+
 }

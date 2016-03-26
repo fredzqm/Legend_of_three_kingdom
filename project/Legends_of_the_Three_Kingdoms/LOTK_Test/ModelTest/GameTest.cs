@@ -108,12 +108,12 @@ namespace LOTK_Test.ModelTest
         public void CardSetDrawTest()
         {
             List<Card> ls = new List<Card>();
-            ls.Add(new Card(CardSuit.Club, CardType.Attack, 0));
-            ls.Add(new Card(CardSuit.Club, CardType.Miss, 1));
-            ls.Add(new Card(CardSuit.Diamond, CardType.Miss, 2));
-            ls.Add(new Card(CardSuit.Spade, CardType.Attack, 3));
-            ls.Add(new Card(CardSuit.Club, CardType.Wine, 4));
-            ls.Add(new Card(CardSuit.Spade, CardType.Attack, 5));
+            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
+            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Miss, 1));
+            ls.Add(Card.ConstructCard(CardSuit.Diamond, CardType.Miss, 2));
+            ls.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3));
+            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Wine, 4));
+            ls.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 5));
             Game g = new Game(5, ls);
 
             for (int i = 0; i < ls.Count; i += 2)

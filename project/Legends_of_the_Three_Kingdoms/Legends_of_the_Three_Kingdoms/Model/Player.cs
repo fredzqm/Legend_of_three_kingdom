@@ -30,9 +30,9 @@ namespace LOTK.Model
             // just for testing purpose
             this.name = name;
             this.description = descript;
-            handCards.Add(new Card(CardSuit.Club, CardType.Attack, 0));
-            weapon = new Card(CardSuit.Club, CardType.Attack, 0);
-            shield = new Card(CardSuit.Club, CardType.Attack, 0);
+            handCards.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
+            weapon = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
+            shield = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
         }
 
         public static implicit operator int (Player p)
