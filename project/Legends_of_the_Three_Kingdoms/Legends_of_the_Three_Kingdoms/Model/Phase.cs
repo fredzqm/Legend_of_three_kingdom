@@ -8,6 +8,13 @@ namespace LOTK.Model
 {
     /// <summary>
     /// Phase contains information that the game needs to process this phase
+    /// There are two kinds of Phase. 
+    /// Phase contains all the information that the game needs.
+    /// The game calls this function to ask the phase to process
+    /// <seealso cref="Phase.advance(UserAction, IGame)"/>
+    /// VisiblePhase is usually waiting for userAction, but HiddenPhase should not
+    /// get any userAction.
+    /// 
     /// </summary>
     public abstract class Phase
     {
@@ -32,32 +39,24 @@ namespace LOTK.Model
         /// fase if this phase should be invisible from outside</returns>
         public abstract bool needResponse();
 
-        public abstract PhaseList handleResponse(UserAction userAction, IGame game);
+        public abstract PhaseList advance(UserAction userAction, IGame game);
 
     }
 
-    public abstract class VisiblePhase : Phase
-    {
-        public VisiblePhase(Player player) : base(player) { }
-
-        public sealed override bool needResponse()
-        {
-            return true;
-        }
-    }
-
+    /// <summary>
+    /// This phase is invisible to the user.
+    /// However, many of them are very important in carrying on the game logic.
+    /// </summary>
     public abstract class HiddenPhase : Phase
     {
         public HiddenPhase(Player player) : base(player) { }
 
-        public sealed override PhaseList handleResponse(UserAction userAction, IGame game)
+        public sealed override PhaseList advance(UserAction userAction, IGame game)
         {
-            if (userAction != null)
-                throw new Exception();
-            return process(game);
+            return advance(game);
         }
 
-        public abstract PhaseList process(IGame game);
+        public abstract PhaseList advance(IGame game);
 
         public sealed override bool needResponse()
         {
@@ -65,11 +64,96 @@ namespace LOTK.Model
         }
     }
 
+    /// <summary>
+    /// This Phase is visible to the user.
+    /// It also has a property specifying how many clock cycle the game should wait.
+    /// </summary>
+    public abstract class VisiblePhase : Phase
+    {
+        public int waitTime {get;}
+
+        public VisiblePhase(Player player, int waitTime) : base(player)
+        {
+            this.waitTime = waitTime;
+        }
+        public sealed override bool needResponse()
+        {
+            return true;
+        }
+    }
+
+
+    /// <summary>
+    /// This phase is visible to the user.
+    /// It pauses the model to allow the view to display the effect.
+    /// However, it usually does not need user input.
+    /// </summary>
+    public abstract class PausePhase : VisiblePhase
+    {
+        public PausePhase(Player player, int waitTime) : base(player, waitTime) { }
+
+        public sealed override PhaseList advance(UserAction userAction, IGame game)
+        {
+            return advance(game);
+        }
+
+        public abstract PhaseList advance(IGame game);
+
+    }
+
+    /// <summary>
+    /// This phase is visible to the user.
+    /// It is waiting for certain user action
+    /// </summary>
+    public abstract class UserActionPhase : VisiblePhase
+    {
+        public int timeOutTime { get; }
+        public UserActionPhase(Player player, int waitTime, int timeOut) : base(player, waitTime) {
+            this.timeOutTime = timeOut;
+        }
+        public UserActionPhase(Player player, int waitTime) : this(player, waitTime, waitTime) { }
+
+        public sealed override PhaseList advance(UserAction userAction, IGame game)
+        {
+            if (userAction == null)
+                return autoAdvance(game);
+            YesOrNoAction yesOrNoAction = userAction as YesOrNoAction;
+            if (yesOrNoAction != null)
+                return responseYesOrNo(yesOrNoAction.yes, game);
+            CardAction cardAction = userAction as CardAction;
+            if (cardAction != null)
+                return responseCardAction(cardAction.card, cardAction.targets);
+            throw new NotDefinedException("This kind of useraction is not yet defined");
+        }
+
+        public virtual PhaseList timeOut(IGame game)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual PhaseList autoAdvance(IGame game)
+        {
+            return null;
+        }
+
+        public virtual PhaseList responseYesOrNo(bool yes, IGame game)
+        {
+            return null;
+        }
+
+        public virtual PhaseList responseCardAction(Card card, Player[] targets)
+        {
+            return null;
+        }
+
+    }
+
+
     public class PlayerTurn : HiddenPhase
     {
         public PlayerTurn(Player player) : base(player) { }
 
-        public override PhaseList process(IGame game)
+        public override PhaseList advance(IGame game)
         {
             return new PhaseList(new JudgePhase(player), new PlayerTurn(game.players[(playerID + 1) % game.Num_Player]));
         }
@@ -80,11 +164,11 @@ namespace LOTK.Model
         }
     }
 
-    public class JudgePhase : VisiblePhase
+    public class JudgePhase : PausePhase
     {
-        public JudgePhase(Player player) : base(player) { }
+        public JudgePhase(Player player) : base(player, 1) { }
 
-        public override PhaseList handleResponse(UserAction userAction, IGame game)
+        public override PhaseList advance(IGame game)
         {
             return new PhaseList(new DrawingPhase(player), new ActionPhase(player));
         }
@@ -95,11 +179,11 @@ namespace LOTK.Model
         }
     }
 
-    public class DrawingPhase : VisiblePhase
+    public class DrawingPhase : PausePhase
     {
-        public DrawingPhase(Player player) : base(player) { }
+        public DrawingPhase(Player player) : base(player, 1) { }
 
-        public override PhaseList handleResponse(UserAction userAction, IGame game)
+        public override PhaseList advance(IGame game)
         {
             return new PhaseList();
         }
@@ -110,50 +194,43 @@ namespace LOTK.Model
         }
     }
 
-    public class ActionPhase : VisiblePhase
+    public class ActionPhase : UserActionPhase
     {
         public int attackCount { get; internal set; }
         public bool drunk { get; internal set; }
 
-        public ActionPhase(Player player) : base(player) { }
+        public ActionPhase(Player player) : base(player, 20) { }
 
-        public override PhaseList handleResponse(UserAction userAction, IGame game)
+        public override PhaseList responseYesOrNo(bool yes, IGame game)
         {
-            if (userAction == null)
+            if (yes)
                 return null;
-            switch (userAction.type)
+            else
+                return new PhaseList(new DiscardPhase(player));
+        }
+
+        public override PhaseList responseCardAction(Card card, Player[] targets)
+        {
+            PhaseList ret = new PhaseList(this);
+            if (card is BasicCard)
             {
-                case UserActionType.YES_OR_NO:
-                    if ((userAction as YesOrNoAction).no)
-                        return new PhaseList(new DiscardPhase(player));
-                    else
-                        return null;
-                case UserActionType.CARD:
-                    CardAction cardAction = userAction as CardAction;
-                    Card card = cardAction.card;
-                    PhaseList ret = new PhaseList(this);
-                    if (card is BasicCard)
-                    {
-                        Attack attack = card as Attack;
-                        if (attack != null)
-                        {
-                            ret.add(new AttackPhase(player, attack, cardAction.targets, this));
-                            return ret;
-                        }
-                    }
-                    else if (card is ToolCard)
-                    {
-                        throw new NotImplementedException();
-                    }
-                    else if (card is Equipment)
-                    {
-                        throw new NotImplementedException();
-                        //return new PhaseList(new UseEquipmentPhase(player, card as Equipment), this);
-                    }
-                    throw new Exception();
-                default:
-                    return null;
+                Attack attack = card as Attack;
+                if (attack != null)
+                {
+                    ret.add(new AttackPhase(player, attack, targets, this));
+                    return ret;
+                }
             }
+            else if (card is ToolCard)
+            {
+                throw new NotImplementedException();
+            }
+            else if (card is Equipment)
+            {
+                throw new NotImplementedException();
+                //return new PhaseList(new UseEquipmentPhase(player, card as Equipment), this);
+            }
+            throw new Exception();
         }
 
         public override string ToString()
@@ -162,14 +239,16 @@ namespace LOTK.Model
         }
     }
 
-    public class DiscardPhase : VisiblePhase
+    public class DiscardPhase : UserActionPhase
     {
-        public DiscardPhase(Player player) : base(player) { }
+        public DiscardPhase(Player player) : base(player, 1) { }
 
-        public override PhaseList handleResponse(UserAction userAction, IGame game)
+        public override PhaseList autoAdvance(IGame game)
         {
-            if (userAction == null)
-                return null;
+            return base.autoAdvance(game);
+        }
+        public override PhaseList responseYesOrNo(bool yes, IGame game)
+        {
             return new PhaseList();
         }
 

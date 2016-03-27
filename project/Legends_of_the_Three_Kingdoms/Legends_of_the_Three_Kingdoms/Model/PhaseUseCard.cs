@@ -22,33 +22,28 @@ namespace LOTK.Model
 
         public AttackPhase(Player player) : base(player) { }
 
-        public override PhaseList process(IGame game)
+        public override PhaseList advance(IGame game)
         {
             return player.attack(attack, targets, actionPhase);
         }
     }
 
-    public class RequestNegatePhase : VisiblePhase
+    public class RequestNegatePhase : UserActionPhase
     {
         public ToolCard toolCard { get; }
         public Player target { get; }
         private UseToolPhase useToolPhase;
 
-        public RequestNegatePhase(Player player, ToolCard toolCard, Player target, UseToolPhase useToolPhase) : base(player)
+        public RequestNegatePhase(Player player, ToolCard toolCard, Player target, UseToolPhase useToolPhase) : base(player, 1)
         {
             this.toolCard = toolCard;
             this.target = target;
             this.useToolPhase = useToolPhase;
         }
 
-        public RequestNegatePhase(Player player) : base(player)
+        public override PhaseList timeOut(IGame game)
         {
-            throw new NotImplementedException();
-        }
-
-        public override PhaseList handleResponse(UserAction userAction, IGame game)
-        {
-            throw new NotImplementedException();
+            return new PhaseList();
         }
 
         public void negateTool()
@@ -69,7 +64,7 @@ namespace LOTK.Model
             this.targets = targets;
         }
 
-        public override PhaseList process(IGame game)
+        public override PhaseList advance(IGame game)
         {
             if (negated)
                 return new PhaseList();
@@ -90,47 +85,37 @@ namespace LOTK.Model
         {
             this.card = card;
         }
-        public override PhaseList process(IGame game)
+        public override PhaseList advance(IGame game)
         {
             throw new NotImplementedException();
         }
     }
 
-    public class ReponsePhase : VisiblePhase
+    public class ReponsePhase : UserActionPhase
     {
         private CardType needCard;
         private HarmPhase consequence;
-        public ReponsePhase(Player player, CardType needCard, HarmPhase consequence) : base(player)
+        public ReponsePhase(Player player, CardType needCard, HarmPhase consequence) : base(player, 10)
         {
             this.needCard = needCard;
             this.consequence = consequence;
         }
 
-        public override PhaseList handleResponse(UserAction userAction, IGame game)
+        public override PhaseList responseYesOrNo(bool yes, IGame game)
         {
-            if (userAction == null)
+            if (yes)
                 return null;
-            if (userAction == null)
-                return null;
-            switch (userAction.type)
-            {
-                case UserActionType.YES_OR_NO:
-                    if ((userAction as YesOrNoAction).no)
-                        return new PhaseList(consequence);
-                    else
-                        return null;
-                case UserActionType.CARD:
-                    CardAction cardAction = userAction as CardAction;
-                    Card card = cardAction.card;
-                    if (card.type == needCard)
-                    {
+            else
+                return new PhaseList(consequence);
+        }
 
-                        return new PhaseList();
-                    }
-                    return null;
-                default:
-                    return null;
+        public override PhaseList responseCardAction(Card card, Player[] targets)
+        {
+            if (card.type == needCard)
+            {
+                return new PhaseList();
             }
+            return null;
         }
         
     }
@@ -140,7 +125,7 @@ namespace LOTK.Model
         {
         }
 
-        public override PhaseList process(IGame game)
+        public override PhaseList advance(IGame game)
         {
             throw new NotImplementedException();
         }

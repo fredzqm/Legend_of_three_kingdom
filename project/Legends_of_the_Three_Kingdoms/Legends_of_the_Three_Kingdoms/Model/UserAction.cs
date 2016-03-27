@@ -23,7 +23,6 @@ namespace LOTK.Model
     public class YesOrNoAction : UserAction
     {
         public bool yes { get; }
-        public bool no { get { return !yes; } }
         public YesOrNoAction(bool yesOrNo) : base(UserActionType.YES_OR_NO)
         {
             this.yes = yesOrNo;
@@ -34,7 +33,6 @@ namespace LOTK.Model
     {
         public Card card { get; }
         public Player[] targets { get; }
-        public int targetCount { get { return targets.Length; } }
 
         public CardAction(Card card) : base(UserActionType.CARD)
         {

@@ -40,9 +40,8 @@ namespace LOTK.Model
         }
 
         // ----------------------------------------------------
-        // The codes below specify the default behaviour of the player
-        // Many methods can be overriden by a character class.
-
+        // The codes below specify are virtual methods of Players.
+        // A new character can be created by overriden those method to customize player's behavior
         public virtual PhaseList attack(Attack card, Player[] targets, ActionPhase actionPhase)
         {
             if (targets.Length > card.numOfTargets() || actionPhase.attackCount > 1 || targets[0] == this)

@@ -73,7 +73,7 @@ namespace LOTK.Model
                 { // when turn switches
                     curRoundPlayer = curPhase.player;
                 }
-                PhaseList followingPhases = curPhase.handleResponse(userAction, this);
+                PhaseList followingPhases = curPhase.advance(userAction, this);
                 if (followingPhases == null)
                 { // the next state need a user action for future decison
                     return;
@@ -86,7 +86,6 @@ namespace LOTK.Model
                     timerAutoAdvance = true;
                     return;
                 }
-                userAction = null;
             }
             
         }

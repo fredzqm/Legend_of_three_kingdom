@@ -101,7 +101,7 @@ namespace LOTK_Test.ModelTest
     
             public PhaseSimple(int i) : base(new Player(i, null, null)) { }
 
-            public override PhaseList handleResponse(UserAction userAction, IGame game)
+            public override PhaseList advance(UserAction userAction, IGame game)
             {
                 throw new NotImplementedException();
             }
