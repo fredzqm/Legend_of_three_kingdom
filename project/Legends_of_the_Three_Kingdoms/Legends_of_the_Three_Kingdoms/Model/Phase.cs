@@ -36,9 +36,9 @@ namespace LOTK.Model
 
     }
 
-    public abstract class FundamentalPhase : Phase
+    public abstract class VisiblePhase : Phase
     {
-        public FundamentalPhase(Player player) : base(player) { }
+        public VisiblePhase(Player player) : base(player) { }
 
         public sealed override bool needResponse()
         {
@@ -46,32 +46,47 @@ namespace LOTK.Model
         }
     }
 
-    public class PlayerTurn : Phase
+    public abstract class HiddenPhase : Phase
+    {
+        public HiddenPhase(Player player) : base(player) { }
+
+        public sealed override PhaseList handleResponse(UserAction userAction, Game game)
+        {
+            if (userAction != null)
+                throw new Exception();
+            return process(game);
+        }
+
+        public abstract PhaseList process(Game game);
+
+        public sealed override bool needResponse()
+        {
+            return false;
+        }
+    }
+
+    public class PlayerTurn : HiddenPhase
     {
         public PlayerTurn(Player player) : base(player) { }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList process(Game game)
         {
-            return this.player.playerTurn(this, game);
+            return new PhaseList(new JudgePhase(player), new PlayerTurn(game.players[(playerID + 1) % game.Num_Player]));
         }
 
         public override string ToString()
         {
             return "Plyaer " + playerID + " at PlayerTurn";
         }
-        public override sealed bool needResponse()
-        {
-            return false;
-        }
     }
 
-    public class JudgePhase : FundamentalPhase
+    public class JudgePhase : VisiblePhase
     {
         public JudgePhase(Player player) : base(player) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
-            return this.player.judgePhase(this, userAction,  game);
+            return new PhaseList(new DrawingPhase(player), new ActionPhase(player));
         }
 
         public override string ToString()
@@ -80,13 +95,13 @@ namespace LOTK.Model
         }
     }
 
-    public class DrawingPhase : FundamentalPhase
+    public class DrawingPhase : VisiblePhase
     {
         public DrawingPhase(Player player) : base(player) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
-            return this.player.drawingPhase(this, userAction, game);
+            return new PhaseList();
         }
 
         public override string ToString()
@@ -95,7 +110,7 @@ namespace LOTK.Model
         }
     }
 
-    public class ActionPhase : FundamentalPhase
+    public class ActionPhase : VisiblePhase
     {
         public int attackCount { get; internal set; }
         public bool drunk { get; internal set; }
@@ -137,7 +152,7 @@ namespace LOTK.Model
                     }
                     throw new Exception();
                 default:
-                    return this.player.actionPhase(this, userAction, game);
+                    return null;
             }
         }
 
@@ -147,17 +162,15 @@ namespace LOTK.Model
         }
     }
 
-    public class DiscardPhase : FundamentalPhase
+    public class DiscardPhase : VisiblePhase
     {
         public DiscardPhase(Player player) : base(player) { }
 
         public override PhaseList handleResponse(UserAction userAction, Game game)
         {
-            if (userAction != null)
-            {
+            if (userAction == null)
                 return null;
-            }
-            return this.player.discardPhase(this, userAction, game);
+            return new PhaseList();
         }
 
         public override string ToString()

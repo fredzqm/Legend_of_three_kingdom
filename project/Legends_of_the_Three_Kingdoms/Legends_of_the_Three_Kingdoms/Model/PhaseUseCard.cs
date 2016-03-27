@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LOTK.Model
 {
 
-    public class AttackPhase : Phase
+    public class AttackPhase : HiddenPhase
     {
         public Attack attack { get; }
         public ActionPhase actionPhase { get; }
@@ -22,18 +22,13 @@ namespace LOTK.Model
 
         public AttackPhase(Player player) : base(player) { }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList process(Game game)
         {
             return player.attack(attack, targets, actionPhase);
         }
-
-        public override bool needResponse()
-        {
-            return false;
-        }
     }
 
-    public class RequestNegatePhase : Phase
+    public class RequestNegatePhase : VisiblePhase
     {
         public ToolCard toolCard { get; }
         public Player target { get; }
@@ -56,18 +51,13 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
 
-        public override bool needResponse()
-        {
-            return true;
-        }
-
         public void negateTool()
         {
             useToolPhase.negate();
         }
     }
 
-    public class UseToolPhase : Phase
+    public class UseToolPhase : HiddenPhase
     {
         bool negated;
         ToolCard card;
@@ -79,44 +69,34 @@ namespace LOTK.Model
             this.targets = targets;
         }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList process(Game game)
         {
             if (negated)
                 return new PhaseList();
             throw new NotImplementedException();
         }
 
-        public override bool needResponse()
-        {
-            return false;
-        }
         public void negate()
         {
             negated = true;
         }
+        
     }
 
-    public class UseEquipmentPhase : Phase
+    public class UseEquipmentPhase : HiddenPhase
     {
         Equipment card;
         public UseEquipmentPhase(Player player, Equipment card) : base(player)
         {
             this.card = card;
         }
-
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList process(Game game)
         {
             throw new NotImplementedException();
         }
-
-        public override bool needResponse()
-        {
-            return false;
-        }
-
     }
 
-    public class ReponsePhase : Phase
+    public class ReponsePhase : VisiblePhase
     {
         private CardType needCard;
         private HarmPhase consequence;
@@ -152,26 +132,17 @@ namespace LOTK.Model
                     return null;
             }
         }
-
-        public override bool needResponse()
-        {
-            return true;
-        }
+        
     }
-    public class HarmPhase : Phase
+    public class HarmPhase : HiddenPhase
     {
         public HarmPhase(Player player, Player source, int harm) : base(player)
         {
         }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList process(Game game)
         {
             throw new NotImplementedException();
-        }
-
-        public override bool needResponse()
-        {
-            return false;
         }
     }
 }

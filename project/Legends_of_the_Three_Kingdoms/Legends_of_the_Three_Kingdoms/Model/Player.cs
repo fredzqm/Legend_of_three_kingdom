@@ -43,39 +43,6 @@ namespace LOTK.Model
         // The codes below specify the default behaviour of the player
         // Many methods can be overriden by a character class.
 
-        public virtual PhaseList playerTurn(PlayerTurn curPhase, IGame g)
-        {
-            return new PhaseList(new JudgePhase(this), new PlayerTurn(g.players[(this + 1)%g.Num_Player]));
-        }
-
-        public virtual PhaseList judgePhase(JudgePhase curPhase, UserAction userAction, IGame g)
-        {
-            return new PhaseList(new DrawingPhase(this), new ActionPhase(this));
-        }
-
-        public PhaseList drawingPhase(DrawingPhase curPhase, UserAction userAction, IGame g)
-        {
-            return new PhaseList();
-        }
-
-        public virtual PhaseList actionPhase(ActionPhase curPhase, UserAction userAction, IGame g)
-        {
-            
-        }
-
-
-        public virtual PhaseList discardPhase(DiscardPhase curPhase, UserAction userAction, IGame g)
-        {
-            if (userAction == null)
-                return null;
-            return new PhaseList();
-        }
-
-        public virtual int numOfTargets(Card card, ActionPhase curPhase)
-        {
-            return card.numOfTargets();
-        }
-
         public virtual PhaseList attack(Attack card, Player[] targets, ActionPhase actionPhase)
         {
             if (targets.Length > card.numOfTargets() || actionPhase.attackCount > 1 || targets[0] == this)
@@ -86,40 +53,5 @@ namespace LOTK.Model
             return new PhaseList(new ReponsePhase(targets[0], CardType.Miss, new HarmPhase(targets[0], this, harm)));
         }
 
-        internal PhaseList attack(Player[] targets)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal PhaseList useWine()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal PhaseList useWine(Card card)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal PhaseList usePeach(Card card)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        internal PhaseList useAOE(Card card)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal PhaseList useHailofArrow(Card card)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal PhaseList usePeachGarden(Card card)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
