@@ -30,38 +30,38 @@ namespace LOTK.Model
         }
     }
 
-    public class UseCardAction : UserAction
+    public class CardAction : UserAction
     {
         public Card card { get; }
         public Player[] targets { get; }
         public int targetCount { get { return targets.Length; } }
 
-        public UseCardAction(Card card) : base(UserActionType.CARD)
+        public CardAction(Card card) : base(UserActionType.CARD)
         {
             this.card = card;
         }
-        public UseCardAction(Card card, params Player[] targets) : this(card)
+        public CardAction(Card card, params Player[] targets) : this(card)
         {
             this.targets = targets;
         }
-        public UseCardAction(int CardID, Game game) : this(game.cards[CardID]) { }
+        public CardAction(int CardID, Game game) : this(game.cards[CardID]) { }
     }
 
-    public class UserActionCards : UserAction
-    {
-        public ICollection<Card> cards { get; }
-        public int cout { get { return cards.Count; } }
-        public UserActionCards(ICollection<Card> cards) : base(UserActionType.CARDS)
-        {
-            this.cards = cards;
-        }
-        public UserActionCards(ICollection<int> cardIDs, Game game) : base(UserActionType.CARDS)
-        {
-            cards = new List<Card>();
-            foreach(int i in cardIDs)
-                cards.Add(game.cards[i]);
-        }
-    }
+    //public class UserActionCards : UserAction
+    //{
+    //    public ICollection<Card> cards { get; }
+    //    public int cout { get { return cards.Count; } }
+    //    public UserActionCards(ICollection<Card> cards) : base(UserActionType.CARDS)
+    //    {
+    //        this.cards = cards;
+    //    }
+    //    public UserActionCards(ICollection<int> cardIDs, Game game) : base(UserActionType.CARDS)
+    //    {
+    //        cards = new List<Card>();
+    //        foreach(int i in cardIDs)
+    //            cards.Add(game.cards[i]);
+    //    }
+    //}
 
     public class UserActionPlayer : UserAction
     {

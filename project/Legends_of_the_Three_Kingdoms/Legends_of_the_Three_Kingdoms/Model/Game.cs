@@ -26,13 +26,12 @@ namespace LOTK.Model
 
         private PhaseList stages;
         public Phase curPhase { get { return stages.top(); } }
-        public Player curPhasePlayer { get { return players[curPhase.playerID]; } }
+        public Player curPhasePlayer { get { return curPhase.player; } }
 
         public bool timerAutoAdvance;
         public bool timerVisit;
 
-        private int curRoundPlayerID;
-        public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
+        public Player curRoundPlayer { get; private set; }
 
 
         /// <summary>
@@ -67,7 +66,7 @@ namespace LOTK.Model
             {
                 if (curPhase is PlayerTurn)
                 { // when turn switches
-                    curRoundPlayerID = curPhase.playerID;
+                    curRoundPlayer = curPhase.player;
                 }
                 PhaseList followingPhases = curPhase.handleResponse(userAction, this);
                 if (followingPhases == null)

@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Model;
 using System.Collections.Generic;
-using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK_Test.ModelTest
 {
