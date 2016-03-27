@@ -27,32 +27,11 @@ namespace LOTK_Test.ModelTest
 
     internal class TestGame : IGame
     {
-        private Player p;
-        private Player p2;
-        private Player p3;
-
         public int Num_Player { get; }
-
         public Player[] players { get; set; }
-
         public CardSet cards { get; set; }
-
-        public Phase curPhase
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public Player curRoundPlayer
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
+        public Phase curPhase { get; }
+        public Player curRoundPlayer { get; }
         public TestGame(int n)
         {
             Num_Player = n;
