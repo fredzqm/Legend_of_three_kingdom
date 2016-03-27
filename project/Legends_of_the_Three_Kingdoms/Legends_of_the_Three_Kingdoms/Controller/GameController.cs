@@ -19,7 +19,7 @@ namespace LOTK.Controller
         const int DELAY_INTERVAL = 2000;
 
         public GameView view { get; }
-        public Game game { get; }
+        public IGame game { get; }
 
         public event UpdateForm updateForm;
 

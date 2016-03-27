@@ -11,13 +11,13 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void GameConstructTest()
         {
-            Game g = new Game(5 , null);
+            IGame g = new Game(5 , null);
         }
 
         [TestMethod]
         public void FourStageTest()
         {
-            Game g = new Game(5 , null);
+            IGame g = new Game(5 , null);
             Assert.AreEqual(typeof(JudgePhase) , g.curPhase.GetType() );
             Assert.AreEqual(0, g.curPhase.playerID);
             g.nextStage(null);
@@ -37,7 +37,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void EightPeopleGameCycleTest()
         {
-            Game g = new Game(8 , null);
+            IGame g = new Game(8 , null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
@@ -61,7 +61,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void CurrentPlayerTest()
         {
-            Game g = new Game(8, null);
+            IGame g = new Game(8, null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
@@ -85,7 +85,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void UserResponseYES_OR_NOTest()
         {
-            Game g = new Game(5, null);
+            IGame g = new Game(5, null);
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
             // advance
             g.nextStage(new YesOrNoAction(false));
@@ -114,7 +114,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3));
             ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Wine, 4));
             ls.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 5));
-            Game g = new Game(5, ls);
+            IGame g = new Game(5, ls);
 
             for (int i = 0; i < ls.Count; i += 2)
             {
@@ -130,7 +130,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void AutoAdvancedTest()
         {
-            Game g = new Game(5, null);
+            IGame g = new Game(5, null);
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
             g.tick();
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());

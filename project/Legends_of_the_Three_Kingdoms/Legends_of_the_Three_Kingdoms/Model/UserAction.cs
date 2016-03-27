@@ -44,7 +44,7 @@ namespace LOTK.Model
         {
             this.targets = targets;
         }
-        public CardAction(int CardID, Game game) : this(game.cards[CardID]) { }
+        public CardAction(int CardID, IGame game) : this(game.cards[CardID]) { }
     }
 
     //public class UserActionCards : UserAction
@@ -70,7 +70,7 @@ namespace LOTK.Model
         {
             this.player = player;
         }
-        public UserActionPlayer(int playerID, Game game) : this(game.players[playerID]) { }
+        public UserActionPlayer(int playerID, IGame game) : this(game.players[playerID]) { }
     }
     public enum UserActionType
     {
