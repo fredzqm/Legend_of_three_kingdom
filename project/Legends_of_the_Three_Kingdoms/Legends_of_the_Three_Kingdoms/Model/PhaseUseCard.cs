@@ -22,7 +22,7 @@ namespace LOTK.Model
 
         public AttackPhase(Player player) : base(player) { }
 
-        public override PhaseList process(Game game)
+        public override PhaseList process(IGame game)
         {
             return player.attack(attack, targets, actionPhase);
         }
@@ -46,7 +46,7 @@ namespace LOTK.Model
             throw new NotImplementedException();
         }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList handleResponse(UserAction userAction, IGame game)
         {
             throw new NotImplementedException();
         }
@@ -69,7 +69,7 @@ namespace LOTK.Model
             this.targets = targets;
         }
 
-        public override PhaseList process(Game game)
+        public override PhaseList process(IGame game)
         {
             if (negated)
                 return new PhaseList();
@@ -90,7 +90,7 @@ namespace LOTK.Model
         {
             this.card = card;
         }
-        public override PhaseList process(Game game)
+        public override PhaseList process(IGame game)
         {
             throw new NotImplementedException();
         }
@@ -106,7 +106,7 @@ namespace LOTK.Model
             this.consequence = consequence;
         }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList handleResponse(UserAction userAction, IGame game)
         {
             if (userAction == null)
                 return null;
@@ -140,7 +140,7 @@ namespace LOTK.Model
         {
         }
 
-        public override PhaseList process(Game game)
+        public override PhaseList process(IGame game)
         {
             throw new NotImplementedException();
         }

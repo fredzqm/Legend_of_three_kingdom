@@ -12,6 +12,11 @@ namespace LOTK.Model
         int Num_Player { get; }
         Player[] players { get; }
         CardSet cards { get; }
+        Phase curPhase { get; }
+        Player curRoundPlayer { get; }
+        bool tick();
+        void nextStage(UserAction yesOrNoAction);
+        List<Card> drawCard(int v);
     }
 
     /// <summary>
@@ -81,6 +86,7 @@ namespace LOTK.Model
                     timerAutoAdvance = true;
                     return;
                 }
+                userAction = null;
             }
             
         }
@@ -122,5 +128,6 @@ namespace LOTK.Model
                 cards.Add(this.cards.pop());
             return cards;
         }
+
     }
 }

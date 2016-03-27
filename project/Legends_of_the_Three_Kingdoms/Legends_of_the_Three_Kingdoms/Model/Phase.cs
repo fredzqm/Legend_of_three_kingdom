@@ -32,7 +32,7 @@ namespace LOTK.Model
         /// fase if this phase should be invisible from outside</returns>
         public abstract bool needResponse();
 
-        public abstract PhaseList handleResponse(UserAction userAction, Game game);
+        public abstract PhaseList handleResponse(UserAction userAction, IGame game);
 
     }
 
@@ -50,14 +50,14 @@ namespace LOTK.Model
     {
         public HiddenPhase(Player player) : base(player) { }
 
-        public sealed override PhaseList handleResponse(UserAction userAction, Game game)
+        public sealed override PhaseList handleResponse(UserAction userAction, IGame game)
         {
             if (userAction != null)
                 throw new Exception();
             return process(game);
         }
 
-        public abstract PhaseList process(Game game);
+        public abstract PhaseList process(IGame game);
 
         public sealed override bool needResponse()
         {
@@ -69,7 +69,7 @@ namespace LOTK.Model
     {
         public PlayerTurn(Player player) : base(player) { }
 
-        public override PhaseList process(Game game)
+        public override PhaseList process(IGame game)
         {
             return new PhaseList(new JudgePhase(player), new PlayerTurn(game.players[(playerID + 1) % game.Num_Player]));
         }
@@ -84,7 +84,7 @@ namespace LOTK.Model
     {
         public JudgePhase(Player player) : base(player) { }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList handleResponse(UserAction userAction, IGame game)
         {
             return new PhaseList(new DrawingPhase(player), new ActionPhase(player));
         }
@@ -99,7 +99,7 @@ namespace LOTK.Model
     {
         public DrawingPhase(Player player) : base(player) { }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList handleResponse(UserAction userAction, IGame game)
         {
             return new PhaseList();
         }
@@ -117,7 +117,7 @@ namespace LOTK.Model
 
         public ActionPhase(Player player) : base(player) { }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList handleResponse(UserAction userAction, IGame game)
         {
             if (userAction == null)
                 return null;
@@ -166,7 +166,7 @@ namespace LOTK.Model
     {
         public DiscardPhase(Player player) : base(player) { }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
+        public override PhaseList handleResponse(UserAction userAction, IGame game)
         {
             if (userAction == null)
                 return null;
