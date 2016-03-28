@@ -160,27 +160,37 @@ namespace LOTK.Model
             public PhaseListEnumerator(PhaseList phaseList)
             {
                 this.phaseList = phaseList;
-                curNode = phaseList.head;
+                Reset();
             }
 
-            public Phase Current {get { return curNode.stage;}}
+            public Phase Current
+            {
+                get
+                {
+                    if (curNode == null)
+                        return null;
+                    return curNode.stage;
+                }
+            }
 
             object IEnumerator.Current { get { return Current; } }
 
             public void Dispose()
             {
-                throw new NotImplementedException();
             }
 
             public bool MoveNext()
             {
-                curNode = curNode.next;
+                if (curNode == null)
+                    curNode = phaseList.head;
+                else
+                    curNode = curNode.next;
                 return (curNode != null);
             }
 
             public void Reset()
             {
-                curNode = phaseList.head;
+                curNode = null;
             }
         }
 
@@ -229,6 +239,13 @@ namespace LOTK.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("[");
+            foreach (Phase p in this)
+            {
+                sb.Append(p.ToString());
+                sb.Append(", ");
+            }
+            sb.Remove(sb.Length - 1, 1);
+            sb.Append("]");
             return sb.ToString();
         }
 

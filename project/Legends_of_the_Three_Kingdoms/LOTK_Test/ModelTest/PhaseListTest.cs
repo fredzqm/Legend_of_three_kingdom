@@ -81,18 +81,18 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void TestEnumerator()
         {
-            PhaseList ls = new PhaseList();
-            ls.add(new PhaseSimple(0));
-            ls.add(new PhaseSimple(1));
-            ls.add(new PhaseSimple(2));
-            ls.add(new PhaseSimple(3));
-            ls.add(new PhaseSimple(4));
             List<Phase> list = new List<Phase>();
             list.Add(new PhaseSimple(0));
             list.Add(new PhaseSimple(1));
             list.Add(new PhaseSimple(2));
             list.Add(new PhaseSimple(3));
             list.Add(new PhaseSimple(4));
+            PhaseList ls = new PhaseList();
+            ls.add(list[0]);
+            ls.add(list[1]);
+            ls.add(list[2]);
+            ls.add(list[3]);
+            ls.add(list[4]);
 
             int i = 0;
             foreach (Phase p in ls)
@@ -115,6 +115,10 @@ namespace LOTK_Test.ModelTest
             public override bool needResponse()
             {
                 throw new NotImplementedException();
+            }
+            public override string ToString()
+            {
+                return "Index " + playerID;
             }
         }
     }

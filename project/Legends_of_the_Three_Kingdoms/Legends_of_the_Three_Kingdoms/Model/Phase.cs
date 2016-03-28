@@ -41,6 +41,12 @@ namespace LOTK.Model
 
         public abstract PhaseList advance(UserAction userAction, IGame game);
 
+        public override bool Equals(object obj)
+        {
+            Phase b = obj as Phase;
+            return (b != null && player == b.player) ;
+        }
+
     }
 
     /// <summary>
