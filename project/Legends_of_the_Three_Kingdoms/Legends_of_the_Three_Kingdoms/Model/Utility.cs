@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -109,7 +110,7 @@ namespace LOTK.Model
     /// <summary>
     /// A simple data structure (linkedList) that used to store phases of game
     /// </summary>
-    public class PhaseList
+    public class PhaseList : IEnumerable<Phase>
     {
         private Node head;
         private Node tail;
@@ -139,6 +140,47 @@ namespace LOTK.Model
             {
                 tail.next = new Node(s);
                 tail = tail.next;
+            }
+        }
+
+        public IEnumerator<Phase> GetEnumerator()
+        {
+            return new PhaseListEnumerator(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return new PhaseListEnumerator(this);
+        }
+
+        class PhaseListEnumerator : IEnumerator<Phase>
+        {
+            private PhaseList phaseList;
+            private Node curNode;
+            public PhaseListEnumerator(PhaseList phaseList)
+            {
+                this.phaseList = phaseList;
+                curNode = phaseList.head;
+            }
+
+            public Phase Current {get { return curNode.stage;}}
+
+            object IEnumerator.Current { get { return Current; } }
+
+            public void Dispose()
+            {
+                throw new NotImplementedException();
+            }
+
+            public bool MoveNext()
+            {
+                curNode = curNode.next;
+                return (curNode != null);
+            }
+
+            public void Reset()
+            {
+                curNode = phaseList.head;
             }
         }
 
@@ -183,6 +225,14 @@ namespace LOTK.Model
             return head.stage;
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("[");
+            return sb.ToString();
+        }
+
+
         class Node
         {
             internal Phase stage;
@@ -198,6 +248,11 @@ namespace LOTK.Model
             {
                 this.next = node;
                 return node;
+            }
+
+            public override string ToString()
+            {
+                return stage.ToString();
             }
         }
     }
