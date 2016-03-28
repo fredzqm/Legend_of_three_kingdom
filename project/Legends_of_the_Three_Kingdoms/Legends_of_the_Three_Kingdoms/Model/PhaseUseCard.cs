@@ -121,8 +121,13 @@ namespace LOTK.Model
     }
     public class HarmPhase : HiddenPhase
     {
+        public int harm { get; }
+        public Player source { get; }
+
         public HarmPhase(Player player, Player source, int harm) : base(player)
         {
+            this.source = source;
+            this.harm = harm;
         }
 
         public override PhaseList advance(IGame game)
