@@ -19,20 +19,27 @@ namespace LOTK.Model
         public string description { get; }
 
         public List<Card> handCards { get; }
+        public int healthLimit { get; }
+        public int health { get; private set; }
+
         public Card weapon { get; set; }
         public Card shield { get; set; }
 
-        public Player(int pos, string name, string descript)
+
+        public Player(int pos, string name, string descript, int healthLimit)
         {
             playerID = pos;
             handCards = new List<Card>();
-            // just for testing purpose
+            weapon = null;
+            shield = null;
             this.name = name;
             this.description = descript;
-            handCards.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
-            weapon = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
-            shield = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
+            this.health = healthLimit;
+            this.healthLimit = healthLimit;
         }
+        public Player(int pos) : this(pos, "Player Name", "Player Description at" + pos, 4){}
+        public Player(int pos, string name, string descript) : this(pos, name, descript, 4) {}
+        
 
         public static implicit operator int (Player p)
         {
@@ -52,5 +59,20 @@ namespace LOTK.Model
             return new PhaseList(new ReponsePhase(targets[0], CardType.Miss, new HarmPhase(targets[0], this, harm)));
         }
 
+        public PhaseList harm(HarmPhase harmPhase, IGame game)
+        {
+            health -= harmPhase.harm;
+            if (health < 0)
+            {
+                return new PhaseList(new RequestPeachPhase(this));
+            }
+            return new PhaseList();
+        }
+
+        public PhaseList recover(RecoverPhase recoverPhase, IGame game)
+        {
+            health += recoverPhase.healthAmount;
+            return new PhaseList();
+        }
     }
 }

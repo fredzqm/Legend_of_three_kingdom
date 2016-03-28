@@ -11,7 +11,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void PlayerConstructTest()
         {
-            Player p = new Player(0, "Player Name", "Player Description");
+            Player p = new Player(0);
         }
 
         
@@ -19,7 +19,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void handlePhaseTest()
         {
-            Player g = new Player(0, "Player Name", "Player Description");
+            Player g = new Player(0);
 
         }
 

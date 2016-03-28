@@ -53,7 +53,7 @@ namespace LOTK.Model
             players = new Player[Num_Player];
             for (int i = 0; i < Num_Player; i++)
             {
-                players[i] = new Player(i, "Player Name", "Player Description");
+                players[i] = new Player(i);
             }
             stages = new PhaseList();
             stages.add(new PlayerTurn(players[0]));

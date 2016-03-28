@@ -105,7 +105,7 @@ namespace LOTK_Test.ModelTest
         internal class PhaseSimple : Phase
         {
     
-            public PhaseSimple(int i) : base(new Player(i, null, null)) { }
+            public PhaseSimple(int i) : base(new Player(i)) { }
 
             public override PhaseList advance(UserAction userAction, IGame game)
             {

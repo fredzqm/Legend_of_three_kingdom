@@ -75,7 +75,7 @@ namespace LOTK.Model
         {
             negated = true;
         }
-        
+
     }
 
     public class UseEquipmentPhase : HiddenPhase
@@ -117,7 +117,7 @@ namespace LOTK.Model
             }
             return null;
         }
-        
+
     }
     public class HarmPhase : HiddenPhase
     {
@@ -132,7 +132,103 @@ namespace LOTK.Model
 
         public override PhaseList advance(IGame game)
         {
-            throw new NotImplementedException();
+            return player.harm(this, game);
         }
     }
+
+    public class RequestPeachPhase : HiddenPhase
+    {
+        private int curIndex;
+        public RequestPeachPhase(Player player) : base(player)
+        {
+            curIndex = -1; // indicate not yet start
+        }
+
+        public override PhaseList advance(IGame game)
+        {
+            if (player.health > 0)
+            {
+                return new PhaseList();
+            }
+
+            if (curIndex == game.curRoundPlayer)
+            {
+                // dies
+                throw new NotImplementedException();
+            }
+            if (curIndex == -1)
+                curIndex = game.curRoundPlayer;
+            return new PhaseList(new RequestPeachResponsePhase(game.players[curIndex], this), this);
+        }
+        public void next(int numOfPlayer)
+        {
+            this.curIndex = (curIndex + 1) % numOfPlayer;
+        }
+
+    }
+    public class RequestPeachResponsePhase : UserActionPhase
+    {
+        public RequestPeachPhase requsterPhase { get; }
+        public Player dying { get; }
+        public RequestPeachResponsePhase(Player player, RequestPeachPhase requsterPhase) : base(player, 10)
+        {
+            this.requsterPhase = requsterPhase;
+            this.dying = requsterPhase.player;
+        }
+
+        public override PhaseList autoAdvance(IGame game)
+        {
+            return base.autoAdvance(game);
+        }
+        public override PhaseList responseYesOrNo(bool yes, IGame game)
+        {
+            if (!yes)
+            {
+                requsterPhase.next(game.Num_Player);
+                return new PhaseList();
+            }
+            return null;
+        }
+
+        public override PhaseList responseCardAction(Card card, Player[] targets)
+        {
+            if (card is Peach || (player == dying && card is Wine))
+            {
+                return new PhaseList(new UseCardPhase(player, card), new RecoverPhase(dying, 1));
+            }
+            return null;
+        }
+    }
+
+    public class UseCardPhase : HiddenPhase
+    {
+        public Card card { get; }
+        public UseCardPhase(Player player, Card card) : base(player)
+        {
+            this.card = card;
+        }
+        public override PhaseList advance(IGame game)
+        {
+            if (player.handCards.Contains(card))
+            {
+                throw new NotImplementedException();
+            }
+            throw new Exception("Cannot Use card not in hand");
+        }
+    }
+
+    public class RecoverPhase : HiddenPhase
+    {
+        public int healthAmount { get; }
+        public RecoverPhase(Player player, int num) : base(player)
+        {
+            this.healthAmount = num;
+        }
+
+        public override PhaseList advance(IGame game)
+        {
+            return player.recover(this, game);
+        }
+    }
+
 }
