@@ -87,8 +87,9 @@ namespace LOTK_Test.ModelTest
             Player p2 = new Player(1, "Player Name1", "Player Description1");
             Player p3 = new Player(2, "Player Name2", "Player Description2");
             IGame game = new TestGame(5, p1, p2, p3);
-
             Card attack = new Attack(CardSuit.Spade, 1);
+            Miss miss = new Miss(CardSuit.Diamond, 2);
+
             Phase a = new ActionPhase(p1);
             PhaseList ret = a.advance(new CardAction(attack, p2), game);
             Phase b = ret.pop();
@@ -98,6 +99,12 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(a, b2.actionPhase);
             Assert.AreEqual(p1, b2.player);
             Assert.AreEqual(p2, b2.targets[0]);
+            Phase c = ret.pop();
+            Assert.AreEqual(a, c);
+
+            Assert.IsTrue(ret.isEmpty());
+            ret = b.advance(new CardAction(miss), game);
+            Assert.IsTrue(ret.isEmpty());
         }
     }
 }
