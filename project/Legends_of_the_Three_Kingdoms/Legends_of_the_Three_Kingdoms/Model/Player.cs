@@ -15,7 +15,7 @@ namespace LOTK.Model
     {
         // basic and readonly properties, initialized in contructor
         public int playerID { get; }
-        public string name { get; }
+        public string name { get; } 
         public string description { get; }
 
         public List<Card> handCards { get; }

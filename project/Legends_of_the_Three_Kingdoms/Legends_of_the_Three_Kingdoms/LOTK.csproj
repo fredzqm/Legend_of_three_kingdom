@@ -59,6 +59,7 @@
     <Compile Include="Controller\GameController.cs" />
     <Compile Include="Model\CardLib.cs" />
     <Compile Include="Model\ExceptionHandler.cs" />
+    <Compile Include="Model\PhaseFundamental.cs" />
     <Compile Include="Model\PhaseUseCard.cs" />
     <Compile Include="Model\Utility.cs" />
     <Compile Include="View\Form1.cs">

@@ -97,8 +97,7 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(attack , b2.attack);
             Assert.AreEqual(a, b2.actionPhase);
             Assert.AreEqual(p1, b2.player);
-            Assert.AreEqual(p2, b2.targets[1]);
-
+            Assert.AreEqual(p2, b2.targets[0]);
         }
     }
 }

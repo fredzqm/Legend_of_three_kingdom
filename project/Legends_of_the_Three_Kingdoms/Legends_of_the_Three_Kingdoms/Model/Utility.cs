@@ -119,6 +119,11 @@ namespace LOTK.Model
         {
             head = null;
             tail = null;
+
+        }
+        public bool isEmpty()
+        {
+            return head == null;
         }
 
         public PhaseList(params Phase[] phases) : this()
@@ -141,6 +146,58 @@ namespace LOTK.Model
                 tail.next = new Node(s);
                 tail = tail.next;
             }
+        }
+
+        public void push(Phase s)
+        {
+            if (head == null)
+            {
+                head = new Node(s);
+                tail = head;
+            }
+            else
+            {
+                Node added = new Node(s);
+                added.next = head;
+                head = added;
+            }
+        }
+
+        public Phase pop()
+
+        {
+            if (isEmpty())
+            {
+                throw new EmptyException("Empty PhaseList Exception");
+            }
+            Phase retStage = head.stage;
+            if (head == tail)
+            { // empty
+                head = null;
+                tail = null;
+            }
+            else
+            {
+                head = head.next;
+            }
+            return retStage;
+        }
+
+        /// <summary>
+        /// concatenate two phaseList together
+        /// </summary>
+        /// <param name="added"></param>
+        public void pushStageList(PhaseList added)
+        {
+            if (added.head == null)
+                return;
+            added.tail.next = head;
+            head = added.head;
+        }
+
+        public Phase top()
+        {
+            return head.stage;
         }
 
         public IEnumerator<Phase> GetEnumerator()
@@ -192,47 +249,6 @@ namespace LOTK.Model
             {
                 curNode = null;
             }
-        }
-
-        public bool isEmpty()
-        {
-            return head == null;
-        }
-
-        public Phase pop()
-        {
-            if (isEmpty())
-            {
-                throw new EmptyException("Empty PhaseList Exception");
-            }
-            Phase retStage = head.stage;
-            if (head == tail)
-            { // empty
-                head = null;
-                tail = null;
-            }
-            else
-            {
-                head = head.next;
-            }
-            return retStage;
-        }
-
-        /// <summary>
-        /// concatenate two phaseList together
-        /// </summary>
-        /// <param name="added"></param>
-        public void pushStageList(PhaseList added)
-        {
-            if (added.head == null)
-                return;
-            added.tail.next = head;
-            head = added.head;
-        }
-
-        public Phase top()
-        {
-            return head.stage;
         }
 
         public override string ToString()
