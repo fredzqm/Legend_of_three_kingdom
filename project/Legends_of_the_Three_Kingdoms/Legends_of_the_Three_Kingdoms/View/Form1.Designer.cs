@@ -205,6 +205,7 @@ namespace LOTK.View
         private Button LowerRight;
         private Button Cancel;
         private Button ThisPlayer;
+        public int NumberOfCardsToClick;
     }
 }
 

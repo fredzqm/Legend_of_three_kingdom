@@ -68,8 +68,9 @@ namespace LOTK.View
         }
 
         private void updateFormDelegate()
-        {
+        {   
             Required_Data data = controller.getData(position);
+            NumberOfCardsToClick = data.NumberOfCardsToClick;
             turn.Text = data.this_player_stage;
             ThisPlayer.Text = data.players[0].name + ": "+ data.players[0].ability;
             tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
@@ -101,7 +102,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void Ability_Click(object sender, EventArgs e)
         {
-            
+            clickbutton(position, ButtonID.Ability);
         }
         /// <summary>
         /// Listener for clicking OK
@@ -128,6 +129,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void UpperLeft_Click(object sender, EventArgs e)
         {
+            clickbutton(position, ButtonID.UpperLeft);
 
         }
         /// <summary>
@@ -137,7 +139,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void LowerRight_Click(object sender, EventArgs e)
         {
-           
+            clickbutton(position, ButtonID.LoweRight);
         }
         /// <summary>
         /// Listener for clicking LowerLeft player
@@ -146,7 +148,8 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void LowerLeft_Click(object sender, EventArgs e)
         {
-           
+            clickbutton(position, ButtonID.LowerLeft);
+
         }
         /// <summary>
         /// Listener for clicking UpperRight player
@@ -155,7 +158,8 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void UpperRight_Click(object sender, EventArgs e)
         {
-            
+            clickbutton(position, ButtonID.UpperRight);
+
         }
         /// <summary>
         /// Listener for clicking this player
@@ -164,12 +168,22 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void ThisPlayer_Click(object sender, EventArgs e)
         {
+            clickbutton(position, ButtonID.ThisPlayer);
 
         }
 
         private void hand_cards_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.Write("triggerd");
+            int selectedcount = hand_cards.SelectedItems.Count;
+            if (NumberOfCardsToClick != 0 && selectedcount != NumberOfCardsToClick)
+            {
+                //uncheck;
+            }
+            else
+            {
+                //send;
+            }
+           
         }
     }
 }

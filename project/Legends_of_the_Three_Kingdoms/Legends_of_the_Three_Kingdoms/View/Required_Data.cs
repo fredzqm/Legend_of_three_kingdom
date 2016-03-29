@@ -17,11 +17,14 @@ namespace LOTK.View
 
         public CardDisplay tool_attack;
         public CardDisplay tool_defence;
+        public int NumberOfCardsToClick;
+
         /// <summary>
         /// Setting all the required data to default
         /// </summary>
         public Required_Data()
         {
+            NumberOfCardsToClick = 0;
             tool_attack.name = "tool_attack";
             tool_attack.ability = "tool_attack_ab";
             tool_defence.name = "tool_defence";
@@ -64,6 +67,7 @@ namespace LOTK.View
         private object description;
         // TODO:
         private int id;
+        
 
 
         public PlayerDisplay(string name, string description, int id) : this()
