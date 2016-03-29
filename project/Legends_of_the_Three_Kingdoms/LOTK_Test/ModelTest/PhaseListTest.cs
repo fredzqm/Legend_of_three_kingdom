@@ -51,7 +51,7 @@ namespace LOTK_Test.ModelTest
             PhaseList ls2 = new PhaseList();
             ls2.add(new PhaseSimple(3));
             ls2.add(new PhaseSimple(4));
-            ls.pushStageList(ls2); 
+            ls.pushList(ls2); 
             Assert.AreEqual(ls.pop().playerID, 3);
             Assert.AreEqual(ls.pop().playerID, 4); 
             Assert.AreEqual(ls.pop().playerID, 0);
@@ -69,7 +69,7 @@ namespace LOTK_Test.ModelTest
             PhaseList ls2 = new PhaseList();
             ls2.add(new PhaseSimple(3));
             ls2.add(new PhaseSimple(4));
-            ls.pushStageList(ls2);
+            ls.pushList(ls2);
             Assert.AreEqual(ls.pop().playerID, 3);
             Assert.AreEqual(ls.pop().playerID, 4);
             Assert.AreEqual(ls.pop().playerID, 0);

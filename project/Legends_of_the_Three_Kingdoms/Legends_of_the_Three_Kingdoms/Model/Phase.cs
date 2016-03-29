@@ -129,7 +129,10 @@ namespace LOTK.Model
                 return responseYesOrNo(yesOrNoAction.yes, game);
             CardAction cardAction = userAction as CardAction;
             if (cardAction != null)
-                return responseCardAction(cardAction.card, cardAction.targets);
+                return responseCardAction(cardAction.card, game);
+            UseCardAction useCardAction = userAction as UseCardAction;
+            if (useCardAction != null)
+                return responseUseCardAction(useCardAction.card, useCardAction.targets, game);
             throw new NotDefinedException("This kind of useraction is not yet defined");
         }
 
@@ -147,14 +150,75 @@ namespace LOTK.Model
         {
             return null;
         }
+        public virtual PhaseList responseUseCardAction(Card card, Player[] targets, IGame game)
+        {
+            return null;
+        }
 
-        public virtual PhaseList responseCardAction(Card card, Player[] targets)
+        public virtual PhaseList responseCardAction(Card card, IGame game)
         {
             return null;
         }
 
     }
 
+    public class responsePhase : UserActionPhase
+    {
+        private Func<Card, bool> allowed;
+        private NeedResponsePhase responseTo;
 
-       
+        public responsePhase(Player player, NeedResponsePhase responseTo, Func<Card, bool> allowed) : base(player, 10)
+        {
+            this.allowed = allowed;
+            this.responseTo = responseTo;
+        }
+
+        public override PhaseList responseYesOrNo(bool yes, IGame game)
+        {
+            if (!yes)
+            {
+                responseTo.responseWith(null);
+                return new PhaseList();
+            }
+            return null;
+        }
+
+        public override PhaseList responseCardAction(Card card, IGame game)
+        {
+            if (allowed(card))
+            {
+                responseTo.responseWith(card);
+                return player.discardCard(card, game);
+            }
+            return null;
+        }
+    }
+
+
+    public abstract class NeedResponsePhase : HiddenPhase
+    {
+        private Card respondCard;
+        private int count;
+
+        public NeedResponsePhase(Player player) : base(player) {
+            count = 0;
+        }
+
+        public sealed override PhaseList advance(IGame game)
+        {
+            PhaseList ret =  handleResponse(count, respondCard, game);
+            respondCard = null;
+            return ret;
+        }
+
+        public abstract PhaseList handleResponse(int count, Card respondCard, IGame game);
+
+        public void responseWith(Card card)
+        {
+            respondCard = card;
+            count++;
+        }
+    }
+
+
 }

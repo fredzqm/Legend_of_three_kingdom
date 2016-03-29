@@ -67,7 +67,7 @@ namespace LOTK.Model
                 return new PhaseList(new DiscardPhase(player));
         }
 
-        public override PhaseList responseCardAction(Card card, Player[] targets)
+        public override PhaseList responseUseCardAction(Card card, Player[] targets, IGame game)
         {
             PhaseList ret = new PhaseList(this);
             if (card is BasicCard)

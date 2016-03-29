@@ -187,7 +187,7 @@ namespace LOTK.Model
         /// concatenate two phaseList together
         /// </summary>
         /// <param name="added"></param>
-        public void pushStageList(PhaseList added)
+        public void pushList(PhaseList added)
         {
             if (added.head == null)
                 return;

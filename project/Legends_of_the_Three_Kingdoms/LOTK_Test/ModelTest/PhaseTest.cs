@@ -91,7 +91,7 @@ namespace LOTK_Test.ModelTest
             Miss miss = new Miss(CardSuit.Diamond, 2);
 
             Phase a = new ActionPhase(p1);
-            PhaseList ret = a.advance(new CardAction(attack, p2), game);
+            PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
             Phase b = ret.pop();
             Assert.IsInstanceOfType( b , typeof(AttackPhase));
             AttackPhase b2 = b as AttackPhase;
@@ -104,9 +104,10 @@ namespace LOTK_Test.ModelTest
 
             ret = b.advance(null, game);
             Phase c = ret.pop();
-            Assert.IsInstanceOfType(c, typeof(ReponsePhase));
-            ReponsePhase c2 = c as ReponsePhase;
+            Assert.IsInstanceOfType(c, typeof(responsePhase));
+            responsePhase c2 = c as responsePhase;
             Assert.AreEqual(p2, c2.player);
+            Assert.IsInstanceOfType(ret.pop(), typeof(AttackPhase));
             Assert.IsTrue(ret.isEmpty());
 
             ret = c.advance(new CardAction(miss), game);
@@ -124,7 +125,7 @@ namespace LOTK_Test.ModelTest
             Miss miss = new Miss(CardSuit.Diamond, 2);
 
             Phase a = new ActionPhase(p1);
-            PhaseList ret = a.advance(new CardAction(attack, p2), game);
+            PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
             Phase b = ret.pop();
             Assert.IsInstanceOfType(b, typeof(AttackPhase));
             AttackPhase b2 = b as AttackPhase;
@@ -137,8 +138,8 @@ namespace LOTK_Test.ModelTest
 
             ret = b.advance(null, game);
             Phase c = ret.pop();
-            Assert.IsInstanceOfType(c, typeof(ReponsePhase));
-            ReponsePhase c2 = c as ReponsePhase;
+            Assert.IsInstanceOfType(c, typeof(responsePhase));
+            responsePhase c2 = c as responsePhase;
             Assert.AreEqual(p2, c2.player);
             Assert.IsTrue(ret.isEmpty());
 

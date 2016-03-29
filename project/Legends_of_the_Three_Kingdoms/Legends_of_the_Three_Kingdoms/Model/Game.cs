@@ -79,7 +79,7 @@ namespace LOTK.Model
                     return;
                 }
                 stages.pop();
-                stages.pushStageList(followingPhases);
+                stages.pushList(followingPhases);
                 if (curPhase.needResponse())
                 { // the next state need a user action for future decison
                   // but since it is supposed to be a responsive phase, pause a while before autoadvance
@@ -87,7 +87,6 @@ namespace LOTK.Model
                     return;
                 }
             }
-            
         }
         
 
