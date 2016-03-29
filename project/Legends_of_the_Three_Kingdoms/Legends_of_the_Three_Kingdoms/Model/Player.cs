@@ -62,7 +62,7 @@ namespace LOTK.Model
 
         public PhaseList recover(RecoverPhase recoverPhase, IGame game)
         {
-            health += recoverPhase.healthAmount;
+            health += recoverPhase.recover;
             return new PhaseList();
         }
 

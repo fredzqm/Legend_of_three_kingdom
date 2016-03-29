@@ -18,6 +18,12 @@ namespace LOTK.Model
             this.attack = card;
             this.targets = targets;
             this.actionPhase = actionPhase;
+            harm = 1;
+            if (actionPhase.drunk)
+            {
+                actionPhase.drunk = false;
+                harm++;
+            }
         }
 
         public AttackPhase(Player player) : base(player) { }
