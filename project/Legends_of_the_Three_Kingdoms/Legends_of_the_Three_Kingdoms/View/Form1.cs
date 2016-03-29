@@ -101,7 +101,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void Ability_Click(object sender, EventArgs e)
         {
-            
+            clickbutton(position, ButtonID.Ability);
         }
         /// <summary>
         /// Listener for clicking OK
@@ -128,6 +128,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void UpperLeft_Click(object sender, EventArgs e)
         {
+            clickbutton(position, ButtonID.UpperLeft);
 
         }
         /// <summary>
@@ -137,7 +138,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void LowerRight_Click(object sender, EventArgs e)
         {
-           
+            clickbutton(position, ButtonID.LoweRight);
         }
         /// <summary>
         /// Listener for clicking LowerLeft player
@@ -146,7 +147,8 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void LowerLeft_Click(object sender, EventArgs e)
         {
-           
+            clickbutton(position, ButtonID.LowerLeft);
+
         }
         /// <summary>
         /// Listener for clicking UpperRight player
@@ -155,7 +157,8 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void UpperRight_Click(object sender, EventArgs e)
         {
-            
+            clickbutton(position, ButtonID.UpperRight);
+
         }
         /// <summary>
         /// Listener for clicking this player
@@ -164,6 +167,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void ThisPlayer_Click(object sender, EventArgs e)
         {
+            clickbutton(position, ButtonID.ThisPlayer);
 
         }
 
