@@ -5,25 +5,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
+using System.Windows.Forms;
 
 namespace LOTK.Controller
 {
-    class GameController : viewController
+    public delegate void UpdateForm();
+
+
+    public class GameController : viewController
     {
         const int NUM_OF_PLAYER = 5;
+        const int DELAY_INTERVAL = 2000;
 
-        public Game game { get; set; }
+        public GameView view { get; }
+        public Game game { get; }
+
+        public event UpdateForm updateForm;
+
+        private System.Timers.Timer aTimer;
+
         public GameController()
         {
             ICollection<Card> cardset = initialLizeCardSet();
             game = new Game(NUM_OF_PLAYER, cardset);
+            view =  new GameView(this, 0);
+            updateForm = view.updateForm;
+
+            // set up timer
+            aTimer = new System.Timers.Timer(DELAY_INTERVAL);
+            aTimer.Elapsed += OnTimedEvent;
+            aTimer.AutoReset = true;
+            aTimer.Enabled = true;
+            //aTimer.Stop();
+            //aTimer.Dispose();
         }
 
+        /// <summary>
+        /// Initialize the cardSet with default values
+        /// </summary>
+        /// <returns></returns>
         private ICollection<Card> initialLizeCardSet()
         {
             ICollection<Card> ls = new List<Card>();
-            //ls.Add(new Card());
+            //ls.Add(Card.ConstructCard());
             return ls;
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            if (game.tick())
+                updateForm();
         }
 
         public Required_Data getData(int ownPlayer)
@@ -31,28 +63,33 @@ namespace LOTK.Controller
             Required_Data rd = new Required_Data();
             for(int i = 0; i < NUM_OF_PLAYER; i++)
             {
-                rd.players[i].ability = game.players[(i + ownPlayer) % NUM_OF_PLAYER].getAbilityDescription();
-                rd.players[i].name = game.players[(i + ownPlayer) % NUM_OF_PLAYER].getName();
+                rd.players[i] = PlayerToPlayerDisplay(game.players[(i + ownPlayer) % NUM_OF_PLAYER]);
             }
-            rd.pool_cards = null;
-            rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].getHoldCards().Select(c => new CardDisplay(c.getName(), c.getDescription())));
-            rd.this_player_stage = game.currentStage.ToString();
-            rd.tool_attack = game.players[ownPlayer].getWeapon();
-            rd.tool_defence = game.players[ownPlayer].getDefense();
+            rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
+            rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
+            rd.this_player_stage = game.curPhase.ToString();
+            rd.tool_attack = CardToCardDisplay( game.players[ownPlayer].weapon);
+            rd.tool_defence = CardToCardDisplay( game.players[ownPlayer].shield);
             return rd;
         }
 
-        public void applyUserResponse(UserAction userAction)
-        {
-            if (game.userResponse(userAction))
-            {
-                game.nextStage();
-            }
-        }
+
 
         public void clickButton(int playerID, int buttonID)
         {
-            throw new NotImplementedException();
+            switch (buttonID)
+            {
+                case ButtonID.OK:
+                    game.nextStage(new UserActionYesOrNo(true));
+                    break;
+                case ButtonID.Cancel:
+                    game.nextStage(new UserActionYesOrNo(false));
+                    break;
+                default:
+                    break;
+            }
+            updateForm();
+            
         }
 
         public void clickCard(int playerID, int cardID)
@@ -64,7 +101,18 @@ namespace LOTK.Controller
         {
             throw new NotImplementedException();
         }
-    }
 
+        // -------------------------------------------------------------------------------------
+        // helper methods to convert model objects to view objects.
+        private PlayerDisplay PlayerToPlayerDisplay(Player player)
+        {
+            return new PlayerDisplay(player.name, player.description, player.playerID);
+        }
+
+        private CardDisplay CardToCardDisplay(Card card)
+        {
+            return new CardDisplay(card.ToString(), card.getDescription(), game.cards[card] );
+        }
+    }
  
 }

@@ -4,15 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LOTK.View;
+using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK.Model
 {
+    /// <summary>
+    /// The model that represents the default behaviour the player
+    /// 
+    /// </summary>
     public class Player
     {
-        public int playerID { get; set; }
-        public Player(int pos)
+        // basic and readonly properties, initialized in contructor
+        public int playerID { get; }
+        public string name { get; }
+        public string description { get; }
+
+        public List<Card> handCards { get; }
+        public Card weapon { get; set; }
+        public Card shield { get; set; }
+
+        public Player(int pos, string name, string descript)
         {
             playerID = pos;
+            handCards = new List<Card>();
+            // just for testing purpose
+            this.name = name;
+            this.description = descript;
+            handCards.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
+            weapon = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
+            shield = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
         }
 
         public static implicit operator int (Player p)
@@ -20,94 +40,46 @@ namespace LOTK.Model
             return p.playerID;
         }
 
-        public PhaseList playerTurn(IGame g)
+        // ----------------------------------------------------
+        // The codes below specify the default behaviour of the player
+        // Many methods can be overriden by a character class.
+
+        public virtual PhaseList playerTurn(PlayerTurn curPhase, IGame g)
         {
-            return new PhaseList(new Phase(this, PhaseType.JudgePhase),
-                new Phase((playerID + 1) % g.Num_Player, PhaseType.PlayerTurn));
+            return new PhaseList(new JudgePhase(this), new PlayerTurn((this + 1)%g.Num_Player));
         }
 
-        public PhaseList judgePhase(IGame g)
+        public virtual PhaseList judgePhase(JudgePhase curPhase, UserAction userAction, IGame g)
         {
-            return new PhaseList(new Phase(this, PhaseType.DrawingPhase), new Phase(this, PhaseType.ActionPhase));
+            return new PhaseList(new DrawingPhase(this), new ActionPhase(this));
         }
-        public PhaseList drawingPhase(IGame g)
+
+        public PhaseList drawingPhase(DrawingPhase curPhase, UserAction userAction, IGame g)
         {
             return new PhaseList();
         }
 
-        internal PhaseList actionPhase(IGame g)
+        public virtual PhaseList actionPhase(ActionPhase curPhase, UserAction userAction, IGame g)
         {
-            return new PhaseList(new Phase(this, PhaseType.DiscardPhase));
-        }
-        internal PhaseList discardPhase(IGame g)
-        {
-            return new PhaseList();
-        }
-
-        internal string getName()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal List<Card> getHoldCards()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal CardDisplay getWeapon()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal CardDisplay getDefense()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal string getAbilityDescription()
-        {
-            throw new NotImplementedException();
-        }
-
-        public PhaseList handlePhase(Phase curPhase, IGame game)
-        {
-            switch (curPhase.type)
+            if (userAction == null)
+                return null;
+            switch (userAction.type)
             {
-                case PhaseType.PlayerTurn:
-                    return playerTurn(game);
-                case PhaseType.JudgePhase:
-                    return judgePhase(game);
-                case PhaseType.DrawingPhase:
-                    return drawingPhase(game);
-                case PhaseType.ActionPhase:
-                    return actionPhase(game);
-                case PhaseType.DiscardPhase:
-                    return discardPhase(game);
-                default: throw new Exception("This type not defined");
-            }
-        }
-
-        internal bool UserInput(Phase curPhase, UserAction userAction)
-        {
-            if (!curPhase.needResponse())
-                return true;
-            switch (curPhase.type)
-            {
-                case PhaseType.ActionPhase:
-                    if (userAction.type == UserActionType.YES_OR_NO)
-                    {
-                        return (userAction.detail == 0);
-                    }
-                    return false;
-                case PhaseType.DiscardPhase:
-                    if (userAction.type == UserActionType.YES_OR_NO)
-                    {
-                        return true;
-                    }
-                    return false;
+                case UserActionType.YES_OR_NO:
+                    if ((userAction as UserActionYesOrNo).no)
+                        return new PhaseList(new DiscardPhase(this));
+                    else
+                        return null;
                 default:
-                    return false;
+                    return null;
             }
         }
+        public virtual PhaseList discardPhase(DiscardPhase curPhase, UserAction userAction, IGame g)
+        {
+            if (userAction == null)
+                return null;
+            return new PhaseList();
+        }
+
     }
 }

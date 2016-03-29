@@ -16,11 +16,10 @@ namespace LOTK
         [STAThread]
         static void Main()
         {
-            viewController controller = new GameController();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(controller, 0));
+            GameController controller = new GameController();
+            Application.Run(controller.view);
         }
     }
 }
