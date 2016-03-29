@@ -39,5 +39,12 @@ namespace LOTK.View
         public const int OK = 1;
         public const int Cancel = 0;
         public const int Ability = 10;
+        public const int UpperLeft = 2111;
+        public const int LoweRight = 1112;
+        public const int LowerLeft = 1121;
+        public const int UpperRight = 1211;
+        public const int ThisPlayer = 2222;
+
+
     }
 }

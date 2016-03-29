@@ -68,8 +68,9 @@ namespace LOTK.View
         }
 
         private void updateFormDelegate()
-        {
+        {   
             Required_Data data = controller.getData(position);
+            NumberOfCardsToClick = data.NumberOfCardsToClick;
             turn.Text = data.this_player_stage;
             ThisPlayer.Text = data.players[0].name + ": "+ data.players[0].ability;
             tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
@@ -173,7 +174,16 @@ namespace LOTK.View
 
         private void hand_cards_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.Write("triggerd");
+            int selectedcount = hand_cards.SelectedItems.Count;
+            if (NumberOfCardsToClick != 0 && selectedcount != NumberOfCardsToClick)
+            {
+                //uncheck;
+            }
+            else
+            {
+                //send;
+            }
+           
         }
     }
 }
