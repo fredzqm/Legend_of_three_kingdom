@@ -139,11 +139,18 @@ namespace LOTK_Test.ModelTest
             ret = b.advance(null, game);
             Phase c = ret.pop();
             Assert.IsInstanceOfType(c, typeof(responsePhase));
-            responsePhase c2 = c as responsePhase;
-            Assert.AreEqual(p2, c2.player);
+            responsePhase c_ = c as responsePhase;
+            Assert.AreEqual(p2, c_.player);
+            Phase c2 = ret.pop();
+            Assert.IsInstanceOfType(c2, typeof(AttackPhase));
+            AttackPhase c2_ = c2 as AttackPhase;
+            Assert.AreEqual(b, c2);
             Assert.IsTrue(ret.isEmpty());
 
             ret = c.advance(new YesOrNoAction(false), game);
+            Assert.IsTrue(ret.isEmpty());
+
+            ret = c2.advance(null, game);
             Phase d = ret.pop();
             Assert.IsInstanceOfType(d, typeof(HarmPhase));
             HarmPhase d2 = d as HarmPhase;
