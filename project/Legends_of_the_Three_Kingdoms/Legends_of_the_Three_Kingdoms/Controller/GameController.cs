@@ -88,7 +88,25 @@ namespace LOTK.Controller
                     }
                     break;
                 case ButtonID.Cancel:
-                   // game.nextStage(new UserActionYesOrNo(false));
+                    // game.nextStage(new UserActionYesOrNo(false));
+                    //   game.nextStage(new UserActionYesOrNo(true));
+                    if (SelectCardId < 0)
+                    {
+                        YesOrNoAction e = new YesOrNoAction(false);
+                        game.nextStage(e);
+
+                    }
+                    else if (ClickUser < 0)
+                    {
+                        CardAction e = new CardAction(SelectCardId, game);
+                        game.nextStage(e);
+                    }
+                    else if (ClickUser > 0 && SelectCardId > 0)
+                    {
+                        // UserActionPlayer e =new UserActionPlayer
+                        UseCardAction e = new UseCardAction(SelectCardId, ClickUser, game);
+                        game.nextStage(e);
+                    }
                     break;
                 case ButtonID.Ability:
                     //do nothing right

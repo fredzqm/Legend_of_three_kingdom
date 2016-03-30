@@ -76,6 +76,7 @@ namespace LOTK.View
             ThisPlayer.Text = data.players[0].name + ": "+ data.players[0].ability;
             tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
             tool_defence.Text = data.tool_defence.name + ": " + data.tool_defence.ability;
+            hand_cards.Items.Clear();
             for (int i = 0; i < data.hold_cards.Count; i++)
             {
 
