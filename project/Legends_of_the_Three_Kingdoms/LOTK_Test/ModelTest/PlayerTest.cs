@@ -12,17 +12,34 @@ namespace LOTK_Test.ModelTest
     public class PlayerTest
     {
         [TestMethod]
-        public void PlayerHarmTest()
+        public void HarmTest()
         {
             IGame game = new TestGame(1);
             int health = 5;
             int harm = 2;
             Player p = new Player(0, "Name", "Descript", health);
-            p.harm(new HarmPhase(p, null, harm), game);
+            PhaseList ret = p.harm(new HarmPhase(p, null, harm), game);
+            Assert.IsTrue(ret.isEmpty());
 
             Assert.AreEqual(health - harm , p.health);
         }
-    
+
+        [TestMethod]
+        public void HarmDyingTest()
+        {
+            IGame game = new TestGame(1);
+            int health = 5;
+            int harm = 10;
+            Player p = new Player(0, "Name", "Descript", health);
+            PhaseList ret = p.harm(new HarmPhase(p, null, harm), game);
+
+            //Phase x = ret.pop();
+            Assert.IsInstanceOfType(x, typeof(askForHelpPhase));
+            Assert.IsTrue(ret.isEmpty());
+
+            Assert.AreEqual(health - harm, p.health);
+        }
+
     }
 
     internal class TestGame : IGame
