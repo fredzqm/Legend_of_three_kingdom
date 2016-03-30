@@ -198,9 +198,6 @@ namespace LOTK.View
                 }
             }
 
-
-
-
             else
             {
                 int id = 0;

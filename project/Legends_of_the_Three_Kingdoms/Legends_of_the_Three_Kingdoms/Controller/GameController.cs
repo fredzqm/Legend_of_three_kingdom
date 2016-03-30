@@ -135,6 +135,8 @@ namespace LOTK.Controller
 
         private CardDisplay CardToCardDisplay(Card card)
         {
+            if (card == null)
+                return new CardDisplay("","",-1);
             return new CardDisplay(card.ToString(), card.getDescription(), game.cards[card] );
         }
 
