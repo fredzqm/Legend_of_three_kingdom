@@ -66,7 +66,7 @@ namespace LOTK.View
         private int name1;
         private object description;
         // TODO:
-        private int id;
+        public int id;
         
 
 
@@ -91,7 +91,7 @@ namespace LOTK.View
         public string name;
         public string ability;
         // TODO:
-        private int id;
+        public int id;
 
 
         public CardDisplay(string n, string a, int id)

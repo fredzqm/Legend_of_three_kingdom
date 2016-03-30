@@ -37,6 +37,7 @@ namespace LOTK.View
         private event clickButton clickbutton;
         private event clickCard clickcard; 
         private event clickPlayer clickplayer;
+        private  Required_Data data;
         /// <summary>
         /// Initialize the game view
         /// </summary>
@@ -69,7 +70,7 @@ namespace LOTK.View
 
         private void updateFormDelegate()
         {   
-            Required_Data data = controller.getData(position);
+            data = controller.getData(position);
             NumberOfCardsToClick = data.NumberOfCardsToClick;
             turn.Text = data.this_player_stage;
             ThisPlayer.Text = data.players[0].name + ": "+ data.players[0].ability;
@@ -111,6 +112,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void OK_Click(object sender, EventArgs e)
         {
+            hand_cards_SelectedIndexChanged();
             clickbutton(position, ButtonID.OK);
         }
         /// <summary>
@@ -120,6 +122,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void Cancel_Click(object sender, EventArgs e)
         {
+            hand_cards_SelectedIndexChanged();
             clickbutton(position, ButtonID.Cancel);
         }
         /// <summary>
@@ -172,18 +175,45 @@ namespace LOTK.View
 
         }
 
-        private void hand_cards_SelectedIndexChanged(object sender, EventArgs e)
+        public void hand_cards_SelectedIndexChanged()
         {
             int selectedcount = hand_cards.SelectedItems.Count;
-            if (NumberOfCardsToClick != 0 && selectedcount != NumberOfCardsToClick)
+            // if (NumberOfCardsToClick != 0 && selectedcount != NumberOfCardsToClick)
+            //{
+
+            //}
+            //else
+            //{
+            //send;
+            //}
+            if (hand_cards.SelectedItems.Count == 0)
             {
-                //uncheck;
+                clickcard(position, -100);
             }
+            else if (hand_cards.SelectedItems.Count != 1)
+            {
+                for (int i = 0; i < hand_cards.SelectedItems.Count; i++)
+                {
+                    hand_cards.SetItemChecked(i, false);
+                }
+            }
+
+
+
+
             else
             {
-                //send;
+                int id = 0;
+                for (int i = 0; i < data.hold_cards.Count; i++)
+                {
+                    if (hand_cards.CheckedItems[0].Equals(data.hold_cards.ElementAt(i).name + ": " + data.hold_cards.ElementAt(i).ability){
+                        id = data.hold_cards.ElementAt(i).id;
+                    }
+                }
+
+
+                clickcard(position, id);
             }
-           
         }
     }
 }

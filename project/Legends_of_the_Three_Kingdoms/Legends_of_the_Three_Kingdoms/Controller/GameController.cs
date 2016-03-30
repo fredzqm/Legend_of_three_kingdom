@@ -24,6 +24,8 @@ namespace LOTK.Controller
         public event UpdateForm updateForm;
 
         private System.Timers.Timer aTimer;
+        public int ClickUser = -100;
+        public int SelectCardId = -100;
 
         public GameController()
         {
@@ -80,11 +82,45 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    game.nextStage(new UserActionYesOrNo(true));
+                    //   game.nextStage(new UserActionYesOrNo(true));
+                    if (SelectCardId < 0)
+                    {
+                        UserActionYesOrNo e = new UserActionYesOrNo(true);
+                        game.nextStage(e);
+
+                    }
+                    else if (ClickUser < 0)
+                    {
+                        UserActionCard e = new UserActionCard(SelectCardId, game);
+                        game.nextStage(e);
+                    }
+                    else if (ClickUser > 0 && SelectCardId > 0)
+                    {
+                       // UserActionPlayer e =new UserActionPlayer
+                    }
                     break;
                 case ButtonID.Cancel:
-                    game.nextStage(new UserActionYesOrNo(false));
+                   // game.nextStage(new UserActionYesOrNo(false));
                     break;
+                case ButtonID.Ability:
+                    //do nothing right
+                    break;
+                case ButtonID.LoweRight:
+                    ClickUser = (playerID+1)%game.Num_Player;
+                    break;
+                case ButtonID.LowerLeft:
+                    ClickUser = (playerID + 4) % game.Num_Player;
+                    break;
+                case ButtonID.UpperLeft:
+                    ClickUser = (playerID + 3) % game.Num_Player;
+                    break;
+                case ButtonID.UpperRight:
+                    ClickUser = (playerID + 2) % game.Num_Player;
+                    break;
+                case ButtonID.ThisPlayer:
+                    ClickUser = playerID;
+                    break;
+                
                 default:
                     break;
             }
@@ -94,7 +130,7 @@ namespace LOTK.Controller
 
         public void clickCard(int playerID, int cardID)
         {
-            throw new NotImplementedException();
+            SelectCardId = cardID;
         }
 
         public void clickPlayer(int playerID, int clickedPlayerID)
