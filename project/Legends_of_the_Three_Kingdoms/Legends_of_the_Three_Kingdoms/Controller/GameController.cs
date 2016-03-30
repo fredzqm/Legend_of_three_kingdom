@@ -40,7 +40,9 @@ namespace LOTK.Controller
                 view[i] = new GameView(this, i);
                 view[i].Show();
                 updateViews += view[i].updateForm;
-            }            // set up timer
+            }            
+            
+            // set up timer
             aTimer = new System.Timers.Timer(DELAY_INTERVAL);
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;

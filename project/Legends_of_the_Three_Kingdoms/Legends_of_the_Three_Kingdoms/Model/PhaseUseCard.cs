@@ -12,6 +12,7 @@ namespace LOTK.Model
         public Attack attack { get; }
         public ActionPhase actionPhase { get; }
         public Player[] targets { get; }
+
         public int harm { get; set; }
         public AttackPhase(Player player, Attack card, Player[] targets, ActionPhase actionPhase) : base(player)
         {
@@ -33,9 +34,7 @@ namespace LOTK.Model
             if (count > 1)
                 throw new Exception("Only should response once");
             if (respondCard == null)
-            {
                 return new PhaseList(new HarmPhase(targets[0], player, harm));
-            }
             if (!(respondCard is Miss))
                 throw new Exception("Only miss should occur");
             return new PhaseList();
@@ -43,7 +42,7 @@ namespace LOTK.Model
 
         public override PhaseList askForResponse(int count, IGame game)
         {
-            if (targets.Length > attack.numOfTargets() || actionPhase.attackCount == 0 || actionPhase.attackCount > 1 || targets[0] == player)
+            if (targets.Length > attack.numOfTargets() || targets.Length == 0 || actionPhase.attackCount > 1 || targets[0] == player)
                 return new PhaseList();
             return new PhaseList(new ResponsePhase(targets[0], this, c => c is Miss), this);
         }
