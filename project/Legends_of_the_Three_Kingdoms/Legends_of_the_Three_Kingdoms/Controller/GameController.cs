@@ -19,7 +19,7 @@ namespace LOTK.Controller
         const int DELAY_INTERVAL = 2000;
 
         public GameView view { get; }
-        public Game game { get; }
+        public IGame game { get; }
 
         public event UpdateForm updateForm;
 
@@ -63,7 +63,7 @@ namespace LOTK.Controller
             Required_Data rd = new Required_Data();
             for(int i = 0; i < NUM_OF_PLAYER; i++)
             {
-                rd.players[i] = PlayerToPlayerDisplay(game.players[(i + ownPlayer) % NUM_OF_PLAYER]);
+                rd.players[i] = PlayerToPlayerDisplay(game.nextPlayer(ownPlayer, i));
             }
             rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
             rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
@@ -80,10 +80,10 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    game.nextStage(new UserActionYesOrNo(true));
+                    game.nextStage(new YesOrNoAction(true));
                     break;
                 case ButtonID.Cancel:
-                    game.nextStage(new UserActionYesOrNo(false));
+                    game.nextStage(new YesOrNoAction(false));
                     break;
                 default:
                     break;
