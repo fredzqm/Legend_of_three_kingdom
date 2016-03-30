@@ -37,6 +37,7 @@ namespace LOTK.Model
             this.health = healthLimit;
             this.healthLimit = healthLimit;
         }
+
         public Player(int pos) : this(pos, "Player Name", "Player Description at" + pos, 4){}
         public Player(int pos, string name, string descript) : this(pos, name, descript, 4) {}
         
@@ -70,6 +71,12 @@ namespace LOTK.Model
         {
             handCards.Remove(card);
             game.cards.discard(card);
+            return new PhaseList();
+        }
+
+        public PhaseList drawCards(int num, IGame game)
+        {
+            handCards.AddRange(game.drawCard(num));
             return new PhaseList();
         }
 

@@ -39,16 +39,6 @@ namespace LOTK.Controller
             //aTimer.Dispose();
         }
 
-        /// <summary>
-        /// Initialize the cardSet with default values
-        /// </summary>
-        /// <returns></returns>
-        private ICollection<Card> initialLizeCardSet()
-        {
-            ICollection<Card> ls = new List<Card>();
-            //ls.Add(Card.ConstructCard());
-            return ls;
-        }
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
@@ -147,8 +137,55 @@ namespace LOTK.Controller
         {
             return new CardDisplay(card.ToString(), card.getDescription(), game.cards[card] );
         }
+
+
+        /// <summary>
+        /// Initialize the cardSet with default values
+        /// </summary>
+        /// <returns></returns>
+        public static ICollection<Card> initialLizeCardSet()
+        {
+            ICollection<Card> ls = new List<Card>();
+            ls.Add(new Attack(CardSuit.Club, 2));
+            ls.Add(new Attack(CardSuit.Club, 3));
+            ls.Add(new Attack(CardSuit.Club, 4));
+            ls.Add(new Attack(CardSuit.Club, 5));
+            ls.Add(new Attack(CardSuit.Club, 6));
+            ls.Add(new Attack(CardSuit.Club, 7));
+            ls.Add(new Attack(CardSuit.Club, 8));
+            ls.Add(new Attack(CardSuit.Club, 9));
+
+            ls.Add(new Attack(CardSuit.Spade, 2));
+            ls.Add(new Attack(CardSuit.Spade, 3));
+            ls.Add(new Attack(CardSuit.Spade, 4));
+            ls.Add(new Attack(CardSuit.Spade, 5));
+            ls.Add(new Attack(CardSuit.Spade, 6));
+            ls.Add(new Attack(CardSuit.Spade, 7));
+            ls.Add(new Attack(CardSuit.Spade, 8));
+            ls.Add(new Attack(CardSuit.Spade, 9));
+
+            ls.Add(new Miss(CardSuit.Diamond, 2));
+            ls.Add(new Miss(CardSuit.Diamond, 3));
+            ls.Add(new Miss(CardSuit.Diamond, 4));
+            ls.Add(new Miss(CardSuit.Diamond, 5));
+            ls.Add(new Miss(CardSuit.Diamond, 6));
+            ls.Add(new Miss(CardSuit.Diamond, 7));
+            ls.Add(new Miss(CardSuit.Diamond, 8));
+            ls.Add(new Miss(CardSuit.Diamond, 9));
+
+            ls.Add(new Peach(CardSuit.Heart, 2));
+            ls.Add(new Peach(CardSuit.Heart, 3));
+            ls.Add(new Peach(CardSuit.Heart, 4));
+            ls.Add(new Peach(CardSuit.Heart, 5));
+            ls.Add(new Peach(CardSuit.Heart, 6));
+            ls.Add(new Peach(CardSuit.Heart, 7));
+            ls.Add(new Peach(CardSuit.Heart, 8));
+            ls.Add(new Peach(CardSuit.Heart, 9));
+            return ls;
+        }
+
     }
- 
+
 }
 
 

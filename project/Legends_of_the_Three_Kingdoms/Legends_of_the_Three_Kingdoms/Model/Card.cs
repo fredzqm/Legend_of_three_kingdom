@@ -90,6 +90,7 @@ namespace LOTK.Model
                     throw new NotImplementedException();
             }
         }
+
     }
 
     public abstract class BasicCard : Card
