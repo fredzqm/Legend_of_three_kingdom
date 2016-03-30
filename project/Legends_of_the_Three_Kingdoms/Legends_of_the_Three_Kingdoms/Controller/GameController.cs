@@ -17,7 +17,7 @@ namespace LOTK.Controller
         public GameView[] view { get; }
         public Game game { get; }
 
-        public event UpdateForm updateForm;
+        public event UpdateForm updateViews;
 
         private System.Timers.Timer aTimer;
         public int ClickUser = -100;
@@ -31,8 +31,8 @@ namespace LOTK.Controller
             view[0] =  new GameView(this, 0);
             view[1] = new GameView(this, 1);
             view[1].Show();
-            updateForm = view[0].updateForm;
-            updateForm += view[1].updateForm;
+            updateViews = view[0].updateForm;
+            updateViews += view[1].updateForm;
 
 
             // set up timer
@@ -48,7 +48,7 @@ namespace LOTK.Controller
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             if (game.tick())
-                updateForm();
+                updateViews();
         }
 
         public Required_Data getData(int ownPlayer)
@@ -91,6 +91,7 @@ namespace LOTK.Controller
                         UseCardAction e = new UseCardAction(SelectCardId, ClickUser,game);
                         game.nextStage(e);
                     }
+                    updateViews();
                     break;
                 case ButtonID.Cancel:
                     // game.nextStage(new UserActionYesOrNo(false));
@@ -112,6 +113,7 @@ namespace LOTK.Controller
                         UseCardAction e = new UseCardAction(SelectCardId, ClickUser, game);
                         game.nextStage(e);
                     }
+                    updateViews();
                     break;
                 case ButtonID.Ability:
                     //do nothing right
@@ -131,11 +133,9 @@ namespace LOTK.Controller
                 case ButtonID.ThisPlayer:
                     ClickUser = playerID;
                     break;
-                
                 default:
                     break;
             }
-            updateForm();
             
         }
 
