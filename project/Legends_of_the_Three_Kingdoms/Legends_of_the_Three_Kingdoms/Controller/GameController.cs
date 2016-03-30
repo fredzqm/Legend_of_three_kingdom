@@ -3,11 +3,7 @@ using LOTK.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
-using System.Windows.Forms;
-
 namespace LOTK.Controller
 {
     public delegate void UpdateForm();
@@ -85,18 +81,20 @@ namespace LOTK.Controller
                     //   game.nextStage(new UserActionYesOrNo(true));
                     if (SelectCardId < 0)
                     {
-                        UserActionYesOrNo e = new UserActionYesOrNo(true);
+                        YesOrNoAction e = new YesOrNoAction(true);
                         game.nextStage(e);
 
                     }
                     else if (ClickUser < 0)
                     {
-                        UserActionCard e = new UserActionCard(SelectCardId, game);
+                        CardAction e = new CardAction(SelectCardId, game);
                         game.nextStage(e);
                     }
                     else if (ClickUser > 0 && SelectCardId > 0)
                     {
-                       // UserActionPlayer e =new UserActionPlayer
+                        // UserActionPlayer e =new UserActionPlayer
+                        UseCardAction e = new UseCardAction(SelectCardId, ClickUser,game);
+                        game.nextStage(e);
                     }
                     break;
                 case ButtonID.Cancel:
