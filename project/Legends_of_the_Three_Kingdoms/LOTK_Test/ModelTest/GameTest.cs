@@ -11,11 +11,11 @@ namespace LOTK_Test.ModelTest
     {
 
         private ICollection<Card> cardList;
-        ICollection<Card> ls = new List<Card>();
 
         [TestInitialize()]
         public void initialize()
         {
+            cardList = new List<Card>();
             cardList.Add(new Attack(CardSuit.Club, 2));
             cardList.Add(new Attack(CardSuit.Club, 3));
             cardList.Add(new Attack(CardSuit.Club, 4));
@@ -51,7 +51,6 @@ namespace LOTK_Test.ModelTest
             cardList.Add(new Peach(CardSuit.Heart, 7));
             cardList.Add(new Peach(CardSuit.Heart, 8));
             cardList.Add(new Peach(CardSuit.Heart, 9));
-            ls = GameController.initialLizeCardSet();
         }
 
         [TestMethod]
