@@ -11,7 +11,7 @@ namespace LOTK.Controller
 
     public class GameController : viewController
     {
-        const int NUM_OF_PLAYER = 5;
+        const int NUM_OF_PLAYER = 2;
         const int DELAY_INTERVAL = 2000;
 
         public GameView[] view { get; }
@@ -27,13 +27,15 @@ namespace LOTK.Controller
         {
             ICollection<Card> cardset = initialLizeCardSet();
             game = new Game(NUM_OF_PLAYER, cardset);
-            view = new GameView[2];
-            view[0] =  new GameView(this, 0);
-            view[1] = new GameView(this, 1);
-            view[1].Show();
+            view = new GameView[NUM_OF_PLAYER];
+            view[0] = new GameView(this, 0);
             updateForm = view[0].updateForm;
-            updateForm += view[1].updateForm;
-
+            for (int i = 1; i < NUM_OF_PLAYER; i++)
+            {
+                view[i] = new GameView(this, i);
+                view[i].Show();
+                updateForm += view[i].updateForm;
+            }
 
             // set up timer
             aTimer = new System.Timers.Timer(DELAY_INTERVAL);
