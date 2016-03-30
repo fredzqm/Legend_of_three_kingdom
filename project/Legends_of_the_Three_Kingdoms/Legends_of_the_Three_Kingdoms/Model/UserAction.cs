@@ -8,69 +8,57 @@ namespace LOTK.Model
     /// </summary>
     public class UserAction
     {
-        public const int YES = 1;
-        public const int NO = 0;
 
-
-        public UserActionType type { get; set; }
-
-        public UserAction(UserActionType t)
-        {
-            type = t;
-        }
     }
 
-    public class UserActionYesOrNo : UserAction
+    public class YesOrNoAction : UserAction
     {
         public bool yes { get; }
-        public bool no { get { return !yes; } }
-        public UserActionYesOrNo(bool yesOrNo) : base(UserActionType.YES_OR_NO)
+        public YesOrNoAction(bool yesOrNo)
         {
             this.yes = yesOrNo;
         }
     }
 
-    public class UserActionCard : UserAction
+    public class UseCardAction : UserAction
+    {
+        public Card card { get; }
+        public Player[] targets { get; }
+
+        public UseCardAction(Card card, params Player[] targets)
+        {
+            this.card = card;
+            this.targets = targets;
+        }
+        public UseCardAction(int CardID, IGame game) : this(game.cards[CardID]) { }
+    }
+
+    public class CardAction : UserAction
     {
         public Card card { get; }
 
-        public UserActionCard(Card card) : base(UserActionType.CARD)
+        public CardAction(Card card)
         {
             this.card = card;
         }
-        public UserActionCard(int CardID, Game game) : this(game.cards[CardID]) { }
+        public CardAction(int CardID, IGame game) : this(game.cards[CardID]) { }
     }
-
-    public class UserActionCards : UserAction
-    {
-        public ICollection<Card> cards { get; }
-        public int cout { get { return cards.Count; } }
-        public UserActionCards(ICollection<Card> cards) : base(UserActionType.CARDS)
-        {
-            this.cards = cards;
-        }
-        public UserActionCards(ICollection<int> cardIDs, Game game) : base(UserActionType.CARDS)
-        {
-            cards = new List<Card>();
-            foreach(int i in cardIDs)
-                cards.Add(game.cards[i]);
-        }
-    }
-
+    
     public class UserActionPlayer : UserAction
     {
         public Player player{ get; }
-        public UserActionPlayer(Player player) : base(UserActionType.PLAYER)
+        public UserActionPlayer(Player player)
         {
             this.player = player;
         }
-        public UserActionPlayer(int playerID, Game game) : this(game.players[playerID]) { }
+        public UserActionPlayer(int playerID, IGame game) : this(game.players[playerID]) { }
     }
-    public enum UserActionType
-    {
-        YES_OR_NO, // 1 or 0
-        CARD, // CardID
-        CARDS,
-        PLAYER // PlayerID
-    }
+    //public enum UserActionType
+    //{
+    //    YES_OR_NO, // 1 or 0
+    //    CARD, // CardID
+    //    CARDS,
+    //    PLAYER, // PlayerID
+    //    USE_CARD
+    //}
 }

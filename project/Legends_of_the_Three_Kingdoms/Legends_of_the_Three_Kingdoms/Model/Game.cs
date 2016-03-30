@@ -12,6 +12,12 @@ namespace LOTK.Model
         int Num_Player { get; }
         Player[] players { get; }
         CardSet cards { get; }
+        Phase curPhase { get; }
+        Player curRoundPlayer { get; }
+        bool tick();
+        void nextStage(UserAction yesOrNoAction);
+        Player nextPlayer(int curPlayer, int count);
+        List<Card> drawCard(int v);
     }
 
     /// <summary>
@@ -21,18 +27,22 @@ namespace LOTK.Model
     {
         public int Num_Player { get; }
         public Player[] players { get; }
+        public Player nextPlayer(int curPlayer, int count)
+        {
+            return players[(curPlayer + count) % Num_Player];
+        }
+
         public CardSet cards { get; }
 
 
         private PhaseList stages;
         public Phase curPhase { get { return stages.top(); } }
-        public Player curPhasePlayer { get { return players[curPhase.playerID]; } }
+        public Player curPhasePlayer { get { return curPhase.player; } }
 
         public bool timerAutoAdvance;
         public bool timerVisit;
 
-        private int curRoundPlayerID;
-        public Player curRoundPlayer { get { return players[curRoundPlayerID]; } }
+        public Player curRoundPlayer { get; private set; }
 
 
         /// <summary>
@@ -49,10 +59,10 @@ namespace LOTK.Model
             players = new Player[Num_Player];
             for (int i = 0; i < Num_Player; i++)
             {
-                players[i] = new Player(i, "Player Name", "Player Description");
+                players[i] = new Player(i);
             }
             stages = new PhaseList();
-            stages.add(new PlayerTurn(0));
+            stages.add(new PlayerTurn(players[0]));
             nextStage(null);
         }
 
@@ -67,15 +77,15 @@ namespace LOTK.Model
             {
                 if (curPhase is PlayerTurn)
                 { // when turn switches
-                    curRoundPlayerID = curPhase.playerID;
+                    curRoundPlayer = curPhase.player;
                 }
-                PhaseList followingPhases = curPhase.handleResponse(userAction, this);
+                PhaseList followingPhases = curPhase.advance(userAction, this);
                 if (followingPhases == null)
                 { // the next state need a user action for future decison
                     return;
                 }
                 stages.pop();
-                stages.pushStageList(followingPhases);
+                stages.pushList(followingPhases);
                 if (curPhase.needResponse())
                 { // the next state need a user action for future decison
                   // but since it is supposed to be a responsive phase, pause a while before autoadvance
@@ -83,7 +93,6 @@ namespace LOTK.Model
                     return;
                 }
             }
-            
         }
         
 
@@ -123,5 +132,6 @@ namespace LOTK.Model
                 cards.Add(this.cards.pop());
             return cards;
         }
+
     }
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LOTK.View;
-using Legends_of_the_Three_Kingdoms.Model;
 
 namespace LOTK.Model
 {
@@ -16,24 +15,31 @@ namespace LOTK.Model
     {
         // basic and readonly properties, initialized in contructor
         public int playerID { get; }
-        public string name { get; }
+        public string name { get; } 
         public string description { get; }
 
         public List<Card> handCards { get; }
+        public int healthLimit { get; }
+        public int health { get; private set; }
+
         public Card weapon { get; set; }
         public Card shield { get; set; }
 
-        public Player(int pos, string name, string descript)
+
+        public Player(int pos, string name, string descript, int healthLimit)
         {
             playerID = pos;
             handCards = new List<Card>();
-            // just for testing purpose
+            weapon = null;
+            shield = null;
             this.name = name;
             this.description = descript;
-            handCards.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
-            weapon = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
-            shield = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
+            this.health = healthLimit;
+            this.healthLimit = healthLimit;
         }
+        public Player(int pos) : this(pos, "Player Name", "Player Description at" + pos, 4){}
+        public Player(int pos, string name, string descript) : this(pos, name, descript, 4) {}
+        
 
         public static implicit operator int (Player p)
         {
@@ -41,43 +47,29 @@ namespace LOTK.Model
         }
 
         // ----------------------------------------------------
-        // The codes below specify the default behaviour of the player
-        // Many methods can be overriden by a character class.
+        // The codes below specify are virtual methods of Players.
+        // A new character can be created by overriden those method to customize player's behavior
 
-        public virtual PhaseList playerTurn(PlayerTurn curPhase, IGame g)
+        public PhaseList harm(HarmPhase harmPhase, IGame game)
         {
-            return new PhaseList(new JudgePhase(this), new PlayerTurn((this + 1)%g.Num_Player));
-        }
-
-        public virtual PhaseList judgePhase(JudgePhase curPhase, UserAction userAction, IGame g)
-        {
-            return new PhaseList(new DrawingPhase(this), new ActionPhase(this));
-        }
-
-        public PhaseList drawingPhase(DrawingPhase curPhase, UserAction userAction, IGame g)
-        {
+            health -= harmPhase.harm;
+            if (health < 0)
+            {
+                return new PhaseList(new askForHelpPhase(this));
+            }
             return new PhaseList();
         }
 
-        public virtual PhaseList actionPhase(ActionPhase curPhase, UserAction userAction, IGame g)
+        public PhaseList recover(RecoverPhase recoverPhase, IGame game)
         {
-            if (userAction == null)
-                return null;
-            switch (userAction.type)
-            {
-                case UserActionType.YES_OR_NO:
-                    if ((userAction as UserActionYesOrNo).no)
-                        return new PhaseList(new DiscardPhase(this));
-                    else
-                        return null;
-                default:
-                    return null;
-            }
+            health += recoverPhase.recover;
+            return new PhaseList();
         }
-        public virtual PhaseList discardPhase(DiscardPhase curPhase, UserAction userAction, IGame g)
+
+        public PhaseList discardCard(Card card, IGame game)
         {
-            if (userAction == null)
-                return null;
+            handCards.Remove(card);
+            game.cards.discard(card);
             return new PhaseList();
         }
 

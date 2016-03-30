@@ -11,13 +11,13 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void GameConstructTest()
         {
-            Game g = new Game(5 , null);
+            IGame g = new Game(5 , null);
         }
 
         [TestMethod]
         public void FourStageTest()
         {
-            Game g = new Game(5 , null);
+            IGame g = new Game(5 , null);
             Assert.AreEqual(typeof(JudgePhase) , g.curPhase.GetType() );
             Assert.AreEqual(0, g.curPhase.playerID);
             g.nextStage(null);
@@ -26,10 +26,10 @@ namespace LOTK_Test.ModelTest
             g.nextStage(null);
             Assert.AreEqual(typeof(ActionPhase) , g.curPhase.GetType() );
             Assert.AreEqual(0, g.curPhase.playerID);
-            g.nextStage(new UserActionYesOrNo(false));
+            g.nextStage(new YesOrNoAction(false));
             Assert.AreEqual(typeof(DiscardPhase) , g.curPhase.GetType() );
             Assert.AreEqual(0, g.curPhase.playerID);
-            g.nextStage(new UserActionYesOrNo(false));
+            g.nextStage(new YesOrNoAction(false));
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
             Assert.AreEqual(1, g.curPhase.playerID);
         }
@@ -37,7 +37,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void EightPeopleGameCycleTest()
         {
-            Game g = new Game(8 , null);
+            IGame g = new Game(8 , null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
@@ -50,10 +50,10 @@ namespace LOTK_Test.ModelTest
                     g.nextStage(null);
                     Assert.AreEqual( typeof(ActionPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curPhase.playerID, i);
-                    g.nextStage(new UserActionYesOrNo(false));
+                    g.nextStage(new YesOrNoAction(false));
                     Assert.AreEqual( typeof(DiscardPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curPhase.playerID, i);
-                    g.nextStage(new UserActionYesOrNo(false));
+                    g.nextStage(new YesOrNoAction(false));
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void CurrentPlayerTest()
         {
-            Game g = new Game(8, null);
+            IGame g = new Game(8, null);
             for (int j = 0; j < 1; j++)
             {
                 for (int i = 0; i < 8; i++)
@@ -74,10 +74,10 @@ namespace LOTK_Test.ModelTest
                     g.nextStage(null);
                     Assert.AreEqual( typeof(ActionPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curRoundPlayer, i);
-                    g.nextStage(new UserActionYesOrNo(false));
+                    g.nextStage(new YesOrNoAction(false));
                     Assert.AreEqual( typeof(DiscardPhase) , g.curPhase.GetType() );
                     Assert.AreEqual(g.curRoundPlayer, i);
-                    g.nextStage(new UserActionYesOrNo(false));
+                    g.nextStage(new YesOrNoAction(false));
                 }
             }
         }
@@ -85,22 +85,22 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void UserResponseYES_OR_NOTest()
         {
-            Game g = new Game(5, null);
+            IGame g = new Game(5, null);
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
             // advance
-            g.nextStage(new UserActionYesOrNo(false));
+            g.nextStage(new YesOrNoAction(false));
             Assert.AreEqual(typeof(DrawingPhase), g.curPhase.GetType());
             // advance
-            g.nextStage(new UserActionYesOrNo(false));
+            g.nextStage(new YesOrNoAction(false));
             Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
             // not advance
-            g.nextStage(new UserActionYesOrNo(true));
+            g.nextStage(new YesOrNoAction(true));
             Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
             // advance
-            g.nextStage(new UserActionYesOrNo(false));
+            g.nextStage(new YesOrNoAction(false));
             Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());
             // advance
-            g.nextStage(new UserActionYesOrNo(true));
+            g.nextStage(new YesOrNoAction(true));
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
         }
 
@@ -114,7 +114,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3));
             ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Wine, 4));
             ls.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 5));
-            Game g = new Game(5, ls);
+            IGame g = new Game(5, ls);
 
             for (int i = 0; i < ls.Count; i += 2)
             {
@@ -130,7 +130,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void AutoAdvancedTest()
         {
-            Game g = new Game(5, null);
+            IGame g = new Game(5, null);
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
             g.tick();
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
@@ -144,7 +144,7 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
             g.tick();
             Assert.AreEqual(typeof(ActionPhase), g.curPhase.GetType());
-            g.nextStage(new UserActionYesOrNo(false));
+            g.nextStage(new YesOrNoAction(false));
             Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());
             g.tick();
             Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());

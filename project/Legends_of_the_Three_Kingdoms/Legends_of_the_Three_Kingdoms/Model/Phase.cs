@@ -1,5 +1,4 @@
-﻿using Legends_of_the_Three_Kingdoms.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,21 +7,30 @@ using System.Threading.Tasks;
 namespace LOTK.Model
 {
     /// <summary>
-    /// Phase contains information that the game needs to process this phase
+    /// It contains information that the game needs to process this phase
+    /// There are two kinds of Phase. 
+    /// Phase contains all the information that the game needs.
+    /// The game calls this function to ask the phase to process
+    /// <seealso cref="Phase.advance(UserAction, IGame)"/>
+    /// VisiblePhase is usually waiting for userAction, but HiddenPhase should not
+    /// get any userAction.
+    /// 
     /// </summary>
     public abstract class Phase
     {
         /// <summary>
         /// Whose phase
         /// </summary>
-        public int playerID { get; }
+        public int playerID { get { return player.playerID; } }
+        public Player player { get; }
 
+        /// <summary>{ get { return this; } }
         /// <summary>
         /// The type of the phase
         /// </summary>
-        public Phase(int playerID)
+        public Phase(Player player)
         {
-            this.playerID = playerID;
+            this.player = player;
         }
 
         /// <summary>
@@ -32,219 +40,192 @@ namespace LOTK.Model
         /// fase if this phase should be invisible from outside</returns>
         public abstract bool needResponse();
 
-        public abstract PhaseList handleResponse(UserAction userAction, Game game);
+        public abstract PhaseList advance(UserAction userAction, IGame game);
 
+        public override bool Equals(object obj)
+        {
+            Phase b = obj as Phase;
+            return (b != null && player == b.player) ;
+        }
+        public override int GetHashCode()
+        {
+            return playerID;
+        }
     }
 
-    public abstract class BackGroundPhase : Phase
+    /// <summary>
+    /// This phase is invisible to the user.
+    /// However, many of them are very important in carrying on the game logic.
+    /// </summary>
+    public abstract class HiddenPhase : Phase
     {
-        public BackGroundPhase(int playerID) : base(playerID)
-        {
+        public HiddenPhase(Player player) : base(player) { }
 
+        public sealed override PhaseList advance(UserAction userAction, IGame game)
+        {
+            return advance(game);
         }
 
-        public override sealed bool needResponse()
+        public abstract PhaseList advance(IGame game);
+
+        public sealed override bool needResponse()
         {
             return false;
         }
     }
 
-    public abstract class ResponsivePhase : Phase
+    /// <summary>
+    /// This Phase is visible to the user.
+    /// It also has a property specifying how many clock cycle the game should wait.
+    /// </summary>
+    public abstract class VisiblePhase : Phase
     {
-        public ResponsivePhase(int playerID) : base(playerID)
+        public int waitTime {get;}
+
+        public VisiblePhase(Player player, int waitTime) : base(player)
         {
-
+            this.waitTime = waitTime;
         }
-
         public sealed override bool needResponse()
         {
             return true;
         }
     }
 
-    public class PlayerTurn : BackGroundPhase
+
+    /// <summary>
+    /// This phase is visible to the user.
+    /// It pauses the model to allow the view to display the effect.
+    /// However, it usually does not need user input.
+    /// </summary>
+    public abstract class PausePhase : VisiblePhase
     {
-        public PlayerTurn(int playerID) : base(playerID)
-        {
+        public PausePhase(Player player, int waitTime) : base(player, waitTime) { }
 
+        public sealed override PhaseList advance(UserAction userAction, IGame game)
+        {
+            return advance(game);
         }
 
-        public override PhaseList handleResponse(UserAction userAction, Game game)
-        {
-            return game.players[playerID].playerTurn(this, game);
-        }
+        public abstract PhaseList advance(IGame game);
 
-        public override string ToString()
-        {
-            return "Plyaer " + playerID + " at PlayerTurn";
-        }
-    }
-
-    public class JudgePhase : ResponsivePhase
-    {
-        public JudgePhase(int playerID) : base(playerID)
-        {
-
-        }
-
-        public override PhaseList handleResponse(UserAction userAction, Game game)
-        {
-            return game.players[playerID].judgePhase(this, userAction,  game);
-        }
-
-        public override string ToString()
-        {
-            return "Plyaer " + playerID + " at JudgePhase";
-        }
-    }
-
-    public class DrawingPhase : ResponsivePhase
-    {
-        public DrawingPhase(int playerID) : base(playerID)
-        {
-
-        }
-
-        public override PhaseList handleResponse(UserAction userAction, Game game)
-        {
-            return game.players[playerID].drawingPhase(this, userAction, game);
-        }
-
-        public override string ToString()
-        {
-            return "Plyaer " + playerID + " at DrawingPhase";
-        }
-    }
-
-    public class ActionPhase : ResponsivePhase
-    {
-        public ActionPhase(int playerID) : base(playerID)
-        {
-
-        }
-
-        public override PhaseList handleResponse(UserAction userAction, Game game)
-        {
-            return game.players[playerID].actionPhase(this, userAction, game);
-        }
-
-        public override string ToString()
-        {
-            return "Plyaer " + playerID + " at ActionPhase";
-        }
-    }
-
-    public class DiscardPhase : ResponsivePhase
-    {
-        public DiscardPhase(int playerID) : base(playerID)
-        {
-
-        }
-
-        public override PhaseList handleResponse(UserAction userAction, Game game)
-        {
-            return game.players[playerID].discardPhase(this, userAction, game);
-        }
-
-        public override string ToString()
-        {
-            return "Plyaer " + playerID + " at DiscardPhase";
-        }
     }
 
     /// <summary>
-    /// A simple data structure (linkedList) that used to store phases of game
+    /// This phase is visible to the user.
+    /// It is waiting for certain user action
     /// </summary>
-    public class PhaseList
+    public abstract class UserActionPhase : VisiblePhase
     {
-        private Node head;
-        private Node tail;
+        public int timeOutTime { get; }
+        public UserActionPhase(Player player, int waitTime, int timeOut) : base(player, waitTime) {
+            this.timeOutTime = timeOut;
+        }
+        public UserActionPhase(Player player, int waitTime) : this(player, waitTime, waitTime) { }
 
-        public PhaseList()
+        public sealed override PhaseList advance(UserAction userAction, IGame game)
         {
-            head = null;
-            tail = null;
+            if (userAction == null)
+                return autoAdvance(game);
+            YesOrNoAction yesOrNoAction = userAction as YesOrNoAction;
+            if (yesOrNoAction != null)
+                return responseYesOrNo(yesOrNoAction.yes, game);
+            CardAction cardAction = userAction as CardAction;
+            if (cardAction != null)
+                return responseCardAction(cardAction.card, game);
+            UseCardAction useCardAction = userAction as UseCardAction;
+            if (useCardAction != null)
+                return responseUseCardAction(useCardAction.card, useCardAction.targets, game);
+            throw new NotDefinedException("This kind of useraction is not yet defined");
         }
 
-        public PhaseList(params Phase[] phases) : this()
+        public virtual PhaseList timeOut(IGame game)
         {
-            foreach (Phase p in phases)
-            {
-                add(p);
-            }
+            throw new NotImplementedException();
         }
 
-        public void add(Phase s)
+        public virtual PhaseList autoAdvance(IGame game)
         {
-            if (head == null)
-            {
-                head = new Node(s);
-                tail = head;
-            }
-            else
-            {
-                tail.next = new Node(s);
-                tail = tail.next;
-            }
+            return null;
         }
 
-        public bool isEmpty()
+        public virtual PhaseList responseYesOrNo(bool yes, IGame game)
         {
-            return head == null;
+            return null;
+        }
+        public virtual PhaseList responseUseCardAction(Card card, Player[] targets, IGame game)
+        {
+            return null;
         }
 
-        public Phase pop()
+        public virtual PhaseList responseCardAction(Card card, IGame game)
         {
-            if (isEmpty())
-            {
-                throw new EmptyException("Empty PhaseList Exception");
-            } 
-            Phase retStage = head.stage;
-            if (head == tail)
-            { // empty
-                head = null;
-                tail = null;
-            }
-            else
-            {
-                head = head.next;
-            }
-            return retStage;
+            return null;
         }
 
-        /// <summary>
-        /// concatenate two phaseList together
-        /// </summary>
-        /// <param name="added"></param>
-        public void pushStageList(PhaseList added)
+    }
+
+    public class responsePhase : UserActionPhase
+    {
+        private Func<Card, bool> allowed;
+        private NeedResponsePhase responseTo;
+
+        public responsePhase(Player player, NeedResponsePhase responseTo, Func<Card, bool> allowed) : base(player, 10)
         {
-            if (added.head == null)
-                return;
-            added.tail.next = head;
-            head = added.head;
+            this.allowed = allowed;
+            this.responseTo = responseTo;
         }
 
-        public Phase top()
+        public override PhaseList responseYesOrNo(bool yes, IGame game)
         {
-            return head.stage;
+            if (!yes)
+            {
+                responseTo.responseWith(null);
+                return new PhaseList();
+            }
+            return null;
         }
 
-        class Node
+        public override PhaseList responseCardAction(Card card, IGame game)
         {
-            internal Phase stage;
-            internal Node next;
-
-            public Node(Phase s)
+            if (allowed(card))
             {
-                this.stage = s;
-                this.next = null;
+                responseTo.responseWith(card);
+                return player.discardCard(card, game);
             }
+            return null;
+        }
+    }
 
-            internal Node setNext(Node node)
+
+    public abstract class NeedResponsePhase : HiddenPhase
+    {
+        private Card respondCard;
+        private int count;
+        private int handledCount;
+
+        public NeedResponsePhase(Player player) : base(player) {
+            count = 0;
+            handledCount = 0;
+        }
+
+        public sealed override PhaseList advance(IGame game)
+        {
+            if (count == handledCount)
             {
-                this.next = node;
-                return node;
+                return askForResponse(count, game);
             }
+            handledCount++;
+            return handleResponse(count, respondCard, game);
+        }
+        public abstract PhaseList askForResponse(int count, IGame game);
+
+        public abstract PhaseList handleResponse(int count, Card respondCard, IGame game);
+
+        public void responseWith(Card card)
+        {
+            respondCard = card;
+            count++;
         }
     }
 
