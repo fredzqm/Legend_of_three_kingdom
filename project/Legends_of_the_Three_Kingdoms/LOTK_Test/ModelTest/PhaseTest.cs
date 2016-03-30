@@ -2,6 +2,7 @@
 using LOTK.Model;
 using System;
 using System.Collections.Generic;
+using Rhino.Mocks;
 
 namespace LOTK_Test.ModelTest
 {
@@ -17,44 +18,44 @@ namespace LOTK_Test.ModelTest
             Player p3 = new Player(0);
             IGame testgame = new TestGame(5, p, p2, p3);
             PhaseList ls;
-            ls = (new PlayerTurn(p)).advance( null, testgame);
+            ls = (new PlayerTurn(p)).advance(null, testgame);
             Assert.AreEqual(typeof(JudgePhase), ls.pop().GetType());
             Assert.AreEqual(typeof(PlayerTurn), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
 
-            ls = (new JudgePhase(p)).advance( null, testgame);
+            ls = (new JudgePhase(p)).advance(null, testgame);
             Assert.AreEqual(typeof(DrawingPhase), ls.pop().GetType());
             Assert.AreEqual(typeof(ActionPhase), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
-            ls = (new JudgePhase(p)).advance( new YesOrNoAction(true), testgame);
+            ls = (new JudgePhase(p)).advance(new YesOrNoAction(true), testgame);
             Assert.AreEqual(typeof(DrawingPhase), ls.pop().GetType());
             Assert.AreEqual(typeof(ActionPhase), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
-            ls = (new JudgePhase(p)).advance( new YesOrNoAction(false), testgame);
+            ls = (new JudgePhase(p)).advance(new YesOrNoAction(false), testgame);
             Assert.AreEqual(typeof(DrawingPhase), ls.pop().GetType());
             Assert.AreEqual(typeof(ActionPhase), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
 
-            ls = (new DrawingPhase(p)).advance( null, testgame);
+            ls = (new DrawingPhase(p)).advance(null, testgame);
             Assert.IsTrue(ls.isEmpty());
-            ls = (new DrawingPhase(p)).advance( new YesOrNoAction(true), testgame);
+            ls = (new DrawingPhase(p)).advance(new YesOrNoAction(true), testgame);
             Assert.IsTrue(ls.isEmpty());
-            ls = (new DrawingPhase(p)).advance( new YesOrNoAction(false), testgame);
+            ls = (new DrawingPhase(p)).advance(new YesOrNoAction(false), testgame);
             Assert.IsTrue(ls.isEmpty());
 
-            ls = (new ActionPhase(p)).advance( null, testgame);
+            ls = (new ActionPhase(p)).advance(null, testgame);
             Assert.IsNull(ls);
-            ls = (new ActionPhase(p)).advance( new YesOrNoAction(true), testgame);
+            ls = (new ActionPhase(p)).advance(new YesOrNoAction(true), testgame);
             Assert.IsNull(ls);
-            ls = (new ActionPhase(p)).advance( new YesOrNoAction(false), testgame);
+            ls = (new ActionPhase(p)).advance(new YesOrNoAction(false), testgame);
             Assert.AreEqual(typeof(DiscardPhase), ls.pop().GetType());
             Assert.IsTrue(ls.isEmpty());
 
-            ls = (new DiscardPhase(p)).advance( null, testgame);
+            ls = (new DiscardPhase(p)).advance(null, testgame);
             Assert.IsNull(ls); // in the future this will be changed to true
-            ls = (new DiscardPhase(p)).advance( new YesOrNoAction(true), testgame);
+            ls = (new DiscardPhase(p)).advance(new YesOrNoAction(true), testgame);
             Assert.IsTrue(ls.isEmpty());
-            ls = (new DiscardPhase(p)).advance( new YesOrNoAction(false), testgame);
+            ls = (new DiscardPhase(p)).advance(new YesOrNoAction(false), testgame);
             Assert.IsTrue(ls.isEmpty());
         }
 
@@ -138,8 +139,8 @@ namespace LOTK_Test.ModelTest
 
             ret = b.advance(null, game);
             Phase c = ret.pop();
-            Assert.IsInstanceOfType(c, typeof(responsePhase));
-            responsePhase c_ = c as responsePhase;
+            Assert.IsInstanceOfType(c, typeof(ResponsePhase));
+            ResponsePhase c_ = c as ResponsePhase;
             Assert.AreEqual(p2, c_.player);
             Phase c2 = ret.pop();
             Assert.IsInstanceOfType(c2, typeof(AttackPhase));
@@ -162,5 +163,8 @@ namespace LOTK_Test.ModelTest
             ret = d.advance(null, game);
             Assert.IsTrue(ret.isEmpty());
         }
+
+
     }
+
 }

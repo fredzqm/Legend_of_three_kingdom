@@ -6,6 +6,10 @@ using LOTK.Controller;
 
 namespace LOTK_Test.ModelTest
 {
+    /// <summary>
+    /// This is an integrated test for the model
+    /// It involves cards, 
+    /// </summary>
     [TestClass]
     public class GameTest
     {
@@ -148,7 +152,6 @@ namespace LOTK_Test.ModelTest
             g.nextStage(new YesOrNoAction(true));
             Assert.AreEqual(typeof(JudgePhase), g.curPhase.GetType());
         }
-
        
         [TestMethod]
         public void AutoAdvancedTest()
@@ -174,5 +177,6 @@ namespace LOTK_Test.ModelTest
             g.tick();
             Assert.AreEqual(typeof(DiscardPhase), g.curPhase.GetType());
         }
+
     }
 }

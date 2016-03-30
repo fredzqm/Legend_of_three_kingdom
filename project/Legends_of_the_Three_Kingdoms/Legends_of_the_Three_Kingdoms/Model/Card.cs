@@ -38,59 +38,6 @@ namespace LOTK.Model
 
         public abstract string getDescription();
 
-        /// <summary>
-        /// Really for the purpose of testing.
-        /// This is a uniform format for constructing a Card.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="t"></param>
-        /// <param name="v"></param>
-        /// <returns></returns>
-        public static Card ConstructCard(CardSuit s, CardType t, byte v)
-        {
-            switch (t)
-            {
-                case CardType.Attack:
-                    return new Attack(s, v);
-                case CardType.Miss:
-                    return new Miss(s, v);
-                case CardType.Wine:
-                    return new Wine(s, v);
-                case CardType.Peach:
-                    return new Peach(s, v);
-                case CardType.Negate:
-                    return new Negate(s, v);
-                case CardType.Barbarians:
-                    return new Barbarians(s, v);
-                case CardType.HailofArrow:
-                    return new HailofArrow(s, v);
-                case CardType.PeachGarden:
-                    return new PeachGarden(s, v);
-                case CardType.Wealth:
-                    return new Wealth(s, v);
-                case CardType.Steal:
-                    return new Steal(s, v);
-                case CardType.Break:
-                    return new Break(s, v);
-                case CardType.Capture:
-                    return new Capture(s, v);
-                case CardType.Starvation:
-                    return new Starvation(s, v);
-                case CardType.Crossbow:
-                    return new Crossbow(s, v);
-                case CardType.IceSword:
-                    return new IceSword(s, v);
-                case CardType.Scimitar:
-                    return new Scimitar(s, v);
-                case CardType.BlackShield:
-                    return new BlackShield(s, v);
-                case CardType.EightTrigrams:
-                    return new EightTrigrams(s, v);
-                default:
-                    throw new NotImplementedException();
-            }
-        }
-
     }
 
     public abstract class BasicCard : Card

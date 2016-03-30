@@ -51,7 +51,7 @@ namespace LOTK.Model
         // The codes below specify are virtual methods of Players.
         // A new character can be created by overriden those method to customize player's behavior
 
-        public PhaseList harm(HarmPhase harmPhase, IGame game)
+        public virtual PhaseList harm(HarmPhase harmPhase, IGame game)
         {
             health -= harmPhase.harm;
             if (health < 0)
@@ -61,20 +61,20 @@ namespace LOTK.Model
             return new PhaseList();
         }
 
-        public PhaseList recover(RecoverPhase recoverPhase, IGame game)
+        public virtual PhaseList recover(RecoverPhase recoverPhase, IGame game)
         {
             health += recoverPhase.recover;
             return new PhaseList();
         }
 
-        public PhaseList discardCard(Card card, IGame game)
+        public virtual PhaseList discardCard(Card card, IGame game)
         {
             handCards.Remove(card);
             game.cards.discard(card);
             return new PhaseList();
         }
 
-        public PhaseList drawCards(int num, IGame game)
+        public virtual PhaseList drawCards(int num, IGame game)
         {
             handCards.AddRange(game.drawCard(num));
             return new PhaseList();

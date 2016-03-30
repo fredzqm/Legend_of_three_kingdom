@@ -26,9 +26,9 @@ namespace LOTK.Model
         public override PhaseList askForResponse(int count, IGame g)
         {
             if (player == g.curRoundPlayer)
-                return new PhaseList(new responsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => (c is Peach) || (c is Wine)), this);
+                return new PhaseList(new ResponsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => (c is Peach) || (c is Wine)), this);
             else
-                return new PhaseList(new responsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => c is Peach), this);
+                return new PhaseList(new ResponsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => c is Peach), this);
         }
 
         public override PhaseList handleResponse(int count, Card respondCard, IGame g)

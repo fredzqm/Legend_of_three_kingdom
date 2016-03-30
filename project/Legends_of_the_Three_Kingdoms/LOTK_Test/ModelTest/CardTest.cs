@@ -5,14 +5,17 @@ using System.Collections.Generic;
 
 namespace LOTK_Test.ModelTest
 {
-
+    /// <summary>
+    /// This test class only involves Card and CardSet
+    /// Card here is essentially a stub.
+    /// </summary>
     [TestClass]
-    public class CardSetTest
+    public class CarSetUnitTest
     {
         [TestMethod]
         public void CardSetConstructTest()
         {
-            Card c = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
+            Card c = new Attack(CardSuit.Club, 0);
             ICollection<Card> ls = new List<Card>();
             ls.Add(c);
             CardSet s = new CardSet(ls);
@@ -24,19 +27,19 @@ namespace LOTK_Test.ModelTest
         public void DiscardUndefinedCardExceptionTest()
         {
             ICollection<Card> ls = new List<Card>();
-            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
-            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Miss, 1));
-            ls.Add(Card.ConstructCard(CardSuit.Diamond, CardType.Miss, 2));
-            ls.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3));
-            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Wine, 4));
+            ls.Add(new Attack(CardSuit.Club, 0));
+            ls.Add(new Miss(CardSuit.Club, 1));
+            ls.Add(new Miss(CardSuit.Diamond, 2));
+            ls.Add(new Attack(CardSuit.Spade, 3));
+            ls.Add(new Wine(CardSuit.Club, 4));
             CardSet s = new CardSet(ls);
-            s.discard(Card.ConstructCard(CardSuit.Spade, CardType.Wine, 5));
+            s.discard(new Wine(CardSuit.Spade, 5));
         }
 
         [TestMethod]
         public void ShuffleOneCardTest()
         {
-            Card a = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
+            Card a = new Attack(CardSuit.Club, 0);
             ICollection<Card> ls = new List<Card>();
             ls.Add(a);
             CardSet s = new CardSet(ls);
@@ -46,8 +49,8 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void ShuffleTwoCardTest()
         {
-            Card a = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
-            Card b = Card.ConstructCard(CardSuit.Club, CardType.Miss, 1);
+            Card a = new Attack(CardSuit.Club, 0);
+            Card b = new Miss(CardSuit.Club, 1);
             ICollection<Card> ls = new List<Card>();
             ls.Add(a);
             ls.Add(b);
@@ -62,11 +65,11 @@ namespace LOTK_Test.ModelTest
         public void ShuffleManyCardTest()
         {
             List<Card> ls = new List<Card>();
-            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
-            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Miss, 1));
-            ls.Add(Card.ConstructCard(CardSuit.Diamond, CardType.Miss, 2));
-            ls.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3));
-            ls.Add(Card.ConstructCard(CardSuit.Club, CardType.Wine, 4));
+            ls.Add(new Attack(CardSuit.Club, 0));
+            ls.Add(new Miss(CardSuit.Club, 1));
+            ls.Add(new Miss(CardSuit.Diamond, 2));
+            ls.Add(new Attack(CardSuit.Spade, 3));
+            ls.Add(new Wine(CardSuit.Club, 4));
 
             int size = ls.Count;
             CardSet s = new CardSet(ls);
@@ -84,11 +87,11 @@ namespace LOTK_Test.ModelTest
         public void CardPileRunoutExceptionTest()
         {
             List<Card> ls, lsbackup = new List<Card>();
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Miss, 1));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Diamond, CardType.Miss, 2));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Wine, 4));
+            lsbackup.Add(new Attack(CardSuit.Club, 0));
+            lsbackup.Add(new Miss(CardSuit.Club, 1));
+            lsbackup.Add(new Miss(CardSuit.Diamond, 2));
+            lsbackup.Add(new Attack(CardSuit.Spade, 3));
+            lsbackup.Add(new Wine(CardSuit.Club, 4));
 
             int size = lsbackup.Count;
             CardSet s = new CardSet(lsbackup);
@@ -106,11 +109,11 @@ namespace LOTK_Test.ModelTest
         public void CardPileRunoutWithDiscardTest()
         {
             List<Card> ls, lsbackup = new List<Card>();
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Miss, 1));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Diamond, CardType.Miss, 2));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Wine, 4));
+            lsbackup.Add(new Attack(CardSuit.Club, 0));
+            lsbackup.Add(new Miss(CardSuit.Club, 1));
+            lsbackup.Add(new Miss(CardSuit.Diamond, 2));
+            lsbackup.Add(new Attack(CardSuit.Spade, 3));
+            lsbackup.Add(new Wine(CardSuit.Club, 4));
 
             int size = lsbackup.Count;
             CardSet s = new CardSet(lsbackup);
@@ -133,11 +136,11 @@ namespace LOTK_Test.ModelTest
         public void CardPileRandomeDiscardBackTest()
         {
             List<Card> ls, lsbackup = new List<Card>();
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Attack, 0));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Miss, 1));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Diamond, CardType.Miss, 2));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3));
-            lsbackup.Add(Card.ConstructCard(CardSuit.Club, CardType.Wine, 4));
+            lsbackup.Add(new Attack(CardSuit.Club, 0));
+            lsbackup.Add(new Miss(CardSuit.Club, 1));
+            lsbackup.Add(new Miss(CardSuit.Diamond, 2));
+            lsbackup.Add(new Attack(CardSuit.Spade, 3));
+            lsbackup.Add(new Wine(CardSuit.Club, 4));
 
             int size = lsbackup.Count;
             CardSet s = new CardSet(lsbackup);
@@ -166,15 +169,15 @@ namespace LOTK_Test.ModelTest
         public void getCardIDTest()
         {
             List<Card> ls = new List<Card>();
-            Card a = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
+            Card a = new Attack(CardSuit.Club, 0);
             ls.Add(a);
-            Card b = Card.ConstructCard(CardSuit.Club, CardType.Miss, 1);
+            Card b = new Miss(CardSuit.Club, 1);
             ls.Add(b);
-            Card c = Card.ConstructCard(CardSuit.Diamond, CardType.Miss, 2);
+            Card c = new Miss(CardSuit.Diamond, 2);
             ls.Add(c);
-            Card d = Card.ConstructCard(CardSuit.Spade, CardType.Attack, 3);
+            Card d = new Attack(CardSuit.Spade, 3);
             ls.Add(d);
-            Card e = Card.ConstructCard(CardSuit.Club, CardType.Wine, 4);
+            Card e = new Wine(CardSuit.Club, 4);
             ls.Add(e);
             CardSet s = new CardSet(ls);
 
@@ -186,72 +189,76 @@ namespace LOTK_Test.ModelTest
         }
     }
     
+    /// <summary>
+    /// This test involves some basic category of differnet card
+    /// They are all hard-coded attributes of each kind of cards
+    /// </summary>
     [TestClass]
-    public class CardTest
+    public class CardUnitTest
     {
 
         [TestMethod]
         public void CardCategoryTest()
         {
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Attack, 0)) is BasicCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Miss, 0)) is BasicCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Wine, 0)) is BasicCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Peach, 0)) is BasicCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Negate, 0)) is ToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Barbarians, 0)) is ToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.HailofArrow, 0)) is ToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.PeachGarden, 0)) is ToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Wealth, 0)) is ToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Steal, 0)) is ToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Break, 0)) is ToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Capture, 0)) is DelayToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Starvation, 0)) is DelayToolCard );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Crossbow, 0)) is Weapon );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.IceSword, 0)) is Weapon );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.Scimitar, 0)) is Weapon );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.BlackShield, 0)) is Shield );
-            Assert.IsTrue( (Card.ConstructCard(CardSuit.Club, CardType.EightTrigrams, 0)) is Shield );
+            Assert.IsTrue( (new Attack(CardSuit.Club, 0)) is BasicCard );
+            Assert.IsTrue( (new Miss(CardSuit.Club, 0)) is BasicCard );
+            Assert.IsTrue( (new Wine(CardSuit.Club, 0)) is BasicCard );
+            Assert.IsTrue( (new Peach(CardSuit.Club, 0)) is BasicCard );
+            Assert.IsTrue( (new Negate(CardSuit.Club, 0)) is ToolCard );
+            Assert.IsTrue( (new Barbarians(CardSuit.Club, 0)) is ToolCard );
+            Assert.IsTrue( (new HailofArrow(CardSuit.Club, 0)) is ToolCard );
+            Assert.IsTrue( (new PeachGarden(CardSuit.Club, 0)) is ToolCard );
+            Assert.IsTrue( (new Wealth(CardSuit.Club, 0)) is ToolCard );
+            Assert.IsTrue( (new Steal(CardSuit.Club, 0)) is ToolCard );
+            Assert.IsTrue( (new Break(CardSuit.Club, 0)) is ToolCard );
+            Assert.IsTrue( (new Capture(CardSuit.Club, 0)) is DelayToolCard );
+            Assert.IsTrue( (new Starvation(CardSuit.Club, 0)) is DelayToolCard );
+            Assert.IsTrue( (new Crossbow(CardSuit.Club, 0)) is Weapon );
+            Assert.IsTrue( (new IceSword(CardSuit.Club, 0)) is Weapon );
+            Assert.IsTrue( (new Scimitar(CardSuit.Club, 0)) is Weapon );
+            Assert.IsTrue( (new BlackShield(CardSuit.Club, 0)) is Shield );
+            Assert.IsTrue( (new EightTrigrams(CardSuit.Club, 0)) is Shield );
         }
 
         [TestMethod]
         public void UsageTest()
         {
             Card x;
-            x = Card.ConstructCard(CardSuit.Club, CardType.Attack, 0);
+            x = new Attack(CardSuit.Club, 0);
             Assert.AreEqual(1, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Miss, 0);
+            x = new Miss(CardSuit.Club, 0);
             Assert.AreEqual(-1, x.numOfTargets()); // this means not usable
-            x = Card.ConstructCard(CardSuit.Club, CardType.Wine, 0);
+            x = new Wine(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Peach, 0);
+            x = new Peach(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Negate, 0);
+            x = new Negate(CardSuit.Club, 0);
             Assert.AreEqual(-1, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Barbarians, 0);
+            x = new Barbarians(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.HailofArrow, 0);
+            x = new HailofArrow(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.PeachGarden, 0);
+            x = new PeachGarden(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Wealth, 0);
+            x = new Wealth(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Steal, 0);
+            x = new Steal(CardSuit.Club, 0);
             Assert.AreEqual(1, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Break, 0);
+            x = new Break(CardSuit.Club, 0);
             Assert.AreEqual(1, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Capture, 0);
+            x = new Capture(CardSuit.Club, 0);
             Assert.AreEqual(1, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Starvation, 0);
+            x = new Starvation(CardSuit.Club, 0);
             Assert.AreEqual(1, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Crossbow, 0);
+            x = new Crossbow(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.IceSword, 0);
+            x = new IceSword(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.Scimitar, 0);
+            x = new Scimitar(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.BlackShield, 0);
+            x = new BlackShield(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
-            x = Card.ConstructCard(CardSuit.Club, CardType.EightTrigrams, 0);
+            x = new EightTrigrams(CardSuit.Club, 0);
             Assert.AreEqual(0, x.numOfTargets());
         }
 

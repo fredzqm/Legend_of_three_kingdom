@@ -45,7 +45,7 @@ namespace LOTK.Model
         {
             if (targets.Length > attack.numOfTargets() || actionPhase.attackCount > 1 || targets[0] == player)
                 return new PhaseList();
-            return new PhaseList(new responsePhase(targets[0], this, c => c is Miss), this);
+            return new PhaseList(new ResponsePhase(targets[0], this, c => c is Miss), this);
         }
     }
 

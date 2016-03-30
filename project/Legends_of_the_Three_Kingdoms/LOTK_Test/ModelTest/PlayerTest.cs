@@ -5,24 +5,24 @@ using System.Collections.Generic;
 
 namespace LOTK_Test.ModelTest
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [TestClass]
     public class PlayerTest
     {
         [TestMethod]
-        public void PlayerConstructTest()
+        public void PlayerHarmTest()
         {
-            Player p = new Player(0);
+            IGame game = new TestGame(1);
+            int health = 5;
+            int harm = 2;
+            Player p = new Player(0, "Name", "Descript", health);
+            p.harm(new HarmPhase(p, null, harm), game);
+
+            Assert.AreEqual(health - harm , p.health);
         }
-
-        
-
-        [TestMethod]
-        public void handlePhaseTest()
-        {
-            Player g = new Player(0);
-
-        }
-
+    
     }
 
     internal class TestGame : IGame

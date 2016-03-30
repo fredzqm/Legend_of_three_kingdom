@@ -165,12 +165,12 @@ namespace LOTK.Model
 
     }
 
-    public class responsePhase : UserActionPhase
+    public class ResponsePhase : UserActionPhase
     {
         private Func<Card, bool> allowed;
         private NeedResponsePhase responseTo;
 
-        public responsePhase(Player player, NeedResponsePhase responseTo, Func<Card, bool> allowed) : base(player, 10)
+        public ResponsePhase(Player player, NeedResponsePhase responseTo, Func<Card, bool> allowed) : base(player, 10)
         {
             this.allowed = allowed;
             this.responseTo = responseTo;
