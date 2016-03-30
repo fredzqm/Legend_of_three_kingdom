@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LOTK.View;
+using LOTK.Controller;
 
 namespace LOTK.Model
 {
@@ -53,14 +54,16 @@ namespace LOTK.Model
         public Game(int Num_player, ICollection<Card> cardList)
         {
             Num_Player = Num_player;
-            if (cardList != null)
-                cards = new CardSet(cardList);
+            
+            cards = new CardSet(cardList);
 
             players = new Player[Num_Player];
             for (int i = 0; i < Num_Player; i++)
             {
                 players[i] = new Player(i);
+                players[i].drawCards(4, this);
             }
+
             stages = new PhaseList();
             stages.add(new PlayerTurn(players[0]));
             nextStage(null);
