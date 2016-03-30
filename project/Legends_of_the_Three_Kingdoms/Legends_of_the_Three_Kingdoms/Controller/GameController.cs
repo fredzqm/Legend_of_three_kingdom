@@ -3,11 +3,7 @@ using LOTK.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
-using System.Windows.Forms;
-
 namespace LOTK.Controller
 {
     public delegate void UpdateForm();
@@ -19,11 +15,13 @@ namespace LOTK.Controller
         const int DELAY_INTERVAL = 2000;
 
         public GameView view { get; }
-        public IGame game { get; }
+        public Game game { get; }
 
         public event UpdateForm updateForm;
 
         private System.Timers.Timer aTimer;
+        public int ClickUser = -100;
+        public int SelectCardId = -100;
 
         public GameController()
         {
@@ -63,7 +61,7 @@ namespace LOTK.Controller
             Required_Data rd = new Required_Data();
             for(int i = 0; i < NUM_OF_PLAYER; i++)
             {
-                rd.players[i] = PlayerToPlayerDisplay(game.nextPlayer(ownPlayer, i));
+                rd.players[i] = PlayerToPlayerDisplay(game.players[(i + ownPlayer) % NUM_OF_PLAYER]);
             }
             rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
             rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
@@ -80,11 +78,47 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    game.nextStage(new YesOrNoAction(true));
+                    //   game.nextStage(new UserActionYesOrNo(true));
+                    if (SelectCardId < 0)
+                    {
+                        YesOrNoAction e = new YesOrNoAction(true);
+                        game.nextStage(e);
+
+                    }
+                    else if (ClickUser < 0)
+                    {
+                        CardAction e = new CardAction(SelectCardId, game);
+                        game.nextStage(e);
+                    }
+                    else if (ClickUser > 0 && SelectCardId > 0)
+                    {
+                        // UserActionPlayer e =new UserActionPlayer
+                        UseCardAction e = new UseCardAction(SelectCardId, ClickUser,game);
+                        game.nextStage(e);
+                    }
                     break;
                 case ButtonID.Cancel:
-                    game.nextStage(new YesOrNoAction(false));
+                   // game.nextStage(new UserActionYesOrNo(false));
                     break;
+                case ButtonID.Ability:
+                    //do nothing right
+                    break;
+                case ButtonID.LoweRight:
+                    ClickUser = (playerID+1)%game.Num_Player;
+                    break;
+                case ButtonID.LowerLeft:
+                    ClickUser = (playerID + 4) % game.Num_Player;
+                    break;
+                case ButtonID.UpperLeft:
+                    ClickUser = (playerID + 3) % game.Num_Player;
+                    break;
+                case ButtonID.UpperRight:
+                    ClickUser = (playerID + 2) % game.Num_Player;
+                    break;
+                case ButtonID.ThisPlayer:
+                    ClickUser = playerID;
+                    break;
+                
                 default:
                     break;
             }
@@ -94,7 +128,7 @@ namespace LOTK.Controller
 
         public void clickCard(int playerID, int cardID)
         {
-            throw new NotImplementedException();
+            SelectCardId = cardID;
         }
 
         public void clickPlayer(int playerID, int clickedPlayerID)
@@ -116,3 +150,5 @@ namespace LOTK.Controller
     }
  
 }
+
+

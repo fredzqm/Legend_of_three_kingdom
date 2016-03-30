@@ -75,7 +75,7 @@ namespace LOTK.View
             this.hand_cards.Name = "hand_cards";
             this.hand_cards.Size = new System.Drawing.Size(320, 123);
             this.hand_cards.TabIndex = 13;
-            this.hand_cards.SelectedIndexChanged += new System.EventHandler(this.hand_cards_SelectedIndexChanged);
+         //   this.hand_cards.SelectedIndexChanged += new System.EventHandler(this.hand_cards_SelectedIndexChanged);
             // 
             // Pool
             // 
