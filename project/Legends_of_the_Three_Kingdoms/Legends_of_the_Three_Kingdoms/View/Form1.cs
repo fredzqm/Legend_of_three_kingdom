@@ -62,7 +62,7 @@ namespace LOTK.View
         /// <summary>
         /// Update form after changing the required data package
         /// </summary>
-        public void updateFormhelper()
+        public void updateForm()
         {
             if (this.InvokeRequired)
                 this.Invoke(new updateDelegate(this.updateFormDelegate));

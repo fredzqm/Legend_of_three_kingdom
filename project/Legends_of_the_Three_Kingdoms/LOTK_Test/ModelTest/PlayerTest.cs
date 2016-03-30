@@ -33,8 +33,8 @@ namespace LOTK_Test.ModelTest
             Player p = new Player(0, "Name", "Descript", health);
             PhaseList ret = p.harm(new HarmPhase(p, null, harm), game);
 
-            //Phase x = ret.pop();
-            Assert.IsInstanceOfType(x, typeof(askForHelpPhase));
+            Phase x = ret.pop();
+            Assert.IsInstanceOfType(x, typeof(AskForHelpPhase));
             Assert.IsTrue(ret.isEmpty());
 
             Assert.AreEqual(health - harm, p.health);

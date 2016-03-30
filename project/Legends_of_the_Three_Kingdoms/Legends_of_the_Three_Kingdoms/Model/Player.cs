@@ -56,7 +56,7 @@ namespace LOTK.Model
             health -= harmPhase.harm;
             if (health < 0)
             {
-                return new PhaseList(new askForHelpPhase(this));
+                return new PhaseList(new AskForHelpPhase(this));
             }
             return new PhaseList();
         }

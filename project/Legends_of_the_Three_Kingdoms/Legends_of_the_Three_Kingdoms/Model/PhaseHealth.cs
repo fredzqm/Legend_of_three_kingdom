@@ -19,9 +19,9 @@ namespace LOTK.Model
         }
     }
 
-    public class askForHelpPhase : NeedResponsePhase
+    public class AskForHelpPhase : NeedResponsePhase
     {
-        public askForHelpPhase(Player player) : base(player) {}
+        public AskForHelpPhase(Player player) : base(player) {}
 
         public override PhaseList askForResponse(int count, IGame g)
         {

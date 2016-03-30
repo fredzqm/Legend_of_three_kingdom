@@ -18,7 +18,6 @@ namespace LOTK.Controller
         public Game game { get; }
 
         public event UpdateForm updateForm;
-        public event UpdateForm updateForm2;
 
         private System.Timers.Timer aTimer;
         public int ClickUser = -100;
@@ -32,8 +31,8 @@ namespace LOTK.Controller
             view[0] =  new GameView(this, 0);
             view[1] = new GameView(this, 1);
             view[1].Show();
-            updateForm = view[0].updateFormhelper;
-            updateForm2 = view[1].updateFormhelper;
+            updateForm = view[0].updateForm;
+            updateForm += view[1].updateForm;
 
             // set up timer
             aTimer = new System.Timers.Timer(DELAY_INTERVAL);
@@ -49,7 +48,6 @@ namespace LOTK.Controller
         {
             if (game.tick())
                 updateForm();
-            updateForm2();
         }
 
         public Required_Data getData(int ownPlayer)
