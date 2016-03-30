@@ -80,39 +80,39 @@ namespace LOTK_Test.ModelTest
                 new YesOrNoAction(true), null) != null);
         }
 
-        [TestMethod]
-        public void AttackMissedTest()
-        {
-            Player p1 = new Player(0);
-            Player p2 = new Player(1);
-            Player p3 = new Player(2);
-            IGame game = new TestGame(5, p1, p2, p3);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            Miss miss = new Miss(CardSuit.Diamond, 2);
+        //[TestMethod]
+        //public void AttackMissedTest()
+        //{
+        //    Player p1 = new Player(0);
+        //    Player p2 = new Player(1);
+        //    Player p3 = new Player(2);
+        //    IGame game = new TestGame(5, p1, p2, p3);
+        //    Card attack = new Attack(CardSuit.Spade, 1);
+        //    Miss miss = new Miss(CardSuit.Diamond, 2);
 
-            Phase a = new ActionPhase(p1);
-            PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
-            Phase b = ret.pop();
-            Assert.IsInstanceOfType( b , typeof(AttackPhase));
-            AttackPhase b2 = b as AttackPhase;
-            Assert.AreEqual(attack , b2.attack);
-            Assert.AreEqual(a, b2.actionPhase);
-            Assert.AreEqual(p1, b2.player);
-            Assert.AreEqual(p2, b2.targets[0]);
-            Assert.AreEqual(a, ret.pop());
-            Assert.IsTrue(ret.isEmpty());
+        //    Phase a = new ActionPhase(p1);
+        //    PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
+        //    Phase b = ret.pop();
+        //    Assert.IsInstanceOfType( b , typeof(AttackPhase));
+        //    AttackPhase b2 = b as AttackPhase;
+        //    Assert.AreEqual(attack , b2.attack);
+        //    Assert.AreEqual(a, b2.actionPhase);
+        //    Assert.AreEqual(p1, b2.player);
+        //    Assert.AreEqual(p2, b2.targets[0]);
+        //    Assert.AreEqual(a, ret.pop());
+        //    Assert.IsTrue(ret.isEmpty());
 
-            ret = b.advance(null, game);
-            Phase c = ret.pop();
-            Assert.IsInstanceOfType(c, typeof(responsePhase));
-            responsePhase c2 = c as responsePhase;
-            Assert.AreEqual(p2, c2.player);
-            Assert.IsInstanceOfType(ret.pop(), typeof(AttackPhase));
-            Assert.IsTrue(ret.isEmpty());
+        //    ret = b.advance(null, game);
+        //    Phase c = ret.pop();
+        //    Assert.IsInstanceOfType(c, typeof(responsePhase));
+        //    responsePhase c2 = c as responsePhase;
+        //    Assert.AreEqual(p2, c2.player);
+        //    Assert.IsInstanceOfType(ret.pop(), typeof(AttackPhase));
+        //    Assert.IsTrue(ret.isEmpty());
 
-            ret = c.advance(new CardAction(miss), game);
-            Assert.IsTrue(ret.isEmpty());
-        }
+        //    ret = c.advance(new CardAction(miss), game);
+        //    Assert.IsTrue(ret.isEmpty());
+        //}
 
         [TestMethod]
         public void AttackHitTest()

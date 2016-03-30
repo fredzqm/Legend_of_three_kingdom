@@ -23,9 +23,21 @@ namespace LOTK.Model
     {
         public askForHelpPhase(Player player) : base(player) {}
 
-        public override PhaseList handleResponse(int count, Card respondCard, IGame game)
+        public override PhaseList askForResponse(int count, IGame g)
         {
-            throw new NotImplementedException();
+            if (player == g.curRoundPlayer)
+                return new PhaseList(new responsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => (c is Peach) || (c is Wine)), this);
+            else
+                return new PhaseList(new responsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => c is Peach), this);
+        }
+
+        public override PhaseList handleResponse(int count, Card respondCard, IGame g)
+        {
+            if(respondCard != null)
+            {
+                return new PhaseList(new RecoverPhase(player, 1), this);
+            }
+            return askForResponse(count, g);
         }
     }
 

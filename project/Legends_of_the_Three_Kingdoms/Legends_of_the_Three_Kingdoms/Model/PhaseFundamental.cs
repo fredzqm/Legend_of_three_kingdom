@@ -13,7 +13,7 @@ namespace LOTK.Model
 
         public override PhaseList advance(IGame game)
         {
-            return new PhaseList(new JudgePhase(player), new PlayerTurn(game.players[(playerID + 1) % game.Num_Player]));
+            return new PhaseList(new JudgePhase(player), new PlayerTurn(game.nextPlayer(player, 1)));
         }
 
         public override string ToString()

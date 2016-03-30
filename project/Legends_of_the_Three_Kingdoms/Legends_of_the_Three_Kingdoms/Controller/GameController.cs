@@ -63,7 +63,7 @@ namespace LOTK.Controller
             Required_Data rd = new Required_Data();
             for(int i = 0; i < NUM_OF_PLAYER; i++)
             {
-                rd.players[i] = PlayerToPlayerDisplay(game.players[(i + ownPlayer) % NUM_OF_PLAYER]);
+                rd.players[i] = PlayerToPlayerDisplay(game.nextPlayer(ownPlayer, i));
             }
             rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
             rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));

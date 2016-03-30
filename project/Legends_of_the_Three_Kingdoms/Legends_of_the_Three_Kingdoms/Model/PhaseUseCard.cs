@@ -26,16 +26,10 @@ namespace LOTK.Model
             }
         }
 
-        public AttackPhase(Player player) : base(player) { }
+        public AttackPhase(Player player) : base(player) {}
 
         public override PhaseList handleResponse(int count, Card respondCard, IGame game)
         {
-            if (count == 0)
-            {
-                if (targets.Length > attack.numOfTargets() || actionPhase.attackCount > 1 || targets[0] == player)
-                    return new PhaseList();
-                return new PhaseList(new responsePhase(targets[0], this, c => c is Miss), this);
-            }
             if (count > 1)
                 throw new Exception("Only should response once");
             if (respondCard == null)
@@ -46,6 +40,13 @@ namespace LOTK.Model
                 throw new Exception("Only miss should occur");
             return new PhaseList();
         }
+
+        public override PhaseList askForResponse(int count, IGame game)
+        {
+            if (targets.Length > attack.numOfTargets() || actionPhase.attackCount > 1 || targets[0] == player)
+                return new PhaseList();
+            return new PhaseList(new responsePhase(targets[0], this, c => c is Miss), this);
+        }
     }
 
     //public class PeachPhase : HiddenPhase
@@ -54,9 +55,8 @@ namespace LOTK.Model
     //    public ActionPhase actionPhase { get; }
     //    public Player[] targets { get; }
     //    public int harm { get; set; }
-    //    public PeachPhase(Player player, Attack card, Player[] targets, ActionPhase actionPhase) : base(player)
+    //    public PeachPhase(Player player, Player target, ActionPhase actionPhase) : base(player)
     //    {
-    //        this.attack = card;
     //        this.targets = targets;
     //        this.actionPhase = actionPhase;
     //        this.harm = 1;
@@ -75,7 +75,7 @@ namespace LOTK.Model
     //    }
     //}
 
-   
+
     public class UseToolPhase : HiddenPhase
     {
         bool negated;

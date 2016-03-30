@@ -16,6 +16,7 @@ namespace LOTK.Model
         Player curRoundPlayer { get; }
         bool tick();
         void nextStage(UserAction yesOrNoAction);
+        Player nextPlayer(int curPlayer, int count);
         List<Card> drawCard(int v);
     }
 
@@ -26,6 +27,11 @@ namespace LOTK.Model
     {
         public int Num_Player { get; }
         public Player[] players { get; }
+        public Player nextPlayer(int curPlayer, int count)
+        {
+            return players[(curPlayer + count) % Num_Player];
+        }
+
         public CardSet cards { get; }
 
 

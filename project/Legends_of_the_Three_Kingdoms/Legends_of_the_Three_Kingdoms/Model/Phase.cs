@@ -47,7 +47,10 @@ namespace LOTK.Model
             Phase b = obj as Phase;
             return (b != null && player == b.player) ;
         }
-
+        public override int GetHashCode()
+        {
+            return playerID;
+        }
     }
 
     /// <summary>
@@ -199,17 +202,23 @@ namespace LOTK.Model
     {
         private Card respondCard;
         private int count;
+        private int handledCount;
 
         public NeedResponsePhase(Player player) : base(player) {
             count = 0;
+            handledCount = 0;
         }
 
         public sealed override PhaseList advance(IGame game)
         {
-            PhaseList ret =  handleResponse(count, respondCard, game);
-            respondCard = null;
-            return ret;
+            if (count == handledCount)
+            {
+                return askForResponse(count, game);
+            }
+            handledCount++;
+            return handleResponse(count, respondCard, game);
         }
+        public abstract PhaseList askForResponse(int count, IGame game);
 
         public abstract PhaseList handleResponse(int count, Card respondCard, IGame game);
 
@@ -219,6 +228,5 @@ namespace LOTK.Model
             count++;
         }
     }
-
 
 }

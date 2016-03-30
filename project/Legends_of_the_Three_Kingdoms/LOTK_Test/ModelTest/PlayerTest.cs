@@ -56,5 +56,10 @@ namespace LOTK_Test.ModelTest
         {
             throw new NotImplementedException();
         }
+
+        public Player nextPlayer(int curPlayer, int count)
+        {
+            return players[(curPlayer + count) % Num_Player];
+        }
     }
 }
