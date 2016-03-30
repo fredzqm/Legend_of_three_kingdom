@@ -34,6 +34,7 @@ namespace LOTK.Controller
             updateForm = view[0].updateForm;
             updateForm += view[1].updateForm;
 
+
             // set up timer
             aTimer = new System.Timers.Timer(DELAY_INTERVAL);
             aTimer.Elapsed += OnTimedEvent;

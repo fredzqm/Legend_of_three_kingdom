@@ -36,15 +36,13 @@ namespace LOTK.Model
                 cardLs[i] = itr.Current;
                 cardIDs[cardLs[i]] = i;
             }
-            cardPile = new LinkedList<Card>(cardLs);
+            cardPile = new LinkedList<Card>(cardLs.OrderBy(a => Guid.NewGuid()));
             discardPile = new LinkedList<Card>();
-            cardPile.OrderBy(a => Guid.NewGuid());
         }
 
         /// <summary>
         /// Known get the card instance with cardID
         /// This should always be true
-        /// <seealso cref="CardSet.getCardID(Card)">
         /// </summary>
         /// <param name="i">cardID</param>
         /// <returns>the corresponding Card instance</returns>
@@ -68,11 +66,6 @@ namespace LOTK.Model
             }
         }
 
-        public int getCardID(Card a)
-        {
-            return cardIDs[a];
-        }
-
         /// <summary>
         /// pop the top card on the cardpile
         /// </summary>
@@ -81,9 +74,8 @@ namespace LOTK.Model
         {
             if (cardPile.Count == 0)
             {
-                cardPile = discardPile;
+                cardPile = new LinkedList<Card>(discardPile.OrderBy(a => Guid.NewGuid()));
                 discardPile = new LinkedList<Card>();
-                cardPile.OrderBy(a => Guid.NewGuid());
                 if (cardPile.Count == 0)
                     throw new NoCardException("Run out of cards");
             }
