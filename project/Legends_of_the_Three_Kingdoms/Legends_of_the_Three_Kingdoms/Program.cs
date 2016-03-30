@@ -19,7 +19,7 @@ namespace LOTK
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             GameController controller = new GameController();
-            Application.Run(controller.view);
+            Application.Run(controller.view[0]);
         }
     }
 }

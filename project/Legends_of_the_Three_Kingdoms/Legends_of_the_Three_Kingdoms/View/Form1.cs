@@ -57,10 +57,12 @@ namespace LOTK.View
 
         delegate void updateDelegate();
 
+
+
         /// <summary>
         /// Update form after changing the required data package
         /// </summary>
-        public void updateForm()
+        public void updateFormhelper()
         {
             if (this.InvokeRequired)
                 this.Invoke(new updateDelegate(this.updateFormDelegate));
