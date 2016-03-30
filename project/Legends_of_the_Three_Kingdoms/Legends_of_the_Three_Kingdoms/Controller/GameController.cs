@@ -65,6 +65,7 @@ namespace LOTK.Controller
             rd.this_player_stage = game.curPhase.ToString();
             rd.tool_attack = CardToCardDisplay( game.players[ownPlayer].weapon);
             rd.tool_defence = CardToCardDisplay( game.players[ownPlayer].shield);
+            rd.UpdateHandCard = false;
             return rd;
         }
 
