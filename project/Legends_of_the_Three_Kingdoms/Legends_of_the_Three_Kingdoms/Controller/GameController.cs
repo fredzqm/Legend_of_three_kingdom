@@ -17,7 +17,7 @@ namespace LOTK.Controller
         public GameView[] view { get; }
         public Game game { get; }
 
-        public event UpdateForm updateForm;
+        public event UpdateForm updateViews;
 
         private System.Timers.Timer aTimer;
         public int ClickUser = -100;
@@ -26,18 +26,21 @@ namespace LOTK.Controller
         public GameController()
         {
             ICollection<Card> cardset = initialLizeCardSet();
-            game = new Game(NUM_OF_PLAYER, cardset);
+            view = new GameView[2];
+            view[0] =  new GameView(this, 0);
+            view[1] = new GameView(this, 1);
+            view[1].Show();
             view = new GameView[NUM_OF_PLAYER];
             view[0] = new GameView(this, 0);
-            updateForm = view[0].updateForm;
+            updateViews = view[0].updateForm;
+            updateViews += view[1].updateForm;
+            updateViews = view[0].updateForm;
             for (int i = 1; i < NUM_OF_PLAYER; i++)
             {
                 view[i] = new GameView(this, i);
                 view[i].Show();
-                updateForm += view[i].updateForm;
-            }
-
-            // set up timer
+                updateViews += view[i].updateForm;
+            }            // set up timer
             aTimer = new System.Timers.Timer(DELAY_INTERVAL);
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
@@ -50,7 +53,7 @@ namespace LOTK.Controller
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             if (game.tick())
-                updateForm();
+                updateViews();
         }
 
         public Required_Data getData(int ownPlayer)
@@ -93,6 +96,7 @@ namespace LOTK.Controller
                         UseCardAction e = new UseCardAction(SelectCardId, ClickUser,game);
                         game.nextStage(e);
                     }
+                    updateViews();
                     break;
                 case ButtonID.Cancel:
                     // game.nextStage(new UserActionYesOrNo(false));
@@ -114,6 +118,7 @@ namespace LOTK.Controller
                         UseCardAction e = new UseCardAction(SelectCardId, ClickUser, game);
                         game.nextStage(e);
                     }
+                    updateViews();
                     break;
                 case ButtonID.Ability:
                     //do nothing right
@@ -133,11 +138,9 @@ namespace LOTK.Controller
                 case ButtonID.ThisPlayer:
                     ClickUser = playerID;
                     break;
-                
                 default:
                     break;
             }
-            updateForm();
             
         }
 
