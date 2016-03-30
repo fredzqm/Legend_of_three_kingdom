@@ -38,7 +38,6 @@ namespace LOTK.View
         private event clickCard clickcard; 
         private event clickPlayer clickplayer;
         private  Required_Data data;
-
         /// <summary>
         /// Initialize the game view
         /// </summary>
@@ -79,14 +78,11 @@ namespace LOTK.View
             ThisPlayer.Text = data.players[0].name + ": "+ data.players[0].ability;
             tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
             tool_defence.Text = data.tool_defence.name + ": " + data.tool_defence.ability;
-            if (data.UpdateHandCard)
+            hand_cards.Items.Clear();
+            for (int i = 0; i < data.hold_cards.Count; i++)
             {
-                hand_cards.Items.Clear();
-                for (int i = 0; i < data.hold_cards.Count; i++)
-                {
 
-                    hand_cards.Items.Insert(i, data.hold_cards[i].name + ": " + data.hold_cards[i].ability);
-                }
+                hand_cards.Items.Insert(i, data.hold_cards[i].name+": "+data.hold_cards[i].ability);
             }
             string temp = "";
             for (int i = 0; i < data.pool_cards.Count; i++)
