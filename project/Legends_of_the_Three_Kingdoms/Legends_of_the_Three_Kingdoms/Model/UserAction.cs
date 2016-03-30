@@ -30,7 +30,7 @@ namespace LOTK.Model
             this.card = card;
             this.targets = targets;
         }
-        public UseCardAction(int CardID, IGame game) : this(game.cards[CardID]) { }
+        public UseCardAction(int CardID,int PlayerID, IGame game) : this(game.cards[CardID]) { }
     }
 
     public class CardAction : UserAction
