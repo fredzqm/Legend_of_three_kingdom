@@ -17,6 +17,7 @@ namespace LOTK.Controller
         public GameView[] view { get; }
         public Game game { get; }
 
+        public int Num_Of_Player { get { return NUM_OF_PLAYER; } }
         public event UpdateForm updateViews;
 
         private System.Timers.Timer aTimer;
@@ -26,21 +27,18 @@ namespace LOTK.Controller
         public GameController()
         {
             ICollection<Card> cardset = initialLizeCardSet();
-            view = new GameView[2];
-            view[0] =  new GameView(this, 0);
-            view[1] = new GameView(this, 1);
-            view[1].Show();
+            game = new Game(NUM_OF_PLAYER, cardset);
             view = new GameView[NUM_OF_PLAYER];
             view[0] = new GameView(this, 0);
-            updateViews = view[0].updateForm;
-            updateViews += view[1].updateForm;
             updateViews = view[0].updateForm;
             for (int i = 1; i < NUM_OF_PLAYER; i++)
             {
                 view[i] = new GameView(this, i);
                 view[i].Show();
                 updateViews += view[i].updateForm;
-            }            // set up timer
+            }            
+            
+            // set up timer
             aTimer = new System.Timers.Timer(DELAY_INTERVAL);
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
@@ -78,65 +76,28 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    //   game.nextStage(new UserActionYesOrNo(true));
                     if (SelectCardId < 0)
                     {
-                        YesOrNoAction e = new YesOrNoAction(true);
-                        game.nextStage(e);
-
+                        game.yesOrNoAction(playerID, true);
                     }
                     else if (ClickUser < 0)
                     {
-                        CardAction e = new CardAction(SelectCardId, game);
-                        game.nextStage(e);
+                        game.cardAction(playerID, SelectCardId);
                     }
                     else if (ClickUser > 0 && SelectCardId > 0)
                     {
-                        // UserActionPlayer e =new UserActionPlayer
-                        UseCardAction e = new UseCardAction(SelectCardId, ClickUser,game);
-                        game.nextStage(e);
+                        game.useCardAction(playerID, SelectCardId, ClickUser);
                     }
                     updateViews();
                     break;
                 case ButtonID.Cancel:
-                    // game.nextStage(new UserActionYesOrNo(false));
-                    //   game.nextStage(new UserActionYesOrNo(true));
-                    if (SelectCardId < 0)
-                    {
-                        YesOrNoAction e = new YesOrNoAction(false);
-                        game.nextStage(e);
-
-                    }
-                    else if (ClickUser < 0)
-                    {
-                        CardAction e = new CardAction(SelectCardId, game);
-                        game.nextStage(e);
-                    }
-                    else if (ClickUser > 0 && SelectCardId > 0)
-                    {
-                        // UserActionPlayer e =new UserActionPlayer
-                        UseCardAction e = new UseCardAction(SelectCardId, ClickUser, game);
-                        game.nextStage(e);
-                    }
+                    SelectCardId = -1;
+                    ClickUser = -1;
+                    game.yesOrNoAction(playerID, false);
                     updateViews();
                     break;
                 case ButtonID.Ability:
                     //do nothing right
-                    break;
-                case ButtonID.LoweRight:
-                    ClickUser = (playerID+1)%game.Num_Player;
-                    break;
-                case ButtonID.LowerLeft:
-                    ClickUser = (playerID + 4) % game.Num_Player;
-                    break;
-                case ButtonID.UpperLeft:
-                    ClickUser = (playerID + 3) % game.Num_Player;
-                    break;
-                case ButtonID.UpperRight:
-                    ClickUser = (playerID + 2) % game.Num_Player;
-                    break;
-                case ButtonID.ThisPlayer:
-                    ClickUser = playerID;
                     break;
                 default:
                     break;
@@ -151,7 +112,7 @@ namespace LOTK.Controller
 
         public void clickPlayer(int playerID, int clickedPlayerID)
         {
-            throw new NotImplementedException();
+            ClickUser = clickedPlayerID;
         }
 
         // -------------------------------------------------------------------------------------

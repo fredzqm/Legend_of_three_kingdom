@@ -69,6 +69,12 @@ namespace LOTK.Model
             nextStage(null);
         }
 
+        public void processUserInput(int fromPlayerID, UserAction userAction)
+        {
+            if (fromPlayerID == curPhasePlayer)
+                nextStage(userAction);
+        }
+
         /// <summary>
         /// Advance the next stage and skip the following stages that do not need user response
         /// </summary>
@@ -97,7 +103,22 @@ namespace LOTK.Model
                 }
             }
         }
-        
+
+        internal void useCardAction(int playerID, int cardID, params int[] targets)
+        {
+            processUserInput(playerID, new UseCardAction(cards[cardID], players[targets[0]]));
+        }
+
+        internal void cardAction(int playerID, int cardID)
+        {
+            processUserInput(playerID, new UseCardAction(cards[cardID]));
+        }
+
+        internal void yesOrNoAction(int playerID, bool v)
+        {
+            processUserInput(playerID, new YesOrNoAction(v));
+        }
+
 
         /// <summary>
         /// Under certain circumstances, the player might have only one option.

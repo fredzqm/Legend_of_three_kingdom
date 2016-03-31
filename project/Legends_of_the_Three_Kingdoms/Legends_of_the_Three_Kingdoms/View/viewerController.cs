@@ -11,6 +11,7 @@ namespace LOTK.View
     public interface viewController
     {
         Required_Data getData(int ownPlayer);
+        int Num_Of_Player { get; }
         /// <summary>
         /// function for any button
         /// </summary>

@@ -135,8 +135,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void UpperLeft_Click(object sender, EventArgs e)
         {
-            clickbutton(position, ButtonID.UpperLeft);
-
+            clickplayer(position, (position + 3) % controller.Num_Of_Player);
         }
         /// <summary>
         /// Listener for clicking LowerRight player
@@ -145,7 +144,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void LowerRight_Click(object sender, EventArgs e)
         {
-            clickbutton(position, ButtonID.LoweRight);
+            clickplayer(position, (position + 1) % controller.Num_Of_Player);
         }
         /// <summary>
         /// Listener for clicking LowerLeft player
@@ -154,8 +153,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void LowerLeft_Click(object sender, EventArgs e)
         {
-            clickbutton(position, ButtonID.LowerLeft);
-
+            clickplayer(position, (position + 4) % controller.Num_Of_Player);
         }
         /// <summary>
         /// Listener for clicking UpperRight player
@@ -164,8 +162,7 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void UpperRight_Click(object sender, EventArgs e)
         {
-            clickbutton(position, ButtonID.UpperRight);
-
+            clickplayer(position, (position + 2) % controller.Num_Of_Player);
         }
         /// <summary>
         /// Listener for clicking this player
@@ -174,21 +171,12 @@ namespace LOTK.View
         /// <param name="e"></param>
         private void ThisPlayer_Click(object sender, EventArgs e)
         {
-            clickbutton(position, ButtonID.ThisPlayer);
-
+            clickplayer(position, position);
         }
 
         public void hand_cards_SelectedIndexChanged()
         {
             int selectedcount = hand_cards.SelectedItems.Count;
-            // if (NumberOfCardsToClick != 0 && selectedcount != NumberOfCardsToClick)
-            //{
-
-            //}
-            //else
-            //{
-            //send;
-            //}
             if (hand_cards.SelectedItems.Count == 0)
             {
                 clickcard(position, -100);
@@ -200,18 +188,15 @@ namespace LOTK.View
                     hand_cards.SetItemChecked(i, false);
                 }
             }
-
             else
             {
                 int id = 0;
-                for (int i = 0; i < data.hold_cards.Count; i++)
+                for (int i = 0; i < hand_cards.SelectedItems.Count; i++)
                 {
                     if (hand_cards.CheckedItems[0].Equals(data.hold_cards.ElementAt(i).name + ": " + data.hold_cards.ElementAt(i).ability)){
                         id = data.hold_cards.ElementAt(i).id;
                     }
                 }
-
-
                 clickcard(position, id);
             }
         }
