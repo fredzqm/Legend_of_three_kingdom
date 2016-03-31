@@ -14,6 +14,14 @@ I did the codes in the View package. I built the GUI. All the buttons have funct
 
 Milestone3:
 Fred Zhang:
+This week I implement all the logic for Attack and Miss. I also written logics for AskForHelpPhase when a player is on the edge of dying.
+Phase is the central logic unit of this game. I have completed several kinds of Phase,
+including HiddenPhase and VisiblePhase.
+HiddenPhase are those Phases processing internal game logic. The user should not know the
+HiddenPhase. VisiblePhase are those Phases that the player are aware of. Some of them is just a delay -- PausePhase. Some of them requires the player to do something -- UserActionPhase.
+Furthermore, I discovered that in many cases, a player needs to just respond with a certain kind of card. So I create a simple Inerface to handle all of those similar cases. ResponsePhase & NeedResponsePhase.
+
+I also complete the Phase
 
 Songyu Wang:
 This week I changed the form a little bit to display more information. Also, one more window is built. Bugs on GUI side are fixed. Fred and I changed the codes to match each other's code. Right now we are able to display the result health after being attacked by a another player. It means all the buttons are functional. 

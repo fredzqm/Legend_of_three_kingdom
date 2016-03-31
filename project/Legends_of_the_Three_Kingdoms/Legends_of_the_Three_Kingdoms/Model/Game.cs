@@ -156,6 +156,5 @@ namespace LOTK.Model
                 cards.Add(this.cards.pop());
             return cards;
         }
-
     }
 }
