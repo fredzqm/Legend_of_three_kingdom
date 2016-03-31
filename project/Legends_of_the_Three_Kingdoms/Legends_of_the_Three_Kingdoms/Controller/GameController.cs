@@ -119,7 +119,7 @@ namespace LOTK.Controller
         // helper methods to convert model objects to view objects.
         private PlayerDisplay PlayerToPlayerDisplay(Player player)
         {
-            return new PlayerDisplay(player.name, player.description, player.playerID);
+            return new PlayerDisplay(player.name, player.description, player.playerID,player.health);
         }
 
         private CardDisplay CardToCardDisplay(Card card)
