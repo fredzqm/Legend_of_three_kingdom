@@ -195,6 +195,10 @@ namespace LOTK.Model
             }
             return null;
         }
+        public override string ToString()
+        {
+            return "Response Phase of " + playerID;
+        }
     }
 
 
