@@ -54,7 +54,8 @@ namespace LOTK.Model
         public Game(int Num_player, ICollection<Card> cardList)
         {
             Num_Player = Num_player;
-            
+            if (cardList == null)
+                throw new NotDefinedException("CardList is not defined");
             cards = new CardSet(cardList);
 
             players = new Player[Num_Player];
@@ -68,6 +69,22 @@ namespace LOTK.Model
             stages.add(new PlayerTurn(players[0]));
             nextStage(null);
         }
+
+        //public Game(Player[] players, ICollection<Card> cardList)
+        //{
+        //    Num_Player = players.Length;
+        //    if (cardList == null)
+        //        throw new NotDefinedException("CardList is not defined");
+        //    cards = new CardSet(cardList);
+
+        //    if (players == null)
+        //        throw new NotDefinedException("CardList is not defined");
+        //    this.players = players;
+
+        //    stages = new PhaseList();
+        //    stages.add(new PlayerTurn(players[0]));
+        //    nextStage(null);
+        //}
 
         public void processUserInput(int fromPlayerID, UserAction userAction)
         {
@@ -145,6 +162,8 @@ namespace LOTK.Model
         }
 
         /// <summary>
+        /// This method pops n cards from the card pile. If the card pile is empty, 
+        /// it automatically shuffles the discard card pile, and draw the rest there
         /// 
         /// </summary>
         /// <param name="num">Number of cards</param>
@@ -152,8 +171,13 @@ namespace LOTK.Model
         public List<Card> drawCard(int num)
         {
             List<Card> cards = new List<Card>();
-            for (int i = 0; i < num; i++)
-                cards.Add(this.cards.pop());
+            try{
+                for (int i = 0; i < num; i++)
+                    cards.Add(this.cards.pop());
+            }catch(NoCardException e)
+            {
+                throw new NoCardException("The card stack is empty");
+            }
             return cards;
         }
 

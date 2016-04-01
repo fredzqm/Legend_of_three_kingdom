@@ -8,7 +8,6 @@ namespace LOTK.Controller
 {
     public delegate void UpdateForm();
 
-
     public class GameController : viewController
     {
         const int NUM_OF_PLAYER = 2;

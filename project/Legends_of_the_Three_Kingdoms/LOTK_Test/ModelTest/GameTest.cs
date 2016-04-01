@@ -11,10 +11,11 @@ namespace LOTK_Test.ModelTest
     /// It involves cards, 
     /// </summary>
     [TestClass]
-    public class GameTest
+    public class GameIntegratedTest
     {
 
         private ICollection<Card> cardList;
+        private Player[] players;
 
         [TestInitialize()]
         public void initialize()
@@ -55,12 +56,19 @@ namespace LOTK_Test.ModelTest
             cardList.Add(new Peach(CardSuit.Heart, 7));
             cardList.Add(new Peach(CardSuit.Heart, 8));
             cardList.Add(new Peach(CardSuit.Heart, 9));
+
+            players = new Player[5];
+            for (int i = 0; i < 5; i++)
+            {
+                players[i] = new Player(i);
+            }
         }
 
         [TestMethod]
         public void GameConstructTest()
         {
-            IGame g = new Game(5 , cardList);
+            IGame g = new Game(players, cardList);
+            //IGame g = new Game(5 , cardList);
         }
 
         [TestMethod]
