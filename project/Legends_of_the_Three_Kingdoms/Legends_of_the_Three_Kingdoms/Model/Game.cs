@@ -70,21 +70,21 @@ namespace LOTK.Model
             nextStage(null);
         }
 
-        //public Game(Player[] players, ICollection<Card> cardList)
-        //{
-        //    Num_Player = players.Length;
-        //    if (cardList == null)
-        //        throw new NotDefinedException("CardList is not defined");
-        //    cards = new CardSet(cardList);
+        public Game(Player[] players, ICollection<Card> cardList)
+        {
+            Num_Player = players.Length;
+            if (cardList == null)
+                throw new NotDefinedException("CardList is not defined");
+            cards = new CardSet(cardList);
 
-        //    if (players == null)
-        //        throw new NotDefinedException("CardList is not defined");
-        //    this.players = players;
+            if (players == null)
+                throw new NotDefinedException("CardList is not defined");
+            this.players = players;
 
-        //    stages = new PhaseList();
-        //    stages.add(new PlayerTurn(players[0]));
-        //    nextStage(null);
-        //}
+            stages = new PhaseList();
+            stages.add(new PlayerTurn(players[0]));
+            nextStage(null);
+        }
 
         public void processUserInput(int fromPlayerID, UserAction userAction)
         {
