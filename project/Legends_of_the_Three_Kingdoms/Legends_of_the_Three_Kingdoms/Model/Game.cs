@@ -19,6 +19,7 @@ namespace LOTK.Model
         void nextStage(UserAction yesOrNoAction);
         Player nextPlayer(int curPlayer, int count);
         List<Card> drawCard(int v);
+        void start();
     }
 
     /// <summary>
@@ -59,16 +60,16 @@ namespace LOTK.Model
             stages = new PhaseList();
         }
 
-        //public void start()
-        //{
-        //    for (int i = 0; i < Num_Player; i++)
-        //    {
-        //        players[i].drawCards(4, this);
-        //    }
-        //    stages = new PhaseList();
-        //    stages.add(new PlayerTurn(players[0]));
-        //    nextStage(null);
-        //}
+        public void start()
+        {
+            for (int i = 0; i < Num_Player; i++)
+            {
+                players[i].drawCards(4, this);
+            }
+            stages = new PhaseList();
+            stages.add(new PlayerTurn(players[0]));
+            nextStage(null);
+        }
 
         public void processUserInput(int fromPlayerID, UserAction userAction)
         {

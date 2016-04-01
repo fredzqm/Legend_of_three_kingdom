@@ -28,6 +28,8 @@ namespace LOTK.Controller
             ICollection<Card> cardset = initialLizeCardSet();
             Player[] players = initializePlayers(Num_Of_Player);
             game = new Game(players, cardset);
+            game.start();
+
             view = new GameView[NUM_OF_PLAYER];
             view[0] = new GameView(this, 0);
             updateViews = view[0].updateForm;

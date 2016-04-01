@@ -113,7 +113,7 @@ namespace LOTK_Test.ModelTest
                 players8[i] = new Player(i);
             }
             game8 = new Game(players8, cardList);
-            game.start();
+            game8.start();
         }
 
         [TestMethod]
