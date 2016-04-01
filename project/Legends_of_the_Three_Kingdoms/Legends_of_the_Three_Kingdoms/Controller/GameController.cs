@@ -86,7 +86,7 @@ namespace LOTK.Controller
                     {
                         game.cardAction(playerID, SelectCardId);
                     }
-                    else if (ClickUser > 0 && SelectCardId > 0)
+                    else if (ClickUser >= 0 && SelectCardId >= 0)
                     {
                         game.useCardAction(playerID, SelectCardId, ClickUser);
                     }
