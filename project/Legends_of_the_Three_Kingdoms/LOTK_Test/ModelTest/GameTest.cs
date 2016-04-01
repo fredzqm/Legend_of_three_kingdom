@@ -49,6 +49,18 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(ls.isEmpty());
         }
 
+        [TestMethod]
+        public void testGameEmptyException()
+        {
+            try{
+                game.nextStage(null);
+                Assert.Fail("EmptyException not thrown");
+            }catch(EmptyException e)
+            {
+
+            }
+        }
+
         //public void testNextStage()
         //{
 

@@ -41,7 +41,7 @@ namespace LOTK.Model
         public Phase curPhase {
             get {
                 if (stages.isEmpty())
-                    throw new EmptyException("Phaselist is empty or .start() has not been called");
+                    throw new EmptyException("Phaselist is empty");
                 return stages.top();
             }
         }
