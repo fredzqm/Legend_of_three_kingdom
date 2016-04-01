@@ -46,30 +46,6 @@ namespace LOTK.Model
         public Player curRoundPlayer { get; private set; }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Num_player">The number of players</param>
-        /// <param name="cardList">The list of cards</param>
-        public Game(int Num_player, ICollection<Card> cardList)
-        {
-            Num_Player = Num_player;
-            if (cardList == null)
-                throw new NotDefinedException("CardList is not defined");
-            cards = new CardSet(cardList);
-
-            players = new Player[Num_Player];
-            for (int i = 0; i < Num_Player; i++)
-            {
-                players[i] = new Player(i);
-                players[i].drawCards(4, this);
-            }
-
-            stages = new PhaseList();
-            stages.add(new PlayerTurn(players[0]));
-            nextStage(null);
-        }
-
         public Game(Player[] players, ICollection<Card> cardList)
         {
             Num_Player = players.Length;

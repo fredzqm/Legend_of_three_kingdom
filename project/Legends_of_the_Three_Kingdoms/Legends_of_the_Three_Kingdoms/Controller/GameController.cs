@@ -26,7 +26,8 @@ namespace LOTK.Controller
         public GameController()
         {
             ICollection<Card> cardset = initialLizeCardSet();
-            game = new Game(NUM_OF_PLAYER, cardset);
+            Player[] players = initializePlayers(Num_Of_Player);
+            game = new Game(players, cardset);
             view = new GameView[NUM_OF_PLAYER];
             view[0] = new GameView(this, 0);
             updateViews = view[0].updateForm;
@@ -128,6 +129,15 @@ namespace LOTK.Controller
             return new CardDisplay(card.ToString(), card.getDescription(), game.cards[card] );
         }
 
+        public static Player[] initializePlayers(int n)
+        {
+            Player[] players = new Player[n];
+            for (int i = 0; i < n; i++)
+            {
+                players[i] = new Player(i);
+            }
+            return players;
+        }
 
         /// <summary>
         /// Initialize the cardSet with default values
