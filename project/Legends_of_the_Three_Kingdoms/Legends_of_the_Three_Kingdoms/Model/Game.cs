@@ -38,7 +38,13 @@ namespace LOTK.Model
 
 
         private PhaseList stages;
-        public Phase curPhase { get { return stages.top(); } }
+        public Phase curPhase {
+            get {
+                if (stages.isEmpty())
+                    throw new EmptyException("Phaselist is empty or .start() has not been called");
+                return stages.top();
+            }
+        }
         public Player curPhasePlayer { get { return curPhase.player; } }
 
         public bool timerAutoAdvance;
@@ -58,7 +64,6 @@ namespace LOTK.Model
             this.players = players;
 
             stages = new PhaseList();
-            stages.add(new PlayerTurn(players[0]));
         }
 
         public void start()
@@ -67,6 +72,7 @@ namespace LOTK.Model
             {
                 players[i].drawCards(4, this);
             }
+            stages.add(new PlayerTurn(players[0]));
             nextStage(null);
         }
 
