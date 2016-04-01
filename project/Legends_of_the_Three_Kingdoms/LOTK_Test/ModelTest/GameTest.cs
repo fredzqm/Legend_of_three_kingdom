@@ -20,6 +20,7 @@ namespace LOTK_Test.ModelTest
         private IGame game;
         private IGame game8;
 
+
         [TestInitialize()]
         public void initialize()
         {
@@ -72,7 +73,7 @@ namespace LOTK_Test.ModelTest
             {
                 players8[i] = new Player(i);
             }
-            game8 = new Game(players, cardList);
+            game8 = new Game(players8, cardList);
         }
 
         [TestMethod]
