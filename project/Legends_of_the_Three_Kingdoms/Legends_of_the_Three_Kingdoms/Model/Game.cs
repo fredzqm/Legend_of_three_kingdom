@@ -58,6 +58,7 @@ namespace LOTK.Model
             this.players = players;
 
             stages = new PhaseList();
+            stages.add(new PlayerTurn(players[0]));
         }
 
         public void start()
@@ -66,8 +67,6 @@ namespace LOTK.Model
             {
                 players[i].drawCards(4, this);
             }
-            stages = new PhaseList();
-            stages.add(new PlayerTurn(players[0]));
             nextStage(null);
         }
 

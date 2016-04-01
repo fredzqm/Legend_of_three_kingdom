@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Model;
 using System.Collections.Generic;
 using LOTK.Controller;
+using System.Reflection;
 
 namespace LOTK_Test.ModelTest
 {
@@ -39,7 +40,19 @@ namespace LOTK_Test.ModelTest
 
         }
 
+        [TestMethod]
+        public void testGameConstruct()
+        {
+            Type gameType = typeof(Game);
+            FieldInfo stagesField = gameType.GetField("stages", BindingFlags.NonPublic | BindingFlags.Instance);
+            PhaseList ls = stagesField.GetValue(game) as PhaseList;
+            Assert.IsTrue(ls.isEmpty());
+        }
 
+        //public void testNextStage()
+        //{
+
+        //}
 
 
     }
