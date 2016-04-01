@@ -165,6 +165,5 @@ namespace LOTK.Model
             }
             return cards;
         }
-
     }
 }

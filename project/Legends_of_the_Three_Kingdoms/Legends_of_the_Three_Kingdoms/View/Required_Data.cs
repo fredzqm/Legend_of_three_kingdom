@@ -67,14 +67,14 @@ namespace LOTK.View
         private object description;
         // TODO:
         public int id;
-        
+        internal int health;
 
-
-        public PlayerDisplay(string name, string description, int id) : this()
+        public PlayerDisplay(string name, string description, int id,int health) : this()
         {
             this.name = name;
             this.ability = description;
             this.id = id;
+            this.health = health;
         }
 
         public PlayerDisplay(int name1, object description) : this()
