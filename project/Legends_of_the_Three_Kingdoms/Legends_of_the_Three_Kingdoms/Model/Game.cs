@@ -45,7 +45,6 @@ namespace LOTK.Model
 
         public Player curRoundPlayer { get; private set; }
 
-
         public Game(Player[] players, ICollection<Card> cardList)
         {
             Num_Player = players.Length;
@@ -58,9 +57,18 @@ namespace LOTK.Model
             this.players = players;
 
             stages = new PhaseList();
-            stages.add(new PlayerTurn(players[0]));
-            nextStage(null);
         }
+
+        //public void start()
+        //{
+        //    for (int i = 0; i < Num_Player; i++)
+        //    {
+        //        players[i].drawCards(4, this);
+        //    }
+        //    stages = new PhaseList();
+        //    stages.add(new PlayerTurn(players[0]));
+        //    nextStage(null);
+        //}
 
         public void processUserInput(int fromPlayerID, UserAction userAction)
         {

@@ -40,6 +40,8 @@ namespace LOTK_Test.ModelTest
         }
 
 
+
+
     }
 
     /// <summary>
@@ -103,6 +105,7 @@ namespace LOTK_Test.ModelTest
                 players[i] = new Player(i);
             }
             game = new Game(players, cardList);
+            game.start();
 
             players8 = new Player[8];
             for (int i = 0; i < 8; i++)
@@ -110,6 +113,7 @@ namespace LOTK_Test.ModelTest
                 players8[i] = new Player(i);
             }
             game8 = new Game(players8, cardList);
+            game.start();
         }
 
         [TestMethod]
