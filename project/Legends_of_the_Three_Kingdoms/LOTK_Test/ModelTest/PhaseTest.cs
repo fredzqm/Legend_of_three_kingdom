@@ -10,12 +10,22 @@ namespace LOTK_Test.ModelTest
     [TestClass]
     public class PhaseTest
     {
+
+        private MockRepository mocks;
+
+        [TestInitialize()]
+        public void initialize()
+        {
+            mocks = new MockRepository();
+        }
+
+
         [TestMethod]
         public void PlayerFiveAdvancePhaseTest()
         {
-            Player p = new Player(0);
-            Player p2 = new Player(0);
-            Player p3 = new Player(0);
+            Player p = mocks.Stub<Player>(0);
+            Player p2 = mocks.Stub<Player>(0);
+            Player p3 = mocks.Stub<Player>(0);
             IGame testgame = new TestGame(5, p, p2, p3);
             PhaseList ls;
             ls = (new PlayerTurn(p)).advance(null, testgame);
@@ -62,7 +72,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void UserInputYES_OR_NOTest()
         {
-            Player p = new Player(0);
+            Player p = mocks.Stub<Player>(0);
             Assert.IsTrue((new JudgePhase(p)).advance(
                 new YesOrNoAction(false), null) != null);
             Assert.IsTrue((new JudgePhase(p)).advance(
@@ -85,8 +95,8 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void AttackHitTest()
         {
-            Player p1 = new Player(0);
-            Player p2 = new Player(1);
+            Player p1 = mocks.Stub<Player>(0);
+            Player p2 = mocks.Stub<Player>(1);
             IGame game = new TestGame(5, p1, p2);
             Card attack = new Attack(CardSuit.Spade, 1);
 
@@ -134,8 +144,9 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void AttackMissTest()
         {
-            Player p1 = new Player(0);
-            Player p2 = new Player(1);
+            Player p1 = mocks.Stub<Player>(0);
+            Player p2 = mocks.Stub<Player>(1);
+
             IGame game = new TestGame(5, p1, p2);
             Card attack = new Attack(CardSuit.Spade, 1);
             Miss miss = new Miss(CardSuit.Diamond, 2);
