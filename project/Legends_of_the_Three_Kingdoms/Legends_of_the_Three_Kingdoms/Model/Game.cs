@@ -96,6 +96,10 @@ namespace LOTK.Model
                 }
                 stages.pop();
                 stages.pushList(followingPhases);
+                if (stages.isEmpty())
+                {
+                    throw new EmptyException("The stages stack is empty");
+                }
                 if (curPhase.needResponse())
                 { // the next state need a user action for future decison
                   // but since it is supposed to be a responsive phase, pause a while before autoadvance

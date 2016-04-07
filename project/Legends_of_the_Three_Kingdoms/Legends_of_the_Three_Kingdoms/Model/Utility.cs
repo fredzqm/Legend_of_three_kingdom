@@ -141,7 +141,7 @@ namespace LOTK.Model
                 tail = tail.next;
             }
         }
-
+         
         public void push(Phase s)
         {
             if (head == null)
@@ -164,7 +164,7 @@ namespace LOTK.Model
             {
                 throw new EmptyException("Empty PhaseList Exception");
             }
-            Phase retStage = head.stage;
+            Phase retStage = head.data;
             if (head == tail)
             { // empty
                 head = null;
@@ -183,17 +183,24 @@ namespace LOTK.Model
         /// <param name="added"></param>
         public void pushList(PhaseList added)
         {
-            if (added.head == null)
-                return;
-            added.tail.next = head;
-            head = added.head;
+            if (isEmpty())
+            {
+                head = added.head;
+                tail = added.tail;
+            }
+            else if (added.isEmpty()){}
+            else
+            {
+                added.tail.next = head;
+                head = added.head;
+            }
         }
 
         public Phase top()
         {
             if (isEmpty())
                 throw new EmptyException("Phaselist is empty");
-            return head.stage;
+            return head.data;
         }
 
         public IEnumerator<Phase> GetEnumerator()
@@ -222,7 +229,7 @@ namespace LOTK.Model
                 {
                     if (curNode == null)
                         return null;
-                    return curNode.stage;
+                    return curNode.data;
                 }
             }
 
@@ -264,12 +271,12 @@ namespace LOTK.Model
 
         class Node
         {
-            internal Phase stage;
+            internal Phase data;
             internal Node next;
 
             public Node(Phase s)
             {
-                this.stage = s;
+                this.data = s;
                 this.next = null;
             }
 
@@ -281,7 +288,7 @@ namespace LOTK.Model
 
             public override string ToString()
             {
-                return stage.ToString();
+                return data.ToString();
             }
         }
     }

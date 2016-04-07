@@ -96,7 +96,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void nextStageMultipleTest()
+        public void nextStageUtillEmptyTest()
         {
             Type gameType = typeof(Game);
             FieldInfo stagesField = gameType.GetField("stages", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -125,8 +125,13 @@ namespace LOTK_Test.ModelTest
             game.nextStage(null);
             game.nextStage(null);
             game.nextStage(null);
-            game.nextStage(x);
+            try {
+                game.nextStage(x);
+                Assert.Fail("No exception thrown");
+            }catch(EmptyException e)
+            {
 
+            }
             PhaseList left = (PhaseList)stagesField.GetValue(game);
             Assert.IsTrue(left.isEmpty());
 
