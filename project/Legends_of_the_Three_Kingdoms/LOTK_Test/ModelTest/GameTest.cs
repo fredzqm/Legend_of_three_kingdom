@@ -67,29 +67,32 @@ namespace LOTK_Test.ModelTest
         {
             Type gameType = typeof(Game);
             FieldInfo stagesField = gameType.GetField("stages", BindingFlags.NonPublic | BindingFlags.Instance);
-            PhaseList ls1 = mocks.DynamicMock<PhaseList>();
-            PhaseList ls2 = mocks.DynamicMock<PhaseList>();
-            PhaseList ls3 = mocks.DynamicMock<PhaseList>();
-            PhaseList ls4 = mocks.DynamicMock<PhaseList>();
-            PhaseList ls5 = mocks.DynamicMock<PhaseList>();
-            PhaseList ls6 = mocks.DynamicMock<PhaseList>();
 
-            Player player = mocks.DynamicMock<Player>();
-            Phase p1 = mocks.DynamicMock<Phase>();
+            Player player = mocks.Stub<Player>(0);
+            Phase p1 = mocks.DynamicMock<Phase>(player);
+            Phase p2 = mocks.DynamicMock<Phase>(player);
+            Phase p3 = mocks.DynamicMock<Phase>(player);
+            Phase p4 = mocks.DynamicMock<Phase>(player);
 
-            stagesField.SetValue(game, ls1);
+            stagesField.SetValue(game, new PhaseList(p1));
 
             using (mocks.Ordered())
             {
-                Expect.Call(ls1.top()).Return(p1);
-                ls1.pop();
-                Expect.Call(ls1.pop()).Return(p1);
+                Expect.Call(p1.advance(null, game)).Return(new PhaseList(p2));
+                Expect.Call(p2.advance(null, game)).Return(new PhaseList(p3));
+                Expect.Call(p3.advance(null, game)).Return(new PhaseList(p4));
             }
 
             mocks.ReplayAll();
 
             game.nextStage(null);
+            game.nextStage(null);
+            game.nextStage(null);
 
+            Phase left =((PhaseList) stagesField.GetValue(game)).top();
+            Assert.AreEqual(p4, left);
+
+            mocks.VerifyAll();
         }
 
         //public void testNextStage()

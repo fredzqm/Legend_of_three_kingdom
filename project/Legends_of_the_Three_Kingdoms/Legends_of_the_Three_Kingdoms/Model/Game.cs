@@ -16,7 +16,7 @@ namespace LOTK.Model
         Phase curPhase { get; }
         Player curRoundPlayer { get; }
         bool tick();
-        void nextStage(UserAction yesOrNoAction);
+        void nextStage(UserAction userAction);
         Player nextPlayer(int curPlayer, int count);
         List<Card> drawCard(int v);
         void start();
