@@ -55,9 +55,9 @@ namespace LOTK_Test.ModelTest
         {
             IGame game = mocks.DynamicMock<IGame>();
 
-            Card x = mocks.Stub<Card>();
-            Card y = mocks.Stub<Card>();
-            Card z = mocks.Stub<Card>();
+            Card x = new Attack(CardSuit.Club, 2);
+            Card y = new Attack(CardSuit.Club, 3);
+            Card z = new Attack(CardSuit.Club, 4);
             List<Card> cards = new List<Card>();
             cards.Add(x);
             cards.Add(y);
