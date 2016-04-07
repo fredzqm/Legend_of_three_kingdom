@@ -26,6 +26,10 @@ namespace LOTK.Model
              : base(message)
         {
         }
+
+        public NoCardException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
 
 }

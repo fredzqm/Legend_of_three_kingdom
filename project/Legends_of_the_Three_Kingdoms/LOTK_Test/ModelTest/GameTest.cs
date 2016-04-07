@@ -4,6 +4,7 @@ using LOTK.Model;
 using System.Collections.Generic;
 using LOTK.Controller;
 using System.Reflection;
+using Rhino.Mocks;
 
 namespace LOTK_Test.ModelTest
 {
@@ -12,7 +13,7 @@ namespace LOTK_Test.ModelTest
     [TestClass]
     public class GameUnitTest
     {
-
+        private MockRepository mocks;
         private ICollection<Card> cardList;
         private Player[] players;
         private IGame game;
@@ -21,6 +22,8 @@ namespace LOTK_Test.ModelTest
         [TestInitialize()]
         public void initialize()
         {
+            mocks = new MockRepository();
+
             cardList = new List<Card>();
             cardList.Add(new Attack(CardSuit.Club, 2));
             cardList.Add(new Attack(CardSuit.Club, 3));
@@ -41,7 +44,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void testGameConstruct()
+        public void GameConstruct()
         {
             Type gameType = typeof(Game);
             FieldInfo stagesField = gameType.GetField("stages", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -50,15 +53,43 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void testGameEmptyException()
+        public void GameEmptyException()
         {
             try{
                 game.nextStage(null);
                 Assert.Fail("EmptyException not thrown");
-            }catch(EmptyException e)
-            {
+            }catch(EmptyException e) {}
+        }
 
+
+        [TestMethod]
+        public void nextStageTest()
+        {
+            Type gameType = typeof(Game);
+            FieldInfo stagesField = gameType.GetField("stages", BindingFlags.NonPublic | BindingFlags.Instance);
+            PhaseList ls1 = mocks.DynamicMock<PhaseList>();
+            PhaseList ls2 = mocks.DynamicMock<PhaseList>();
+            PhaseList ls3 = mocks.DynamicMock<PhaseList>();
+            PhaseList ls4 = mocks.DynamicMock<PhaseList>();
+            PhaseList ls5 = mocks.DynamicMock<PhaseList>();
+            PhaseList ls6 = mocks.DynamicMock<PhaseList>();
+
+            Player player = mocks.DynamicMock<Player>();
+            Phase p1 = mocks.DynamicMock<Phase>();
+
+            stagesField.SetValue(game, ls1);
+
+            using (mocks.Ordered())
+            {
+                Expect.Call(ls1.top()).Return(p1);
+                ls1.pop();
+                Expect.Call(ls1.pop()).Return(p1);
             }
+
+            mocks.ReplayAll();
+
+            game.nextStage(null);
+
         }
 
         //public void testNextStage()

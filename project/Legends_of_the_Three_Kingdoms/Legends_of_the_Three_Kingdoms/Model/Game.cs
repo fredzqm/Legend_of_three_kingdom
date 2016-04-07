@@ -38,13 +38,7 @@ namespace LOTK.Model
 
 
         private PhaseList stages;
-        public Phase curPhase {
-            get {
-                if (stages.isEmpty())
-                    throw new EmptyException("Phaselist is empty");
-                return stages.top();
-            }
-        }
+        public Phase curPhase {get {return stages.top();}}
         public Player curPhasePlayer { get { return curPhase.player; } }
 
         public bool timerAutoAdvance;
@@ -156,6 +150,7 @@ namespace LOTK.Model
         /// it automatically shuffles the discard card pile, and draw the rest there
         /// 
         /// </summary>
+        /// <exception cref="NoCardException"><seealso cref="PhaseList.pop"/></exception>
         /// <param name="num">Number of cards</param>
         /// <returns>the card drown</returns>
         public List<Card> drawCard(int num)
@@ -166,7 +161,7 @@ namespace LOTK.Model
                     cards.Add(this.cards.pop());
             }catch(NoCardException e)
             {
-                throw new NoCardException("The card stack is empty");
+                throw new NoCardException("The card stack is empty", e);
             }
             return cards;
         }

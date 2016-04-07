@@ -68,7 +68,9 @@ namespace LOTK.Model
 
         /// <summary>
         /// pop the top card on the cardpile
+        /// 
         /// </summary>
+        /// <exception cref="NoCardException">the list has no more card</exception>
         /// <returns>The top card</returns>
         public Card pop()
         {
@@ -189,6 +191,8 @@ namespace LOTK.Model
 
         public Phase top()
         {
+            if (isEmpty())
+                throw new EmptyException("Phaselist is empty");
             return head.stage;
         }
 

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Controller\GameController.cs" />
     <Compile Include="Model\CardLib.cs" />
+    <Compile Include="Model\CharacterLib.cs" />
     <Compile Include="Model\ExceptionHandler.cs" />
     <Compile Include="Model\PhaseHealth.cs" />
     <Compile Include="Model\PhaseFundamental.cs" />

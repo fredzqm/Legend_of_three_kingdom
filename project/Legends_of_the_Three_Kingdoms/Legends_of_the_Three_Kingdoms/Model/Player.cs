@@ -47,6 +47,11 @@ namespace LOTK.Model
             return p.playerID;
         }
 
+        public virtual bool canAttack(AttackPhase curPhase, IGame game)
+        {
+            return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.actionPhase.attackCount > 1 || curPhase.targets[0] == this);
+        }
+
         // ----------------------------------------------------
         // The codes below specify are virtual methods of Players.
         // A new character can be created by overriden those method to customize player's behavior
