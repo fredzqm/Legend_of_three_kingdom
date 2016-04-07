@@ -27,8 +27,6 @@ namespace LOTK.Model
             }
         }
 
-        public AttackPhase(Player player) : base(player) {}
-
         public override PhaseList handleResponse(int count, Card respondCard, IGame game)
         {
             if (count > 1)
