@@ -13,11 +13,11 @@ namespace LOTK_Test.ModelTest
     [TestClass]
     public class GameUnitTest
     {
-        private MockRepository mocks;
         private ICollection<Card> cardList;
         private Player[] players;
         private IGame game;
 
+        private MockRepository mocks;
 
         [TestInitialize()]
         public void initialize()

@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Model;
 using System.Collections.Generic;
+using Rhino.Mocks;
 
 namespace LOTK_Test.ModelTest
 {
@@ -11,6 +12,15 @@ namespace LOTK_Test.ModelTest
     [TestClass]
     public class PlayerTest
     {
+        private MockRepository mocks;
+
+        [TestInitialize()]
+        public void initialize()
+        {
+            mocks = new MockRepository();
+        }
+
+
         [TestMethod]
         public void HarmTest()
         {
@@ -38,6 +48,38 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(ret.isEmpty());
 
             Assert.AreEqual(health - harm, p.health);
+        }
+
+        [TestMethod]
+        public void drawCardTest()
+        {
+            IGame game = mocks.DynamicMock<IGame>();
+
+            Card x = mocks.Stub<Card>();
+            Card y = mocks.Stub<Card>();
+            Card z = mocks.Stub<Card>();
+            List<Card> cards = new List<Card>();
+            cards.Add(x);
+            cards.Add(y);
+            cards.Add(z);
+
+            using (mocks.Ordered())
+            {
+                Expect.Call(game.drawCard(3)).Return(cards);
+            }
+
+            mocks.ReplayAll();
+
+            Player p = new Player(0);
+            Assert.AreEqual(0, p.handCards.Count);
+
+            p.drawCards(3, game);
+            Assert.AreEqual(3, p.handCards.Count);
+            Assert.IsTrue(p.handCards.Contains(x));
+            Assert.IsTrue(p.handCards.Contains(y));
+            Assert.IsTrue(p.handCards.Contains(z));
+
+            mocks.VerifyAll();
         }
 
     }
