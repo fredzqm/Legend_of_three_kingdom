@@ -50,14 +50,14 @@ namespace LOTK.Model
         public CaoCao(int pos) : base(pos, "Cao Cao", "When Cao Cao is damaged by a card, he can immediately put it into his hand", 4)
         {
         }
-          //  public override  PhaseList harm(HarmPhase harmPhase, IGame game) { 
+        //    public override  PhaseList harm(HarmPhase harmPhase, IGame game) { 
         
-            //this.health -= harmPhase.harm;
-            //this.handCards.Add(harmPhase.card);
-            //if (health < 0)
-            //{
-             //   return new PhaseList(new AskForHelpPhase(this));
-            //}
+        //    this.health -= harmPhase.harm;
+        //    this.handCards.Add(harmPhase.card);
+        //    if (health < 0)
+        //    {
+        //        return new PhaseList(new AskForHelpPhase(this));
+        //    }
         //    return new PhaseList();
         //}
     }
