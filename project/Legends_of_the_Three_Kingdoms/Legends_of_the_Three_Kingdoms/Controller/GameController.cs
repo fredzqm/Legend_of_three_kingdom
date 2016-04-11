@@ -10,7 +10,7 @@ namespace LOTK.Controller
 
     public class GameController : viewController
     {
-        const int NUM_OF_PLAYER = 2;
+        const int NUM_OF_PLAYER = 5;
         const int DELAY_INTERVAL = 2000;
 
         public GameView[] view { get; }
@@ -136,7 +136,13 @@ namespace LOTK.Controller
             Player[] players = new Player[n];
             for (int i = 0; i < n; i++)
             {
-                players[i] = new Player(i);
+                //   players[i] = new Player(i);
+                players[0] = new LiuBei(0);
+                players[1] = new CaoCao(1);
+                players[2] = new SunQuan(2);
+                players[3] = new LuMeng(3);
+                players[4] = new ZhangFei(4);
+
             }
             return players;
         }
