@@ -41,6 +41,26 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(health - harm, p.health);
         }
 
+        [TestMethod]
+        public void CaoCaoAbtest()
+        {
+            Attack card = new Attack(CardSuit.Club, 1);
+            IGame game = new TestGame(1);
+            int health = 5;
+            int harm = 10;
+            Player p = new CaoCao(1);
+            int old = p.handCards.Count;
+            PhaseList ret = p.harm(new HarmPhase(p, null, harm, card), game);
+            int newc = p.handCards.Count;
+
+            Phase x = ret.pop();
+            Assert.IsInstanceOfType(x, typeof(AskForHelpPhase));
+            Assert.IsTrue(ret.isEmpty());
+
+            Assert.AreEqual(health - harm, p.health);
+            Assert.IsTrue(old + 1 == newc);
+        }
+
     }
 
     internal class TestGame : IGame

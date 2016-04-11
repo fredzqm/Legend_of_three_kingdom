@@ -8,7 +8,7 @@ namespace LOTK.Model
 {   /// <summary>
 /// Player:ZhangFei
 /// </summary>
-    class ZhangFei : Player
+   public  class ZhangFei : Player
     {/// <summary>
     /// create ZhangFei
     /// </summary>
@@ -27,7 +27,7 @@ namespace LOTK.Model
     /// <summary>
     /// Player LiuBei
     /// </summary>
-    class LiuBei : Player
+    public class LiuBei : Player
     {
         /// <summary>
         /// create LiuBei
@@ -42,7 +42,7 @@ namespace LOTK.Model
     /// <summary>
     /// Player CaoCao
     /// </summary>
-    class CaoCao : Player
+    public class CaoCao : Player
     {   /// <summary>
         /// create CaoCao
         /// </summary>
@@ -62,11 +62,11 @@ namespace LOTK.Model
         //}
     }
 
-    
+
     /// <summary>
     /// player SunQuan
     /// </summary>
-    class SunQuan : Player
+    public class SunQuan : Player
     {/// <summary>
     /// create SunQuan
     /// </summary>
@@ -80,7 +80,7 @@ namespace LOTK.Model
     /// <summary>
     /// Player Lumeng
     /// </summary>
-    class LuMeng : Player
+    public class LuMeng : Player
     {   /// <summary>
     /// Create Lumeng
     /// </summary>
