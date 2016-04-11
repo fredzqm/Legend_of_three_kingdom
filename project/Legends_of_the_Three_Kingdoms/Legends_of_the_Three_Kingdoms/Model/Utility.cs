@@ -7,6 +7,16 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
+
+    public interface ICardSet
+    {
+        Card this[int i] { get; }
+        int this[Card c] { get; }
+
+        Card pop();
+        void discard(Card card);
+    }
+
     /// <summary>
     /// CardSet is literally what it means. It represents the cardpile for this game
     /// The user can pop() the top of the cardStack, discard() card back to the cardpile.
@@ -14,7 +24,7 @@ namespace LOTK.Model
     /// 
     /// Each Card is associated with an ID, which can be get with get 
     /// </summary>
-    public class CardSet
+    public class CardSet : ICardSet
     {
         private readonly Card[] cardLs;
         private Dictionary<Card, int> cardIDs;
@@ -141,7 +151,7 @@ namespace LOTK.Model
                 tail = tail.next;
             }
         }
-         
+
         public void push(Phase s)
         {
             if (head == null)
@@ -188,7 +198,7 @@ namespace LOTK.Model
                 head = added.head;
                 tail = added.tail;
             }
-            else if (added.isEmpty()){}
+            else if (added.isEmpty()) { }
             else
             {
                 added.tail.next = head;

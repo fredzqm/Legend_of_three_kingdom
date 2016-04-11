@@ -88,7 +88,7 @@ namespace LOTK_Test.ModelTest
     {
         public int Num_Player { get; }
         public Player[] players { get; set; }
-        public CardSet cards { get; set; }
+        public ICardSet cards { get; set; }
         public Phase curPhase { get; }
         public Player curRoundPlayer { get; }
         public TestGame(int n)

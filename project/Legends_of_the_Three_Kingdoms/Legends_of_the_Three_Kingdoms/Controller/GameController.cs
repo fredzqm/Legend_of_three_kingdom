@@ -25,7 +25,7 @@ namespace LOTK.Controller
 
         public GameController()
         {
-            ICollection<Card> cardset = initialLizeCardSet();
+            CardSet cardset = initialLizeCardSet();
             Player[] players = initializePlayers(Num_Of_Player);
             game = new Game(players, cardset);
             game.start();
@@ -149,7 +149,7 @@ namespace LOTK.Controller
         /// Initialize the cardSet with default values
         /// </summary>
         /// <returns></returns>
-        public static ICollection<Card> initialLizeCardSet()
+        public static CardSet initialLizeCardSet()
         {
             ICollection<Card> ls = new List<Card>();
             ls.Add(new Attack(CardSuit.Club, 2));
@@ -187,7 +187,7 @@ namespace LOTK.Controller
             ls.Add(new Peach(CardSuit.Heart, 7));
             ls.Add(new Peach(CardSuit.Heart, 8));
             ls.Add(new Peach(CardSuit.Heart, 9));
-            return ls;
+            return new CardSet(ls);
         }
 
     }
