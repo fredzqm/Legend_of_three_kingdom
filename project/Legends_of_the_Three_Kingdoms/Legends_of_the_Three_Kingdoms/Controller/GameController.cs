@@ -134,16 +134,15 @@ namespace LOTK.Controller
         public static Player[] initializePlayers(int n)
         {
             Player[] players = new Player[n];
-            for (int i = 0; i < n; i++)
-            {
+            
                 //   players[i] = new Player(i);
                 players[0] = new LiuBei(0);
-                players[1] = new CaoCao(1);
+                players[4] = new CaoCao(4);
                 players[2] = new SunQuan(2);
-                players[3] = new LuMeng(3);
-                players[4] = new ZhangFei(4);
+                players[1] = new LuMeng(1);
+                players[3] = new ZhangFei(3);
 
-            }
+            
             return players;
         }
 

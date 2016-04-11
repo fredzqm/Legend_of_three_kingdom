@@ -7,7 +7,13 @@ namespace LOTK.Model
         public int harm { get; }
         public Player source { get; }
         public Attack card { get; }
-
+        /// <summary>
+        /// create harmphase
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="source"></param>
+        /// <param name="harm"></param>
+        /// <param name="card"></param>
         public HarmPhase(Player player, Player source, int harm,Attack card) : base(player)
         {
             this.source = source;
