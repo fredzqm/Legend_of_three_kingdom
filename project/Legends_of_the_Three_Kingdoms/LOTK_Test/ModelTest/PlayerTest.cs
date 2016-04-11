@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Model;
 using System.Collections.Generic;
+using Rhino.Mocks;
 
 namespace LOTK_Test.ModelTest
 {
@@ -11,6 +12,12 @@ namespace LOTK_Test.ModelTest
     [TestClass]
     public class PlayerTest
     {
+        private MockRepository mocks;
+        [TestInitialize()]
+        public void Initialize()
+        {
+            mocks = new MockRepository();
+        }
         [TestMethod]
         public void HarmTest()
         { Attack card = new Attack(CardSuit.Club,1);
@@ -42,17 +49,43 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void CaoCaoAbtest() 
+        public void CaoCaoAbtestmock() 
         {
-            Attack card = new Attack(CardSuit.Club, 1);
-            IGame game = new TestGame(1);
-            int harm = 1;
+            
             Player p = new CaoCao(1);
+            Player p2 = new ZhangFei(2);
+            int harm = 1;
+            Attack fakeCard = mocks.DynamicMock<Attack>(CardSuit.Club,(byte) 1);
+            IGame fakeGame = mocks.DynamicMock<IGame>();
+            HarmPhase fakeharm = mocks.DynamicMock<HarmPhase>(p,p2, harm, fakeCard);
+            
+           
             int old = p.handCards.Count;
-            PhaseList ret = p.harm(new HarmPhase(p, null, harm, card), game);
+            using (mocks.Ordered())
+            {
+                p.handCards.Add(fakeCard);
+            }
+            mocks.ReplayAll();
+            PhaseList ret = p.harm(new HarmPhase(p, null, harm, fakeCard), fakeGame);
             int newc = p.handCards.Count;
-     
-            Assert.IsTrue(old + 1 == newc);
+            Assert.IsTrue(old != newc);
+        }
+        [TestMethod]
+        public void CaoCaoAbtestnomock()
+        {
+            {
+                Attack card = new Attack(CardSuit.Club, 1);
+                IGame game = new TestGame(1);
+                int health = 5;
+                int harm = 1;
+                Player p = new CaoCao(1);
+                int old = p.handCards.Count;
+                PhaseList ret = p.harm(new HarmPhase(p, null, harm, card), game);
+                int newc = p.handCards.Count;
+
+
+                Assert.IsTrue(old + 1 == newc);
+            }
         }
 
     }
