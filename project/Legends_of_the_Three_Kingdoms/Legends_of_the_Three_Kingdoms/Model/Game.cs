@@ -116,7 +116,7 @@ namespace LOTK.Model
 
         internal void cardAction(int playerID, int cardID)
         {
-            processUserInput(playerID, new UseCardAction(cards[cardID]));
+            processUserInput(playerID, new CardAction(cards[cardID]));
         }
 
         internal void yesOrNoAction(int playerID, bool v)

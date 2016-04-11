@@ -81,14 +81,18 @@ namespace LOTK.Controller
                     if (SelectCardId < 0)
                     {
                         game.yesOrNoAction(playerID, true);
+                        ClickUser = -1;
                     }
                     else if (ClickUser < 0)
                     {
                         game.cardAction(playerID, SelectCardId);
+                        SelectCardId = -1;
                     }
                     else if (ClickUser >= 0 && SelectCardId >= 0)
                     {
                         game.useCardAction(playerID, SelectCardId, ClickUser);
+                        SelectCardId = -1;
+                        ClickUser = -1;
                     }
                     updateViews();
                     break;
