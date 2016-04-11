@@ -42,7 +42,7 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void CaoCaoAbtest()
+        public void CaoCaoAbtest() 
         {
             Attack card = new Attack(CardSuit.Club, 1);
             IGame game = new TestGame(1);
