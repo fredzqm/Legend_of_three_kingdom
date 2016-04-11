@@ -13,12 +13,12 @@ namespace LOTK_Test.ModelTest
     {
         [TestMethod]
         public void HarmTest()
-        {
+        { Attack card = new Attack(CardSuit.Club,1);
             IGame game = new TestGame(1);
             int health = 5;
             int harm = 2;
             Player p = new Player(0, "Name", "Descript", health);
-            PhaseList ret = p.harm(new HarmPhase(p, null, harm), game);
+            PhaseList ret = p.harm(new HarmPhase(p, null, harm,card), game);
             Assert.IsTrue(ret.isEmpty());
 
             Assert.AreEqual(health - harm , p.health);
@@ -27,11 +27,12 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void HarmDyingTest()
         {
+            Attack card = new Attack(CardSuit.Club, 1);
             IGame game = new TestGame(1);
             int health = 5;
             int harm = 10;
             Player p = new Player(0, "Name", "Descript", health);
-            PhaseList ret = p.harm(new HarmPhase(p, null, harm), game);
+            PhaseList ret = p.harm(new HarmPhase(p, null, harm,card), game);
 
             Phase x = ret.pop();
             Assert.IsInstanceOfType(x, typeof(AskForHelpPhase));

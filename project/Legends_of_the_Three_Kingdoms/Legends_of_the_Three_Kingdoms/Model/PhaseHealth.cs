@@ -6,11 +6,13 @@ namespace LOTK.Model
     {
         public int harm { get; }
         public Player source { get; }
+        public Attack card { get; }
 
-        public HarmPhase(Player player, Player source, int harm) : base(player)
+        public HarmPhase(Player player, Player source, int harm,Attack card) : base(player)
         {
             this.source = source;
             this.harm = harm;
+            this.card = card;
         }
 
         public override PhaseList advance(IGame game)

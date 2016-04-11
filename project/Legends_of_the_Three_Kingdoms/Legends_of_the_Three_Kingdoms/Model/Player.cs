@@ -20,7 +20,7 @@ namespace LOTK.Model
 
         public List<Card> handCards { get; }
         public int healthLimit { get; }
-        public int health { get; private set; }
+        public int health { get;  set; }
 
         public Card weapon { get; set; }
         public Card shield { get; set; }
