@@ -22,6 +22,7 @@ namespace LOTK.Controller
         private System.Timers.Timer aTimer;
         public int ClickUser = -100;
         public int SelectCardId = -100;
+        public int Ifabi = -10;
 
         public GameController()
         {
@@ -78,21 +79,29 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    if (SelectCardId < 0)
+                    if (SelectCardId < 0&&Ifabi<0)
                     {
                         game.yesOrNoAction(playerID, true);
                         ClickUser = -1;
                     }
-                    else if (ClickUser < 0)
+                    else if (ClickUser < 0&&Ifabi<0)
                     {
                         game.cardAction(playerID, SelectCardId);
                         SelectCardId = -1;
                     }
-                    else if (ClickUser >= 0 && SelectCardId >= 0)
+                    else if (ClickUser >= 0 && SelectCardId >= 0&&Ifabi<0)
                     {
                         game.useCardAction(playerID, SelectCardId, ClickUser);
                         SelectCardId = -1;
                         ClickUser = -1;
+                    }
+                    else if (ClickUser >= 0 && SelectCardId >= 0&& Ifabi==1)
+                    {
+                        //Liubei
+                    }
+                    else if (ClickUser < 0 && SelectCardId >= 0 && Ifabi == 1)
+                    {
+                        //sunquan
                     }
                     updateViews();
                     break;
@@ -103,7 +112,7 @@ namespace LOTK.Controller
                     updateViews();
                     break;
                 case ButtonID.Ability:
-                    //do nothing right
+                    Ifabi = 1;
                     break;
                 default:
                     break;

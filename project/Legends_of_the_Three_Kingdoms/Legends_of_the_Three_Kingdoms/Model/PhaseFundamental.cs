@@ -112,7 +112,7 @@ namespace LOTK.Model
         }
 
         public override string ToString()
-        {
+        { 
             return "Plyaer " + playerID + " at DiscardPhase";
         }
     }
