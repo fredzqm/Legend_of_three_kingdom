@@ -207,6 +207,17 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
+        public void LuMengAbtestnomock()
+        {
+            {
+                Player p = new LuMeng(1);
+                Attack card = new Attack(CardSuit.Club, 1);
+                p.handCards.Add(card);
+                Assert.IsTrue(p.handcardCount() == 0);
+            }
+        }
+
+        [TestMethod]
         public void CaoCaoAbtestnomock()
         {
             {

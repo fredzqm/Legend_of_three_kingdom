@@ -102,10 +102,10 @@ namespace LOTK.Model
         {
 
         }
-        public override int handcardCount()
-        {
-            return 0;
-        }
+    //    public override int handcardCount()
+      //  {
+       //     return 0;
+        //}
 
     }
 }
