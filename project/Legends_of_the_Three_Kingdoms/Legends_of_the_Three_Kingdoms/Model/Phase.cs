@@ -181,7 +181,24 @@ namespace LOTK.Model
             UseCardAction useCardAction = userAction as UseCardAction;
             if (useCardAction != null)
                 return responseUseCardAction(useCardAction.card, useCardAction.targets, game);
+            AbilityAction abilityAction = userAction as AbilityAction;
+            if (abilityAction != null)
+                return responseAbilityAction(abilityAction, game);
+            AbilityActionSun abilityActionsun = userAction as AbilityActionSun;
+            if (abilityActionsun != null)
+            {
+                return responseAbilityActionSun(abilityActionsun, game);
+            }
             throw new NotDefinedException("This kind of useraction is not yet defined");
+        }   
+
+        public virtual PhaseList responseAbilityAction(AbilityAction abilityAction, IGame game)
+        {
+            return null;
+        }
+        public virtual PhaseList responseAbilityActionSun(AbilityActionSun abilityAction, IGame game)
+        {
+            return null;
         }
 
         /// <summary>

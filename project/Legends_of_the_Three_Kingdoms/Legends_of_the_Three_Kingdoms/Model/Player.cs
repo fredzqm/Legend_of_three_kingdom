@@ -85,5 +85,19 @@ namespace LOTK.Model
             return new PhaseList();
         }
 
+        public virtual PhaseList ability(AbilityAction abilityAction, IGame game)
+        {
+            return null;
+        }
+
+        public virtual PhaseList abilitySun(AbilityActionSun abilityAction, IGame game)
+        {
+            return null;
+        }
+
+        public virtual int handcardCount()
+        {
+            return this.handCards.Count;
+        }
     }
 }

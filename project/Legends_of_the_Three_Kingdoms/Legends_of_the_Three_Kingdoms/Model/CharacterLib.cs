@@ -37,6 +37,12 @@ namespace LOTK.Model
         {
 
         }
+        public override PhaseList ability(AbilityAction abilityAction, IGame game)
+        {
+            this.handCards.Remove(abilityAction.card);
+            abilityAction.targets[0].handCards.Add(abilityAction.card);
+            return null;
+        }
 
     }
     /// <summary>
@@ -76,6 +82,12 @@ namespace LOTK.Model
         {
 
         }
+        public override PhaseList abilitySun(AbilityActionSun abilityAction, IGame game)
+        {
+            this.handCards.Remove(abilityAction.card);
+            this.drawCards(1,game);
+            return null;
+        }
 
     }
     /// <summary>
@@ -89,6 +101,10 @@ namespace LOTK.Model
         public LuMeng(int pos) : base(pos, "Lu Meng", "If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase", 4)
         {
 
+        }
+        public override int handcardCount()
+        {
+            return 0;
         }
 
     }

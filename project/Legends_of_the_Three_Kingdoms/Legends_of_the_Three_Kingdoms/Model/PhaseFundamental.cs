@@ -92,6 +92,18 @@ namespace LOTK.Model
             throw new Exception();
         }
 
+        public override PhaseList responseAbilityAction(AbilityAction abilityAction, IGame game)
+        {
+            player.ability(abilityAction, game);
+            return new PhaseList(this);
+        }
+
+        public override PhaseList responseAbilityActionSun(AbilityActionSun abilityAction, IGame game)
+        {
+            player.abilitySun(abilityAction, game);
+            return new PhaseList(this);
+        }
+
         public override string ToString()
         {
             return "Plyaer " + playerID + " at ActionPhase";
@@ -104,11 +116,21 @@ namespace LOTK.Model
 
         public override PhaseList autoAdvance(IGame game)
         {
-            return base.autoAdvance(game);
+            if (player.handcardCount() <= player.health)
+            {
+                return new PhaseList();
+            }
+            return new PhaseList(this);
         }
         public override PhaseList responseYesOrNo(bool yes, IGame game)
         {
-            return new PhaseList();
+            return autoAdvance(game);
+        }
+
+        public override PhaseList responseCardAction(Card card, IGame game)
+        {
+            player.discardCard(card, game);
+            return autoAdvance(game);
         }
 
         public override string ToString()

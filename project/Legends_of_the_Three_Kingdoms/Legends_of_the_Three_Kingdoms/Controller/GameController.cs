@@ -79,29 +79,29 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    if (SelectCardId < 0&&Ifabi<0)
+                    if (Ifabi == 1&&ClickUser>=0)
+                    {
+                        game.processUserInput(playerID, new AbilityAction(SelectCardId, ClickUser, game));
+                    }
+                    else if (Ifabi == 1 && ClickUser < 0)
+                    {
+                        game.processUserInput(playerID, new AbilityActionSun(SelectCardId, game));
+                    }
+                    else if (SelectCardId < 0 && Ifabi < 0)
                     {
                         game.yesOrNoAction(playerID, true);
                         ClickUser = -1;
                     }
-                    else if (ClickUser < 0&&Ifabi<0)
+                    else if (ClickUser < 0 && Ifabi < 0)
                     {
                         game.cardAction(playerID, SelectCardId);
                         SelectCardId = -1;
                     }
-                    else if (ClickUser >= 0 && SelectCardId >= 0&&Ifabi<0)
+                    else if (ClickUser >= 0 && SelectCardId >= 0 && Ifabi < 0)
                     {
                         game.useCardAction(playerID, SelectCardId, ClickUser);
                         SelectCardId = -1;
                         ClickUser = -1;
-                    }
-                    else if (ClickUser >= 0 && SelectCardId >= 0&& Ifabi==1)
-                    {
-                        //Liubei
-                    }
-                    else if (ClickUser < 0 && SelectCardId >= 0 && Ifabi == 1)
-                    {
-                        //sunquan
                     }
                     updateViews();
                     break;
@@ -149,9 +149,9 @@ namespace LOTK.Controller
             Player[] players = new Player[n];
 
             //   players[i] = new Player(i);
-            players[0] = new LiuBei(0);
-            players[1] = new LuMeng(1);
-            players[2] = new SunQuan(2);
+            players[2] = new LiuBei(2);
+            players[0] = new LuMeng(0);
+            players[1] = new SunQuan(1);
             players[3] = new ZhangFei(3);
             players[4] = new CaoCao(4);
 
