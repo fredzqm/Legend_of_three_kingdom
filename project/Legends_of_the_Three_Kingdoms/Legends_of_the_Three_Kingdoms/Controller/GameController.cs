@@ -148,13 +148,11 @@ namespace LOTK.Controller
         {
             Player[] players = new Player[n];
 
-            //   players[i] = new Player(i);
-            players[2] = new LiuBei(2);
             players[0] = new LuMeng(0);
             players[1] = new SunQuan(1);
+            players[2] = new LiuBei(2);
             players[3] = new ZhangFei(3);
             players[4] = new CaoCao(4);
-
 
             return players;
         }

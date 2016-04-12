@@ -124,6 +124,8 @@ namespace LOTK.Model
         }
         public override PhaseList responseYesOrNo(bool yes, IGame game)
         {
+            if (!yes)
+                return new PhaseList();
             return autoAdvance(game);
         }
 

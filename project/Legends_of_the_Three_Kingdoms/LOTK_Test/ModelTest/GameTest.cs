@@ -13,7 +13,7 @@ namespace LOTK_Test.ModelTest
     [TestClass]
     public class GameUnitTest
     {
-        private ICollection<Card> cardList;
+        private CardSet cardList;
         private Player[] players;
         private IGame game;
 
@@ -23,7 +23,6 @@ namespace LOTK_Test.ModelTest
         public void initialize()
         {
             mocks = new MockRepository();
-
             ICollection<Card> cards = new List<Card>();
             cards.Add(new Attack(CardSuit.Club, 2));
             cards.Add(new Attack(CardSuit.Club, 3));
@@ -34,12 +33,14 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Attack(CardSuit.Club, 8));
             cards.Add(new Attack(CardSuit.Club, 9));
 
+            cardList = new CardSet(cards);
+
             players = new Player[5];
             for (int i = 0; i < 5; i++)
             {
                 players[i] = new Player(i);
             }
-            game = new Game(players, new CardSet(cards));
+            game = new Game(players, cardList);
 
         }
 
