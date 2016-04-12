@@ -106,6 +106,27 @@ namespace LOTK_Test.ModelTest
 
             }
         }
+
+        [TestMethod]
+        public void LiuBeiAbtestmock()
+        {
+            {
+                Player p = new LiuBei(0);
+                Player[] ls = new Player[1];
+                Attack fakeCard = mocks.DynamicMock<Attack>(CardSuit.Club, (byte)1);
+                IGame fakeGame = mocks.DynamicMock<IGame>();
+                AbilityAction fakeAb = mocks.DynamicMock<AbilityAction>(fakeCard, ls);
+                ls[0] = new ZhangFei(1);
+                using (mocks.Ordered())
+                {
+                    p.handCards.Remove(fakeCard);
+                }
+                mocks.ReplayAll();
+                p.ability(fakeAb,fakeGame);
+                
+
+            }
+        }
         [TestMethod]
         public void LiuBeiAbtestnomockBVA()
         {
