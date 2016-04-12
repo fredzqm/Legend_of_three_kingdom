@@ -62,7 +62,7 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(ls.isEmpty());
 
             ls = (new DiscardPhase(p)).advance(null, testgame);
-            Assert.IsNull(ls); // in the future this will be changed to true
+            Assert.IsTrue(ls.isEmpty()); // in the future this will be changed to true
             ls = (new DiscardPhase(p)).advance(new YesOrNoAction(true), testgame);
             Assert.IsTrue(ls.isEmpty());
             ls = (new DiscardPhase(p)).advance(new YesOrNoAction(false), testgame);

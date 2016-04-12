@@ -32,6 +32,30 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Attack(CardSuit.Club, 7));
             cards.Add(new Attack(CardSuit.Club, 8));
             cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
 
             cardList = new CardSet(cards);
 

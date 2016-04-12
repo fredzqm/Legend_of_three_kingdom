@@ -133,6 +133,7 @@ namespace LOTK.Model
         {
             while (player.handcardCount() > player.health)
             {
+                player.handCards.RemoveAt(0);
             }
             return new PhaseList();
         }
