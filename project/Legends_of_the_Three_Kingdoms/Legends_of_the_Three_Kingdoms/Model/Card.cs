@@ -8,14 +8,27 @@ namespace LOTK.Model
 {
 
     /// <summary>
-    /// An instance 
+    /// Claas of different kinds cards
     /// </summary>
     public abstract class Card
-    {
+    {/// <summary>
+    /// type of card
+    /// </summary>
         public CardType type { get; }
+        /// <summary>
+        /// suit of card
+        /// </summary>
         public CardSuit suit { get; }
+        /// <summary>
+        /// card's number
+        /// </summary>
         public byte num { get; }
-
+        /// <summary>
+        /// create card
+        /// </summary>
+        /// <param name="suit"></param>
+        /// <param name="type"></param>
+        /// <param name="num"></param>
         public Card(CardSuit s, CardType t, byte n)
         {
             this.suit = s;
@@ -33,23 +46,55 @@ namespace LOTK.Model
         {
             return type.GetHashCode() + suit.GetHashCode() + num.GetHashCode();
         }
-
+        /// <summary>
+        /// get number of target for this card
+        /// </summary>
+        /// <returns></returns>
         public abstract int numOfTargets();
-
+        /// <summary>
+        ///  get a string as card description
+        /// </summary>
+        /// <returns></returns>
         public abstract string getDescription();
 
     }
-
+    /// <summary>
+    /// subclass of card 
+    /// </summary>
     public abstract class BasicCard : Card
     {
+        /// <summary>
+        /// create basic card
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="n"></param>
         public BasicCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
     }
+    /// <summary>
+    /// subclass of card
+    /// </summary>
     public abstract class ToolCard : Card
     {
+        /// <summary>
+        /// create tool card
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="n"></param>
         public ToolCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
     }
+    /// <summary>
+    /// subclass of delaytoolcard
+    /// </summary>
     public abstract class DelayToolCard : ToolCard
     {
+        /// <summary>
+        /// create delaytool card
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="n"></param>
         public DelayToolCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
 
         public override int numOfTargets()
@@ -58,31 +103,65 @@ namespace LOTK.Model
         }
 
     }
+    /// <summary>
+    /// subclass of card
+    /// </summary>
     public abstract class NonDelayToolCard : ToolCard
     {
+        /// <summary>
+        /// create non delay tool card
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="n"></param>
         public NonDelayToolCard(CardSuit s, CardType t, byte n) : base(s, t, n) { }
     }
-
+    /// <summary>
+    /// subclass of card
+    /// </summary>
     public abstract class Equipment : Card
     {
+        /// <summary>
+        /// create euipment card
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="n"></param>
         public Equipment(CardSuit s, CardType t, byte n) : base(s, t, n) { }
         public override int numOfTargets()
         {
             return 0;
         }
     }
-
+    /// <summary>
+    /// subclass of Euipment card
+    /// </summary>
     public abstract class Weapon : Equipment
     {
+        /// <summary>
+        /// create weapon
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="n"></param>
         public Weapon(CardSuit s, CardType t, byte n) : base(s, t, n) { }
     }
+    /// <summary>
+    /// subclass of Equipment
+    /// </summary>
     public abstract class Shield : Equipment
     {
+        /// <summary>
+        /// create shield
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="n"></param>
         public Shield(CardSuit s, CardType t, byte n) : base(s, t, n) { }
     }
 
     /// <summary>
-    /// Incomplete now, 
+    /// Incomplete now, Type pf cards
     /// </summary>
     public enum CardType
     {
@@ -140,6 +219,9 @@ namespace LOTK.Model
         Club,
     }
 
+    /// <summary>
+    /// kinds of cards
+    /// </summary>
     public enum CardCategory
     {
         Basic,
