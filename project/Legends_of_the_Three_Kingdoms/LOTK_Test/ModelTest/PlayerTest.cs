@@ -106,6 +106,19 @@ namespace LOTK_Test.ModelTest
 
             }
         }
+        [TestMethod]
+        public void SunQuanAbtestnomock()
+        {
+            {
+                Player p = new SunQuan(0);
+                Attack card = new Attack(CardSuit.Heart, (byte)1);
+                p.handCards.Add(card);
+                p.abilitySun(new AbilityActionSun(card), new TestGame(1));
+                Assert.IsTrue(p.handCards.Count == 1);
+                Assert.IsFalse(card==p.handCards[0]);
+
+            }
+        }
 
         [TestMethod]
         public void LiuBeiAbtestmock()
@@ -127,6 +140,27 @@ namespace LOTK_Test.ModelTest
 
             }
         }
+
+        //[TestMethod]
+        //public void SunQuanAbtestmock()
+        //{
+        //    {
+        //        Player p = new SunQuan(0);
+        //        Attack fakeCard = mocks.DynamicMock<Attack>(CardSuit.Club, (byte)1);
+        //        IGame fakeGame = mocks.DynamicMock<IGame>();
+        //        AbilityActionSun fakeAb = mocks.DynamicMock<AbilityActionSun>(fakeCard);
+ 
+        //        using (mocks.Ordered())
+        //        {
+        //            p.handCards.Remove(fakeCard);
+        //            p.drawCards(1, fakeGame);
+        //        }
+        //        mocks.ReplayAll();
+        //        p.abilitySun(fakeAb, fakeGame);
+
+
+        //    }
+        //}
         [TestMethod]
         public void LiuBeiAbtestnomockBVA()
         {
@@ -253,7 +287,9 @@ namespace LOTK_Test.ModelTest
 
         public List<Card> drawCard(int v)
         {
-            throw new NotImplementedException();
+            List < Card > a = new List<Card>();
+            a.Add(new Attack(CardSuit.Heart, 1));
+            return a;
         }
 
         public Player nextPlayer(int curPlayer, int count)
