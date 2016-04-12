@@ -141,26 +141,26 @@ namespace LOTK_Test.ModelTest
             }
         }
 
-        //[TestMethod]
-        //public void SunQuanAbtestmock()
-        //{
-        //    {
-        //        Player p = new SunQuan(0);
-        //        Attack fakeCard = mocks.DynamicMock<Attack>(CardSuit.Club, (byte)1);
-        //        IGame fakeGame = mocks.DynamicMock<IGame>();
-        //        AbilityActionSun fakeAb = mocks.DynamicMock<AbilityActionSun>(fakeCard);
- 
-        //        using (mocks.Ordered())
-        //        {
-        //            p.handCards.Remove(fakeCard);
-        //            p.drawCards(1, fakeGame);
-        //        }
-        //        mocks.ReplayAll();
-        //        p.abilitySun(fakeAb, fakeGame);
+        [TestMethod]
+        public void SunQuanAbtestmock()
+        {
+            {
+                Player p = new SunQuan(0);
+                Attack fakeCard = mocks.DynamicMock<Attack>(CardSuit.Club, (byte)1);
+                IGame fakeGame = mocks.DynamicMock<IGame>();
+                AbilityActionSun fakeAb = mocks.DynamicMock<AbilityActionSun>(fakeCard);
+
+                using (mocks.Ordered())
+                {
+                    p.handCards.Remove(fakeCard);
+                    p.drawCards(1, fakeGame);
+                }
+                mocks.ReplayAll();
+                p.abilitySun(fakeAb, fakeGame);
 
 
-        //    }
-        //}
+            }
+        }
         [TestMethod]
         public void LiuBeiAbtestnomockBVA()
         {
