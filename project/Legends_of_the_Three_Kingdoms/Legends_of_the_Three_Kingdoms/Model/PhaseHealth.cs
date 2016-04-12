@@ -1,7 +1,9 @@
 ﻿using System;
 
 namespace LOTK.Model
-{
+{/// <summary>
+/// subclass of hiddenphase
+/// </summary>
     public class HarmPhase : HiddenPhase
     {
         public int harm { get; }
@@ -26,9 +28,14 @@ namespace LOTK.Model
             return player.harm(this, game);
         }
     }
-
+    /// <summary>
+    /// subclass of need preponse phase
+    /// </summary>
     public class AskForHelpPhase : NeedResponsePhase
-    {
+    {/// <summary>
+    /// create ask for help phase
+    /// </summary>
+    /// <param name="player"></param>
         public AskForHelpPhase(Player player) : base(player) {}
 
         public override PhaseList askForResponse(int count, IGame g)
@@ -48,10 +55,17 @@ namespace LOTK.Model
             return askForResponse(count, g);
         }
     }
-
+    /// <summary>
+    /// subclass of hidden phase 
+    /// </summary>
     public class RecoverPhase : HiddenPhase
     {
         public int recover { get;}
+        /// <summary>
+        /// create recover phase
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="recover"></param>
         public RecoverPhase(Player player, int recover): base(player)
         {
             this.recover = recover;
