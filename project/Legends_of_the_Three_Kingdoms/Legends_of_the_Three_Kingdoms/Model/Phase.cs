@@ -58,7 +58,10 @@ namespace LOTK.Model
     /// Many of them are very important in carrying on the game logic.
     /// </summary>
     public abstract class HiddenPhase : Phase
-    {
+    {   /// <summary>
+    /// create hidden phase
+    /// </summary>
+    /// <param name="player"></param>
         public HiddenPhase(Player player) : base(player) { }
 
 
@@ -94,7 +97,11 @@ namespace LOTK.Model
         /// If this game can be processed without userinput, this is the time that the game model should wait before processing it.
         /// </summary>
         public int waitTime {get;}
-
+        /// <summary>
+        /// create visible phase
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="waitTime"></param>
         public VisiblePhase(Player player, int waitTime) : base(player)
         {
             this.waitTime = waitTime;
@@ -118,6 +125,11 @@ namespace LOTK.Model
     /// </summary>
     public abstract class PausePhase : VisiblePhase
     {
+        /// <summary>
+        /// create pause phase
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="waitTime"></param>
         public PausePhase(Player player, int waitTime) : base(player, waitTime) { }
 
         public sealed override PhaseList advance(UserAction userAction, IGame game)
@@ -191,11 +203,22 @@ namespace LOTK.Model
             }
             throw new NotDefinedException("This kind of useraction is not yet defined");
         }   
-
+        /// <summary>
+        /// this method is only for Liu Bei's ability
+        /// </summary>
+        /// <param name="abilityAction"></param>
+        /// <param name="game"></param>
+        /// <returns></returns>
         public virtual PhaseList responseAbilityAction(AbilityAction abilityAction, IGame game)
         {
             return null;
         }
+        /// <summary>
+        /// this method is only for Sun Quan's ability
+        /// </summary>
+        /// <param name="abilityAction"></param>
+        /// <param name="game"></param>
+        /// <returns></returns>
         public virtual PhaseList responseAbilityActionSun(AbilityActionSun abilityAction, IGame game)
         {
             return null;
@@ -318,7 +341,10 @@ namespace LOTK.Model
         private Card respondCard;
         private int count;
         private int handledCount;
-
+        /// <summary>
+        /// create need response phase 
+        /// </summary>
+        /// <param name="player"></param>
         public NeedResponsePhase(Player player) : base(player) {
             count = 0;
             handledCount = 0;
