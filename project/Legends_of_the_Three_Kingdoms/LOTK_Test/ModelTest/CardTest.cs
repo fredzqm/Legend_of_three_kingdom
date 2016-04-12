@@ -18,7 +18,7 @@ namespace LOTK_Test.ModelTest
             Card c = new Attack(CardSuit.Club, 0);
             ICollection<Card> ls = new List<Card>();
             ls.Add(c);
-            CardSet s = new CardSet(ls);
+            ICardSet s = new CardSet(ls);
             Assert.AreEqual(c, s[0]);
         }
 
@@ -32,7 +32,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(new Miss(CardSuit.Diamond, 2));
             ls.Add(new Attack(CardSuit.Spade, 3));
             ls.Add(new Wine(CardSuit.Club, 4));
-            CardSet s = new CardSet(ls);
+            ICardSet s = new CardSet(ls);
             s.discard(new Wine(CardSuit.Spade, 5));
         }
 
@@ -42,7 +42,7 @@ namespace LOTK_Test.ModelTest
             Card a = new Attack(CardSuit.Club, 0);
             ICollection<Card> ls = new List<Card>();
             ls.Add(a);
-            CardSet s = new CardSet(ls);
+            ICardSet s = new CardSet(ls);
             Assert.AreEqual(a, s.pop());
         }
 
@@ -54,7 +54,7 @@ namespace LOTK_Test.ModelTest
             ICollection<Card> ls = new List<Card>();
             ls.Add(a);
             ls.Add(b);
-            CardSet s = new CardSet(ls);
+            ICardSet s = new CardSet(ls);
             Card x = s.pop();
             Card y = s.pop();
             Assert.IsTrue((a.Equals(x) && b.Equals(y))
@@ -72,7 +72,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(new Wine(CardSuit.Club, 4));
 
             int size = ls.Count;
-            CardSet s = new CardSet(ls);
+            ICardSet s = new CardSet(ls);
             for (int i = 0; i < size; i++)
             {
                 Card c = s.pop();
@@ -94,7 +94,7 @@ namespace LOTK_Test.ModelTest
             lsbackup.Add(new Wine(CardSuit.Club, 4));
 
             int size = lsbackup.Count;
-            CardSet s = new CardSet(lsbackup);
+            ICardSet s = new CardSet(lsbackup);
 
             ls = new List<Card>(lsbackup);
             for (int i = 0; i < size; i++)
@@ -116,7 +116,7 @@ namespace LOTK_Test.ModelTest
             lsbackup.Add(new Wine(CardSuit.Club, 4));
 
             int size = lsbackup.Count;
-            CardSet s = new CardSet(lsbackup);
+            ICardSet s = new CardSet(lsbackup);
 
             for (int j = 0; j < 12; j++)
             {
@@ -143,7 +143,7 @@ namespace LOTK_Test.ModelTest
             lsbackup.Add(new Wine(CardSuit.Club, 4));
 
             int size = lsbackup.Count;
-            CardSet s = new CardSet(lsbackup);
+            ICardSet s = new CardSet(lsbackup);
 
             Card c;
             for (int j = size; j > 0; j--)
@@ -179,7 +179,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(d);
             Card e = new Wine(CardSuit.Club, 4);
             ls.Add(e);
-            CardSet s = new CardSet(ls);
+            ICardSet s = new CardSet(ls);
 
             Assert.AreEqual(a, s[s[a]]);
             Assert.AreEqual(b, s[s[b]]);

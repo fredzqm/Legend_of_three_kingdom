@@ -113,6 +113,7 @@ namespace LOTK.View
             this.UpperLeft.Text = "UpperLeft";
             this.UpperLeft.UseVisualStyleBackColor = true;
             this.UpperLeft.Click += new System.EventHandler(this.UpperLeft_Click);
+
             // 
             // UpperRight
             // 

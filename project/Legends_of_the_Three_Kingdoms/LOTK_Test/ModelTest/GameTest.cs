@@ -13,33 +13,33 @@ namespace LOTK_Test.ModelTest
     [TestClass]
     public class GameUnitTest
     {
-        private MockRepository mocks;
         private ICollection<Card> cardList;
         private Player[] players;
         private IGame game;
 
+        private MockRepository mocks;
 
         [TestInitialize()]
         public void initialize()
         {
             mocks = new MockRepository();
 
-            cardList = new List<Card>();
-            cardList.Add(new Attack(CardSuit.Club, 2));
-            cardList.Add(new Attack(CardSuit.Club, 3));
-            cardList.Add(new Attack(CardSuit.Club, 4));
-            cardList.Add(new Attack(CardSuit.Club, 5));
-            cardList.Add(new Attack(CardSuit.Club, 6));
-            cardList.Add(new Attack(CardSuit.Club, 7));
-            cardList.Add(new Attack(CardSuit.Club, 8));
-            cardList.Add(new Attack(CardSuit.Club, 9));
+            ICollection<Card> cards = new List<Card>();
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
 
             players = new Player[5];
             for (int i = 0; i < 5; i++)
             {
                 players[i] = new Player(i);
             }
-            game = new Game(players, cardList);
+            game = new Game(players, new CardSet(cards));
 
         }
 
@@ -149,7 +149,7 @@ namespace LOTK_Test.ModelTest
     public class GameIntegratedTest
     {
 
-        private ICollection<Card> cardList;
+        private ICardSet cardList;
         private Player[] players;
         private Player[] players8;
         private IGame game;
@@ -159,43 +159,44 @@ namespace LOTK_Test.ModelTest
         [TestInitialize()]
         public void initialize()
         {
-            cardList = new List<Card>();
-            cardList.Add(new Attack(CardSuit.Club, 2));
-            cardList.Add(new Attack(CardSuit.Club, 3));
-            cardList.Add(new Attack(CardSuit.Club, 4));
-            cardList.Add(new Attack(CardSuit.Club, 5));
-            cardList.Add(new Attack(CardSuit.Club, 6));
-            cardList.Add(new Attack(CardSuit.Club, 7));
-            cardList.Add(new Attack(CardSuit.Club, 8));
-            cardList.Add(new Attack(CardSuit.Club, 9));
+            ICollection<Card> cards = new List<Card>();
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
 
-            cardList.Add(new Attack(CardSuit.Spade, 2));
-            cardList.Add(new Attack(CardSuit.Spade, 3));
-            cardList.Add(new Attack(CardSuit.Spade, 4));
-            cardList.Add(new Attack(CardSuit.Spade, 5));
-            cardList.Add(new Attack(CardSuit.Spade, 6));
-            cardList.Add(new Attack(CardSuit.Spade, 7));
-            cardList.Add(new Attack(CardSuit.Spade, 8));
-            cardList.Add(new Attack(CardSuit.Spade, 9));
+            cards.Add(new Attack(CardSuit.Spade, 2));
+            cards.Add(new Attack(CardSuit.Spade, 3));
+            cards.Add(new Attack(CardSuit.Spade, 4));
+            cards.Add(new Attack(CardSuit.Spade, 5));
+            cards.Add(new Attack(CardSuit.Spade, 6));
+            cards.Add(new Attack(CardSuit.Spade, 7));
+            cards.Add(new Attack(CardSuit.Spade, 8));
+            cards.Add(new Attack(CardSuit.Spade, 9));
 
-            cardList.Add(new Miss(CardSuit.Diamond, 2));
-            cardList.Add(new Miss(CardSuit.Diamond, 3));
-            cardList.Add(new Miss(CardSuit.Diamond, 4));
-            cardList.Add(new Miss(CardSuit.Diamond, 5));
-            cardList.Add(new Miss(CardSuit.Diamond, 6));
-            cardList.Add(new Miss(CardSuit.Diamond, 7));
-            cardList.Add(new Miss(CardSuit.Diamond, 8));
-            cardList.Add(new Miss(CardSuit.Diamond, 9));
+            cards.Add(new Miss(CardSuit.Diamond, 2));
+            cards.Add(new Miss(CardSuit.Diamond, 3));
+            cards.Add(new Miss(CardSuit.Diamond, 4));
+            cards.Add(new Miss(CardSuit.Diamond, 5));
+            cards.Add(new Miss(CardSuit.Diamond, 6));
+            cards.Add(new Miss(CardSuit.Diamond, 7));
+            cards.Add(new Miss(CardSuit.Diamond, 8));
+            cards.Add(new Miss(CardSuit.Diamond, 9));
 
-            cardList.Add(new Peach(CardSuit.Heart, 2));
-            cardList.Add(new Peach(CardSuit.Heart, 3));
-            cardList.Add(new Peach(CardSuit.Heart, 4));
-            cardList.Add(new Peach(CardSuit.Heart, 5));
-            cardList.Add(new Peach(CardSuit.Heart, 6));
-            cardList.Add(new Peach(CardSuit.Heart, 7));
-            cardList.Add(new Peach(CardSuit.Heart, 8));
-            cardList.Add(new Peach(CardSuit.Heart, 9));
+            cards.Add(new Peach(CardSuit.Heart, 2));
+            cards.Add(new Peach(CardSuit.Heart, 3));
+            cards.Add(new Peach(CardSuit.Heart, 4));
+            cards.Add(new Peach(CardSuit.Heart, 5));
+            cards.Add(new Peach(CardSuit.Heart, 6));
+            cards.Add(new Peach(CardSuit.Heart, 7));
+            cards.Add(new Peach(CardSuit.Heart, 8));
+            cards.Add(new Peach(CardSuit.Heart, 9));
 
+            cardList = new CardSet(cards);
             players = new Player[5];
             for (int i = 0; i < 5; i++)
             {
@@ -204,6 +205,7 @@ namespace LOTK_Test.ModelTest
             game = new Game(players, cardList);
             game.start();
 
+            cardList = new CardSet(cards);
             players8 = new Player[8];
             for (int i = 0; i < 8; i++)
             {

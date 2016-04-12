@@ -12,7 +12,7 @@ namespace LOTK.Model
     {
         int Num_Player { get; }
         Player[] players { get; }
-        CardSet cards { get; }
+        ICardSet cards { get; }
         Phase curPhase { get; }
         Player curRoundPlayer { get; }
         bool tick();
@@ -34,7 +34,7 @@ namespace LOTK.Model
             return players[(curPlayer + count) % Num_Player];
         }
 
-        public CardSet cards { get; }
+        public ICardSet cards { get; }
 
 
         private PhaseList stages;
@@ -46,12 +46,12 @@ namespace LOTK.Model
 
         public Player curRoundPlayer { get; private set; }
 
-        public Game(Player[] players, ICollection<Card> cardList)
+        public Game(Player[] players, ICardSet cardList)
         {
             Num_Player = players.Length;
             if (cardList == null)
                 throw new NotDefinedException("CardList is not defined");
-            cards = new CardSet(cardList);
+            cards = cardList;
 
             if (players == null)
                 throw new NotDefinedException("CardList is not defined");
@@ -116,7 +116,7 @@ namespace LOTK.Model
 
         internal void cardAction(int playerID, int cardID)
         {
-            processUserInput(playerID, new UseCardAction(cards[cardID]));
+            processUserInput(playerID, new CardAction(cards[cardID]));
         }
 
         internal void yesOrNoAction(int playerID, bool v)

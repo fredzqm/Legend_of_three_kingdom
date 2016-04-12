@@ -18,6 +18,7 @@ namespace LOTK_Test.ModelTest
         {
             mocks = new MockRepository();
         }
+
         [TestMethod]
         public void HarmTest()
         { Attack card = new Attack(CardSuit.Club,1);
@@ -25,7 +26,7 @@ namespace LOTK_Test.ModelTest
             int health = 5;
             int harm = 2;
             Player p = new Player(0, "Name", "Descript", health);
-            PhaseList ret = p.harm(new HarmPhase(p, null, harm,card), game);
+            PhaseList ret = p.harm(new HarmPhase(p, null, harm, card), game);
             Assert.IsTrue(ret.isEmpty());
 
             Assert.AreEqual(health - harm , p.health);
@@ -95,10 +96,41 @@ namespace LOTK_Test.ModelTest
             int health = 5;
             int harm = 2;
             Player p = new Player(0, "Name", "Descript", health);
-            int old=p.handCards.Count;
+            int old = p.handCards.Count;
             PhaseList ret = p.harm(new HarmPhase(p, null, harm, card), game);
             int newc = p.handCards.Count;
             Assert.IsTrue(old == newc);
+        }
+
+        public void drawCardTest()
+        {
+            IGame game = mocks.DynamicMock<IGame>();
+
+            Card x = new Attack(CardSuit.Club, 2);
+            Card y = new Attack(CardSuit.Club, 3);
+            Card z = new Attack(CardSuit.Club, 4);
+            List<Card> cards = new List<Card>();
+            cards.Add(x);
+            cards.Add(y);
+            cards.Add(z);
+
+            using (mocks.Ordered())
+            {
+                Expect.Call(game.drawCard(3)).Return(cards);
+            }
+
+            mocks.ReplayAll();
+
+            Player p = new Player(0);
+            Assert.AreEqual(0, p.handCards.Count);
+
+            p.drawCards(3, game);
+            Assert.AreEqual(3, p.handCards.Count);
+            Assert.IsTrue(p.handCards.Contains(x));
+            Assert.IsTrue(p.handCards.Contains(y));
+            Assert.IsTrue(p.handCards.Contains(z));
+
+            mocks.VerifyAll();
         }
 
     }
@@ -107,7 +139,7 @@ namespace LOTK_Test.ModelTest
     {
         public int Num_Player { get; }
         public Player[] players { get; set; }
-        public CardSet cards { get; set; }
+        public ICardSet cards { get; set; }
         public Phase curPhase { get; }
         public Player curRoundPlayer { get; }
         public TestGame(int n)
