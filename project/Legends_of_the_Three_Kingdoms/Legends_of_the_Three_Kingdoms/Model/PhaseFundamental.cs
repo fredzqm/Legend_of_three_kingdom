@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
-
+    /// <summary>
+    /// subclass of hiddenphase 
+    /// </summary>
     public class PlayerTurn : HiddenPhase
-    {
+    {/// <summary>
+    /// create playerturn phase
+    /// </summary>
+    /// <param name="player"></param>
         public PlayerTurn(Player player) : base(player) { }
 
         public override PhaseList advance(IGame game)
@@ -21,9 +26,14 @@ namespace LOTK.Model
             return "Plyaer " + playerID + " at PlayerTurn";
         }
     }
-
+    /// <summary>
+    /// subclass of pause phase
+    /// </summary>
     public class JudgePhase : PausePhase
-    {
+    {/// <summary>
+    /// create judge phase
+    /// </summary>
+    /// <param name="player"></param>
         public JudgePhase(Player player) : base(player, 1) { }
 
         public override PhaseList advance(IGame game)
@@ -36,9 +46,14 @@ namespace LOTK.Model
             return "Plyaer " + playerID + " at JudgePhase";
         }
     }
-
+    /// <summary>
+    /// subclass of pause phase
+    /// </summary>
     public class DrawingPhase : PausePhase
-    {
+    {/// <summary>
+    /// create draw phase
+    /// </summary>
+    /// <param name="player"></param>
         public DrawingPhase(Player player) : base(player, 1) { }
 
         public override PhaseList advance(IGame game)
@@ -52,12 +67,17 @@ namespace LOTK.Model
             return "Plyaer " + playerID + " at DrawingPhase";
         }
     }
-
+    /// <summary>
+    /// subclass of useractionphase
+    /// </summary>
     public class ActionPhase : UserActionPhase
     {
         public int attackCount { get;  set; }
         public bool drunk { get;  set; }
-
+        /// <summary>
+        /// create action phase
+        /// </summary>
+        /// <param name="player"></param>
         public ActionPhase(Player player) : base(player, 20) { }
 
         public override PhaseList responseYesOrNo(bool yes, IGame game)
@@ -109,9 +129,14 @@ namespace LOTK.Model
             return "Plyaer " + playerID + " at ActionPhase";
         }
     }
-
+    /// <summary>
+    /// subclass of useractionphase
+    /// </summary>
     public class DiscardPhase : UserActionPhase
-    {
+    {/// <summary>
+    /// create discard phase
+    /// </summary>
+    /// <param name="player"></param>
         public DiscardPhase(Player player) : base(player, 1) { }
 
         public override PhaseList autoAdvance(IGame game)
