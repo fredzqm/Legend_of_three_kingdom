@@ -82,12 +82,12 @@ namespace LOTK.Model
         {
 
         }
-        //public override PhaseList abilitySun(AbilityActionSun abilityAction, IGame game)
-        //{
-        //    this.handCards.Remove(abilityAction.card);
-        //    this.drawCards(1,game);
-        //    return null;
-        //}
+        public override PhaseList abilitySun(AbilityActionSun abilityAction, IGame game)
+        {
+            this.handCards.Remove(abilityAction.card);
+            this.drawCards(1,game);
+            return null;
+        }
 
     }
     /// <summary>
