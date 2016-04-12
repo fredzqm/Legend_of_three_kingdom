@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Model;
 using System.Collections.Generic;
 using Rhino.Mocks;
+using System.Reflection;
 
 namespace LOTK_Test.ModelTest
 {
@@ -71,6 +72,8 @@ namespace LOTK_Test.ModelTest
             int newc = p.handCards.Count;
             Assert.IsTrue(old != newc);
         }
+
+
         [TestMethod]
         public void ZhangFeiAbtestnomock()
         {
@@ -85,6 +88,22 @@ namespace LOTK_Test.ModelTest
                 AttackPhase pha = new AttackPhase(p,card,ls,acpha);
                 pha.actionPhase.attackCount = 1;
                 Assert.IsFalse(p.canNotAttack(pha, game));
+            }
+        }
+
+        [TestMethod]
+        public void LiuBeiAbtestnomock()
+        {
+            {
+               Player p=new LiuBei(0);
+                Player[] ls = new Player[1];
+                ls[0] = new ZhangFei(1);
+                Attack card = new Attack(CardSuit.Heart, (byte)1);
+                p.handCards.Add(card);
+                p.ability(new AbilityAction(card, ls),new TestGame(1));
+                Assert.IsTrue(p.handCards.Count == 0);
+                Assert.IsTrue(ls[0].handCards.Count == 1);
+
             }
         }
 
