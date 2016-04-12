@@ -90,6 +90,7 @@ namespace LOTK_Test.ModelTest
                 Assert.IsFalse(p.canNotAttack(pha, game));
             }
         }
+         
 
         [TestMethod]
         public void LiuBeiAbtestnomock()
