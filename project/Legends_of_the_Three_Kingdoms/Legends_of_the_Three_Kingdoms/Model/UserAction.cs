@@ -60,6 +60,28 @@ namespace LOTK.Model
         }
         public UserActionPlayer(int playerID, IGame game) : this(game.players[playerID]) { }
     }
+
+    public class AbilityAction : UserAction
+    {
+        public ICollection<Player> players;
+        public ICollection<Card> cards;
+
+        public AbilityAction(ICollection<Player> players, ICollection<Card> cards)
+        {
+            this.players = players;
+            this.cards = cards;
+        }
+        public AbilityAction(IGame game, ICollection<int> playerIDs, ICollection<int> cardIDs)
+        {
+            this.players = new List<Player>();
+            foreach (int i in playerIDs)
+                players.Add(game.players[i]);
+            this.cards = new List<Card>();
+            foreach (int i in cardIDs)
+                cards.Add(game.cards[i]);
+
+        }
+    }
     //public enum UserActionType
     //{
     //    YES_OR_NO, // 1 or 0

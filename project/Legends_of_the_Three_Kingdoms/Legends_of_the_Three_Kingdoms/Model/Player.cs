@@ -47,9 +47,9 @@ namespace LOTK.Model
             return p.playerID;
         }
 
-        public virtual bool canAttack(AttackPhase curPhase, IGame game)
+        public virtual bool canNotAttack(AttackPhase curPhase, IGame game)
         {
-            return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.actionPhase.attackCount > 1 || curPhase.targets[0] == this);
+            return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.actionPhase.attackCount >= 1 || curPhase.targets[0] == this);
         }
 
         // ----------------------------------------------------

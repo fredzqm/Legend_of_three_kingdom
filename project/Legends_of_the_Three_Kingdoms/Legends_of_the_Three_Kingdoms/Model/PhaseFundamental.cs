@@ -43,6 +43,7 @@ namespace LOTK.Model
 
         public override PhaseList advance(IGame game)
         {
+            player.drawCards(2, game);
             return new PhaseList();
         }
 

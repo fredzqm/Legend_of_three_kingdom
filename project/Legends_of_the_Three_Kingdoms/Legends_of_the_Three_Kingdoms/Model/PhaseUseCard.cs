@@ -40,8 +40,9 @@ namespace LOTK.Model
 
         public override PhaseList askForResponse(int count, IGame game)
         {
-            if (player.canAttack(this, game))
+            if (player.canNotAttack(this, game))
                 return new PhaseList();
+            actionPhase.attackCount++;
             return new PhaseList(new ResponsePhase(targets[0], this, c => c is Miss), this);
         }
     }
