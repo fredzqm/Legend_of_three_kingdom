@@ -33,7 +33,7 @@ namespace LOTK_Test.ModelTest
             ls.Add(new Attack(CardSuit.Spade, 3));
             ls.Add(new Wine(CardSuit.Club, 4));
             ICardSet s = new CardSet(ls);
-            s.discard(new Wine(CardSuit.Spade, 5));
+            s.discardOne(new Wine(CardSuit.Spade, 5));
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace LOTK_Test.ModelTest
             ICollection<Card> ls = new List<Card>();
             ls.Add(a);
             ICardSet s = new CardSet(ls);
-            Assert.AreEqual(a, s.pop());
+            Assert.AreEqual(a, s.drawOne());
         }
 
         [TestMethod]
@@ -55,8 +55,8 @@ namespace LOTK_Test.ModelTest
             ls.Add(a);
             ls.Add(b);
             ICardSet s = new CardSet(ls);
-            Card x = s.pop();
-            Card y = s.pop();
+            Card x = s.drawOne();
+            Card y = s.drawOne();
             Assert.IsTrue((a.Equals(x) && b.Equals(y))
                 || (a.Equals(y) && b.Equals(x)));
         }
@@ -75,7 +75,7 @@ namespace LOTK_Test.ModelTest
             ICardSet s = new CardSet(ls);
             for (int i = 0; i < size; i++)
             {
-                Card c = s.pop();
+                Card c = s.drawOne();
                 Assert.IsTrue(ls.Contains(c));
                 ls.Remove(c);
             }
@@ -99,10 +99,10 @@ namespace LOTK_Test.ModelTest
             ls = new List<Card>(lsbackup);
             for (int i = 0; i < size; i++)
             {
-                Card c = s.pop();
+                Card c = s.drawOne();
                 ls.Remove(c);
             }
-            s.pop();
+            s.drawOne();
         }
 
         [TestMethod]
@@ -123,10 +123,10 @@ namespace LOTK_Test.ModelTest
                 ls = new List<Card>(lsbackup);
                 for (int i = 0; i < size; i++)
                 {
-                    Card c = s.pop();
+                    Card c = s.drawOne();
                     Assert.IsTrue(ls.Contains(c));
                     ls.Remove(c);
-                    s.discard(c);
+                    s.discardOne(c);
                 }
                 Assert.AreEqual(0, ls.Count);
             }
@@ -151,12 +151,12 @@ namespace LOTK_Test.ModelTest
                 ls = new List<Card>(lsbackup);
                 for (int i = 0; i < j - 1; i++)
                 {
-                    c = s.pop();
+                    c = s.drawOne();
                     Assert.IsTrue(ls.Contains(c));
                     ls.Remove(c);
-                    s.discard(c);
+                    s.discardOne(c);
                 }
-                c = s.pop();
+                c = s.drawOne();
                 Assert.IsTrue(ls.Contains(c));
                 ls.Remove(c);
                 lsbackup.Remove(c);

@@ -125,8 +125,16 @@ namespace LOTK.Model
         public override PhaseList responseYesOrNo(bool yes, IGame game)
         {
             if (!yes)
-                return new PhaseList();
+                return timeOutAdvance(game);
             return autoAdvance(game);
+        }
+
+        public override PhaseList timeOutAdvance(IGame game)
+        {
+            while (player.handcardCount() > player.health)
+            {
+            }
+            return new PhaseList();
         }
 
         public override PhaseList responseCardAction(Card card, IGame game)

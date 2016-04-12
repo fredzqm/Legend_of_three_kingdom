@@ -10,16 +10,59 @@ namespace LOTK.Model
     /// </summary>
     public interface IGame
     {
+        /// <summary>
+        /// the number of players in the game
+        /// </summary>
         int Num_Player { get; }
+        
+        /// <summary>
+        /// the player array of the game
+        /// </summary>
         Player[] players { get; }
-        ICardSet cards { get; }
-        Phase curPhase { get; }
-        Player curRoundPlayer { get; }
-        bool tick();
-        void nextStage(UserAction userAction);
+
+        /// <summary>
+        /// a small helper method that help step through the player in game sequence
+        /// </summary>
+        /// <param name="curPlayer">the player to start</param>
+        /// <param name="count">the number of steps to proceeds</param>
+        /// <returns></returns>
         Player nextPlayer(int curPlayer, int count);
-        List<Card> drawCard(int v);
+
+        /// <summary>
+        /// the card set of the game
+        /// </summary>
+        ICardSet cards { get; }
+        
+        /// <summary>
+        /// The current phase of the game
+        /// </summary>
+        Phase curPhase { get; }
+
+        /// <summary>
+        /// the player under whose turn the game is in
+        /// </summary>
+        Player curRoundPlayer { get; }
+
+        /// <summary>
+        /// Under certain circumstances, the player might have only one option.
+        /// In those cases, we want the game to pause for a small interval
+        /// and then automactially advance to the next stage.
+        /// This can save the player from unnesessary clicks.
+        /// 
+        /// This method will be called from the controller at specific interval.
+        /// This interval is customizable by controller not the game itself.
+        /// </summary>
+        /// <returns>True if the game is auto advanced and the GUI should update correspondedly</returns>
+        bool tick();
+
+
+        /// <summary>
+        /// kick off the game
+        /// </summary>
         void start();
+
+        void nextStage(UserAction userAction);
+        
     }
 
     /// <summary>
@@ -27,8 +70,10 @@ namespace LOTK.Model
     /// </summary>
     public class Game : IGame
     {
-        public int Num_Player { get; }
+        public int Num_Player { get { return players.Length; }}
+
         public Player[] players { get; }
+
         public Player nextPlayer(int curPlayer, int count)
         {
             return players[(curPlayer + count) % Num_Player];
@@ -36,19 +81,20 @@ namespace LOTK.Model
 
         public ICardSet cards { get; }
 
-
         private PhaseList stages;
-        public Phase curPhase {get {return stages.top();}}
-        public Player curPhasePlayer { get { return curPhase.player; } }
 
-        public bool timerAutoAdvance;
-        public bool timerVisit;
+        public Phase curPhase {get {return stages.top();}}
 
         public Player curRoundPlayer { get; private set; }
 
+        /// <summary>
+        /// construct a game given player and cardlist
+        /// It uses dependency injection, so players and carlist can be easily tested.
+        /// </summary>
+        /// <param name="players"></param>
+        /// <param name="cardList"></param>
         public Game(Player[] players, ICardSet cardList)
         {
-            Num_Player = players.Length;
             if (cardList == null)
                 throw new NotDefinedException("CardList is not defined");
             cards = cardList;
@@ -70,11 +116,19 @@ namespace LOTK.Model
             nextStage(null);
         }
 
+        /// <summary>
+        /// process the user input
+        /// </summary>
+        /// <param name="fromPlayerID">the player who gives this input</param>
+        /// <param name="userAction">the user action performed</param>
         public void processUserInput(int fromPlayerID, UserAction userAction)
         {
-            if (fromPlayerID == curPhasePlayer)
+            if (fromPlayerID == curPhase.player)
                 nextStage(userAction);
         }
+
+        private bool timerAutoAdvance;
+        private bool timerVisit;
 
         /// <summary>
         /// Advance the next stage and skip the following stages that do not need user response
@@ -109,33 +163,39 @@ namespace LOTK.Model
             }
         }
 
+        /// <summary>
+        /// handle a use card action by the user
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="cardID"></param>
+        /// <param name="targets"></param>
         internal void useCardAction(int playerID, int cardID, params int[] targets)
         {
             processUserInput(playerID, new UseCardAction(cards[cardID], players[targets[0]]));
         }
 
+        /// <summary>
+        /// handle a card action by the user
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="cardID"></param>
         internal void cardAction(int playerID, int cardID)
         {
             processUserInput(playerID, new CardAction(cards[cardID]));
         }
 
+        /// <summary>
+        /// handle a yes or no action by the player
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="v"></param>
         internal void yesOrNoAction(int playerID, bool v)
         {
             processUserInput(playerID, new YesOrNoAction(v));
         }
 
 
-        /// <summary>
-        /// Under certain circumstances, the player might have only one option.
-        /// In those cases, we want the game to pause for a small interval
-        /// and then automactially advance to the next stage.
-        /// This can save the player from unnesessary clicks.
-        /// 
-        /// This method will be called from the controller at specific interval.
-        /// This interval is customizable by controller not the game itself.
-        /// </summary>
-        /// <returns>True if the game is auto advanced and the GUI should update correspondedly</returns>
-        public bool tick()
+       public bool tick()
         {
             if (timerAutoAdvance)
             {
@@ -149,25 +209,6 @@ namespace LOTK.Model
             return false;
         }
 
-        /// <summary>
-        /// This method pops n cards from the card pile. If the card pile is empty, 
-        /// it automatically shuffles the discard card pile, and draw the rest there
-        /// 
-        /// </summary>
-        /// <exception cref="NoCardException"><seealso cref="PhaseList.pop"/></exception>
-        /// <param name="num">Number of cards</param>
-        /// <returns>the card drown</returns>
-        public List<Card> drawCard(int num)
-        {
-            List<Card> cards = new List<Card>();
-            try{
-                for (int i = 0; i < num; i++)
-                    cards.Add(this.cards.pop());
-            }catch(NoCardException e)
-            {
-                throw new NoCardException("The card stack is empty", e);
-            }
-            return cards;
-        }
+       
     }
 }

@@ -213,6 +213,11 @@ namespace LOTK.Model
             return null;
         }
 
+        public virtual PhaseList timeOutAdvance(IGame game)
+        {
+            return null;
+        }
+
         /// <summary>
         /// When userAction is an YesOrNoAction, the player simply clicked OK or cancel.
         /// </summary>

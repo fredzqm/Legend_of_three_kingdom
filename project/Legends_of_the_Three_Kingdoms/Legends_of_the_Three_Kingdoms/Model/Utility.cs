@@ -10,11 +10,49 @@ namespace LOTK.Model
 
     public interface ICardSet
     {
+        /// <summary>
+        /// Known get the card instance with cardID
+        /// This should always be true
+        /// </summary>
+        /// <param name="i">cardID</param>
+        /// <returns>the corresponding Card instance</returns>
         Card this[int i] { get; }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="c">Card instance</param>
+        /// <returns>CardID</returns>
         int this[Card c] { get; }
 
-        Card pop();
-        void discard(Card card);
+        /// <summary>
+        /// pop the top card on the cardpile
+        /// 
+        /// </summary>
+        /// <exception cref="NoCardException">the list has no more card</exception>
+        /// <returns>The top card</returns>
+        Card drawOne();
+
+        /// <summary>
+        /// discard one card to the discard card pile
+        /// </summary>
+        /// <param name="card"></param>
+        void discardOne(Card card);
+
+        /// <summary>
+        /// This method pops n cards from the card pile. If the card pile is empty, 
+        /// it automatically shuffles the discard card pile, and draw the rest there
+        /// 
+        /// </summary>
+        /// <exception cref="NoCardException"><seealso cref="PhaseList.pop"/></exception>
+        /// <param name="num">Number of cards</param>
+        /// <returns>the card drown</returns>
+        IEnumerable<Card> drawCard(int num);
+
+        /// <summary>
+        /// This method discard cards into the discard card pile
+        /// </summary>
+        /// <param name="">the cards to be discarded</param>
+        void discardCards(IEnumerable<Card> cards);
     }
 
     /// <summary>
@@ -50,12 +88,6 @@ namespace LOTK.Model
             discardPile = new LinkedList<Card>();
         }
 
-        /// <summary>
-        /// Known get the card instance with cardID
-        /// This should always be true
-        /// </summary>
-        /// <param name="i">cardID</param>
-        /// <returns>the corresponding Card instance</returns>
         public Card this[int i]
         {
             get
@@ -64,10 +96,6 @@ namespace LOTK.Model
             }
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="c">Card instance</param>
-        /// <returns>CardID</returns>
         public int this[Card c]
         {
             get
@@ -76,13 +104,7 @@ namespace LOTK.Model
             }
         }
 
-        /// <summary>
-        /// pop the top card on the cardpile
-        /// 
-        /// </summary>
-        /// <exception cref="NoCardException">the list has no more card</exception>
-        /// <returns>The top card</returns>
-        public Card pop()
+       public Card drawOne()
         {
             if (cardPile.Count == 0)
             {
@@ -96,11 +118,7 @@ namespace LOTK.Model
             return ret;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="c">The card Discarded</param>
-        public void discard(Card c)
+        public void discardOne(Card c)
         {
             if (!cardIDs.ContainsKey(c))
                 throw new NoCardException("Such Card Cannot be Found");
@@ -108,6 +126,26 @@ namespace LOTK.Model
         }
 
 
+        public IEnumerable<Card> drawCard(int num)
+        {
+            List<Card> cards = new List<Card>();
+            try
+            {
+                for (int i = 0; i < num; i++)
+                    cards.Add(drawOne());
+            }
+            catch (NoCardException e)
+            {
+                throw new NoCardException("The card stack is empty", e);
+            }
+            return cards;
+        }
+
+        public void discardCards(IEnumerable<Card> cards)
+        {
+            foreach (Card c in cards)
+                discardOne(c);
+        }
     }
 
 

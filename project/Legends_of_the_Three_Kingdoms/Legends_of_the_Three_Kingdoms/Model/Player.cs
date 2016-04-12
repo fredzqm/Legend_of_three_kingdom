@@ -75,13 +75,13 @@ namespace LOTK.Model
         public virtual PhaseList discardCard(Card card, IGame game)
         {
             handCards.Remove(card);
-            game.cards.discard(card);
+            game.cards.discardOne(card);
             return new PhaseList();
         }
 
         public virtual PhaseList drawCards(int num, IGame game)
         {
-            handCards.AddRange(game.drawCard(num));
+            handCards.AddRange(game.cards.drawCard(num));
             return new PhaseList();
         }
 

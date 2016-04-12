@@ -116,7 +116,7 @@ namespace LOTK_Test.ModelTest
 
             using (mocks.Ordered())
             {
-                Expect.Call(game.drawCard(3)).Return(cards);
+                Expect.Call(game.cards.drawCard(3)).Return(cards);
             }
 
             mocks.ReplayAll();
