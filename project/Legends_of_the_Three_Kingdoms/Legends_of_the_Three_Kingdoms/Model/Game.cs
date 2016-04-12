@@ -29,6 +29,12 @@ namespace LOTK.Model
     {
         public int Num_Player { get; }
         public Player[] players { get; }
+        /// <summary>
+        /// return the next player should act
+        /// </summary>
+        /// <param name="curPlayer"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public Player nextPlayer(int curPlayer, int count)
         {
             return players[(curPlayer + count) % Num_Player];
@@ -38,14 +44,24 @@ namespace LOTK.Model
 
 
         private PhaseList stages;
+        /// <summary>
+        /// get current phase
+        /// </summary>
         public Phase curPhase {get {return stages.top();}}
+        /// <summary>
+        /// get the act player on the current stage 
+        /// </summary>
         public Player curPhasePlayer { get { return curPhase.player; } }
 
         public bool timerAutoAdvance;
         public bool timerVisit;
 
         public Player curRoundPlayer { get; private set; }
-
+        /// <summary>
+        /// create game
+        /// </summary>
+        /// <param name="players"></param>
+        /// <param name="cardList"></param>
         public Game(Player[] players, ICardSet cardList)
         {
             Num_Player = players.Length;
@@ -59,7 +75,9 @@ namespace LOTK.Model
 
             stages = new PhaseList();
         }
-
+        /// <summary>
+        /// start of game 
+        /// </summary>
         public void start()
         {
             for (int i = 0; i < Num_Player; i++)
@@ -69,7 +87,11 @@ namespace LOTK.Model
             stages.add(new PlayerTurn(players[0]));
             nextStage(null);
         }
-
+        /// <summary>
+        /// judge the user behavior and react
+        /// </summary>
+        /// <param name="fromPlayerID"></param>
+        /// <param name="userAction"></param>
         public void processUserInput(int fromPlayerID, UserAction userAction)
         {
             if (fromPlayerID == curPhasePlayer)
@@ -108,17 +130,30 @@ namespace LOTK.Model
                 }
             }
         }
-
+        /// <summary>
+        /// user click card and player
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="cardID"></param>
+        /// <param name="targets"></param>
         internal void useCardAction(int playerID, int cardID, params int[] targets)
         {
             processUserInput(playerID, new UseCardAction(cards[cardID], players[targets[0]]));
         }
-
+        /// <summary>
+        ///  use click card but no player
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="cardID"></param>
         internal void cardAction(int playerID, int cardID)
         {
             processUserInput(playerID, new CardAction(cards[cardID]));
         }
-
+        /// <summary>
+        /// user only click ok or cancel
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="v"></param>
         internal void yesOrNoAction(int playerID, bool v)
         {
             processUserInput(playerID, new YesOrNoAction(v));
