@@ -72,6 +72,25 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(old != newc);
         }
         [TestMethod]
+        public void ZhangFeiAbtestnomock()
+        {
+            {
+                IGame game = new TestGame(1);
+                Player p = new ZhangFei(1);
+                Attack card = new Attack(CardSuit.Club, 1);
+                ActionPhase acpha = new ActionPhase(p);
+                Player[] ls = new Player[1];
+                ls[0] = new LiuBei(2);
+
+                AttackPhase pha = new AttackPhase(p,card,ls,acpha);
+                pha.actionPhase.attackCount = 0;
+                Assert.IsFalse(p.canNotAttack(pha, game));
+                pha.actionPhase.attackCount = 1;
+                Assert.IsFalse(p.canNotAttack(pha, game));
+            }
+        }
+
+        [TestMethod]
         public void CaoCaoAbtestnomock()
         {
             {

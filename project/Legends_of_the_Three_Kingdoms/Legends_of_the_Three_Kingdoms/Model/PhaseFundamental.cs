@@ -55,8 +55,8 @@ namespace LOTK.Model
 
     public class ActionPhase : UserActionPhase
     {
-        public int attackCount { get; internal set; }
-        public bool drunk { get; internal set; }
+        public int attackCount { get;  set; }
+        public bool drunk { get;  set; }
 
         public ActionPhase(Player player) : base(player, 20) { }
 
