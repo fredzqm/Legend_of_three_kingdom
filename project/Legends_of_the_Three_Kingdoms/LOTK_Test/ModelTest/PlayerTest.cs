@@ -119,6 +119,18 @@ namespace LOTK_Test.ModelTest
 
             }
         }
+        [TestMethod]
+        public void SunQuanAbtestnomockBVA()
+        {
+            {
+                Player p = new SunQuan(0);
+                Attack card = new Attack(CardSuit.Heart, (byte)1);
+                p.handCards.Add(card);
+                Assert.IsTrue(p.handCards.Count == 1);
+                Assert.IsTrue(card == p.handCards[0]);
+
+            }
+        }
 
         [TestMethod]
         public void LiuBeiAbtestmock()
