@@ -18,10 +18,10 @@ namespace LOTK.Model
 
         }
 
-      //  public override bool canNotAttack(AttackPhase curPhase, IGame game)
-       // {
-       //     return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.targets[0] == this);
-        //}
+      public override bool canNotAttack(AttackPhase curPhase, IGame game)
+       {
+           return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.targets[0] == this);
+        }
 
     }
     /// <summary>
