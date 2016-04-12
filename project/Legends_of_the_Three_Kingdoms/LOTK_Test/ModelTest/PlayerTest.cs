@@ -216,6 +216,16 @@ namespace LOTK_Test.ModelTest
                 Assert.IsTrue(p.handcardCount() == 0);
             }
         }
+        [TestMethod]
+        public void LuMengAbtestnomockBVA()
+        {
+            {
+                Player p = new ZhangFei(1);
+                Attack card = new Attack(CardSuit.Club, 1);
+                p.handCards.Add(card);
+                Assert.IsFalse(p.handcardCount() == 0);
+            }
+        }
 
         [TestMethod]
         public void CaoCaoAbtestnomock()
