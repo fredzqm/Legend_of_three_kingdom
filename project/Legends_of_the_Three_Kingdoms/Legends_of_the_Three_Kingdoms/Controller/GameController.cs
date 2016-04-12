@@ -13,7 +13,7 @@ namespace LOTK.Controller
         const int NUM_OF_PLAYER = 5;
         const int DELAY_INTERVAL = 2000;
 
-        public IGameView[] view { get; }
+        public GameView[] view { get; }
         public IGame game { get; }
 
         public int Num_Of_Player { get { return NUM_OF_PLAYER; } }
@@ -31,12 +31,12 @@ namespace LOTK.Controller
             game = new Game(players, cardset);
             game.start();
 
-            view = new IGameView[NUM_OF_PLAYER];
-            view[0] = new IGameView(this, 0);
+            view = new GameView[NUM_OF_PLAYER];
+            view[0] = new GameView(this, 0);
             updateViews = view[0].updateForm;
             for (int i = 1; i < NUM_OF_PLAYER; i++)
             {
-                view[i] = new IGameView(this, i);
+                view[i] = new GameView(this, i);
                 view[i].Show();
                 updateViews += view[i].updateForm;
             }
