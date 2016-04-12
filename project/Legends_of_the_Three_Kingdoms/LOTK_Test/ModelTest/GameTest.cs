@@ -193,6 +193,9 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Attack(CardSuit.Club, 7));
             cards.Add(new Attack(CardSuit.Club, 8));
             cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 10));
+            cards.Add(new Attack(CardSuit.Club, 11));
+            cards.Add(new Attack(CardSuit.Club, 12));
 
             cards.Add(new Attack(CardSuit.Spade, 2));
             cards.Add(new Attack(CardSuit.Spade, 3));
@@ -202,6 +205,9 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Attack(CardSuit.Spade, 7));
             cards.Add(new Attack(CardSuit.Spade, 8));
             cards.Add(new Attack(CardSuit.Spade, 9));
+            cards.Add(new Attack(CardSuit.Spade, 10));
+            cards.Add(new Attack(CardSuit.Spade, 11));
+            cards.Add(new Attack(CardSuit.Spade, 12));
 
             cards.Add(new Miss(CardSuit.Diamond, 2));
             cards.Add(new Miss(CardSuit.Diamond, 3));
@@ -211,6 +217,9 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Miss(CardSuit.Diamond, 7));
             cards.Add(new Miss(CardSuit.Diamond, 8));
             cards.Add(new Miss(CardSuit.Diamond, 9));
+            cards.Add(new Miss(CardSuit.Diamond, 10));
+            cards.Add(new Miss(CardSuit.Diamond, 11));
+            cards.Add(new Miss(CardSuit.Diamond, 12));
 
             cards.Add(new Peach(CardSuit.Heart, 2));
             cards.Add(new Peach(CardSuit.Heart, 3));
@@ -322,7 +331,7 @@ namespace LOTK_Test.ModelTest
             game.nextStage(new YesOrNoAction(false));
             Assert.AreEqual(typeof(DiscardPhase), game.curPhase.GetType());
             // advance
-            game.nextStage(new YesOrNoAction(true));
+            game.nextStage(new YesOrNoAction(false));
             Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
         }
 
