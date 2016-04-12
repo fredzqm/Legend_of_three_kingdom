@@ -38,8 +38,8 @@ namespace LOTK.Controller
                 view[i] = new GameView(this, i);
                 view[i].Show();
                 updateViews += view[i].updateForm;
-            }            
-            
+            }
+
             // set up timer
             aTimer = new System.Timers.Timer(DELAY_INTERVAL);
             aTimer.Elapsed += OnTimedEvent;
@@ -59,15 +59,15 @@ namespace LOTK.Controller
         public Required_Data getData(int ownPlayer)
         {
             Required_Data rd = new Required_Data();
-            for(int i = 0; i < NUM_OF_PLAYER; i++)
+            for (int i = 0; i < NUM_OF_PLAYER; i++)
             {
                 rd.players[i] = PlayerToPlayerDisplay(game.players[(i + ownPlayer) % NUM_OF_PLAYER]);
             }
             rd.pool_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
             rd.hold_cards = new List<CardDisplay>(game.players[ownPlayer].handCards.Select(c => CardToCardDisplay(c)));
             rd.this_player_stage = game.curPhase.ToString();
-            rd.tool_attack = CardToCardDisplay( game.players[ownPlayer].weapon);
-            rd.tool_defence = CardToCardDisplay( game.players[ownPlayer].shield);
+            rd.tool_attack = CardToCardDisplay(game.players[ownPlayer].weapon);
+            rd.tool_defence = CardToCardDisplay(game.players[ownPlayer].shield);
             return rd;
         }
 
@@ -104,7 +104,7 @@ namespace LOTK.Controller
                 default:
                     break;
             }
-            
+
         }
 
         public void clickCard(int playerID, int cardID)
@@ -121,28 +121,28 @@ namespace LOTK.Controller
         // helper methods to convert model objects to view objects.
         private PlayerDisplay PlayerToPlayerDisplay(Player player)
         {
-            return new PlayerDisplay(player.name, player.description, player.playerID,player.health);
+            return new PlayerDisplay(player.name, player.description, player.playerID, player.health);
         }
 
         private CardDisplay CardToCardDisplay(Card card)
         {
             if (card == null)
-                return new CardDisplay("","",-1);
-            return new CardDisplay(card.ToString(), card.getDescription(), game.cards[card] );
+                return new CardDisplay("", "", -1);
+            return new CardDisplay(card.ToString(), card.getDescription(), game.cards[card]);
         }
 
         public static Player[] initializePlayers(int n)
         {
             Player[] players = new Player[n];
-            
-                //   players[i] = new Player(i);
-                players[0] = new LiuBei(0);
-                players[4] = new CaoCao(4);
-                players[2] = new SunQuan(2);
-                players[1] = new LuMeng(1);
-                players[3] = new ZhangFei(3);
 
-            
+            //   players[i] = new Player(i);
+            players[0] = new LiuBei(0);
+            players[1] = new LuMeng(1);
+            players[2] = new SunQuan(2);
+            players[3] = new ZhangFei(3);
+            players[4] = new CaoCao(4);
+
+
             return players;
         }
 

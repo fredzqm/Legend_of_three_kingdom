@@ -91,10 +91,10 @@ namespace LOTK.View
                
             }
             Pool.Text = temp;
-            UpperLeft.Text = data.players[1].name + ": " + data.players[1].ability+" health:" + data.players[1].health;
+            UpperLeft.Text = data.players[3].name + ": " + data.players[3].ability+" health:" + data.players[3].health;
             UpperRight.Text = data.players[2].name + ": " + data.players[2].ability+" health:" + data.players[2].health;
-            LowerLeft.Text = data.players[3].name + ": " + data.players[3].ability+ " health:" + data.players[3].health;
-            LowerRight.Text = data.players[4].name + ": " + data.players[4].ability+ " health:" + data.players[4].health;
+            LowerLeft.Text = data.players[4].name + ": " + data.players[4].ability+ " health:" + data.players[4].health;
+            LowerRight.Text = data.players[1].name + ": " + data.players[1].ability+ " health:" + data.players[1].health;
 
         }
 
