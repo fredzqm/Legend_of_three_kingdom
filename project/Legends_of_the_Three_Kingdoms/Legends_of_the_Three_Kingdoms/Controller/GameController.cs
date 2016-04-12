@@ -100,10 +100,13 @@ namespace LOTK.Controller
                     if (Ifabi == 1&&ClickUser>=0)
                     {
                         game.processUserInput(playerID, new AbilityAction(SelectCardId, ClickUser, game));
+                        SelectCardId = -1;
+                        ClickUser = -1;
                     }
                     else if (Ifabi == 1 && ClickUser < 0)
                     {
                         game.processUserInput(playerID, new AbilityActionSun(SelectCardId, game));
+                        SelectCardId = -1;
                     }
                     else if (SelectCardId < 0 && Ifabi < 0)
                     {
@@ -189,8 +192,8 @@ namespace LOTK.Controller
 
             //   players[i] = new Player(i);
             players[2] = new LiuBei(2);
-            players[0] = new LuMeng(0);
-            players[1] = new SunQuan(1);
+            players[1] = new LuMeng(1);
+            players[0] = new SunQuan(0);
             players[3] = new ZhangFei(3);
             players[4] = new CaoCao(4);
 

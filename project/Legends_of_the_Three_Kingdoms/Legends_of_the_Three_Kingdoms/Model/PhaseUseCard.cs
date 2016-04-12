@@ -52,6 +52,7 @@ namespace LOTK.Model
             if (player.canNotAttack(this, game))
                 return new PhaseList();
             actionPhase.attackCount++;
+            player.handCards.Remove(attack);
             return new PhaseList(new ResponsePhase(targets[0], this, c => c is Miss), this);
         }
     }

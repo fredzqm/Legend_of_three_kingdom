@@ -191,7 +191,7 @@ namespace LOTK.View
             else
             {
                 int id = 0;
-                for (int i = 0; i < hand_cards.SelectedItems.Count; i++)
+                for (int i = 0; i < data.hold_cards.Count; i++)
                 {
                     if (hand_cards.CheckedItems[0].Equals(data.hold_cards.ElementAt(i).name + ": " + data.hold_cards.ElementAt(i).ability)){
                         id = data.hold_cards.ElementAt(i).id;
