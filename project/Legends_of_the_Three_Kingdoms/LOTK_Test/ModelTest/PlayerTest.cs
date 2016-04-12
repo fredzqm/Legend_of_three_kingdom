@@ -176,5 +176,10 @@ namespace LOTK_Test.ModelTest
         {
             throw new NotImplementedException();
         }
+
+        public void processUserInput(int playerID, UserAction userAction)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

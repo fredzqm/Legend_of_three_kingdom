@@ -37,7 +37,7 @@ namespace LOTK.Model
             this.card = card;
             this.targets = targets;
         }
-        public UseCardAction(int CardID, int PlayerID, IGame game) : this(game.cards[CardID]) { }
+        public UseCardAction(IGame game, int CardID, int PlayerID) : this(game.cards[CardID]) { }
     }
 
     public class CardAction : UserAction
@@ -48,7 +48,7 @@ namespace LOTK.Model
         {
             this.card = card;
         }
-        public CardAction(int CardID, IGame game) : this(game.cards[CardID]) { }
+        public CardAction(IGame game, int CardID) : this(game.cards[CardID]) { }
     }
     
     public class UserActionPlayer : UserAction
@@ -58,7 +58,7 @@ namespace LOTK.Model
         {
             this.player = player;
         }
-        public UserActionPlayer(int playerID, IGame game) : this(game.players[playerID]) { }
+        public UserActionPlayer(IGame game, int playerID) : this(game.players[playerID]) { }
     }
 
     public class AbilityActionSun : UserAction
@@ -69,7 +69,7 @@ namespace LOTK.Model
         {
             this.card = card;
         }
-        public AbilityActionSun(int CardID, IGame game) : this(game.cards[CardID]) { }
+        public AbilityActionSun(IGame game, int CardID) : this(game.cards[CardID]) { }
     }
 
 
@@ -83,7 +83,7 @@ namespace LOTK.Model
             this.card = card;
             this.targets = targets;
         }
-        public AbilityAction(int CardID, int PlayerID, IGame game) : this(game.cards[CardID], game.players[PlayerID]) { }
+        public AbilityAction(IGame game, int CardID, int PlayerID) : this(game.cards[CardID], game.players[PlayerID]) { }
     }
 
     //public enum UserActionType

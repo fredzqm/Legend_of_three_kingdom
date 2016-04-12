@@ -13,8 +13,8 @@ namespace LOTK.Controller
         const int NUM_OF_PLAYER = 5;
         const int DELAY_INTERVAL = 2000;
 
-        public GameView[] view { get; }
-        public Game game { get; }
+        public IGameView[] view { get; }
+        public IGame game { get; }
 
         public int Num_Of_Player { get { return NUM_OF_PLAYER; } }
         public event UpdateForm updateViews;
@@ -31,12 +31,12 @@ namespace LOTK.Controller
             game = new Game(players, cardset);
             game.start();
 
-            view = new GameView[NUM_OF_PLAYER];
-            view[0] = new GameView(this, 0);
+            view = new IGameView[NUM_OF_PLAYER];
+            view[0] = new IGameView(this, 0);
             updateViews = view[0].updateForm;
             for (int i = 1; i < NUM_OF_PLAYER; i++)
             {
-                view[i] = new GameView(this, i);
+                view[i] = new IGameView(this, i);
                 view[i].Show();
                 updateViews += view[i].updateForm;
             }
@@ -81,25 +81,25 @@ namespace LOTK.Controller
                 case ButtonID.OK:
                     if (Ifabi == 1&&ClickUser>=0)
                     {
-                        game.processUserInput(playerID, new AbilityAction(SelectCardId, ClickUser, game));
+                        game.processUserInput(playerID, new AbilityAction(game, SelectCardId, ClickUser));
                     }
                     else if (Ifabi == 1 && ClickUser < 0)
                     {
-                        game.processUserInput(playerID, new AbilityActionSun(SelectCardId, game));
+                        game.processUserInput(playerID, new AbilityActionSun(game, SelectCardId));
                     }
                     else if (SelectCardId < 0 && Ifabi < 0)
                     {
-                        game.yesOrNoAction(playerID, true);
+                        game.processUserInput(playerID, new YesOrNoAction(true));
                         ClickUser = -1;
                     }
                     else if (ClickUser < 0 && Ifabi < 0)
                     {
-                        game.cardAction(playerID, SelectCardId);
+                        game.processUserInput(playerID, new CardAction(game, SelectCardId));
                         SelectCardId = -1;
                     }
                     else if (ClickUser >= 0 && SelectCardId >= 0 && Ifabi < 0)
                     {
-                        game.useCardAction(playerID, SelectCardId, ClickUser);
+                        game.processUserInput(playerID, new UseCardAction(game, SelectCardId, ClickUser));
                         SelectCardId = -1;
                         ClickUser = -1;
                     }
@@ -108,7 +108,7 @@ namespace LOTK.Controller
                 case ButtonID.Cancel:
                     SelectCardId = -1;
                     ClickUser = -1;
-                    game.yesOrNoAction(playerID, false);
+                    game.processUserInput(playerID, new YesOrNoAction(false));
                     updateViews();
                     break;
                 case ButtonID.Ability:

@@ -5,7 +5,7 @@ using System;
 
 namespace LOTK.View
 {
-    public partial class GameView
+    public partial class IGameView
     {
         private System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)
@@ -165,7 +165,7 @@ namespace LOTK.View
             this.ThisPlayer.UseVisualStyleBackColor = true;
             this.ThisPlayer.Click += new System.EventHandler(this.ThisPlayer_Click);
             // 
-            // GameView
+            // IGameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,7 +183,7 @@ namespace LOTK.View
             this.Controls.Add(this.tool_defence);
             this.Controls.Add(this.tool_attack);
             this.Controls.Add(this.turn);
-            this.Name = "GameView";
+            this.Name = "IGameView";
             this.ResumeLayout(false);
             this.PerformLayout();
 

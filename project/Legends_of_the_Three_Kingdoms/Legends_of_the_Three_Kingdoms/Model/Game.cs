@@ -63,6 +63,12 @@ namespace LOTK.Model
 
         void nextStage(UserAction userAction);
         
+        /// <summary>
+        /// process the userAction
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="userAction"></param>
+        void processUserInput(int playerID, UserAction userAction);
     }
 
     /// <summary>
@@ -163,39 +169,7 @@ namespace LOTK.Model
             }
         }
 
-        /// <summary>
-        /// handle a use card action by the user
-        /// </summary>
-        /// <param name="playerID"></param>
-        /// <param name="cardID"></param>
-        /// <param name="targets"></param>
-        internal void useCardAction(int playerID, int cardID, params int[] targets)
-        {
-            processUserInput(playerID, new UseCardAction(cards[cardID], players[targets[0]]));
-        }
-
-        /// <summary>
-        /// handle a card action by the user
-        /// </summary>
-        /// <param name="playerID"></param>
-        /// <param name="cardID"></param>
-        internal void cardAction(int playerID, int cardID)
-        {
-            processUserInput(playerID, new CardAction(cards[cardID]));
-        }
-
-        /// <summary>
-        /// handle a yes or no action by the player
-        /// </summary>
-        /// <param name="playerID"></param>
-        /// <param name="v"></param>
-        internal void yesOrNoAction(int playerID, bool v)
-        {
-            processUserInput(playerID, new YesOrNoAction(v));
-        }
-
-
-       public bool tick()
+        public bool tick()
         {
             if (timerAutoAdvance)
             {
@@ -208,7 +182,6 @@ namespace LOTK.Model
             }
             return false;
         }
-
        
     }
 }

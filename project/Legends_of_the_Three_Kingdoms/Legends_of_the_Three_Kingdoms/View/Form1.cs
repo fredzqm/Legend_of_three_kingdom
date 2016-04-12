@@ -29,7 +29,7 @@ namespace LOTK.View
     /// <param name="clickedPlayerID"></param>
     public delegate void clickPlayer(int playerID, int clickedPlayerID);
 
-    public partial class GameView : Form
+    public partial class IGameView : Form
     {
         private viewController controller;
         private int position;
@@ -43,7 +43,7 @@ namespace LOTK.View
         /// </summary>
         /// <param name="controller"></param>
         /// <param name="pos"></param>
-        public GameView(viewController controller, int pos)
+        public IGameView(viewController controller, int pos)
         {
             this.position = pos;
             this.controller = controller;
