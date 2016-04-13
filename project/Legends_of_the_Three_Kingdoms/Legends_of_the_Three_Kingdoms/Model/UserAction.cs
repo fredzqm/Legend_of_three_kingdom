@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace LOTK.Model
 {
@@ -6,9 +7,15 @@ namespace LOTK.Model
     /// The class used to specify the user action.
     /// Like click buttons
     /// </summary>
-    public class UserAction
+    public abstract class UserAction
     {
-
+        /// <summary>
+        /// This method parsed this userAction and ask userActionPhase to process it.
+        /// </summary>
+        /// <param name="userActionPhase"></param>
+        /// <param name="game"></param>
+        /// <returns></returns>
+        public abstract PhaseList processedBy(UserActionPhase userActionPhase, IGame game);
     }
 
     /// <summary>
@@ -38,6 +45,11 @@ namespace LOTK.Model
             else
                 return "Yes";
         }
+
+        public override PhaseList processedBy(UserActionPhase userActionPhase, IGame game)
+        {
+            return userActionPhase.responseYesOrNo(yes, game);
+        }
     }
 
     /// <summary>
@@ -65,6 +77,11 @@ namespace LOTK.Model
         /// <param name="PlayerID"></param>
         /// <param name="game"></param>
         public UseCardAction(IGame game, int CardID, int PlayerID) : this(game.cards[CardID], game.players[PlayerID]) { }
+
+        public override PhaseList processedBy(UserActionPhase userActionPhase, IGame game)
+        {
+            return userActionPhase.responseUseCardAction(card, targets, game);
+        }
     }
 
     /// <summary>
@@ -87,32 +104,38 @@ namespace LOTK.Model
         /// <param name="CardID"></param>
         /// <param name="game"></param>
         public CardAction(IGame game, int CardID) : this(game.cards[CardID]) { }
-    }
 
-    /// <summary>
-    /// subclass of useraction
-    /// </summary>
-    public class UserActionPlayer : UserAction
-    {
-        public Player player { get; }
-        /// <summary>
-        /// create useractionplayer action
-        /// </summary>
-        /// <param name="player"></param>
-        public UserActionPlayer(Player player)
+        public override PhaseList processedBy(UserActionPhase userActionPhase, IGame game)
         {
-            this.player = player;
+            return userActionPhase.responseCardAction(card, game);
         }
-
-
-        /// <summary>
-        /// create user action player action
-        /// </summary>
-        /// <param name="playerID"></param>
-        /// <param name="game"></param>
-        public UserActionPlayer(IGame game, int playerID) : this(game.players[playerID]) { }
-
     }
+
+    ///// <summary>
+    ///// subclass of useraction
+    ///// </summary>
+    //public class UserActionPlayer : UserAction
+    //{
+    //    public Player player { get; }
+    //    /// <summary>
+    //    /// create useractionplayer action
+    //    /// </summary>
+    //    /// <param name="player"></param>
+    //    public UserActionPlayer(Player player)
+    //    {
+    //        this.player = player;
+    //    }
+
+
+    //    /// <summary>
+    //    /// create user action player action
+    //    /// </summary>
+    //    /// <param name="playerID"></param>
+    //    /// <param name="game"></param>
+    //    public UserActionPlayer(IGame game, int playerID) : this(game.players[playerID]) { }
+
+    //}
+
     /// <summary>
     /// subclass of useraction,special for Sun Quan
     /// </summary>
@@ -136,6 +159,10 @@ namespace LOTK.Model
         /// <param name="game"></param>
         public AbilityActionSun(IGame game, int CardID) : this(game.cards[CardID]) { }
 
+        public override PhaseList processedBy(UserActionPhase userActionPhase, IGame game)
+        {
+            return userActionPhase.responseAbilityActionSun(this, game);
+        }
     }
 
     /// <summary>
@@ -163,6 +190,11 @@ namespace LOTK.Model
         /// <param name="PlayerID"></param>
         /// <param name="game"></param>
         public AbilityAction(IGame game, int CardID, int PlayerID) : this(game.cards[CardID], game.players[PlayerID]) { }
+
+        public override PhaseList processedBy(UserActionPhase userActionPhase, IGame game)
+        {
+            return userActionPhase.responseAbilityAction(this, game);
+        }
 
     }
 

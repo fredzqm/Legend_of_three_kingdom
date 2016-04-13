@@ -26,6 +26,7 @@ namespace LOTK.Model
             return "Plyaer " + playerID + " at PlayerTurn";
         }
     }
+
     /// <summary>
     /// subclass of pause phase
     /// </summary>
@@ -46,6 +47,7 @@ namespace LOTK.Model
             return "Plyaer " + playerID + " at JudgePhase";
         }
     }
+
     /// <summary>
     /// subclass of pause phase
     /// </summary>
@@ -67,6 +69,7 @@ namespace LOTK.Model
             return "Plyaer " + playerID + " at DrawingPhase";
         }
     }
+
     /// <summary>
     /// subclass of useractionphase
     /// </summary>
