@@ -157,6 +157,8 @@ namespace LOTK.Model
         /// </summary>
         public int timeOutTime { get; }
 
+        private int timer;
+
         /// <summary>
         /// create a UserAction phase with different waitTime and TimeOut
         /// </summary>
@@ -182,27 +184,16 @@ namespace LOTK.Model
         /// <returns>the following phased produced</returns>
         public sealed override PhaseList advance(UserAction userAction, IGame game)
         {
-            if (userAction == null)
+            if (userAction != null)
+                return userAction.processedBy(this, game);
+            timer++;
+            if (timer >= timeOutTime)
+                return timeOutAdvance(game);
+            if (timer >= waitTime)
                 return autoAdvance(game);
-            YesOrNoAction yesOrNoAction = userAction as YesOrNoAction;
-            if (yesOrNoAction != null)
-                return responseYesOrNo(yesOrNoAction.yes, game);
-            CardAction cardAction = userAction as CardAction;
-            if (cardAction != null)
-                return responseCardAction(cardAction.card, game);
-            UseCardAction useCardAction = userAction as UseCardAction;
-            if (useCardAction != null)
-                return responseUseCardAction(useCardAction.card, useCardAction.targets, game);
-            AbilityAction abilityAction = userAction as AbilityAction;
-            if (abilityAction != null)
-                return responseAbilityAction(abilityAction, game);
-            AbilityActionSun abilityActionsun = userAction as AbilityActionSun;
-            if (abilityActionsun != null)
-            {
-                return responseAbilityActionSun(abilityActionsun, game);
-            }
-            throw new NotDefinedException("This kind of useraction is not yet defined");
-        }   
+            return null;
+        }
+
         /// <summary>
         /// this method is only for Liu Bei's ability
         /// </summary>

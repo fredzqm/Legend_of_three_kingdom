@@ -28,6 +28,10 @@ This week I changed the form a little bit to display more information. Also, one
 
 Milestone4:
 Fred Zhang:
+This week I add some sugars to the GUI interface. It now displayes logs to the scroll panel in the middle.
+I also add timer system to the model, so that if the player is not doing anything, his reaction phase timeout and autoadvanced. If the player obviously only has one choice, the game can automatically advanced also.
+I also use polymorphism instead of case switch when userActioPhase handle userActions.
+I tested all the features we have, including characters abilities.
 
 Songyu Wang:
 This week I implement all five characters ability. I used TDD, BVA and Mocking to test the code I wrote. And All code pass tests. I delete some tests due to the change of requirement. To write the five abilities, I refactors some of the code Fred wrote to get the value I need. Also, I override some his functions. I added all the documentation for Model and Controller.

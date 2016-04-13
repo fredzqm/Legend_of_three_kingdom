@@ -15,7 +15,7 @@ namespace LOTK.Controller
     public class GameController : viewController
     {
         const int NUM_OF_PLAYER = 5;
-        const int DELAY_INTERVAL = 2000;
+        const int DELAY_INTERVAL = 1000;
 
         public GameView[] view { get; }
         public IGame game { get; }
