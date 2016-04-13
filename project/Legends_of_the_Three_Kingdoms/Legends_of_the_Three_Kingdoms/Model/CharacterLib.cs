@@ -18,9 +18,9 @@ namespace LOTK.Model
 
         }
 
-        public override bool canNotAttack(AttackPhase curPhase, IGame game)
-        {
-            return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.targets[0] == this);
+      public override bool canNotAttack(AttackPhase curPhase, IGame game)
+       {
+           return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.targets[0] == this);
         }
 
     }
@@ -84,8 +84,8 @@ namespace LOTK.Model
         }
         public override PhaseList abilitySun(AbilityActionSun abilityAction, IGame game)
         {
+            this.drawCards(1, game);
             this.handCards.Remove(abilityAction.card);
-            this.drawCards(1,game);
             return null;
         }
 

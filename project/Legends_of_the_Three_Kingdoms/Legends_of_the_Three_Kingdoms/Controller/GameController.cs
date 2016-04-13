@@ -5,9 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 namespace LOTK.Controller
-{
+{/// <summary>
+/// update to gui
+/// </summary>
     public delegate void UpdateForm();
-
+    /// <summary>
+    /// this is the class to connect model and gui
+    /// </summary>
     public class GameController : viewController
     {
         const int NUM_OF_PLAYER = 5;
@@ -23,7 +27,9 @@ namespace LOTK.Controller
         public int ClickUser = -100;
         public int SelectCardId = -100;
         public int Ifabi = -10;
-
+        /// <summary>
+        /// create controller
+        /// </summary>
         public GameController()
         {
             CardSet cardset = initialLizeCardSet();
@@ -50,13 +56,21 @@ namespace LOTK.Controller
             //aTimer.Dispose();
         }
 
-
+        /// <summary>
+        /// check time and update 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             if (game.tick())
                 updateViews();
         }
-
+        /// <summary>
+        /// get data from model
+        /// </summary>
+        /// <param name="ownPlayer"></param>
+        /// <returns></returns>
         public Required_Data getData(int ownPlayer)
         {
             Required_Data rd = new Required_Data();
@@ -73,7 +87,11 @@ namespace LOTK.Controller
         }
 
 
-
+        /// <summary>
+        /// get the user behavior from gui
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="buttonID"></param>
         public void clickButton(int playerID, int buttonID)
         {
             switch (buttonID)
@@ -119,12 +137,20 @@ namespace LOTK.Controller
             }
 
         }
-
+        /// <summary>
+        /// Called after user click a card
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="cardID"></param>
         public void clickCard(int playerID, int cardID)
         {
             SelectCardId = cardID;
         }
-
+        /// <summary>
+        /// called after user click a player 
+        /// </summary>
+        /// <param name="playerID"></param>
+        /// <param name="clickedPlayerID"></param>
         public void clickPlayer(int playerID, int clickedPlayerID)
         {
             ClickUser = clickedPlayerID;
@@ -132,18 +158,31 @@ namespace LOTK.Controller
 
         // -------------------------------------------------------------------------------------
         // helper methods to convert model objects to view objects.
+        /// <summary>
+        /// convert player to display player 
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
         private PlayerDisplay PlayerToPlayerDisplay(Player player)
         {
             return new PlayerDisplay(player.name, player.description, player.playerID, player.health);
         }
-
+        /// <summary>
+        /// convert cards to display cards
+        /// </summary>
+        /// <param name="card"></param>
+        /// <returns></returns>
         private CardDisplay CardToCardDisplay(Card card)
         {
             if (card == null)
                 return new CardDisplay("", "", -1);
             return new CardDisplay(card.ToString(), card.getDescription(), game.cards[card]);
         }
-
+        /// <summary>
+        /// initialize players 
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public static Player[] initializePlayers(int n)
         {
             Player[] players = new Player[n];

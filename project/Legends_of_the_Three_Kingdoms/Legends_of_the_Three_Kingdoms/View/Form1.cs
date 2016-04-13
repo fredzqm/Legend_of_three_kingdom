@@ -84,13 +84,7 @@ namespace LOTK.View
 
                 hand_cards.Items.Insert(i, data.hold_cards[i].name+": "+data.hold_cards[i].ability);
             }
-            string temp = "";
-            for (int i = 0; i < data.pool_cards.Count; i++)
-            {
-            temp = temp + "\n" + data.pool_cards[i].name; 
-               
-            }
-            Pool.Text = temp;
+            Pool.Text = data.poolText;
             UpperLeft.Text = data.players[3].name + " health:" + data.players[3].health;
             UpperRight.Text = data.players[2].name + " health:" + data.players[2].health;
             LowerLeft.Text = data.players[4].name + " health:" + data.players[4].health;
@@ -191,7 +185,7 @@ namespace LOTK.View
             else
             {
                 int id = 0;
-                for (int i = 0; i < hand_cards.SelectedItems.Count; i++)
+                for (int i = 0; i < data.hold_cards.Count; i++)
                 {
                     if (hand_cards.CheckedItems[0].Equals(data.hold_cards.ElementAt(i).name + ": " + data.hold_cards.ElementAt(i).ability)){
                         id = data.hold_cards.ElementAt(i).id;

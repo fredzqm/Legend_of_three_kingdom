@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LOTK.Model
 {
-
+    /// <summary>
+    /// subclass of need response phase 
+    /// </summary>
     public class AttackPhase : NeedResponsePhase
     {
         public Attack attack { get; }
@@ -14,6 +16,13 @@ namespace LOTK.Model
         public Player[] targets { get; }
 
         public int harm { get; set; }
+        /// <summary>
+        /// create attack phase 
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="card"></param>
+        /// <param name="targets"></param>
+        /// <param name="actionPhase"></param>
         public AttackPhase(Player player, Attack card, Player[] targets, ActionPhase actionPhase) : base(player)
         {
             this.attack = card;
@@ -43,6 +52,7 @@ namespace LOTK.Model
             if (player.canNotAttack(this, game))
                 return new PhaseList();
             actionPhase.attackCount++;
+            player.handCards.Remove(attack);
             return new PhaseList(new ResponsePhase(targets[0], this, c => c is Miss), this);
         }
     }
@@ -73,12 +83,20 @@ namespace LOTK.Model
     //    }
     //}
 
-
+        /// <summary>
+        /// subclass of hiddenphase 
+        /// </summary>
     public class UseToolPhase : HiddenPhase
     {
         bool negated;
         ToolCard card;
         Player[] targets;
+        /// <summary>
+        /// create hidden phase 
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="card"></param>
+        /// <param name="targets"></param>
         public UseToolPhase(Player player, ToolCard card, Player[] targets) : base(player)
         {
             negated = false;
@@ -92,17 +110,26 @@ namespace LOTK.Model
                 return new PhaseList();
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// set negated to true
+        /// </summary>
         public void negate()
         {
             negated = true;
         }
 
     }
-
+    /// <summary>
+    /// subclass of hiddenphase 
+    /// </summary>
     public class UseEquipmentPhase : HiddenPhase
     {
         Equipment card;
+        /// <summary>
+        /// create use equipment phase 
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="card"></param>
         public UseEquipmentPhase(Player player, Equipment card) : base(player)
         {
             this.card = card;
@@ -113,10 +140,17 @@ namespace LOTK.Model
         }
     }
 
-
+    /// <summary>
+    /// subclass of hidden phase 
+    /// </summary>
     public class UseCardPhase : HiddenPhase
     {
         public Card card { get; }
+        /// <summary>
+        /// create use card phase 
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="card"></param>
         public UseCardPhase(Player player, Card card) : base(player)
         {
             this.card = card;

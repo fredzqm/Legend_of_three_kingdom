@@ -25,3 +25,9 @@ I also complete the Phase
 
 Songyu Wang:
 This week I changed the form a little bit to display more information. Also, one more window is built. Bugs on GUI side are fixed. Fred and I changed the codes to match each other's code. Right now we are able to display the result health after being attacked by a another player. It means all the buttons are functional. 
+
+Milestone4:
+Fred Zhang:
+
+Songyu Wang:
+This week I implement all five characters ability. I used TDD, BVA and Mocking to test the code I wrote. And All code pass tests. I delete some tests due to the change of requirement. To write the five abilities, I refactors some of the code Fred wrote to get the value I need. Also, I override some his functions. I added all the documentation for Model and Controller.

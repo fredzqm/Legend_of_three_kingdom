@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Model;
 using System.Collections.Generic;
 using Rhino.Mocks;
+using System.Reflection;
 
 namespace LOTK_Test.ModelTest
 {
@@ -71,6 +72,162 @@ namespace LOTK_Test.ModelTest
             int newc = p.handCards.Count;
             Assert.IsTrue(old != newc);
         }
+
+
+        [TestMethod]
+        public void ZhangFeiAbtestnomock()
+        {
+            {
+                IGame game = new TestGame(1);
+                Player p = new ZhangFei(1);
+                Attack card = new Attack(CardSuit.Club, 1);
+                ActionPhase acpha = new ActionPhase(p);
+                Player[] ls = new Player[1];
+                ls[0] = new LiuBei(2);
+
+                AttackPhase pha = new AttackPhase(p,card,ls,acpha);
+                pha.actionPhase.attackCount = 1;
+                Assert.IsFalse(p.canNotAttack(pha, game));
+            }
+        }
+         
+
+        [TestMethod]
+        public void LiuBeiAbtestnomock()
+        {
+            {
+               Player p=new LiuBei(0);
+                Player[] ls = new Player[1];
+                ls[0] = new ZhangFei(1);
+                Attack card = new Attack(CardSuit.Heart, (byte)1);
+                p.handCards.Add(card);
+                p.ability(new AbilityAction(card, ls),new TestGame(1));
+                Assert.IsTrue(p.handCards.Count == 0);
+                Assert.IsTrue(ls[0].handCards.Count == 1);
+
+            }
+        }
+        [TestMethod]
+        public void SunQuanAbtestnomock()
+        {
+            {
+                Player p = new SunQuan(0);
+                Attack card = new Attack(CardSuit.Heart, (byte)1);
+                p.handCards.Add(card);
+                p.abilitySun(new AbilityActionSun(card), new TestGame(1));
+                Assert.IsTrue(p.handCards.Count == 1);
+                Assert.IsFalse(card==p.handCards[0]);
+
+            }
+        }
+        [TestMethod]
+        public void SunQuanAbtestnomockBVA()
+        {
+            {
+                Player p = new SunQuan(0);
+                Attack card = new Attack(CardSuit.Heart, (byte)1);
+                p.handCards.Add(card);
+                Assert.IsTrue(p.handCards.Count == 1);
+                Assert.IsTrue(card == p.handCards[0]);
+
+            }
+        }
+
+        [TestMethod]
+        public void LiuBeiAbtestmock()
+        {
+            {
+                Player p = new LiuBei(0);
+                Player[] ls = new Player[1];
+                Attack fakeCard = mocks.DynamicMock<Attack>(CardSuit.Club, (byte)1);
+                IGame fakeGame = mocks.DynamicMock<IGame>();
+                AbilityAction fakeAb = mocks.DynamicMock<AbilityAction>(fakeCard, ls);
+                ls[0] = new ZhangFei(1);
+                using (mocks.Ordered())
+                {
+                    p.handCards.Remove(fakeCard);
+                }
+                mocks.ReplayAll();
+                p.ability(fakeAb,fakeGame);
+                
+
+            }
+        }
+
+        [TestMethod]
+        public void SunQuanAbtestmock()
+        {
+            {
+                Player p = new SunQuan(0);
+                Attack fakeCard = mocks.DynamicMock<Attack>(CardSuit.Club, (byte)1);
+                IGame fakeGame = mocks.DynamicMock<IGame>();
+                AbilityActionSun fakeAb = mocks.DynamicMock<AbilityActionSun>(fakeCard);
+
+                using (mocks.Ordered())
+                {
+                    p.handCards.Remove(fakeCard);
+                    p.drawCards(1, fakeGame);
+                }
+                mocks.ReplayAll();
+                p.abilitySun(fakeAb, fakeGame);
+
+
+            }
+        }
+        [TestMethod]
+        public void LiuBeiAbtestnomockBVA()
+        {
+            {
+                Player p = new LiuBei(0);
+                Player[] ls = new Player[1];
+                ls[0] = new ZhangFei(1);
+                Attack card = new Attack(CardSuit.Heart, (byte)1);
+                p.handCards.Add(card);
+                Assert.IsFalse(p.handCards.Count == 0);
+                Assert.IsFalse(ls[0].handCards.Count == 1);
+
+            }
+        }
+
+        [TestMethod]
+        public void ZhangFeiAbtestnomockBVA()
+        {
+            {
+                IGame game = new TestGame(1);
+                Player p = new ZhangFei(1);
+                Attack card = new Attack(CardSuit.Club, 1);
+                ActionPhase acpha = new ActionPhase(p);
+                Player[] ls = new Player[1];
+                ls[0] = new LiuBei(2);
+
+                AttackPhase pha = new AttackPhase(p, card, ls, acpha);
+                pha.actionPhase.attackCount = 0;
+                Assert.IsFalse(p.canNotAttack(pha, game));
+               
+            }
+        }
+
+        [TestMethod]
+        public void LuMengAbtestnomock()
+        {
+            {
+                Player p = new LuMeng(1);
+                Attack card = new Attack(CardSuit.Club, 1);
+                p.handCards.Add(card);
+                Assert.IsTrue(p.handcardCount() == 0);
+            }
+        }
+        [TestMethod]
+        public void LuMengAbtestnomockBVA()
+        {
+            {
+                Player p = new ZhangFei(1);
+                Attack card = new Attack(CardSuit.Club, 1);
+                p.handCards.Add(card);
+                Assert.IsFalse(p.handcardCount() == 0);
+            }
+        }
+
         [TestMethod]
         public void CaoCaoAbtestnomock()
         {
@@ -164,7 +321,9 @@ namespace LOTK_Test.ModelTest
 
         public List<Card> drawCard(int v)
         {
-            throw new NotImplementedException();
+            List < Card > a = new List<Card>();
+            a.Add(new Attack(CardSuit.Heart, 1));
+            return a;
         }
 
         public Player nextPlayer(int curPlayer, int count)

@@ -88,17 +88,16 @@ namespace LOTK.Model
         public ICardSet cards { get; }
 
         private PhaseList stages;
-
+       
         public Phase curPhase {get {return stages.top();}}
+
+        public Player curPhasePlayer { get { return curPhase.player; } }
 
         public Player curRoundPlayer { get; private set; }
 
         /// <summary>
         /// construct a game given player and cardlist
         /// It uses dependency injection, so players and carlist can be easily tested.
-        /// </summary>
-        /// <param name="players"></param>
-        /// <param name="cardList"></param>
         public Game(Player[] players, ICardSet cardList)
         {
             if (cardList == null)
@@ -112,6 +111,9 @@ namespace LOTK.Model
             stages = new PhaseList();
         }
 
+        /// <summary>
+        /// start of game 
+        /// </summary>
         public void start()
         {
             for (int i = 0; i < Num_Player; i++)
@@ -168,7 +170,17 @@ namespace LOTK.Model
                 }
             }
         }
-
+       
+        /// <summary>
+        /// Under certain circumstances, the player might have only one option.
+        /// In those cases, we want the game to pause for a small interval
+        /// and then automactially advance to the next stage.
+        /// This can save the player from unnesessary clicks.
+        /// 
+        /// This method will be called from the controller at specific interval.
+        /// This interval is customizable by controller not the game itself.
+        /// </summary>
+        /// <returns>True if the game is auto advanced and the GUI should update correspondedly</returns>
         public bool tick()
         {
             if (timerAutoAdvance)

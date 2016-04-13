@@ -18,6 +18,7 @@ namespace LOTK.View
         public CardDisplay tool_attack;
         public CardDisplay tool_defence;
         public int NumberOfCardsToClick;
+        public string poolText;
 
         /// <summary>
         /// Setting all the required data to default
@@ -52,6 +53,8 @@ namespace LOTK.View
             hold_cards.Add(new CardDisplay("hold_cards", "", 4));
 
             pool_cards = new List<CardDisplay>();
+
+            poolText = "Messages";
 
             this_player_stage = "this_player_stage";
         }
