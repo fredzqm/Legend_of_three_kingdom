@@ -53,6 +53,7 @@ namespace LOTK.Model
                 return new PhaseList();
             actionPhase.attackCount++;
             player.handCards.Remove(attack);
+            game.cards.discardOne(attack);
             return new PhaseList(new ResponsePhase(targets[0], this, c => c is Miss), this);
         }
     }
@@ -140,30 +141,30 @@ namespace LOTK.Model
         }
     }
 
-    /// <summary>
-    /// subclass of hidden phase 
-    /// </summary>
-    public class UseCardPhase : HiddenPhase
-    {
-        public Card card { get; }
-        /// <summary>
-        /// create use card phase 
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="card"></param>
-        public UseCardPhase(Player player, Card card) : base(player)
-        {
-            this.card = card;
-        }
-        public override PhaseList advance(IGame game)
-        {
-            if (player.handCards.Contains(card))
-            {
-                throw new NotImplementedException();
-            }
-            throw new Exception("Cannot Use card not in hand");
-        }
-    }
+    ///// <summary>
+    ///// subclass of hidden phase 
+    ///// </summary>
+    //public class UseCardPhase : HiddenPhase
+    //{
+    //    public Card card { get; }
+    //    /// <summary>
+    //    /// create use card phase 
+    //    /// </summary>
+    //    /// <param name="player"></param>
+    //    /// <param name="card"></param>
+    //    public UseCardPhase(Player player, Card card) : base(player)
+    //    {
+    //        this.card = card;
+    //    }
+    //    public override PhaseList advance(IGame game)
+    //    {
+    //        if (player.handCards.Contains(card))
+    //        {
+    //            throw new NotImplementedException();
+    //        }
+    //        throw new Exception("Cannot Use card not in hand");
+    //    }
+    //}
 
  
 

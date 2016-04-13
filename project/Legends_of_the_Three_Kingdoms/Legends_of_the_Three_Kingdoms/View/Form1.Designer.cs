@@ -5,7 +5,7 @@ using System;
 
 namespace LOTK.View
 {
-    public partial class IGameView
+    public partial class GameView
     {
         private System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)
@@ -38,6 +38,7 @@ namespace LOTK.View
             this.LowerRight = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
             this.ThisPlayer = new System.Windows.Forms.Button();
+            this.cardPileCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // turn
@@ -113,7 +114,6 @@ namespace LOTK.View
             this.UpperLeft.Text = "UpperLeft";
             this.UpperLeft.UseVisualStyleBackColor = true;
             this.UpperLeft.Click += new System.EventHandler(this.UpperLeft_Click);
-
             // 
             // UpperRight
             // 
@@ -165,11 +165,21 @@ namespace LOTK.View
             this.ThisPlayer.UseVisualStyleBackColor = true;
             this.ThisPlayer.Click += new System.EventHandler(this.ThisPlayer_Click);
             // 
-            // IGameView
+            // label1
+            // 
+            this.cardPileCount.AutoSize = true;
+            this.cardPileCount.Location = new System.Drawing.Point(516, 32);
+            this.cardPileCount.Name = "label1";
+            this.cardPileCount.Size = new System.Drawing.Size(32, 17);
+            this.cardPileCount.TabIndex = 23;
+            this.cardPileCount.Text = "100";
+            // 
+            // GameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.cardPileCount);
             this.Controls.Add(this.ThisPlayer);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.UpperLeft);
@@ -183,7 +193,7 @@ namespace LOTK.View
             this.Controls.Add(this.tool_defence);
             this.Controls.Add(this.tool_attack);
             this.Controls.Add(this.turn);
-            this.Name = "IGameView";
+            this.Name = "GameView";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,6 +216,7 @@ namespace LOTK.View
         private Button Cancel;
         private Button ThisPlayer;
         public int NumberOfCardsToClick;
+        private Label cardPileCount;
     }
 }
 

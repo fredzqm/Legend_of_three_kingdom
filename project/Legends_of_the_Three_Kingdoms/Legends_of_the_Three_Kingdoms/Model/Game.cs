@@ -37,11 +37,22 @@ namespace LOTK.Model
         /// The current phase of the game
         /// </summary>
         Phase curPhase { get; }
+        
+        /// <summary>
+        /// log a message
+        /// </summary>
+        /// <param name="message"></param>
+        void log(string message);
 
         /// <summary>
         /// the player under whose turn the game is in
         /// </summary>
         Player curRoundPlayer { get; }
+
+        /// <summary>
+        /// the logs of the game, should be printed out or displayed
+        /// </summary>
+        string logs { get; }
 
         /// <summary>
         /// Under certain circumstances, the player might have only one option.
@@ -95,6 +106,8 @@ namespace LOTK.Model
 
         public Player curRoundPlayer { get; private set; }
 
+        public string logs {get; private set;}
+
         /// <summary>
         /// construct a game given player and cardlist
         /// It uses dependency injection, so players and carlist can be easily tested.
@@ -109,8 +122,9 @@ namespace LOTK.Model
             this.players = players;
 
             stages = new PhaseList();
+            logs = "";
         }
-
+        
         /// <summary>
         /// start of game 
         /// </summary>
@@ -121,7 +135,13 @@ namespace LOTK.Model
                 players[i].drawCards(4, this);
             }
             stages.add(new PlayerTurn(players[0]));
+            log("Start the game");
             nextStage(null);
+        }
+
+        public void log(String message)
+        {
+            logs = logs + message + "\n";
         }
 
         /// <summary>
@@ -150,6 +170,7 @@ namespace LOTK.Model
                 if (curPhase is PlayerTurn)
                 { // when turn switches
                     curRoundPlayer = curPhase.player;
+                    log("The round of " + curRoundPlayer +" start");
                 }
                 PhaseList followingPhases = curPhase.advance(userAction, this);
                 if (followingPhases == null)
@@ -165,6 +186,7 @@ namespace LOTK.Model
                 if (curPhase.needResponse())
                 { // the next state need a user action for future decison
                   // but since it is supposed to be a responsive phase, pause a while before autoadvance
+                    log(curPhase.ToString());
                     timerAutoAdvance = true;
                     return;
                 }
@@ -194,6 +216,7 @@ namespace LOTK.Model
             }
             return false;
         }
-       
+
+
     }
 }

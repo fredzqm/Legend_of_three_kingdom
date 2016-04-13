@@ -171,7 +171,6 @@ namespace LOTK_Test.ModelTest
                 mocks.ReplayAll();
                 p.abilitySun(fakeAb, fakeGame);
 
-
             }
         }
         [TestMethod]

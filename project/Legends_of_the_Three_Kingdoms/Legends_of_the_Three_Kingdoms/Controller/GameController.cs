@@ -17,7 +17,7 @@ namespace LOTK.Controller
         const int NUM_OF_PLAYER = 5;
         const int DELAY_INTERVAL = 2000;
 
-        public IGameView[] view { get; }
+        public GameView[] view { get; }
         public IGame game { get; }
 
         public int Num_Of_Player { get { return NUM_OF_PLAYER; } }
@@ -27,6 +27,7 @@ namespace LOTK.Controller
         public int ClickUser = -100;
         public int SelectCardId = -100;
         public int Ifabi = -10;
+
         /// <summary>
         /// create controller
         /// </summary>
@@ -37,12 +38,12 @@ namespace LOTK.Controller
             game = new Game(players, cardset);
             game.start();
 
-            view = new IGameView[NUM_OF_PLAYER];
-            view[0] = new IGameView(this, 0);
+            view = new GameView[NUM_OF_PLAYER];
+            view[0] = new GameView(this, 0);
             updateViews = view[0].updateForm;
             for (int i = 1; i < NUM_OF_PLAYER; i++)
             {
-                view[i] = new IGameView(this, i);
+                view[i] = new GameView(this, i);
                 view[i].Show();
                 updateViews += view[i].updateForm;
             }
@@ -66,6 +67,7 @@ namespace LOTK.Controller
             if (game.tick())
                 updateViews();
         }
+
         /// <summary>
         /// get data from model
         /// </summary>
@@ -83,6 +85,9 @@ namespace LOTK.Controller
             rd.this_player_stage = game.curPhase.ToString();
             rd.tool_attack = CardToCardDisplay(game.players[ownPlayer].weapon);
             rd.tool_defence = CardToCardDisplay(game.players[ownPlayer].shield);
+            rd.poolText = game.logs;
+            rd.cardPileCount = game.cards.cardPileCount;
+            rd.discardPile = game.cards.discardPileCount;
             return rd;
         }
 

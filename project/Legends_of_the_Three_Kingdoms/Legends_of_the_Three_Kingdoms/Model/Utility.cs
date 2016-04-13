@@ -10,6 +10,9 @@ namespace LOTK.Model
 
     public interface ICardSet
     {
+        int cardPileCount { get; }
+        int discardPileCount { get; }
+
         /// <summary>
         /// Known get the card instance with cardID
         /// This should always be true
@@ -68,6 +71,9 @@ namespace LOTK.Model
         private Dictionary<Card, int> cardIDs;
         private LinkedList<Card> cardPile;
         private LinkedList<Card> discardPile;
+
+        public int cardPileCount {get{return cardPile.Count;}}
+        public int discardPileCount { get { return discardPile.Count; } }
 
         /// <summary>
         /// create a cardset given an list of cards

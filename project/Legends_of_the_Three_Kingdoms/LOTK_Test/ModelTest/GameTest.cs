@@ -32,6 +32,30 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Attack(CardSuit.Club, 7));
             cards.Add(new Attack(CardSuit.Club, 8));
             cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
 
             cardList = new CardSet(cards);
 
@@ -169,6 +193,9 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Attack(CardSuit.Club, 7));
             cards.Add(new Attack(CardSuit.Club, 8));
             cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 10));
+            cards.Add(new Attack(CardSuit.Club, 11));
+            cards.Add(new Attack(CardSuit.Club, 12));
 
             cards.Add(new Attack(CardSuit.Spade, 2));
             cards.Add(new Attack(CardSuit.Spade, 3));
@@ -178,6 +205,9 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Attack(CardSuit.Spade, 7));
             cards.Add(new Attack(CardSuit.Spade, 8));
             cards.Add(new Attack(CardSuit.Spade, 9));
+            cards.Add(new Attack(CardSuit.Spade, 10));
+            cards.Add(new Attack(CardSuit.Spade, 11));
+            cards.Add(new Attack(CardSuit.Spade, 12));
 
             cards.Add(new Miss(CardSuit.Diamond, 2));
             cards.Add(new Miss(CardSuit.Diamond, 3));
@@ -187,6 +217,9 @@ namespace LOTK_Test.ModelTest
             cards.Add(new Miss(CardSuit.Diamond, 7));
             cards.Add(new Miss(CardSuit.Diamond, 8));
             cards.Add(new Miss(CardSuit.Diamond, 9));
+            cards.Add(new Miss(CardSuit.Diamond, 10));
+            cards.Add(new Miss(CardSuit.Diamond, 11));
+            cards.Add(new Miss(CardSuit.Diamond, 12));
 
             cards.Add(new Peach(CardSuit.Heart, 2));
             cards.Add(new Peach(CardSuit.Heart, 3));
@@ -216,91 +249,92 @@ namespace LOTK_Test.ModelTest
             game8.start();
         }
 
-        //[TestMethod]
-        //public void FourStageTest()
-        //{
-        //    Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
-        //    Assert.AreEqual(0, game.curPhase.playerID);
-        //    game.nextStage(null);
-        //    Assert.AreEqual(typeof(DrawingPhase), game.curPhase.GetType());
-        //    Assert.AreEqual(0, game.curPhase.playerID);
-        //    game.nextStage(null);
-        //    Assert.AreEqual(typeof(ActionPhase), game.curPhase.GetType());
-        //    Assert.AreEqual(0, game.curPhase.playerID);
-        //    game.nextStage(new YesOrNoAction(false));
-        //    Assert.AreEqual(typeof(DiscardPhase), game.curPhase.GetType());
-        //    Assert.AreEqual(0, game.curPhase.playerID);
-        //    game.nextStage(new YesOrNoAction(false));
-        //    Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
-        //    Assert.AreEqual(1, game.curPhase.playerID);
-        //}
 
-        //[TestMethod]
-        //public void EightPeopleGameCycleTest()
-        //{
-        //    for (int j = 0; j < 1; j++)
-        //    {
-        //        for (int i = 0; i < 8; i++)
-        //        {
-        //            Assert.AreEqual(typeof(JudgePhase), game8.curPhase.GetType());
-        //            Assert.AreEqual(game8.curPhase.playerID, i);
-        //            game8.nextStage(null);
-        //            Assert.AreEqual(typeof(DrawingPhase), game8.curPhase.GetType());
-        //            Assert.AreEqual(game8.curPhase.playerID, i);
-        //            game8.nextStage(null);
-        //            Assert.AreEqual(typeof(ActionPhase), game8.curPhase.GetType());
-        //            Assert.AreEqual(game8.curPhase.playerID, i);
-        //            game8.nextStage(new YesOrNoAction(false));
-        //            Assert.AreEqual(typeof(DiscardPhase), game8.curPhase.GetType());
-        //            Assert.AreEqual(game8.curPhase.playerID, i);
-        //            game8.nextStage(new YesOrNoAction(false));
-        //        }
-        //    }
-        //}
+        [TestMethod]
+        public void FourStageTest()
+        {
+            Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
+            Assert.AreEqual(0, game.curPhase.playerID);
+            game.nextStage(null);
+            Assert.AreEqual(typeof(DrawingPhase), game.curPhase.GetType());
+            Assert.AreEqual(0, game.curPhase.playerID);
+            game.nextStage(null);
+            Assert.AreEqual(typeof(ActionPhase), game.curPhase.GetType());
+            Assert.AreEqual(0, game.curPhase.playerID);
+            game.nextStage(new YesOrNoAction(false));
+            Assert.AreEqual(typeof(DiscardPhase), game.curPhase.GetType());
+            Assert.AreEqual(0, game.curPhase.playerID);
+            game.nextStage(new YesOrNoAction(false));
+            Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
+            Assert.AreEqual(1, game.curPhase.playerID);
+        }
 
-        //[TestMethod]
-        //public void CurrentPlayerTest()
-        //{
-        //    for (int j = 0; j < 1; j++)
-        //    {
-        //        for (int i = 0; i < 8; i++)
-        //        {
-        //            Assert.AreEqual(typeof(JudgePhase), game8.curPhase.GetType());
-        //            Assert.AreEqual(game8.curRoundPlayer, i);
-        //            game8.nextStage(null);
-        //            Assert.AreEqual(typeof(DrawingPhase), game8.curPhase.GetType());
-        //            Assert.AreEqual(game8.curRoundPlayer, i);
-        //            game8.nextStage(null);
-        //            Assert.AreEqual(typeof(ActionPhase), game8.curPhase.GetType());
-        //            Assert.AreEqual(game8.curRoundPlayer, i);
-        //            game8.nextStage(new YesOrNoAction(false));
-        //            Assert.AreEqual(typeof(DiscardPhase), game8.curPhase.GetType());
-        //            Assert.AreEqual(game8.curRoundPlayer, i);
-        //            game8.nextStage(new YesOrNoAction(false));
-        //        }
-        //    }
-        //}
+        [TestMethod]
+        public void EightPeopleGameCycleTest()
+        {
+            for (int j = 0; j < 1; j++)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    Assert.AreEqual(typeof(JudgePhase), game8.curPhase.GetType());
+                    Assert.AreEqual(game8.curPhase.playerID, i);
+                    game8.nextStage(null);
+                    Assert.AreEqual(typeof(DrawingPhase), game8.curPhase.GetType());
+                    Assert.AreEqual(game8.curPhase.playerID, i);
+                    game8.nextStage(null);
+                    Assert.AreEqual(typeof(ActionPhase), game8.curPhase.GetType());
+                    Assert.AreEqual(game8.curPhase.playerID, i);
+                    game8.nextStage(new YesOrNoAction(false));
+                    Assert.AreEqual(typeof(DiscardPhase), game8.curPhase.GetType());
+                    Assert.AreEqual(game8.curPhase.playerID, i);
+                    game8.nextStage(new YesOrNoAction(false));
+                }
+            }
+        }
 
-        //[TestMethod]
-        //public void UserResponseYES_OR_NOTest()
-        //{
-        //    Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
-        //    // advance
-        //    game.nextStage(new YesOrNoAction(false));
-        //    Assert.AreEqual(typeof(DrawingPhase), game.curPhase.GetType());
-        //    // advance
-        //    game.nextStage(new YesOrNoAction(false));
-        //    Assert.AreEqual(typeof(ActionPhase), game.curPhase.GetType());
-        //    // not advance
-        //    game.nextStage(new YesOrNoAction(true));
-        //    Assert.AreEqual(typeof(ActionPhase), game.curPhase.GetType());
-        //    // advance
-        //    game.nextStage(new YesOrNoAction(false));
-        //    Assert.AreEqual(typeof(DiscardPhase), game.curPhase.GetType());
-        //    // advance
-        //    game.nextStage(new YesOrNoAction(true));
-        //    Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
-        //}
+        [TestMethod]
+        public void CurrentPlayerTest()
+        {
+            for (int j = 0; j < 1; j++)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    Assert.AreEqual(typeof(JudgePhase), game8.curPhase.GetType());
+                    Assert.AreEqual(game8.curRoundPlayer, i);
+                    game8.nextStage(null);
+                    Assert.AreEqual(typeof(DrawingPhase), game8.curPhase.GetType());
+                    Assert.AreEqual(game8.curRoundPlayer, i);
+                    game8.nextStage(null);
+                    Assert.AreEqual(typeof(ActionPhase), game8.curPhase.GetType());
+                    Assert.AreEqual(game8.curRoundPlayer, i);
+                    game8.nextStage(new YesOrNoAction(false));
+                    Assert.AreEqual(typeof(DiscardPhase), game8.curPhase.GetType());
+                    Assert.AreEqual(game8.curRoundPlayer, i);
+                    game8.nextStage(new YesOrNoAction(false));
+                }
+            }
+        }
+
+        [TestMethod]
+        public void UserResponseYES_OR_NOTest()
+        {
+            Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
+            // advance
+            game.nextStage(new YesOrNoAction(false));
+            Assert.AreEqual(typeof(DrawingPhase), game.curPhase.GetType());
+            // advance
+            game.nextStage(new YesOrNoAction(false));
+            Assert.AreEqual(typeof(ActionPhase), game.curPhase.GetType());
+            // not advance
+            game.nextStage(new YesOrNoAction(true));
+            Assert.AreEqual(typeof(ActionPhase), game.curPhase.GetType());
+            // advance
+            game.nextStage(new YesOrNoAction(false));
+            Assert.AreEqual(typeof(DiscardPhase), game.curPhase.GetType());
+            // advance
+            game.nextStage(new YesOrNoAction(false));
+            Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
+        }
 
         [TestMethod]
         public void AutoAdvancedTest()

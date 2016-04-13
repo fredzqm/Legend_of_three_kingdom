@@ -158,9 +158,9 @@ namespace LOTK.Model
         {
             while (player.handcardCount() > player.health)
             {
-                Card d = player.handCards[0];
-                game.cards.discardOne(d);
-                player.handCards.Remove(d);
+                Card discard = player.handCards[0];
+                player.handCards.Remove(discard);
+                game.cards.discardOne(discard);
             }
             return new PhaseList();
         }

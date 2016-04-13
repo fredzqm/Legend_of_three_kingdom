@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using LOTK.Controller;
 
 namespace LOTK.View
-{   /// <summary>
-/// This is the function for clickButton
-/// </summary>
-/// <param name="playerID"></param>
-/// <param name="buttonID"></param>
+{   
+
+    /// <summary>
+    /// This is the function for clickButton
+    /// </summary>
+    /// <param name="playerID"></param>
+    /// <param name="buttonID"></param>
     public delegate void clickButton(int playerID, int buttonID);
     /// <summary>
     /// This is the function for click Card, Maybe changed based on the future design
@@ -29,7 +31,7 @@ namespace LOTK.View
     /// <param name="clickedPlayerID"></param>
     public delegate void clickPlayer(int playerID, int clickedPlayerID);
 
-    public partial class IGameView : Form
+    public partial class GameView : Form
     {
         private viewController controller;
         private int position;
@@ -43,7 +45,7 @@ namespace LOTK.View
         /// </summary>
         /// <param name="controller"></param>
         /// <param name="pos"></param>
-        public IGameView(viewController controller, int pos)
+        public GameView(viewController controller, int pos)
         {
             this.position = pos;
             this.controller = controller;
@@ -90,6 +92,7 @@ namespace LOTK.View
             LowerLeft.Text = data.players[4].name + " health:" + data.players[4].health;
             LowerRight.Text = data.players[1].name +  " health:" + data.players[1].health;
 
+            cardPileCount.Text = "" + data.cardPileCount;
         }
 
 
@@ -193,6 +196,11 @@ namespace LOTK.View
                 }
                 clickcard(position, id);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

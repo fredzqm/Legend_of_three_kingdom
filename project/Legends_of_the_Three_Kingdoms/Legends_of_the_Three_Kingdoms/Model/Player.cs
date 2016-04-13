@@ -121,7 +121,13 @@ namespace LOTK.Model
         /// <returns></returns>
         public virtual PhaseList drawCards(int num, IGame game)
         {
-            handCards.AddRange(game.cards.drawCard(num));
+            try
+            {
+                handCards.AddRange(game.cards.drawCard(num));
+            }catch (NoCardException e)
+            {
+                throw new NoCardException("cannot draw card", e);
+            }
             return new PhaseList();
         }
         /// <summary>

@@ -19,7 +19,8 @@ namespace LOTK.View
         public CardDisplay tool_defence;
         public int NumberOfCardsToClick;
         public string poolText;
-
+        public int cardPileCount;
+        public int discardPile;
         /// <summary>
         /// Setting all the required data to default
         /// </summary>
@@ -55,8 +56,10 @@ namespace LOTK.View
             pool_cards = new List<CardDisplay>();
 
             poolText = "Messages";
-
             this_player_stage = "this_player_stage";
+
+            cardPileCount = 100;
+            discardPile = 0;
         }
     }
     /// <summary>
