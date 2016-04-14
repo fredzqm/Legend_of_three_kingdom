@@ -23,7 +23,7 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void HarmTest()
         { Attack card = new Attack(CardSuit.Club,1);
-            IGame game = new TestGame(1);
+            IGame game = mocks.Stub<IGame>();
             int health = 5;
             int harm = 2;
             Player p = new Player(0, "Name", "Descript", health);
@@ -37,7 +37,7 @@ namespace LOTK_Test.ModelTest
         public void HarmDyingTest()
         {
             Attack card = new Attack(CardSuit.Club, 1);
-            IGame game = new TestGame(1);
+            IGame game = mocks.Stub<IGame>();
             int health = 5;
             int harm = 10;
             Player p = new Player(0, "Name", "Descript", health);
@@ -78,7 +78,7 @@ namespace LOTK_Test.ModelTest
         public void ZhangFeiAbtestnomock()
         {
             {
-                IGame game = new TestGame(1);
+                IGame game = mocks.Stub<IGame>();
                 Player p = new ZhangFei(1);
                 Attack card = new Attack(CardSuit.Club, 1);
                 ActionPhase acpha = new ActionPhase(p);
@@ -101,7 +101,7 @@ namespace LOTK_Test.ModelTest
                 ls[0] = new ZhangFei(1);
                 Attack card = new Attack(CardSuit.Heart, (byte)1);
                 p.handCards.Add(card);
-                p.ability(new AbilityAction(card, ls),new TestGame(1));
+                p.ability(new AbilityAction(card, ls), mocks.Stub<IGame>());
                 Assert.IsTrue(p.handCards.Count == 0);
                 Assert.IsTrue(ls[0].handCards.Count == 1);
 
@@ -114,7 +114,7 @@ namespace LOTK_Test.ModelTest
                 Player p = new SunQuan(0);
                 Attack card = new Attack(CardSuit.Heart, (byte)1);
                 p.handCards.Add(card);
-                p.abilitySun(new AbilityActionSun(card), new TestGame(1));
+                p.abilitySun(new AbilityActionSun(card), mocks.Stub<IGame>());
                 Assert.IsTrue(p.handCards.Count == 1);
                 Assert.IsFalse(card==p.handCards[0]);
 
@@ -192,7 +192,7 @@ namespace LOTK_Test.ModelTest
         public void ZhangFeiAbtestnomockBVA()
         {
             {
-                IGame game = new TestGame(1);
+                IGame game = mocks.Stub<IGame>();
                 Player p = new ZhangFei(1);
                 Attack card = new Attack(CardSuit.Club, 1);
                 ActionPhase acpha = new ActionPhase(p);
@@ -232,7 +232,7 @@ namespace LOTK_Test.ModelTest
         {
             {
                 Attack card = new Attack(CardSuit.Club, 1);
-                IGame game = new TestGame(1);
+                IGame game = mocks.Stub<IGame>();
                 int health = 5;
                 int harm = 1;
                 Player p = new CaoCao(1);
@@ -248,7 +248,7 @@ namespace LOTK_Test.ModelTest
         public void CaoCaoAbtestnomockBVATest()
         {
             Attack card = new Attack(CardSuit.Club, 1);
-            IGame game = new TestGame(1);
+            IGame game = mocks.Stub<IGame>();
             int health = 5;
             int harm = 2;
             Player p = new Player(0, "Name", "Descript", health);
@@ -298,6 +298,15 @@ namespace LOTK_Test.ModelTest
         public ICardSet cards { get; set; }
         public Phase curPhase { get; }
         public Player curRoundPlayer { get; }
+
+        public string logs
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public TestGame(int n)
         {
             Num_Player = n;
@@ -336,6 +345,11 @@ namespace LOTK_Test.ModelTest
         }
 
         public void processUserInput(int playerID, UserAction userAction)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void log(string message)
         {
             throw new NotImplementedException();
         }

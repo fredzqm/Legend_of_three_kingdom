@@ -19,14 +19,13 @@ namespace LOTK_Test.ModelTest
             mocks = new MockRepository();
         }
 
-
         [TestMethod]
         public void PlayerFiveAdvancePhaseTest()
         {
             Player p = mocks.Stub<Player>(0);
             Player p2 = mocks.Stub<Player>(0);
             Player p3 = mocks.Stub<Player>(0);
-            IGame testgame = new TestGame(5, p, p2, p3);
+            IGame testgame = mocks.Stub<IGame>();
             PhaseList ls;
             ls = (new PlayerTurn(p)).advance(null, testgame);
             Assert.AreEqual(typeof(JudgePhase), ls.pop().GetType());
@@ -62,7 +61,7 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(ls.isEmpty());
 
             ls = (new DiscardPhase(p)).advance(null, testgame);
-            Assert.IsTrue(ls.isEmpty()); // in the future this will be changed to true
+            Assert.IsNull(ls); // in the future this will be changed to true
             ls = (new DiscardPhase(p)).advance(new YesOrNoAction(true), testgame);
             Assert.IsTrue(ls.isEmpty());
             ls = (new DiscardPhase(p)).advance(new YesOrNoAction(false), testgame);
@@ -97,7 +96,8 @@ namespace LOTK_Test.ModelTest
         {
             Player p1 = mocks.Stub<Player>(0);
             Player p2 = mocks.Stub<Player>(1);
-            IGame game = new TestGame(5, p1, p2);
+            IGame game = mocks.Stub<IGame>();
+
             Card attack = new Attack(CardSuit.Spade, 1);
 
             // ActionPhase produces attackPhase
@@ -146,8 +146,9 @@ namespace LOTK_Test.ModelTest
         {
             Player p1 = mocks.Stub<Player>(0);
             Player p2 = mocks.Stub<Player>(1);
+            
+            IGame game = mocks.Stub<IGame>();
 
-            IGame game = new TestGame(5, p1, p2);
             Card attack = new Attack(CardSuit.Spade, 1);
             Miss miss = new Miss(CardSuit.Diamond, 2);
             // ActionPhase produces attackPhase

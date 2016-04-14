@@ -140,7 +140,7 @@ namespace LOTK.Model
     /// create discard phase
     /// </summary>
     /// <param name="player"></param>
-        public DiscardPhase(Player player) : base(player, 1) { }
+        public DiscardPhase(Player player) : base(player, 5) { }
 
         public override PhaseList autoAdvance(IGame game)
         {
