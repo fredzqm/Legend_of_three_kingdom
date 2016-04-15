@@ -104,7 +104,6 @@ namespace LOTK_Test.ModelTest
                 p.ability(new AbilityAction(card, ls), mocks.Stub<IGame>());
                 Assert.IsTrue(p.handCards.Count == 0);
                 Assert.IsTrue(ls[0].handCards.Count == 1);
-
             }
         }
         [TestMethod]
@@ -169,8 +168,10 @@ namespace LOTK_Test.ModelTest
                     p.drawCards(1, fakeGame);
                 }
                 mocks.ReplayAll();
+
                 p.abilitySun(fakeAb, fakeGame);
 
+                mocks.VerifyAll();
             }
         }
         [TestMethod]

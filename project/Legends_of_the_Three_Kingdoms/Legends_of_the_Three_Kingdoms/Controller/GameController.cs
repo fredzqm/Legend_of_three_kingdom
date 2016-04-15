@@ -102,13 +102,15 @@ namespace LOTK.Controller
             switch (buttonID)
             {
                 case ButtonID.OK:
-                    if (Ifabi == 1&&ClickUser>=0)
+                    if (Ifabi == 1 && ClickUser>=0)
                     {
                         game.processUserInput(playerID, new AbilityAction(game, SelectCardId, ClickUser));
+                        Ifabi = -1;
                     }
                     else if (Ifabi == 1 && ClickUser < 0)
                     {
                         game.processUserInput(playerID, new AbilityActionSun(game, SelectCardId));
+                        Ifabi = -1;
                     }
                     else if (SelectCardId < 0 && Ifabi < 0)
                     {
