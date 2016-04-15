@@ -17,8 +17,13 @@ namespace LOTK.Model
         {
 
         }
-
-      public override bool canNotAttack(AttackPhase curPhase, IGame game)
+        /// <summary>
+        /// override of Player.canNotAttack()
+        /// </summary>
+        /// <param name="curPhase"></param>
+        /// <param name="game"></param>
+        /// <returns></returns>
+        public override bool canNotAttack(AttackPhase curPhase, IGame game)
        {
            return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.targets[0] == this);
         }
@@ -37,6 +42,12 @@ namespace LOTK.Model
         {
 
         }
+        /// <summary>
+        /// override of Player.ability()
+        /// </summary>
+        /// <param name="abilityAction"></param>
+        /// <param name="game"></param>
+        /// <returns></returns>
         public override PhaseList ability(AbilityAction abilityAction, IGame game)
         {
             this.handCards.Remove(abilityAction.card);
@@ -56,6 +67,12 @@ namespace LOTK.Model
         public CaoCao(int pos) : base(pos, "Cao Cao", "When Cao Cao is damaged by a card, he can immediately put it into his hand", 4)
         {
         }
+        /// <summary>
+        /// override of Player.harm()
+        /// </summary>
+        /// <param name="harmPhase"></param>
+        /// <param name="game"></param>
+        /// <returns></returns>
         public override PhaseList harm(HarmPhase harmPhase, IGame game)
         {
 
@@ -82,6 +99,12 @@ namespace LOTK.Model
         {
 
         }
+        /// <summary>
+        /// override Player.abilitySun()
+        /// </summary>
+        /// <param name="abilityAction"></param>
+        /// <param name="game"></param>
+        /// <returns></returns>
         public override PhaseList abilitySun(AbilityActionSun abilityAction, IGame game)
         {
             this.drawCards(1, game);
@@ -102,6 +125,10 @@ namespace LOTK.Model
         {
 
         }
+        /// <summary>
+        /// override player.handcardCount()
+        /// </summary>
+        /// <returns></returns>
         public override int handcardCount()
         {
             return 0;
