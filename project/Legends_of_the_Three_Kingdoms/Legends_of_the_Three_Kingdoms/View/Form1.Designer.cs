@@ -2,6 +2,7 @@
 using LOTK.View;
 using System.Windows.Forms;
 using System;
+using System.Drawing;
 
 namespace LOTK.View
 {
@@ -165,11 +166,11 @@ namespace LOTK.View
             this.ThisPlayer.UseVisualStyleBackColor = true;
             this.ThisPlayer.Click += new System.EventHandler(this.ThisPlayer_Click);
             // 
-            // label1
+            // cardPileCount
             // 
             this.cardPileCount.AutoSize = true;
             this.cardPileCount.Location = new System.Drawing.Point(516, 32);
-            this.cardPileCount.Name = "label1";
+            this.cardPileCount.Name = "cardPileCount";
             this.cardPileCount.Size = new System.Drawing.Size(32, 17);
             this.cardPileCount.TabIndex = 23;
             this.cardPileCount.Text = "100";
@@ -178,6 +179,7 @@ namespace LOTK.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.cardPileCount);
             this.Controls.Add(this.ThisPlayer);
