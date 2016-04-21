@@ -174,6 +174,7 @@ namespace LOTK_Test.ModelTest
                 mocks.VerifyAll();
             }
         }
+
         [TestMethod]
         public void LiuBeiAbtestnomockBVA()
         {

@@ -104,6 +104,8 @@ namespace LOTK.Model
         /// <param name="waitTime"></param>
         public VisiblePhase(Player player, int waitTime) : base(player)
         {
+            if (waitTime < 0)
+                throw new Exception("waitTime should not be negative");
             this.waitTime = waitTime;
         }
 
