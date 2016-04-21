@@ -74,6 +74,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllerTest.cs" />
     <Compile Include="LogExtensions.cs" />
     <Compile Include="ModelTest\CardTest.cs" />
     <Compile Include="ModelTest\PhaseTest.cs" />

@@ -145,6 +145,7 @@ namespace LOTK.Controller
             }
 
         }
+
         /// <summary>
         /// Called after user click a card
         /// </summary>
