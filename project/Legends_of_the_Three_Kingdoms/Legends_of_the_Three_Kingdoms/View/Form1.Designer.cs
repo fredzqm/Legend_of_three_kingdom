@@ -47,7 +47,7 @@ namespace LOTK.View
             this.turn.AutoSize = true;
             this.turn.BackColor = System.Drawing.Color.Transparent;
             this.turn.ForeColor = System.Drawing.Color.White;
-            this.turn.Location = new System.Drawing.Point(362, 33);
+            this.turn.Location = new System.Drawing.Point(325, 33);
             this.turn.Name = "turn";
             this.turn.Size = new System.Drawing.Size(38, 17);
             this.turn.TabIndex = 9;
