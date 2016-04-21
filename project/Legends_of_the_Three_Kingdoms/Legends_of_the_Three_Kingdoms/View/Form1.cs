@@ -54,11 +54,49 @@ namespace LOTK.View
             clickplayer = controller.clickPlayer;
 
             InitializeComponent();
+            
         }
 
 
         delegate void updateDelegate();
 
+
+        public void addimage()
+        {
+            // all the pics are from Romance of the Three Kingdoms 12, publisher: KOEI 
+            addimagehelper(UpperLeft);
+            addimagehelper(LowerLeft);
+            addimagehelper(UpperRight);
+            addimagehelper(LowerRight);
+            addimagehelper(ThisPlayer);
+        }
+
+        private void addimagehelper(Button b)
+        {
+            if (b.Text.Contains("Liu Bei"))
+            {
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.LiuBei;
+            }
+            else if (b.Text.Contains("Zhang Fei"))
+            {
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.ZhangFei;
+            }
+            else if (b.Text.Contains("Cao Cao"))
+            {
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.CaoCao;
+            }
+            else if (b.Text.Contains("Sun Quan"))
+            {
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.SunQuan;
+            }
+            else if (b.Text.Contains("Lu Meng"))
+            {
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.LuMeng;
+            }
+            else
+            {
+            }
+        }
 
 
         /// <summary>
@@ -93,6 +131,7 @@ namespace LOTK.View
             LowerRight.Text = data.players[1].name +  " health:" + data.players[1].health;
 
             cardPileCount.Text = "" + data.cardPileCount;
+            addimage();
         }
 
 

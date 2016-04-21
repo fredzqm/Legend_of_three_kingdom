@@ -41,6 +41,7 @@ namespace LOTK.Controller
             view = new GameView[NUM_OF_PLAYER];
             view[0] = new GameView(this, 0);
             updateViews = view[0].updateForm;
+            
             for (int i = 1; i < NUM_OF_PLAYER; i++)
             {
                 view[i] = new GameView(this, i);

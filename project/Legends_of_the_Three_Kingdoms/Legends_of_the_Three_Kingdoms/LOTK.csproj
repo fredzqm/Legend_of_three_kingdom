@@ -109,6 +109,21 @@
   <ItemGroup>
     <None Include="Properties\background.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\CaoCao.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\LiuBei.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\LuMeng.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\SunQuan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ZhangFei.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
