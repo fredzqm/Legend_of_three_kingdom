@@ -24,9 +24,8 @@ namespace LOTK.Controller
         public event UpdateForm updateViews;
 
         private System.Timers.Timer aTimer;
-        public int ClickUser = -100;
-        public int SelectCardId = -100;
-        public int Ifabi = -10;
+
+        private UserActionHandler handler;
 
         /// <summary>
         /// create controller
@@ -56,6 +55,8 @@ namespace LOTK.Controller
             aTimer.Enabled = true;
             //aTimer.Stop();
             //aTimer.Dispose();
+
+            handler = new UserActionHandler(game);
         }
 
         /// <summary>
@@ -92,78 +93,6 @@ namespace LOTK.Controller
             return rd;
         }
 
-
-        /// <summary>
-        /// get the user behavior from gui
-        /// </summary>
-        /// <param name="playerID"></param>
-        /// <param name="buttonID"></param>
-        public void clickButton(int playerID, int buttonID)
-        {
-            switch (buttonID)
-            {
-                case ButtonID.OK:
-                    if (Ifabi == 1 && ClickUser>=0)
-                    {
-                        game.processUserInput(playerID, new AbilityAction(game, SelectCardId, ClickUser));
-                        Ifabi = -1;
-                    }
-                    else if (Ifabi == 1 && ClickUser < 0)
-                    {
-                        game.processUserInput(playerID, new AbilityActionSun(game, SelectCardId));
-                        Ifabi = -1;
-                    }
-                    else if (SelectCardId < 0 && Ifabi < 0)
-                    {
-                        game.processUserInput(playerID, new YesOrNoAction(true));
-                        ClickUser = -1;
-                    }
-                    else if (ClickUser < 0 && Ifabi < 0)
-                    {
-                        game.processUserInput(playerID, new CardAction(game, SelectCardId));
-                        SelectCardId = -1;
-                    }
-                    else if (ClickUser >= 0 && SelectCardId >= 0 && Ifabi < 0)
-                    {
-                        game.processUserInput(playerID, new UseCardAction(game, SelectCardId, ClickUser));
-                        SelectCardId = -1;
-                        ClickUser = -1;
-                    }
-                    updateViews();
-                    break;
-                case ButtonID.Cancel:
-                    SelectCardId = -1;
-                    ClickUser = -1;
-                    game.processUserInput(playerID, new YesOrNoAction(false));
-                    updateViews();
-                    break;
-                case ButtonID.Ability:
-                    Ifabi = 1;
-                    break;
-                default:
-                    break;
-            }
-
-        }
-
-        /// <summary>
-        /// Called after user click a card
-        /// </summary>
-        /// <param name="playerID"></param>
-        /// <param name="cardID"></param>
-        public void clickCard(int playerID, int cardID)
-        {
-            SelectCardId = cardID;
-        }
-        /// <summary>
-        /// called after user click a player 
-        /// </summary>
-        /// <param name="playerID"></param>
-        /// <param name="clickedPlayerID"></param>
-        public void clickPlayer(int playerID, int clickedPlayerID)
-        {
-            ClickUser = clickedPlayerID;
-        }
 
         // -------------------------------------------------------------------------------------
         // helper methods to convert model objects to view objects.
@@ -250,6 +179,41 @@ namespace LOTK.Controller
             return new CardSet(ls);
         }
 
+        public void clickButton(int playerID, int buttonID)
+        {
+            UserAction useraction = null;
+            switch (buttonID)
+            {
+                case ButtonID.OK:
+                    useraction = handler.clickOK(playerID);
+                    if (useraction != null)
+                        game.processUserInput(playerID, useraction);
+                    updateViews();
+                    break;
+                case ButtonID.Cancel:
+                    useraction = handler.clickCancel(playerID);
+                    if (useraction != null)
+                        game.processUserInput(playerID, useraction);
+                    game.processUserInput(playerID, new YesOrNoAction(false));
+                    updateViews();
+                    break;
+                case ButtonID.Ability:
+                    handler.clickAbility(buttonID);
+                    break;
+                default:
+                    throw new Exception("Button type not found!");
+            }
+        }
+
+        public void clickCard(int playerID, int cardID)
+        {
+            handler.clickCard(playerID, cardID);
+        }
+
+        public void clickPlayer(int playerID, int clickedPlayerID)
+        {
+            handler.clickPlayer(playerID, clickedPlayerID);
+        }
     }
 
 }
