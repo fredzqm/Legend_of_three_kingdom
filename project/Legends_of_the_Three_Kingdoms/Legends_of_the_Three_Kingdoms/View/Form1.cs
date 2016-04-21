@@ -63,7 +63,8 @@ namespace LOTK.View
 
         public void addimage()
         {
-            // all the pics are from Romance of the Three Kingdoms 12, publisher: KOEI 
+            // all character pics are from Romance of the Three Kingdoms 12, publisher: KOEI 
+            // background pic is from rxsg.game2.cn
             addimagehelper(UpperLeft);
             addimagehelper(LowerLeft);
             addimagehelper(UpperRight);
