@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\GameController.cs" />
+    <Compile Include="Controller\UserActionHandler.cs" />
     <Compile Include="Model\CardLib.cs" />
     <Compile Include="Model\CharacterLib.cs" />
     <Compile Include="Model\ExceptionHandler.cs" />
