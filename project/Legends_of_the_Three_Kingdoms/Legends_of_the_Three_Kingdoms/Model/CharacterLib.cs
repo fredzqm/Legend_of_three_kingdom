@@ -24,8 +24,18 @@ namespace LOTK.Model
         /// <param name="game"></param>
         /// <returns></returns>
         public override bool canNotAttack(AttackPhase curPhase, IGame game)
-       {
-           return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.targets[0] == this);
+        {
+            if (curPhase == null)
+            {
+                throw new EmptyException("curphase null");
+            }
+            else if (game == null)
+            {
+                throw new EmptyException("game null");
+            }
+            else {
+                return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.targets[0] == this);
+            }
         }
 
     }
@@ -50,6 +60,14 @@ namespace LOTK.Model
         /// <returns></returns>
         public override PhaseList ability(AbilityAction abilityAction, IGame game)
         {
+            if (abilityAction == null)
+            {
+                throw new EmptyException("abilityaction null");
+            }
+            else if (game == null)
+            {
+                throw new EmptyException("game null");
+            }
             this.handCards.Remove(abilityAction.card);
             abilityAction.targets[0].handCards.Add(abilityAction.card);
             return null;
@@ -75,7 +93,14 @@ namespace LOTK.Model
         /// <returns></returns>
         public override PhaseList harm(HarmPhase harmPhase, IGame game)
         {
-
+            if (harmPhase == null)
+            {
+                throw new EmptyException("harmPhase null");
+            }
+            else if (game == null)
+            {
+                throw new EmptyException("game null");
+            }
             this.health -= harmPhase.harm;
             this.handCards.Add(harmPhase.card);
             if (health < 0)
@@ -107,6 +132,16 @@ namespace LOTK.Model
         /// <returns></returns>
         public override PhaseList abilitySun(AbilityActionSun abilityAction, IGame game)
         {
+
+            if (abilityAction == null)
+            {
+                throw new EmptyException("abilityActon null");
+            }
+            else if (game == null)
+            {
+                throw new EmptyException("game null");
+            }
+
             this.drawCards(1, game);
             this.handCards.Remove(abilityAction.card);
             return null;

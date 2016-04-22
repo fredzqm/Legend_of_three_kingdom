@@ -227,10 +227,10 @@ namespace LOTK.View
             }
             else
             {
-                int id = 0;
+                int id = -1;
                 for (int i = 0; i < data.hold_cards.Count; i++)
                 {
-                    if (hand_cards.CheckedItems[0].Equals(data.hold_cards.ElementAt(i).name + ": " + data.hold_cards.ElementAt(i).ability)){
+                    if (hand_cards.CheckedItems.Count > 0 && hand_cards.CheckedItems[0].Equals(data.hold_cards.ElementAt(i).name + ": " + data.hold_cards.ElementAt(i).ability)){
                         id = data.hold_cards.ElementAt(i).id;
                     }
                 }

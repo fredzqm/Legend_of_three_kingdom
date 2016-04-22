@@ -34,6 +34,22 @@ namespace LOTK.Model
         /// <param name="healthLimit"></param>
         public Player(int pos, string name, string descript, int healthLimit)
         {
+            if (pos < 0)
+            {
+                throw new EmptyException("pos is negative");
+            }
+            else if (name == null)
+            {
+                throw new EmptyException("name is null");
+            }
+            else if (descript == null)
+            {
+                throw new EmptyException("descripty is null");
+            }
+            else if (healthLimit <0)
+            {
+                throw new EmptyException("healthlimit is negative");
+            }
             playerID = pos;
             handCards = new List<Card>();
             weapon = null;
