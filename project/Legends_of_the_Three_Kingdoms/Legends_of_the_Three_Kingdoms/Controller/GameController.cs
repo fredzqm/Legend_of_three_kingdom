@@ -182,26 +182,34 @@ namespace LOTK.Controller
         public void clickButton(int playerID, int buttonID)
         {
             UserAction useraction = null;
-            switch (buttonID)
+            try
             {
-                case ButtonID.OK:
-                    useraction = handler.clickOK(playerID);
-                    if (useraction != null)
-                        game.processUserInput(playerID, useraction);
-                    updateViews();
-                    break;
-                case ButtonID.Cancel:
-                    useraction = handler.clickCancel(playerID);
-                    if (useraction != null)
-                        game.processUserInput(playerID, useraction);
-                    game.processUserInput(playerID, new YesOrNoAction(false));
-                    updateViews();
-                    break;
-                case ButtonID.Ability:
-                    handler.clickAbility(buttonID);
-                    break;
-                default:
-                    throw new Exception("Button type not found!");
+                switch (buttonID)
+                {
+                    case ButtonID.OK:
+                        useraction = handler.clickOK(playerID);
+                        if (useraction != null)
+                            game.processUserInput(playerID, useraction);
+                        handler.init();
+                        updateViews();
+                        break;
+                    case ButtonID.Cancel:
+                        useraction = handler.clickCancel(playerID);
+                        if (useraction != null)
+                            game.processUserInput(playerID, useraction);
+                        game.processUserInput(playerID, new YesOrNoAction(false));
+                        handler.init();
+                        updateViews();
+                        break;
+                    case ButtonID.Ability:
+                        handler.clickAbility(buttonID);
+                        break;
+                    default:
+                        throw new InvalidOperationException("Button type not found!");
+                }
+            }catch (InvalidOperationException e)
+            {
+                game.log(e.Message);
             }
         }
 

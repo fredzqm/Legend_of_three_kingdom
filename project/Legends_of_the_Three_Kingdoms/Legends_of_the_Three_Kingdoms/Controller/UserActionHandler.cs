@@ -83,5 +83,12 @@ namespace LOTK.Controller
         {
             Ifabi = 1;
         }
+
+        public void init()
+        {
+            Ifabi = -1;
+            ClickUser = -1;
+            SelectCardId = -1;
+        }
     }
 }
