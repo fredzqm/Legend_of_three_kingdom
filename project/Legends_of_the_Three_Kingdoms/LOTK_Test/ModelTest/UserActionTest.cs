@@ -20,27 +20,25 @@ namespace LOTK_Test.ModelTest
         public void initialize()
         {
             mocks = new MockRepository();
-            game = mocks.Stub<IGame>();
+            game = MockRepository.GenerateStub<IGame>();
 
             Player[] players = new Player[5];
-            ICardSet cards = mocks.Stub<ICardSet>();
+            ICardSet cards = MockRepository.GenerateStub<ICardSet>();
 
-            Expect.Call(game.players).Return(players);
-            Expect.Call(game.cards).Return(cards);
+            game.Stub(x => x.players).Return(players);
+            game.Stub(x => x.cards).Return(cards);
 
-            Type UserActionHandlerClass = typeof(UserActionHandler);
         }
 
 
         [TestMethod]
         public void runTest()
         {
-            testClickButton(0, 0, 0, null, true);
+            testClickButton(1, 1, 0, typeof(AbilityAction), false);
         }
 
 
-
-        public void testClickButton(int cardID, int abili, int userID, Type expected, bool exception)
+        public void testClickButton(int abili, int userID, int cardID, Type expected, bool exception)
         {
             try
             {

@@ -185,6 +185,7 @@ namespace LOTK.Model
     {
         public Card card { get; }
         public Player[] targets { get; }
+
         /// <summary>
         /// create action
         /// </summary>
