@@ -53,14 +53,18 @@ namespace LOTK.Controller
             if (Ifabi == 1 && ClickUser >= 0)
             {
                 Ifabi = -1;
+                if (SelectCardId < 0)
+                    throw new InvalidOperationException("Ability of Liu is given no card");
                 return new AbilityAction(game, SelectCardId, ClickUser);
             }
             else if (Ifabi == 1 && ClickUser < 0)
             {
                 Ifabi = -1;
+                if (SelectCardId < 0)
+                    throw new InvalidOperationException("Ability of Sun is given no card");
                 return new AbilityActionSun(game, SelectCardId);
             }
-            else if (SelectCardId < 0 && Ifabi < 0)
+            else if (SelectCardId < 0 && ClickUser < 0)
             {
                 ClickUser = -1;
                 return new YesOrNoAction(true);
@@ -70,7 +74,7 @@ namespace LOTK.Controller
                 SelectCardId = -1;
                 return new CardAction(game, SelectCardId);
             }
-            else if (ClickUser >= 0 && SelectCardId >= 0 && Ifabi < 0)
+            else if (ClickUser >= 0 && SelectCardId >= 0)
             {
                 SelectCardId = -1;
                 ClickUser = -1;

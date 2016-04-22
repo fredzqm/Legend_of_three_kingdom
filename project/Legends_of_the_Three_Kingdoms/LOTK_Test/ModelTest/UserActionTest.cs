@@ -34,11 +34,18 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void runTest()
         {
-            testClickButton(1, 1, 0, typeof(AbilityAction), false);
+            testClickButton(1, 0, 0, typeof(AbilityAction));
+            testClickButton(1, -1, 0, typeof(AbilityActionSun));
+            testClickButton(1, 0, -1, null);
+            testClickButton(1, -1, -1, null);
+            testClickButton(-1, 0, 0, typeof(UseCardAction));
+            testClickButton(-1, -1, 0, typeof(CardAction));
+            testClickButton(-1, 0, -1, null);
+            testClickButton(-1, -1, -1, null);
         }
 
 
-        public void testClickButton(int abili, int userID, int cardID, Type expected, bool exception)
+        public void testClickButton(int abili, int userID, int cardID, Type expected)
         {
             try
             {
@@ -48,13 +55,13 @@ namespace LOTK_Test.ModelTest
                 handler.Ifabi = abili;
                 UserAction action = handler.clickOK(1);
                 Assert.AreEqual(expected, action.GetType());
-                if (exception)
+                if (expected == null)
                 {
                     Assert.Fail("Should throw an exception");
                 }
             }
             catch(InvalidOperationException e) {
-                if (!exception)
+                if (expected != null)
                 {
                     Assert.Fail("Should not throw an exception");
                 }
