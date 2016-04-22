@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8424A8E5-E18E-4A2C-87C8-BEF2C27D4D0A}</ProjectGuid>
+    <ProjectGuid>{C5FE541A-469C-4D4F-B94F-9B707D734472}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LOTK_Test</RootNamespace>
-    <AssemblyName>LOTK_Test</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>LOTK.Tests</RootNamespace>
+    <AssemblyName>LOTK.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,8 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <CodeContractsEnableRuntimeChecking>True</CodeContractsEnableRuntimeChecking>
+    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,31 +37,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging, Version=2.1.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus, Version=3.1.1.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rhino.ServiceBus.3.1.1.0\lib\4.0\Rhino.ServiceBus.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus.Host, Version=3.1.1.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rhino.ServiceBus.Host.3.1.1.0\lib\4.0\Rhino.ServiceBus.Host.exe</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Pex.Framework">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Pex\Microsoft.Pex.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="this.Log, Version=0.0.3.0, Culture=neutral, PublicKeyToken=cbf7544467682e94, processorArchitecture=MSIL">
-      <HintPath>..\packages\this.Log.0.0.3.0\lib\net40\this.Log.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="this.Log-RhinoMocks, Version=0.0.3.0, Culture=neutral, PublicKeyToken=cbf7544467682e94, processorArchitecture=MSIL">
-      <HintPath>..\packages\this.Log-RhinoMocks.0.0.3.0\lib\net40\this.Log-RhinoMocks.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Legends_of_the_Three_Kingdoms\LOTK.csproj">
+      <Project>{5B582A66-6242-4C4E-A36B-E811449D7A19}</Project>
+      <Name>LOTK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\PexAssemblyInfo.cs" />
+    <Compile Include="UserActionHandlerTest.clickOK.g.cs">
+      <DependentUpon>UserActionHandlerTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserActionHandlerTest.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -73,25 +68,6 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
-  <ItemGroup>
-    <Compile Include="ModelTest\UserActionTest.cs" />
-    <Compile Include="LogExtensions.cs" />
-    <Compile Include="ModelTest\CardTest.cs" />
-    <Compile Include="ModelTest\PhaseTest.cs" />
-    <Compile Include="ModelTest\PlayerTest.cs" />
-    <Compile Include="ModelTest\GameTest.cs" />
-    <Compile Include="ModelTest\PhaseListTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Legends_of_the_Three_Kingdoms\LOTK.csproj">
-      <Project>{5b582a66-6242-4c4e-a36b-e811449d7a19}</Project>
-      <Name>LOTK</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

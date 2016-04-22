@@ -8,7 +8,7 @@ using LOTK.Model;
 
 namespace LOTK.Controller
 {
-    class UserActionHandler
+    public class UserActionHandler
     {
 
         public int ClickUser = -100;
@@ -41,14 +41,14 @@ namespace LOTK.Controller
             ClickUser = clickedPlayerID;
         }
 
-        internal UserAction clickCancel(int playerID)
+        public UserAction clickCancel(int playerID)
         {
             SelectCardId = -1;
             ClickUser = -1;
             return new YesOrNoAction(false);
         }
 
-        internal UserAction clickOK(int playerID)
+        public UserAction clickOK(int playerID)
         {
             if (Ifabi == 1 && ClickUser >= 0)
             {
@@ -77,11 +77,11 @@ namespace LOTK.Controller
                 return new UseCardAction(game, SelectCardId, ClickUser);
             }else
             {
-                throw new Exception();
+                throw new InvalidOperationException("Invalid operation");
             }
         }
 
-        internal void clickAbility(int buttonID)
+        public void clickAbility(int buttonID)
         {
             Ifabi = 1;
         }

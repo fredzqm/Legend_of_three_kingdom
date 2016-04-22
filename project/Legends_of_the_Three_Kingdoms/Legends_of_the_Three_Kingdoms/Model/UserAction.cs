@@ -50,6 +50,12 @@ namespace LOTK.Model
         {
             return userActionPhase.responseYesOrNo(yes, game);
         }
+
+        public override bool Equals(object obj)
+        {
+            YesOrNoAction x = obj as YesOrNoAction;
+            return x != null && this.yes == x.yes;
+        }
     }
 
     /// <summary>
@@ -82,6 +88,7 @@ namespace LOTK.Model
         {
             return userActionPhase.responseUseCardAction(card, targets, game);
         }
+
     }
 
     /// <summary>
@@ -109,6 +116,7 @@ namespace LOTK.Model
         {
             return userActionPhase.responseCardAction(card, game);
         }
+
     }
 
     ///// <summary>
@@ -162,6 +170,11 @@ namespace LOTK.Model
         public override PhaseList processedBy(UserActionPhase userActionPhase, IGame game)
         {
             return userActionPhase.responseAbilityActionSun(this, game);
+        }
+        public override bool Equals(object obj)
+        {
+            UseCardAction x = obj as UseCardAction;
+            return x != null;
         }
     }
 
