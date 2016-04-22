@@ -12,7 +12,7 @@ namespace LOTK.Model
     {/// <summary>
     /// create ZhangFei
     /// </summary>
-    /// <param name="pos"></param>
+    /// <param name="pos, this is the position of the player in All player"></param>
         public ZhangFei(int pos) :  base(pos, "Zhang Fei", "Zhang Fei has no restrictions on how many times he can attack during his turn", 4)
         {
 
@@ -20,8 +20,8 @@ namespace LOTK.Model
         /// <summary>
         /// override of Player.canNotAttack()
         /// </summary>
-        /// <param name="curPhase"></param>
-        /// <param name="game"></param>
+        /// <param name="curPhase this is the current game phase "></param>
+        /// <param name="game this is the current game"></param>
         /// <returns></returns>
         public override bool canNotAttack(AttackPhase curPhase, IGame game)
         {
@@ -47,7 +47,7 @@ namespace LOTK.Model
         /// <summary>
         /// create LiuBei
         /// </summary>
-        /// <param name="pos"></param>
+        /// <param name="pos, this is the position of the player in All player"></param>
         public LiuBei(int pos) : base(pos, "Liu Bei", "Liu Bei's can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health", 4)
         {
 
@@ -55,8 +55,8 @@ namespace LOTK.Model
         /// <summary>
         /// override of Player.ability()
         /// </summary>
-        /// <param name="abilityAction"></param>
-        /// <param name="game"></param>
+        /// <param name="abilityAction this is the the action for abilityaction"></param>
+        /// <param name="game this is the current game"></param>
         /// <returns></returns>
         public override PhaseList ability(AbilityAction abilityAction, IGame game)
         {
@@ -81,15 +81,15 @@ namespace LOTK.Model
     {   /// <summary>
         /// create CaoCao
         /// </summary>
-        /// <param name="pos"></param>
+        /// <param name="pos, this is the position of the player in All player"></param>
         public CaoCao(int pos) : base(pos, "Cao Cao", "When Cao Cao is damaged by a card, he can immediately put it into his hand", 4)
         {
         }
         /// <summary>
         /// override of Player.harm()
         /// </summary>
-        /// <param name="harmPhase"></param>
-        /// <param name="game"></param>
+        /// <param name="harmPhase this is the phase of harm"></param>
+        /// <param name="game this is the game "></param>
         /// <returns></returns>
         public override PhaseList harm(HarmPhase harmPhase, IGame game)
         {
@@ -117,9 +117,9 @@ namespace LOTK.Model
     /// </summary>
     public class SunQuan : Player
     {/// <summary>
-    /// create SunQuan
-    /// </summary>
-    /// <param name="pos"></param>
+     /// create SunQuan
+     /// </summary>
+     /// <param name="pos, this is the position of the player in All player"></param>
         public SunQuan(int pos) : base(pos, "Sun Quan", "Once during his turn, Sun Quan can discard any number of cards to draw the same number", 4)
         {
 
@@ -127,8 +127,8 @@ namespace LOTK.Model
         /// <summary>
         /// override Player.abilitySun()
         /// </summary>
-        /// <param name="abilityAction"></param>
-        /// <param name="game"></param>
+        /// <param name="abilityAction this is the action of ability "></param>
+        /// <param name="game this is the current game"></param>
         /// <returns></returns>
         public override PhaseList abilitySun(AbilityActionSun abilityAction, IGame game)
         {
@@ -153,9 +153,9 @@ namespace LOTK.Model
     /// </summary>
     public class LuMeng : Player
     {   /// <summary>
-    /// Create Lumeng
-    /// </summary>
-    /// <param name="pos"></param>
+        /// Create Lumeng
+        /// </summary>
+        /// <param name="pos, this is the position of the player in All player"></param>
         public LuMeng(int pos) : base(pos, "Lu Meng", "If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase", 4)
         {
 

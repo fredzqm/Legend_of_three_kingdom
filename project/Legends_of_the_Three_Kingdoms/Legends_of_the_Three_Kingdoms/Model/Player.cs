@@ -36,7 +36,7 @@ namespace LOTK.Model
         {
             if (pos < 0)
             {
-                throw new EmptyException("pos is negative");
+                throw new ArgumentOutOfRangeException("pos is negative");
             }
             else if (name == null)
             {
@@ -48,7 +48,7 @@ namespace LOTK.Model
             }
             else if (healthLimit <0)
             {
-                throw new EmptyException("healthlimit is negative");
+                throw new ArgumentOutOfRangeException("healthlimit is negative");
             }
             playerID = pos;
             handCards = new List<Card>();
