@@ -38,6 +38,9 @@ This week I implement all five characters ability. I used TDD, BVA and Mocking t
 
 Milestone5:
 Fred Zhang:
+I this week, I use decision table and paramatized testing method to test how controller handle user input.
+I catch a few bugs with the test, and throw proper exception.
+Those exception will be caught and a nice error message will be displayed in GUI.
 
 Songyu Wang:
 This week I tried to make the GUI look nicer. So I added one background picture and five players pictures. Also, I changed the fonts and colors of text and the color of components. This week, we did not implement any new feature, so I did not proform system and exploratory testing. 
