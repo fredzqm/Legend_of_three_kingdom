@@ -41,7 +41,7 @@ namespace LOTK_Test.ModelTest
             testClickButton(-1, 0, 0, typeof(UseCardAction));
             testClickButton(-1, -1, 0, typeof(CardAction));
             testClickButton(-1, 0, -1, null);
-            testClickButton(-1, -1, -1, null);
+            testClickButton(-1, -1, -1, typeof(YesOrNoAction));
         }
 
 
@@ -54,11 +54,11 @@ namespace LOTK_Test.ModelTest
                 handler.SelectCardId = cardID;
                 handler.Ifabi = abili;
                 UserAction action = handler.clickOK(1);
-                Assert.AreEqual(expected, action.GetType());
                 if (expected == null)
                 {
                     Assert.Fail("Should throw an exception");
                 }
+                Assert.AreEqual(expected, action.GetType());
             }
             catch(InvalidOperationException e) {
                 if (expected != null)
