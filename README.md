@@ -35,3 +35,9 @@ I tested all the features we have, including characters abilities.
 
 Songyu Wang:
 This week I implement all five characters ability. I used TDD, BVA and Mocking to test the code I wrote. And All code pass tests. I delete some tests due to the change of requirement. To write the five abilities, I refactors some of the code Fred wrote to get the value I need. Also, I override some his functions. I added all the documentation for Model and Controller.
+
+Milestone5:
+Fred Zhang:
+
+Songyu Wang:
+This week I tried to make the GUI look nicer. So I added one background picture and five players pictures. Also, I changed the fonts and colors of text and the color of components. This week, we did not implement any new feature, so I did not proform system and exploratory testing. 
