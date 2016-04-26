@@ -44,6 +44,8 @@ namespace LOTK_Test.ModelTest
             testClickButton(-1, -1, -1, typeof(YesOrNoAction));
         }
 
+ 
+
 
         public void testClickButton(int abili, int userID, int cardID, Type expected)
         {

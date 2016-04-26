@@ -183,6 +183,44 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(ret.isEmpty());
 
         }
+
+
+        [TestMethod]
+        public void responseCardActionTest()
+        {
+            Player p1 = mocks.Stub<Player>(0);
+
+            IGame game = mocks.Stub<IGame>();
+
+            Card attack = new Attack(CardSuit.Spade, 1);
+            Miss miss = new Miss(CardSuit.Diamond, 2);
+            // ActionPhase produces attackPhase
+            UserActionPhase a = new DiscardPhase(p1);
+            
+            Assert.IsInstanceOfType(a.responseCardAction(attack, game), typeof(PhaseList));
+
+        }
+
+
+        [TestMethod]
+        public void autoAdvanceTest()
+        {
+            ZhangFei p1 = new ZhangFei(0);
+            Card attack = new Attack(CardSuit.Spade, 1);
+            Miss miss = new Miss(CardSuit.Diamond, 2);
+            p1.handCards.Add(attack);
+            p1.handCards.Add(miss);
+            p1.health = 1;
+
+            IGame game = mocks.Stub<IGame>();
+
+            
+            // ActionPhase produces attackPhase
+            UserActionPhase a = new DiscardPhase(p1);
+
+            Assert.IsInstanceOfType(a.autoAdvance(game), typeof(PhaseList));
+
+        }
     }
 
 }

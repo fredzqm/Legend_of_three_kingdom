@@ -360,5 +360,49 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(typeof(DiscardPhase), game.curPhase.GetType());
         }
 
+        [TestMethod]
+        public void GameIniTest()
+        {
+            try
+            {
+                new Game(players, null);
+            }
+            catch (NotDefinedException e)
+            {
+                Assert.IsNotNull(e);
+            }
+        }
+        [TestMethod]
+        public void GameIniTest2()
+        {
+            try
+            {
+                new Game(null, cardList);
+            }
+            catch (NotDefinedException e)
+            {
+                Assert.IsNotNull(e);
+            }
+        }
+
+        [TestMethod]
+        public void processUserInputTest()
+        {
+            MockRepository mocks = new MockRepository();
+            mocks.Stub<UserAction>();
+            Game g = new Game(players, cardList);
+            Type stage = typeof(Game);
+            FieldInfo stinfo = stage.GetField("stages",
+            BindingFlags.NonPublic | BindingFlags.Instance);
+      
+            PhaseList p = new PhaseList();
+            p.add(new DiscardPhase(players[0]));
+            p.add(new DiscardPhase(players[0]));
+            stinfo.SetValue(g, p);
+            g.processUserInput(0, mocks.Stub<UserAction>());
+
+        }
+
+
     }
 }

@@ -18,7 +18,7 @@ namespace LOTK.Model
         public string name { get; } 
         public string description { get; }
 
-        public List<Card> handCards { get; }
+        public List<Card> handCards { get; set; }
         public int healthLimit { get; }
         public int health { get;  set; }
 
