@@ -403,6 +403,33 @@ namespace LOTK_Test.ModelTest
 
         }
 
+        [TestMethod]
+        public void curPhassPlayertest()
+        {
+            MockRepository mocks = new MockRepository();
+            List<Card> c = new List<Card>();
+            c.Add(new Attack(CardSuit.Club, (byte)1));
+            Player p = new Player(1);
+            Player[] l=new Player[1];
+            l[0] = p;
+            Type gameType = typeof(Game);
+            FieldInfo stagesField = gameType.GetField("stages", BindingFlags.NonPublic | BindingFlags.Instance);
+
+ 
+            Phase p1 = mocks.DynamicMock<Phase>(p);
+            Phase p2 = mocks.DynamicMock<Phase>(p);
+            Phase p3 = mocks.DynamicMock<Phase>(p);
+            Phase p4 = mocks.DynamicMock<Phase>(p);
+            Game g = new Game(l, new CardSet(c));
+            stagesField.SetValue(g, new PhaseList(p1));
+
+
+            
+            
+            Assert.AreEqual(p, g.curPhasePlayer);
+
+        }
+
 
     }
 }
