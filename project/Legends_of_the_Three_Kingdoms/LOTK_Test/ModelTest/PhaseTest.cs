@@ -221,6 +221,16 @@ namespace LOTK_Test.ModelTest
             Assert.IsInstanceOfType(a.autoAdvance(game), typeof(PhaseList));
 
         }
+        [TestMethod]
+        public void VisiblePhasetest()
+        {
+            public class Testvisphase : PausePhase
+        {
+            public  Testvisphase(Player p, int i) : base(p, i) { };
+        } 
+            VisiblePhase p = new DrawingPhase(new Player(1), 1);
+        }
+
     }
 
 }

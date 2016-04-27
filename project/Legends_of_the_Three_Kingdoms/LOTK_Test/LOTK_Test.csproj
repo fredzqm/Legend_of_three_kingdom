@@ -77,6 +77,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ModelTest\CardLibTest.cs" />
+    <Compile Include="ModelTest\ExceptionTest.cs" />
     <Compile Include="ModelTest\UserActionTest.cs" />
     <Compile Include="LogExtensions.cs" />
     <Compile Include="ModelTest\CardTest.cs" />
