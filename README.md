@@ -1,4 +1,4 @@
-Milestone2:
+Milestone2: 
 YunYan Ding:
 I did the code in ModelTest package. I wrote the test code. All the tests contain the process of checking the data and the exception. I build the exception handler. There are mainly three types of exceptions that we meet until now. Most of the tests followed TDD, except some of them cannot do that because of the branch merge problem.
 
