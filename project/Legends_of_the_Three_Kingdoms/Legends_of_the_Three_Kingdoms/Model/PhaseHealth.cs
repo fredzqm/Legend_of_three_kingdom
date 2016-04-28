@@ -42,10 +42,11 @@ namespace LOTK.Model
         {
             if (player.health > 0)
                 return new PhaseList();
-            if (player == g.curRoundPlayer)
-                return new PhaseList(new ResponsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => (c is Peach) || (c is Wine)), this);
+            Player helpProvider = g.nextPlayer(g.curRoundPlayer, count);
+            if (player == helpProvider)
+                return new PhaseList(new ResponsePhase(helpProvider, this, c => (c is Peach) || (c is Wine)), this);
             else
-                return new PhaseList(new ResponsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => c is Peach), this);
+                return new PhaseList(new ResponsePhase(helpProvider, this, c => c is Peach), this);
         }
 
         public override PhaseList handleResponse(int count, Card respondCard, IGame g)

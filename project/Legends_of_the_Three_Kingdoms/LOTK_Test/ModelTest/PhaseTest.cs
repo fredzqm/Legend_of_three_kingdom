@@ -654,6 +654,7 @@ namespace LOTK_Test.ModelTest
             Attack card = new Attack(CardSuit.Club, 1);
             Wine wine = new Wine(CardSuit.Heart, 2);
             Assert.AreEqual(1, dying.healthLimit);
+            ICardSet cardStack = MockRepository.GenerateStub<ICardSet>();
 
             IGame game = MockRepository.GenerateStub<IGame>();
             game.Stub(x => x.players).Return(players);
@@ -662,6 +663,7 @@ namespace LOTK_Test.ModelTest
             game.Stub(x => x.nextPlayer(source, 2)).Return(player3);
             game.Stub(x => x.nextPlayer(source, 3)).Return(dying);
             game.Stub(x => x.curRoundPlayer).Return(source);
+            game.Stub(s => s.cards).Return(cardStack);
 
             HarmPhase harm = new HarmPhase(dying, source, 1, card);
             ls = harm.advance(null, game);
