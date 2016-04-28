@@ -186,7 +186,7 @@ namespace LOTK_Test.ModelTest
 
 
         [TestMethod]
-        public void DyingAskForHelpTest()
+        public void DyingAskForHelpTest1_2_3()
         {
             Player dying = new Player(0, "dying", "dying", 1);
             Player source = mocks.Stub<Player>(1);
