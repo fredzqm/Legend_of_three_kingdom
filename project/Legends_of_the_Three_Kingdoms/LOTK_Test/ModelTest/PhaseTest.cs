@@ -201,10 +201,14 @@ namespace LOTK_Test.ModelTest
             players[3] = player3;
 
             Attack card = new Attack(CardSuit.Club, 1);
-            Assert.AreEqual(2, dying.healthLimit);
+            Assert.AreEqual(1, dying.healthLimit);
 
             IGame game = MockRepository.GenerateStub<IGame>();
             game.Stub(x => x.players).Return(players);
+            game.Stub(x => x.nextPlayer(source, 0)).Return(source);
+            game.Stub(x => x.nextPlayer(source, 1)).Return(player2);
+            game.Stub(x => x.nextPlayer(source, 2)).Return(player3);
+            game.Stub(x => x.nextPlayer(source, 3)).Return(dying);
             game.Stub(x => x.curRoundPlayer).Return(source);
 
             HarmPhase harm = new HarmPhase(dying, source, 1, card);
