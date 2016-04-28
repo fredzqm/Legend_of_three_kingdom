@@ -156,7 +156,7 @@ namespace LOTK.Model
         /// Create Lumeng
         /// </summary>
         /// <param name="pos">this is the position of the player in All player</param>
-        public LuMeng(int pos) : base(pos, "Lu Meng", "If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase", 4)
+        public LuMeng(int pos) : base(pos, "Lu Meng", "If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase", 2)
         {
 
         }
