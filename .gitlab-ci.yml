@@ -4,6 +4,7 @@ stages:
 Testing:
   stage: build
   script:
+    - cd project/Legends_of_the_Three_Kingdoms
     - msbuild Legends_of_the_Three_Kingdoms.sln /t:build /p:Configuration=Release
     - vstest.console LOTK_Test/bin/Debug/LOTK_Test.dll /EnableCodeCoverage
     # Fail build if the tests fail, the error code gets overwritten by the CodeCoverageConverter
