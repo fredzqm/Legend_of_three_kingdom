@@ -201,7 +201,7 @@ namespace LOTK_Test.ModelTest
             players[3] = player3;
 
             Attack card = new Attack(CardSuit.Club, 1);
-            Assert.AreEqual(2, dying.healthLimit);
+            Assert.AreEqual(1, dying.healthLimit);
 
             IGame game = MockRepository.GenerateStub<IGame>();
             game.Stub(x => x.players).Return(players);
@@ -211,7 +211,7 @@ namespace LOTK_Test.ModelTest
             ls = harm.advance(null, game);
             p1 = ls.pop();
             Assert.IsInstanceOfType(p1, typeof(AskForHelpPhase));
-            
+
             ls = p1.advance(null, game);
             p2 = ls.pop();
             Assert.IsInstanceOfType(p2, typeof(ResponsePhase));
