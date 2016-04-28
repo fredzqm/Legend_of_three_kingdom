@@ -191,13 +191,15 @@ namespace LOTK_Test.ModelTest
             Player dying = new Player(0, "dying", "dying", 1);
             Player source = mocks.Stub<Player>(1);
             Attack card = new Attack(CardSuit.Club, 1);
-            Assert.AreEqual(2, dying.healthLimit);
+            Assert.AreEqual(1, dying.healthLimit);
 
             IGame game = mocks.Stub<IGame>();
 
             HarmPhase harm = new HarmPhase(dying, source, 1, card);
             PhaseList ls = harm.advance(null, game);
 
+            Phase p = ls.pop();
+            Assert.IsInstanceOfType(p, typeof(AskForHelpPhase));
             
             // ActionPhase produces attackPhase
 
