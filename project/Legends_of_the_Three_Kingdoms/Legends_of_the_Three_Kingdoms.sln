@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTK", "Legends_of_the_Three_Kingdoms\LOTK.csproj", "{5B582A66-6242-4C4E-A36B-E811449D7A19}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTK_Test", "LOTK_Test\LOTK_Test.csproj", "{8424A8E5-E18E-4A2C-87C8-BEF2C27D4D0A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTK.Tests", "LOTK.Tests\LOTK.Tests.csproj", "{C5FE541A-469C-4D4F-B94F-9B707D734472}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCoverageConverter", "CodeCoverageConverter\CodeCoverageConverter.csproj", "{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{C5FE541A-469C-4D4F-B94F-9B707D734472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5FE541A-469C-4D4F-B94F-9B707D734472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5FE541A-469C-4D4F-B94F-9B707D734472}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

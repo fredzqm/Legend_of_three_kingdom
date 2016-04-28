@@ -276,9 +276,9 @@ namespace LOTK_Test.ModelTest
 
 
             // ActionPhase produces attackPhase
-            UserActionPhase a = new Testuserphase(p1,1);
+            UserActionPhase a = new Testuserphase(p1, 1);
 
-            Assert.AreEqual(a.responseYesOrNo(true,game), null);
+            Assert.AreEqual(a.responseYesOrNo(true, game), null);
 
         }
 
@@ -299,7 +299,7 @@ namespace LOTK_Test.ModelTest
             UserActionPhase a = new DiscardPhase(p1);
             Player[] p = new Player[1];
             p[0] = p1;
-            Assert.AreEqual(a.responseUseCardAction(miss,p,game), null);
+            Assert.AreEqual(a.responseUseCardAction(miss, p, game), null);
 
         }
         [TestMethod]
@@ -339,11 +339,11 @@ namespace LOTK_Test.ModelTest
 
             // ActionPhase produces attackPhase
             UserActionPhase a = new DiscardPhase(p1);
-            Assert.AreEqual(a.responseAbilityAction(new AbilityAction(new Attack(CardSuit.Spade,(byte) 1) ,p), game),null);
+            Assert.AreEqual(a.responseAbilityAction(new AbilityAction(new Attack(CardSuit.Spade, (byte)1), p), game), null);
 
         }
 
-  
+
 
         [TestMethod]
         public void VisiblePhaseSuntest()
@@ -375,7 +375,7 @@ namespace LOTK_Test.ModelTest
             IGame game = mocks.Stub<IGame>();
 
             Card attack = new Attack(CardSuit.Spade, 1);
-            
+
             Phase a = new ActionPhase(p1);
             PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
             Phase b = ret.pop();
@@ -421,8 +421,8 @@ namespace LOTK_Test.ModelTest
             Phase c = ret.pop();
             ResponsePhase c_ = c as ResponsePhase;
 
-            
-            Assert.AreEqual(c_.responseCardAction(new Attack(CardSuit.Club,(byte)1), game), null);
+
+            Assert.AreEqual(c_.responseCardAction(new Attack(CardSuit.Club, (byte)1), game), null);
 
         }
 
@@ -436,7 +436,7 @@ namespace LOTK_Test.ModelTest
             Card attack = new Attack(CardSuit.Spade, 1);
 
             // ActionPhase produces attackPhase
-           ActionPhase a = new ActionPhase(p1);
+            ActionPhase a = new ActionPhase(p1);
             PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
             Phase b = ret.pop();
             AttackPhase b2 = b as AttackPhase;
@@ -453,7 +453,7 @@ namespace LOTK_Test.ModelTest
             ResponsePhase c_ = c as ResponsePhase;
 
 
-            Assert.IsInstanceOfType(a.responseAbilityAction(new AbilityAction(attack,p), game), typeof(PhaseList));
+            Assert.IsInstanceOfType(a.responseAbilityAction(new AbilityAction(attack, p), game), typeof(PhaseList));
 
         }
 
@@ -472,14 +472,14 @@ namespace LOTK_Test.ModelTest
             x.Add(attack);
             Game game = new Game(p, new CardSet(x));
 
-        
+
 
             // ActionPhase produces attackPhase
             ActionPhase a = new ActionPhase(p1);
             PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
             Phase b = ret.pop();
             AttackPhase b2 = b as AttackPhase;
-           
+
             p1.handCards.Add(attack);
             p1.handCards.Add(miss);
             p1.health = 1;
@@ -498,8 +498,8 @@ namespace LOTK_Test.ModelTest
         public void Res3Phasetest()
         {
 
-        
-      
+
+
 
             // ActionPhase produces attackPhase
 
@@ -525,7 +525,7 @@ namespace LOTK_Test.ModelTest
             ret = b.advance(null, game);
             Phase c = ret.pop();
             ResponsePhase c_ = c as ResponsePhase;
-            
+
             Assert.AreEqual(c_.ToString(), "Response Phase of 1");
 
         }
@@ -568,7 +568,7 @@ namespace LOTK_Test.ModelTest
         {
             public Testuserphase(Player p, int i) : base(p, i) { }
 
-          
+
         }
 
     }
