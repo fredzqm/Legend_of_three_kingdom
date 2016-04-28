@@ -88,6 +88,16 @@ namespace LOTK.Model
             return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.actionPhase.attackCount >= 1 || curPhase.targets[0] == this);
         }
 
+        internal PhaseList die(IGame game)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void die()
+        {
+            throw new NotImplementedException();
+        }
+
         // ----------------------------------------------------
         // The codes below specify are virtual methods of Players.
         // A new character can be created by overriden those method to customize player's behavior
@@ -102,7 +112,7 @@ namespace LOTK.Model
             health -= harmPhase.harm;
             if (health <= 0)
             {
-                return new PhaseList(new AskForHelpPhase(this));
+                return new PhaseList(new AskForHelpPhase(this, harmPhase));
             }
             return new PhaseList();
         }
@@ -173,6 +183,11 @@ namespace LOTK.Model
         public virtual int handcardCount()
         {
             return this.handCards.Count;
+        }
+
+        public bool isDead()
+        {
+            throw new NotImplementedException();
         }
     }
 }

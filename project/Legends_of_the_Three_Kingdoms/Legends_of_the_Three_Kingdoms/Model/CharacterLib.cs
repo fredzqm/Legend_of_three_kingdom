@@ -105,7 +105,7 @@ namespace LOTK.Model
             this.handCards.Add(harmPhase.card);
             if (health < 0)
             {
-                return new PhaseList(new AskForHelpPhase(this));
+                return new PhaseList(new AskForHelpPhase(this, harmPhase));
             }
             return new PhaseList();
         }
