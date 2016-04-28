@@ -230,6 +230,19 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(ls.isEmpty());
 
             ls = p3.advance(null, game);
+            p4 = ls.pop();
+            p5 = ls.pop();
+            Assert.IsTrue(ls.isEmpty());
+            Assert.IsInstanceOfType(p4, typeof(RecoverPhase));
+            Assert.AreEqual(1, ((RecoverPhase)p4).recover);
+            Assert.AreSame(p3, p5);
+
+            Assert.AreEqual(0, dying.health);
+            ls = p4.advance(null, game);
+            Assert.IsTrue(ls.isEmpty());
+            Assert.AreEqual(1, dying.health);
+
+            ls = p5.advance(null, game);
             Assert.IsTrue(ls.isEmpty());
             // ActionPhase produces attackPhase
         }

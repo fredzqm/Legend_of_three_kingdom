@@ -59,9 +59,9 @@ namespace LOTK.Model
     /// </summary>
     public abstract class HiddenPhase : Phase
     {   /// <summary>
-    /// create hidden phase
-    /// </summary>
-    /// <param name="player"></param>
+        /// create hidden phase
+        /// </summary>
+        /// <param name="player"></param>
         public HiddenPhase(Player player) : base(player) { }
 
 
@@ -96,7 +96,7 @@ namespace LOTK.Model
         /// <summary>
         /// If this game can be processed without userinput, this is the time that the game model should wait before processing it.
         /// </summary>
-        public int waitTime {get;}
+        public int waitTime { get; }
         /// <summary>
         /// create visible phase
         /// </summary>
@@ -167,7 +167,8 @@ namespace LOTK.Model
         /// <param name="player"></param>
         /// <param name="waitTime"></param>
         /// <param name="timeOut"></param>
-        public UserActionPhase(Player player, int waitTime, int timeOut) : base(player, waitTime) {
+        public UserActionPhase(Player player, int waitTime, int timeOut) : base(player, waitTime)
+        {
             this.timeOutTime = timeOut;
         }
         /// <summary>
@@ -343,7 +344,8 @@ namespace LOTK.Model
         /// create need response phase 
         /// </summary>
         /// <param name="player"></param>
-        public NeedResponsePhase(Player player) : base(player) {
+        public NeedResponsePhase(Player player) : base(player)
+        {
             count = 0;
             handledCount = 0;
         }

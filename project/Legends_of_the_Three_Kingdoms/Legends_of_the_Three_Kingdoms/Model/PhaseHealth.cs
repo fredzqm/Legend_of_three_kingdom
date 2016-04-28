@@ -40,6 +40,8 @@ namespace LOTK.Model
 
         public override PhaseList askForResponse(int count, IGame g)
         {
+            if (player.health > 0)
+                return new PhaseList();
             if (player == g.curRoundPlayer)
                 return new PhaseList(new ResponsePhase(g.nextPlayer(g.curRoundPlayer,count), this, c => (c is Peach) || (c is Wine)), this);
             else
