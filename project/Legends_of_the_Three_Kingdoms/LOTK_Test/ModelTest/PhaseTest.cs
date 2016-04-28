@@ -858,6 +858,7 @@ namespace LOTK_Test.ModelTest
             game.Stub(x => x.nextPlayer(source, 3)).Return(dying);
             game.Stub(x => x.curRoundPlayer).Return(source);
             game.Stub(s => s.cards).Return(cardStack);
+            game.Stub(s => s.Num_Player).Return(4);
 
             HarmPhase harm = new HarmPhase(dying, source, 1, card);
             ls = harm.advance(null, game);
@@ -911,19 +912,13 @@ namespace LOTK_Test.ModelTest
 
             ls = p5.advance(null, game);
             p4 = ls.pop();
-            p5 = ls.pop();
             Assert.IsTrue(ls.isEmpty());
             Assert.IsInstanceOfType(p4, typeof(DeadPhase));
             Assert.AreEqual(dying, p4.player);
-            Assert.AreSame(p1, p5);
 
             ls = p4.advance(null, game);
             Assert.IsTrue(ls.isEmpty());
             Assert.IsTrue(dying.isDead());
-
-            ls = p5.advance(null, game);
-            Assert.IsTrue(ls.isEmpty());
-            // ActionPhase produces attackPhase
         }
     }
 }

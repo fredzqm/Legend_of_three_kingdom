@@ -48,6 +48,10 @@ namespace LOTK.Model
         {
             if (player.health > 0)
                 return new PhaseList();
+            if (count == g.Num_Player)
+            {
+                return new PhaseList(new DeadPhase(player, harmSource));
+            }
             Player helpProvider = g.nextPlayer(g.curRoundPlayer, count);
             if (player == helpProvider)
                 return new PhaseList(new ResponsePhase(helpProvider, this, c => (c is Peach) || (c is Wine)), this);
@@ -87,8 +91,11 @@ namespace LOTK.Model
 
     public class DeadPhase : HiddenPhase
     {
-        public DeadPhase(Player player) : base(player)
+        public HarmPhase harmSource { get; }
+
+        public DeadPhase(Player player, HarmPhase harmSource) : base(player)
         {
+            this.harmSource = harmSource;
         }
 
         public override PhaseList advance(IGame game)

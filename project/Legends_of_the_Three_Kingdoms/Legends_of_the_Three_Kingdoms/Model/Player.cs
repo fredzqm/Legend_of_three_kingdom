@@ -25,6 +25,12 @@ namespace LOTK.Model
         public Card weapon { get; set; }
         public Card shield { get; set; }
 
+        private bool dead;
+
+        public bool isDead()
+        {
+            return dead;
+        }
         /// <summary>
         /// create player 
         /// </summary>
@@ -58,12 +64,15 @@ namespace LOTK.Model
             this.description = descript;
             this.health = healthLimit;
             this.healthLimit = healthLimit;
+            dead = false;
         }
+
         /// <summary>
         /// create player 
         /// </summary>
         /// <param name="pos"></param>
         public Player(int pos) : this(pos, "Player Name", "Player Description at" + pos, 4){}
+
         /// <summary>
         /// create player 
         /// </summary>
@@ -71,7 +80,6 @@ namespace LOTK.Model
         /// <param name="name"></param>
         /// <param name="descript"></param>
         public Player(int pos, string name, string descript) : this(pos, name, descript, 4) {}
-        
 
         public static implicit operator int (Player p)
         {
@@ -90,12 +98,8 @@ namespace LOTK.Model
 
         internal PhaseList die(IGame game)
         {
-            throw new NotImplementedException();
-        }
-
-        internal void die()
-        {
-            throw new NotImplementedException();
+            dead = true;
+            return new PhaseList();
         }
 
         // ----------------------------------------------------
@@ -185,9 +189,6 @@ namespace LOTK.Model
             return this.handCards.Count;
         }
 
-        public bool isDead()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
