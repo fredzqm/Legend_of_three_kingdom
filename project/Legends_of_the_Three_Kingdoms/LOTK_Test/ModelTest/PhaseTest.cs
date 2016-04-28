@@ -190,19 +190,34 @@ namespace LOTK_Test.ModelTest
         {
             Player dying = new Player(0, "dying", "dying", 1);
             Player source = mocks.Stub<Player>(1);
+            Player player2 = mocks.Stub<Player>(2);
+            Player player3 = mocks.Stub<Player>(3);
+            Player[] players = new Player[4];
+            Phase p1, p2, p3;
+            PhaseList ls;
+            players[0] = dying;
+            players[1] = source;
+            players[2] = player2;
+            players[3] = player3;
+
             Attack card = new Attack(CardSuit.Club, 1);
             Assert.AreEqual(1, dying.healthLimit);
 
-            IGame game = mocks.Stub<IGame>();
+            IGame game = MockRepository.GenerateStub<IGame>();
+            game.Stub(x => x.players).Return(players);
+            game.Stub(x => x.curRoundPlayer).Return(source);
 
             HarmPhase harm = new HarmPhase(dying, source, 1, card);
-            PhaseList ls = harm.advance(null, game);
+            ls = harm.advance(null, game);
+            p1 = ls.pop();
+            Assert.IsInstanceOfType(p1, typeof(AskForHelpPhase));
 
-            Phase p = ls.pop();
-            Assert.IsInstanceOfType(p, typeof(AskForHelpPhase));
-            
+            ls = p1.advance(null, game);
+            p2 = ls.pop();
+            Assert.IsInstanceOfType(p2, typeof(ResponsePhase));
+            Assert.AreEqual(source, p2.player);
+
             // ActionPhase produces attackPhase
-
         }
 
 
