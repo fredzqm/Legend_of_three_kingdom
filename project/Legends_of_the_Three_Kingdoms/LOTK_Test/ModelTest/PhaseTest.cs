@@ -146,7 +146,7 @@ namespace LOTK_Test.ModelTest
         {
             Player p1 = mocks.Stub<Player>(0);
             Player p2 = mocks.Stub<Player>(1);
-
+            
             IGame game = mocks.Stub<IGame>();
 
             Card attack = new Attack(CardSuit.Spade, 1);
@@ -196,7 +196,7 @@ namespace LOTK_Test.ModelTest
             Miss miss = new Miss(CardSuit.Diamond, 2);
             // ActionPhase produces attackPhase
             UserActionPhase a = new DiscardPhase(p1);
-
+            
             Assert.IsInstanceOfType(a.responseCardAction(attack, game), typeof(PhaseList));
 
         }
@@ -214,362 +214,23 @@ namespace LOTK_Test.ModelTest
 
             IGame game = mocks.Stub<IGame>();
 
-
+            
             // ActionPhase produces attackPhase
             UserActionPhase a = new DiscardPhase(p1);
 
             Assert.IsInstanceOfType(a.autoAdvance(game), typeof(PhaseList));
 
         }
-
-        [TestMethod]
-        public void autoAdvanceTest2()
-        {
-            ZhangFei p1 = new ZhangFei(0);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            IGame game = mocks.Stub<IGame>();
-
-
-            // ActionPhase produces attackPhase
-            UserActionPhase a = new ActionPhase(p1);
-
-            Assert.AreEqual(a.autoAdvance(game), null);
-
-        }
-
-        [TestMethod]
-        public void resAdvanceTest3()
-        {
-            ZhangFei p1 = new ZhangFei(0);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            IGame game = mocks.Stub<IGame>();
-
-
-            // ActionPhase produces attackPhase
-            UserActionPhase a = new ActionPhase(p1);
-
-            Assert.AreEqual(a.timeOutAdvance(game), null);
-
-        }
-
-        [TestMethod]
-        public void resAdvanceTest4()
-        {
-            Player p1 = new Player(0);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            IGame game = mocks.Stub<IGame>();
-
-
-            // ActionPhase produces attackPhase
-            UserActionPhase a = new Testuserphase(p1,1);
-
-            Assert.AreEqual(a.responseYesOrNo(true,game), null);
-
-        }
-
-        [TestMethod]
-        public void resAdvanceTest5()
-        {
-            Player p1 = new Player(0);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            IGame game = mocks.Stub<IGame>();
-
-
-            // ActionPhase produces attackPhase
-            UserActionPhase a = new DiscardPhase(p1);
-            Player[] p = new Player[1];
-            p[0] = p1;
-            Assert.AreEqual(a.responseUseCardAction(miss,p,game), null);
-
-        }
-        [TestMethod]
-        public void resAdvanceTest6()
-        {
-            Player p1 = new Player(0);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            IGame game = mocks.Stub<IGame>();
-
-
-            // ActionPhase produces attackPhase
-            UserActionPhase a = new ActionPhase(p1);
-            Player[] p = new Player[1];
-            p[0] = p1;
-            Assert.AreEqual(a.responseCardAction(miss, game), null);
-
-        }
         [TestMethod]
         public void VisiblePhasetest()
         {
-
-            Player p1 = new Player(0);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            IGame game = mocks.Stub<IGame>();
-            Player[] p = new Player[1];
-            p[0] = p1;
-
-            // ActionPhase produces attackPhase
-            UserActionPhase a = new DiscardPhase(p1);
-            Assert.AreEqual(a.responseAbilityAction(new AbilityAction(new Attack(CardSuit.Spade,(byte) 1) ,p), game),null);
-
-        }
-
-  
-
-        [TestMethod]
-        public void VisiblePhaseSuntest()
+            public class Testvisphase : PausePhase
         {
-
-            Player p1 = new Player(0);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            IGame game = mocks.Stub<IGame>();
-            Player[] p = new Player[1];
-            p[0] = p1;
-
-            // ActionPhase produces attackPhase
-            UserActionPhase a = new DiscardPhase(p1);
-            Assert.AreEqual(a.responseAbilityActionSun(new AbilityActionSun(new Attack(CardSuit.Spade, (byte)1)), game), null);
-
-        }
-
-
-        [TestMethod]
-        public void ResPhasetest()
-        {
-            Player p1 = mocks.Stub<Player>(0);
-            Player p2 = mocks.Stub<Player>(1);
-            IGame game = mocks.Stub<IGame>();
-
-            Card attack = new Attack(CardSuit.Spade, 1);
-            
-            Phase a = new ActionPhase(p1);
-            PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
-            Phase b = ret.pop();
-            AttackPhase b2 = b as AttackPhase;
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            Player[] p = new Player[1];
-            p[0] = p1;
-            ret = b.advance(null, game);
-            Phase c = ret.pop();
-            ResponsePhase c_ = c as ResponsePhase;
-
-            Assert.AreEqual(c_.responseYesOrNo(true, game), null);
-
-        }
-
-        [TestMethod]
-        public void Res2Phasetest()
-        {
-            Player p1 = mocks.Stub<Player>(0);
-            Player p2 = mocks.Stub<Player>(1);
-            IGame game = mocks.Stub<IGame>();
-
-            Card attack = new Attack(CardSuit.Spade, 1);
-
-            // ActionPhase produces attackPhase
-            Phase a = new ActionPhase(p1);
-            PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
-            Phase b = ret.pop();
-            AttackPhase b2 = b as AttackPhase;
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            Player[] p = new Player[1];
-            p[0] = p1;
-            // AttackPhase produces responsePhase
-            ret = b.advance(null, game);
-            Phase c = ret.pop();
-            ResponsePhase c_ = c as ResponsePhase;
-
-            
-            Assert.AreEqual(c_.responseCardAction(new Attack(CardSuit.Club,(byte)1), game), null);
-
-        }
-
-        [TestMethod]
-        public void Res4Phasetest()
-        {
-            LiuBei p1 = new LiuBei(0);
-            SunQuan p2 = new SunQuan(1);
-            IGame game = mocks.Stub<IGame>();
-
-            Card attack = new Attack(CardSuit.Spade, 1);
-
-            // ActionPhase produces attackPhase
-           ActionPhase a = new ActionPhase(p1);
-            PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
-            Phase b = ret.pop();
-            AttackPhase b2 = b as AttackPhase;
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            Player[] p = new LiuBei[1];
-            p[0] = p1;
-            // AttackPhase produces responsePhase
-            ret = b.advance(null, game);
-            Phase c = ret.pop();
-            ResponsePhase c_ = c as ResponsePhase;
-
-
-            Assert.IsInstanceOfType(a.responseAbilityAction(new AbilityAction(attack,p), game), typeof(PhaseList));
-
-        }
-
-        [TestMethod]
-        public void Res5Phasetest()
-        {
-            SunQuan p1 = new SunQuan(0);
-            LiuBei p2 = new LiuBei(1);
-            List<Card> x = new List<Card>();
-
-            Player[] p = new SunQuan[1];
-            p[0] = p1;
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            Card attack = new Attack(CardSuit.Spade, 1);
-            x.Add(miss);
-            x.Add(attack);
-            Game game = new Game(p, new CardSet(x));
-
-        
-
-            // ActionPhase produces attackPhase
-            ActionPhase a = new ActionPhase(p1);
-            PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
-            Phase b = ret.pop();
-            AttackPhase b2 = b as AttackPhase;
-           
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            // AttackPhase produces responsePhase
-            ret = b.advance(null, game);
-            Phase c = ret.pop();
-            ResponsePhase c_ = c as ResponsePhase;
-
-
-            Assert.IsInstanceOfType(a.responseAbilityActionSun(new AbilityActionSun(attack), game), typeof(PhaseList));
-
-        }
-
-        [TestMethod]
-        public void Res3Phasetest()
-        {
-
-        
-      
-
-            // ActionPhase produces attackPhase
-
-            Player p1 = mocks.Stub<Player>(0);
-            Player p2 = mocks.Stub<Player>(1);
-            IGame game = mocks.Stub<IGame>();
-
-            Card attack = new Attack(CardSuit.Spade, 1);
-
-            // ActionPhase produces attackPhase
-            ActionPhase a = new ActionPhase(p1);
-            PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
-            Phase b = ret.pop();
-            AttackPhase b2 = b as AttackPhase;
-            Miss miss = new Miss(CardSuit.Diamond, 2);
-            p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
-            p1.health = 1;
-
-            Player[] p = new Player[1];
-            p[0] = p1;
-            // AttackPhase produces responsePhase
-            ret = b.advance(null, game);
-            Phase c = ret.pop();
-            ResponsePhase c_ = c as ResponsePhase;
-            
-            Assert.AreEqual(c_.ToString(), "Response Phase of 1");
-
-        }
-        [TestMethod]
-        [ExpectedException(typeof(Exception))]
-        public void resPhasetest()
-        {
-
-            VisiblePhase p = new Testvisphase(new Player(1), -1);
-
-        }
-
-        [TestMethod]
-        public void playerturntest()
-        {
-
-
-            Player p = mocks.Stub<Player>(0);
-            Player p2 = mocks.Stub<Player>(0);
-            Player p3 = mocks.Stub<Player>(0);
-            IGame testgame = mocks.Stub<IGame>();
-            PhaseList ls;
-            ls = (new PlayerTurn(p)).advance(null, testgame);
-            Assert.AreEqual(new PlayerTurn(p).ToString(), "Plyaer " + 0 + " at PlayerTurn");
-        }
-
-
-
-        public class Testvisphase : PausePhase
-        {
-            public Testvisphase(Player p, int i) : base(p, i) { }
-
-            public override PhaseList advance(IGame game)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public class Testuserphase : UserActionPhase
-        {
-            public Testuserphase(Player p, int i) : base(p, i) { }
-
-          
+            public  Testvisphase(Player p, int i) : base(p, i) { };
+        } 
+            VisiblePhase p = new DrawingPhase(new Player(1), 1);
         }
 
     }
+
 }
