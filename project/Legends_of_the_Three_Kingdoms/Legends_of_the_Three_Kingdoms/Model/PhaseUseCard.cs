@@ -38,12 +38,8 @@ namespace LOTK.Model
 
         public override PhaseList handleResponse(int count, Card respondCard, IGame game)
         {
-            if (count > 1)
-                throw new Exception("Only should response once");
             if (respondCard == null)
                 return new PhaseList(new HarmPhase(targets[0], player, harm,attack));
-            if (!(respondCard is Miss))
-                throw new Exception("Only miss should occur");
             return new PhaseList();
         }
 
@@ -87,59 +83,59 @@ namespace LOTK.Model
         /// <summary>
         /// subclass of hiddenphase 
         /// </summary>
-    public class UseToolPhase : HiddenPhase
-    {
-        bool negated;
-        ToolCard card;
-        Player[] targets;
-        /// <summary>
-        /// create hidden phase 
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="card"></param>
-        /// <param name="targets"></param>
-        public UseToolPhase(Player player, ToolCard card, Player[] targets) : base(player)
-        {
-            negated = false;
-            this.card = card;
-            this.targets = targets;
-        }
+    //public class UseToolPhase : HiddenPhase
+    //{
+    //    bool negated;
+    //    ToolCard card;
+    //    Player[] targets;
+    //    /// <summary>
+    //    /// create hidden phase 
+    //    /// </summary>
+    //    /// <param name="player"></param>
+    //    /// <param name="card"></param>
+    //    /// <param name="targets"></param>
+    //    public UseToolPhase(Player player, ToolCard card, Player[] targets) : base(player)
+    //    {
+    //        negated = false;
+    //        this.card = card;
+    //        this.targets = targets;
+    //    }
 
-        public override PhaseList advance(IGame game)
-        {
-            if (negated)
-                return new PhaseList();
-            throw new NotImplementedException();
-        }
-        /// <summary>
-        /// set negated to true
-        /// </summary>
-        public void negate()
-        {
-            negated = true;
-        }
+    //    public override PhaseList advance(IGame game)
+    //    {
+    //        if (negated)
+    //            return new PhaseList();
+    //        throw new NotImplementedException();
+    //    }
+    //    /// <summary>
+    //    /// set negated to true
+    //    /// </summary>
+    //    public void negate()
+    //    {
+    //        negated = true;
+    //    }
 
-    }
+    //}
     /// <summary>
     /// subclass of hiddenphase 
     /// </summary>
-    public class UseEquipmentPhase : HiddenPhase
-    {
-        Equipment card;
-        /// <summary>
-        /// create use equipment phase 
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="card"></param>
-        public UseEquipmentPhase(Player player, Equipment card) : base(player)
-        {
-            this.card = card;
-        }
-        public override PhaseList advance(IGame game)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //public class UseEquipmentPhase : HiddenPhase
+    //{
+    //    Equipment card;
+    //    /// <summary>
+    //    /// create use equipment phase 
+    //    /// </summary>
+    //    /// <param name="player"></param>
+    //    /// <param name="card"></param>
+    //    public UseEquipmentPhase(Player player, Equipment card) : base(player)
+    //    {
+    //        this.card = card;
+    //    }
+    //    public override PhaseList advance(IGame game)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 
     ///// <summary>
     ///// subclass of hidden phase 

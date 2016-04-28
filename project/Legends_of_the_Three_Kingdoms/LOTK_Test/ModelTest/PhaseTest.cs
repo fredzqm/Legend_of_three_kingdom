@@ -186,6 +186,25 @@ namespace LOTK_Test.ModelTest
 
 
         [TestMethod]
+        public void DyingAskForHelpTest()
+        {
+            Player dying = new Player(0, "dying", "dying", 1);
+            Player source = mocks.Stub<Player>(1);
+            Attack card = new Attack(CardSuit.Club, 1);
+            Assert.AreEqual(2, dying.healthLimit);
+
+            IGame game = mocks.Stub<IGame>();
+
+            HarmPhase harm = new HarmPhase(dying, source, 1, card);
+            PhaseList ls = harm.advance(null, game);
+
+            
+            // ActionPhase produces attackPhase
+
+        }
+
+
+        [TestMethod]
         public void responseCardActionTest()
         {
             Player p1 = mocks.Stub<Player>(0);
@@ -436,7 +455,7 @@ namespace LOTK_Test.ModelTest
             Card attack = new Attack(CardSuit.Spade, 1);
 
             // ActionPhase produces attackPhase
-           ActionPhase a = new ActionPhase(p1);
+            ActionPhase a = new ActionPhase(p1);
             PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
             Phase b = ret.pop();
             AttackPhase b2 = b as AttackPhase;
