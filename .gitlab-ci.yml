@@ -1,0 +1,16 @@
+stages:
+  - build
+
+Testing:
+  stage: build
+  script:
+    - msbuild MSBuildProjects.sln /t:build /p:Configuration=Release
+    - vstest.console CSharpExampleTest/bin/Release/CSharpExampleTest.dll /EnableCodeCoverage
+    # Fail build if the tests fail, the error code gets overwritten by the CodeCoverageConverter
+    - IF %errorlevel% NEQ 0 exit /b %errorlevel%
+    - cd CodeCoverageConverter/bin/Release
+    - CodeCoverageConverter.exe
+  tags:
+    - msbuild
+    - visualstudio
+    - windows
