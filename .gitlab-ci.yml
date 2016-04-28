@@ -5,7 +5,7 @@ Testing:
   stage: build
   script:
     - msbuild MSBuildProjects.sln /t:build /p:Configuration=Release
-    - vstest.console project/Legends_of_the_Three_Kingdoms/LOTK_Test/bin/Release/LOTK_Test.dll /EnableCodeCoverage
+    - vstest.console project/Legends_of_the_Three_Kingdoms/LOTK_Test/bin/Debug/LOTK_Test.dll /EnableCodeCoverage
     # Fail build if the tests fail, the error code gets overwritten by the CodeCoverageConverter
     - IF %errorlevel% NEQ 0 exit /b %errorlevel%
     - cd CodeCoverageConverter/bin/Release
