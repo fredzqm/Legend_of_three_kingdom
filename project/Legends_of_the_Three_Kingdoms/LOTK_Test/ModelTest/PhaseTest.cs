@@ -472,7 +472,7 @@ namespace LOTK_Test.ModelTest
             Card attack = new Attack(CardSuit.Spade, 1);
 
             // ActionPhase produces attackPhase
-            ActionPhase a = new ActionPhase(p1);
+           ActionPhase a = new ActionPhase(p1);
             PhaseList ret = a.advance(new UseCardAction(attack, p2), game);
             Phase b = ret.pop();
             AttackPhase b2 = b as AttackPhase;

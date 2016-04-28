@@ -100,7 +100,7 @@ namespace LOTK.Model
         public virtual PhaseList harm(HarmPhase harmPhase, IGame game)
         {
             health -= harmPhase.harm;
-            if (health <= 0)
+            if (health < 0)
             {
                 return new PhaseList(new AskForHelpPhase(this));
             }
