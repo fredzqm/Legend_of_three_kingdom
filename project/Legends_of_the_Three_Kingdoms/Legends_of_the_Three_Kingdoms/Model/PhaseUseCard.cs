@@ -38,12 +38,8 @@ namespace LOTK.Model
 
         public override PhaseList handleResponse(int count, Card respondCard, IGame game)
         {
-            if (count > 1)
-                throw new Exception("Only should response once");
             if (respondCard == null)
                 return new PhaseList(new HarmPhase(targets[0], player, harm,attack));
-            if (!(respondCard is Miss))
-                throw new Exception("Only miss should occur");
             return new PhaseList();
         }
 

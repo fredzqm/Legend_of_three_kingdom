@@ -43,7 +43,7 @@ namespace LOTK.Model
             if (yes)
                 return "Yes";
             else
-                return "Yes";
+                return "No";
         }
 
         public override PhaseList processedBy(UserActionPhase userActionPhase, IGame game)
