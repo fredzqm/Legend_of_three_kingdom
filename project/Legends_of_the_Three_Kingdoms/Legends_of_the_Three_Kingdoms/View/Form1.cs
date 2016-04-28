@@ -16,7 +16,7 @@ namespace LOTK.View
     /// This is the function for clickButton
     /// </summary>
     /// <param name="playerID"></param>
-    /// <param name="buttonID"></param>
+    /// <param name="buttonID"></param> 
     public delegate void clickButton(int playerID, int buttonID);
     /// <summary>
     /// This is the function for click Card, Maybe changed based on the future design
