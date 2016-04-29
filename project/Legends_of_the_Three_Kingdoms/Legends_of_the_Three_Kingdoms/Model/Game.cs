@@ -80,7 +80,13 @@ namespace LOTK.Model
         /// <param name="playerID"></param>
         /// <param name="userAction"></param>
         void processUserInput(int playerID, UserAction userAction);
-        bool hasEnd();
+
+        /// <summary>
+        /// The status of the game.
+        /// It indicates whether the game has end or not and who wins the game.
+        /// </summary>
+        GameStatus status { get; }
+
     }
 
     /// <summary>
@@ -109,6 +115,8 @@ namespace LOTK.Model
 
         public string logs {get; private set;}
 
+        public GameStatus status { get; private set; }
+
         /// <summary>
         /// construct a game given player and cardlist
         /// It uses dependency injection, so players and carlist can be easily tested.
@@ -122,6 +130,7 @@ namespace LOTK.Model
                 throw new NotDefinedException("CardList is not defined");
             this.players = players;
 
+            status = GameStatus.NotFinish;
             stages = new PhaseList();
             logs = "";
         }
@@ -218,9 +227,13 @@ namespace LOTK.Model
             return false;
         }
 
-        public bool hasEnd()
-        {
-            return false;
-        }
+    }
+
+    public enum GameStatus
+    {
+        NotFinish,
+        RebelWin,
+        KingWin,
+        SpyWin
     }
 }

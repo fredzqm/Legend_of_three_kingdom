@@ -238,7 +238,7 @@ namespace LOTK_Test.ModelTest
             Assert.IsFalse(players[2].isDead());
             Assert.IsFalse(players[3].isDead());
             Assert.IsFalse(players[4].isDead());
-            Assert.IsFalse(game.hasEnd());
+            Assert.AreEqual(GameStatus.NotFinish, game.status);
         }
 
         public void testRebelWin()
