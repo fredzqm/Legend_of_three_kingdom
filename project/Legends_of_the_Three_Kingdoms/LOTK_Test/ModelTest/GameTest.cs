@@ -243,9 +243,19 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
-        public void testRebelWin()
+        public void testGameState()
         {
             testendGameStatus(false, false, false, false, false, false, GameStatus.NotFinish);
+            initialize();
+            testendGameStatus(true, false, false, false, false, true, GameStatus.RebelWin);
+            initialize();
+            testendGameStatus(false, false, true, true, false, false, GameStatus.NotFinish);
+            initialize();
+            testendGameStatus(false, false, true, true, true, true, GameStatus.KingWin);
+            initialize();
+            testendGameStatus(false, true, true, true, false, false, GameStatus.NotFinish);
+            initialize();
+            testendGameStatus(false, true, true, true, true, true, GameStatus.KingWin);
         }
 
         public void testendGameStatus(bool p0, bool p1, bool p2, bool p3, bool p4, bool end, GameStatus expected)
