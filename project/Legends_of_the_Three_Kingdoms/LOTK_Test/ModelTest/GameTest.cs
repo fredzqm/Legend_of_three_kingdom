@@ -80,10 +80,12 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void GameEmptyException()
         {
-            try{
+            try
+            {
                 game.nextStage(null);
                 Assert.Fail("EmptyException not thrown");
-            }catch(EmptyException e) {}
+            }
+            catch (EmptyException e) { }
         }
 
 
@@ -114,7 +116,7 @@ namespace LOTK_Test.ModelTest
             game.nextStage(null);
             game.nextStage(null);
 
-            Phase left =((PhaseList) stagesField.GetValue(game)).top();
+            Phase left = ((PhaseList)stagesField.GetValue(game)).top();
             Assert.AreEqual(p4, left);
 
             mocks.VerifyAll();
@@ -150,10 +152,12 @@ namespace LOTK_Test.ModelTest
             game.nextStage(null);
             game.nextStage(null);
             game.nextStage(null);
-            try {
+            try
+            {
                 game.nextStage(x);
                 Assert.Fail("No exception thrown");
-            }catch(EmptyException e)
+            }
+            catch (EmptyException e)
             {
 
             }
@@ -161,6 +165,79 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(left.isEmpty());
 
             mocks.VerifyAll();
+        }
+
+
+    }
+
+
+    [TestClass]
+    public class GameEndGameTest
+    {
+
+        private CardSet cardList;
+        private Player[] players;
+        private IGame game;
+
+        private MockRepository mocks;
+
+        [TestInitialize()]
+        public void initialize()
+        {
+            mocks = new MockRepository();
+            ICollection<Card> cards = new List<Card>();
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
+            cards.Add(new Attack(CardSuit.Club, 2));
+            cards.Add(new Attack(CardSuit.Club, 3));
+            cards.Add(new Attack(CardSuit.Club, 4));
+            cards.Add(new Attack(CardSuit.Club, 5));
+            cards.Add(new Attack(CardSuit.Club, 6));
+            cards.Add(new Attack(CardSuit.Club, 7));
+            cards.Add(new Attack(CardSuit.Club, 8));
+            cards.Add(new Attack(CardSuit.Club, 9));
+
+            cardList = new CardSet(cards);
+            players = new Player[5];    
+            players[0] = new Player(0, "Player 0", "Player 0", 1, PlayerType.King);
+            players[1] = new Player(1, "Player 1", "Player 1", 1, PlayerType.Rebel);
+            players[2] = new Player(2, "Player 2", "Player 2", 1, PlayerType.Loyal);
+            players[3] = new Player(3, "Player 3", "Player 3", 1, PlayerType.Rebel);
+            players[4] = new Player(4, "Player 4", "Player 4", 1, PlayerType.Spy);
+
+            game = new Game(players, cardList);
+        }
+
+        [TestMethod]
+        public void testInit()
+        {
+            Assert.IsFalse(players[0].isDead());
+            Assert.IsFalse(players[1].isDead());
+            Assert.IsFalse(players[2].isDead());
+            Assert.IsFalse(players[3].isDead());
+            Assert.IsFalse(players[4].isDead());
         }
 
 
@@ -394,7 +471,7 @@ namespace LOTK_Test.ModelTest
             Type stage = typeof(Game);
             FieldInfo stinfo = stage.GetField("stages",
             BindingFlags.NonPublic | BindingFlags.Instance);
-      
+
             PhaseList p = new PhaseList();
             p.add(new DiscardPhase(players[0]));
             p.add(new DiscardPhase(players[0]));
@@ -410,12 +487,12 @@ namespace LOTK_Test.ModelTest
             List<Card> c = new List<Card>();
             c.Add(new Attack(CardSuit.Club, (byte)1));
             Player p = new Player(1);
-            Player[] l=new Player[1];
+            Player[] l = new Player[1];
             l[0] = p;
             Type gameType = typeof(Game);
             FieldInfo stagesField = gameType.GetField("stages", BindingFlags.NonPublic | BindingFlags.Instance);
 
- 
+
             Phase p1 = mocks.DynamicMock<Phase>(p);
             Phase p2 = mocks.DynamicMock<Phase>(p);
             Phase p3 = mocks.DynamicMock<Phase>(p);
@@ -424,8 +501,6 @@ namespace LOTK_Test.ModelTest
             stagesField.SetValue(g, new PhaseList(p1));
 
 
-            
-            
             Assert.AreEqual(p, g.curPhasePlayer);
 
         }
