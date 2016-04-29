@@ -364,7 +364,7 @@ namespace LOTK.Model
         /// <summary>
         /// class of node 
         /// </summary>
-        class Node
+       public class Node
         {
             internal Phase data;
             internal Node next;
@@ -382,7 +382,7 @@ namespace LOTK.Model
             /// </summary>
             /// <param name="node"></param>
             /// <returns></returns>
-            internal Node setNext(Node node)
+            public Node setNext(Node node)
             {
                 this.next = node;
                 return node;

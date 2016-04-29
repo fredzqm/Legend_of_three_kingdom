@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Rhino.Mocks;
 
+
 namespace LOTK_Test.ModelTest
 {
 
@@ -554,6 +555,71 @@ namespace LOTK_Test.ModelTest
             Assert.AreEqual(new PlayerTurn(p).ToString(), "Plyaer " + 0 + " at PlayerTurn");
         }
 
+        [TestMethod]
+        public void nodeStringtest()
+        {
+            PhaseList.Node n = new PhaseList.Node(new ActionPhase(new Player(1)));
+            Assert.AreEqual("Plyaer 1 at ActionPhase", n.ToString());
+        }
+
+        [TestMethod]
+        public void nodenexttest()
+        {
+            PhaseList.Node n = new PhaseList.Node(new ActionPhase(new Player(1)));
+           Assert.IsInstanceOfType( n.setNext(n),typeof(PhaseList.Node));
+        }
+
+        [TestMethod]
+        public void phaseCurrenttest()
+        {
+            PhaseList p = new PhaseList();
+            p.add(new ActionPhase(new ZhangFei(1)));
+
+            Assert.AreEqual("[Plyaer 1 at ActionPhase,]", p.ToString());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EmptyException))]
+        public void phaselistpop()
+        {
+            PhaseList p = new PhaseList();
+            p.pop();
+           
+
+            }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(NoCardException))]
+        public void testdrawchrdcardset()
+        {
+            List<Card> l = new List<Card>();
+            l.Add(new Attack(CardSuit.Club, (byte)1));
+            CardSet c = new CardSet(l);
+            c.drawCard(3);
+
+
+        }
+
+        [TestMethod]
+        public void phaselistpush()
+        {
+            PhaseList p = new PhaseList();
+            ActionPhase a = new ActionPhase(new ZhangFei(1));
+            p.push(a);
+            Assert.AreEqual(p.top(), a);
+
+
+        }
+
+        [TestMethod]
+        public void phaselistenum()
+        {
+            PhaseList p = new PhaseList();
+            p.add(new ActionPhase(new ZhangFei(1)));
+
+            Assert.IsInstanceOfType(p.GetEnumerator(),typeof(IEnumerator<Phase>));
+        }
 
 
         public class Testvisphase : PausePhase
@@ -572,6 +638,7 @@ namespace LOTK_Test.ModelTest
           
         }
 
+        
 
     }
 }
