@@ -222,8 +222,8 @@ namespace LOTK_Test.ModelTest
             cardList = new CardSet(cards);
             players = new Player[5];    
             players[0] = new Player(0, "Player 0", "Player 0", 1, PlayerType.King);
-            players[1] = new Player(1, "Player 1", "Player 1", 1, PlayerType.Rebel);
-            players[2] = new Player(2, "Player 2", "Player 2", 1, PlayerType.Loyal);
+            players[1] = new Player(1, "Player 1", "Player 1", 1, PlayerType.Loyal);
+            players[2] = new Player(2, "Player 2", "Player 2", 1, PlayerType.Rebel);
             players[3] = new Player(3, "Player 3", "Player 3", 1, PlayerType.Rebel);
             players[4] = new Player(4, "Player 4", "Player 4", 1, PlayerType.Spy);
 
@@ -238,9 +238,14 @@ namespace LOTK_Test.ModelTest
             Assert.IsFalse(players[2].isDead());
             Assert.IsFalse(players[3].isDead());
             Assert.IsFalse(players[4].isDead());
+            Assert.IsFalse(game.hasEnd());
         }
 
-
+        public void testRebelWin()
+        {
+            players[0].isDead();
+            Assert.AreEqual(GameStatus.RebelWin, game.status);
+        }
     }
 
     /// <summary>

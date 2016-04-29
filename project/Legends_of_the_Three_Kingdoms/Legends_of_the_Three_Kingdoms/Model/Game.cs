@@ -80,6 +80,7 @@ namespace LOTK.Model
         /// <param name="playerID"></param>
         /// <param name="userAction"></param>
         void processUserInput(int playerID, UserAction userAction);
+        bool hasEnd();
     }
 
     /// <summary>
@@ -217,6 +218,9 @@ namespace LOTK.Model
             return false;
         }
 
-
+        public bool hasEnd()
+        {
+            return false;
+        }
     }
 }
