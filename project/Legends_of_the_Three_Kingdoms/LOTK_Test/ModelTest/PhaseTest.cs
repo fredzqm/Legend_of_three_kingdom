@@ -389,6 +389,17 @@ namespace LOTK_Test.ModelTest
         }
 
 
+
+        [TestMethod]
+        public void AbilitySuntest3()
+        {
+            AbilityActionSun p = new AbilityActionSun(new Attack(CardSuit.Club, (byte)1));
+            bool x=p.Equals(null);
+            Assert.IsFalse(x);
+           
+        }
+
+
         [TestMethod]
         public void ResPhasetest()
         {

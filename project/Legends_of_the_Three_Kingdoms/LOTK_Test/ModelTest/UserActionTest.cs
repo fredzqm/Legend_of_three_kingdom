@@ -51,6 +51,20 @@ namespace LOTK_Test.ModelTest
         }
 
         [TestMethod]
+        public void testYesorNoActionequal()
+        {
+            YesOrNoAction n = new YesOrNoAction(true);
+            Assert.IsTrue(n.Equals(n)==true);
+        }
+
+        [TestMethod]
+        public void testYesorNoActionequal2()
+        {
+            YesOrNoAction n = new YesOrNoAction(true);
+            YesOrNoAction n2 = new YesOrNoAction(false);
+            Assert.IsTrue(n.Equals(n2) == false);
+        }
+        [TestMethod]
         public void testYesorNoAction2()
         {
             YesOrNoAction n = new YesOrNoAction(false);
