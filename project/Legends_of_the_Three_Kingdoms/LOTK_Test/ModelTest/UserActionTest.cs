@@ -43,8 +43,21 @@ namespace LOTK_Test.ModelTest
             testClickButton(-1, 0, -1, null);
             testClickButton(-1, -1, -1, typeof(YesOrNoAction));
         }
+        [TestMethod]
+        public void testYesorNoAction()
+        {
+            YesOrNoAction n = new YesOrNoAction(true);
+            Assert.IsTrue(n.toString().Equals("Yes"));
+        }
 
- 
+        [TestMethod]
+        public void testYesorNoAction2()
+        {
+            YesOrNoAction n = new YesOrNoAction(false);
+            Assert.IsTrue(n.toString().Equals("No"));
+        }
+
+
 
 
         public void testClickButton(int abili, int userID, int cardID, Type expected)
