@@ -15,6 +15,7 @@ namespace LOTK.Model
     {
         // basic and readonly properties, initialized in contructor
         public int playerID { get; }
+        public PlayerType playerType { get; }
         public string name { get; } 
         public string description { get; }
 
@@ -31,14 +32,9 @@ namespace LOTK.Model
         {
             return dead;
         }
-        /// <summary>
-        /// create player 
-        /// </summary>
-        /// <param name="pos"></param>
-        /// <param name="name"></param>
-        /// <param name="descript"></param>
-        /// <param name="healthLimit"></param>
-        public Player(int pos, string name, string descript, int healthLimit)
+
+
+        public Player(int pos, string name, string descript, int healthLimit, PlayerType type)
         {
             if (pos < 0)
             {
@@ -52,7 +48,7 @@ namespace LOTK.Model
             {
                 throw new EmptyException("descripty is null");
             }
-            else if (healthLimit <0)
+            else if (healthLimit < 0)
             {
                 throw new ArgumentOutOfRangeException("healthlimit is negative");
             }
@@ -65,7 +61,18 @@ namespace LOTK.Model
             this.health = healthLimit;
             this.healthLimit = healthLimit;
             dead = false;
+            this.playerType = type;
         }
+    
+
+        /// <summary>
+        /// create player 
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <param name="name"></param>
+        /// <param name="descript"></param>
+        /// <param name="healthLimit"></param>
+        public Player(int pos, string name, string descript, int healthLimit) : this(pos, name, descript, healthLimit, PlayerType.Undefined){}
 
         /// <summary>
         /// create player 
@@ -190,5 +197,14 @@ namespace LOTK.Model
         }
 
 
+    }
+
+    public enum PlayerType
+    {
+        King,
+        Rebel,
+        Loyal,
+        Spy,
+        Undefined
     }
 }
