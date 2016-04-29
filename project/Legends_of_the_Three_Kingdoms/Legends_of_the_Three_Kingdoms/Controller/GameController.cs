@@ -77,6 +77,10 @@ namespace LOTK.Controller
         /// <returns></returns>
         public Required_Data getData(int ownPlayer)
         {
+            if (game.hasEnd())
+            {
+                game.log("The game has ended " + game.status.ToString());
+            }
             Required_Data rd = new Required_Data();
             for (int i = 0; i < NUM_OF_PLAYER; i++)
             {
@@ -103,7 +107,8 @@ namespace LOTK.Controller
         /// <returns></returns>
         private PlayerDisplay PlayerToPlayerDisplay(Player player)
         {
-            return new PlayerDisplay(player.name, player.description, player.playerID, player.health);
+            return new PlayerDisplay(player.isDead() ? player.name + player.playerType.ToString() +" Dead" : player.name,
+                player.description, player.playerID, player.health);
         }
         /// <summary>
         /// convert cards to display cards
@@ -125,11 +130,11 @@ namespace LOTK.Controller
         {
             Player[] players = new Player[n];
 
-            players[0] = new LuMeng(0);
-            players[1] = new SunQuan(1);
-            players[2] = new LiuBei(2);
-            players[3] = new ZhangFei(3);
-            players[4] = new CaoCao(4);
+            players[0] = new LuMeng(0, PlayerType.King);
+            players[1] = new SunQuan(1, PlayerType.Loyal);
+            players[2] = new LiuBei(2, PlayerType.Rebel);
+            players[3] = new ZhangFei(3, PlayerType.Rebel);
+            players[4] = new CaoCao(4, PlayerType.Spy);
 
             return players;
         }

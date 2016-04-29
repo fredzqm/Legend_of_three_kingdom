@@ -356,7 +356,7 @@ namespace LOTK.Model
         /// A Need responsePhase should be processed at least twice. Once to create a respondPhase, once to handle the response. It can also create multiple responses
         /// </summary>
         /// <param name="game">The game status</param>
-        /// <returns></returns>
+        /// <returns></returns> 
         public sealed override PhaseList advance(IGame game)
         {
             if (count == handledCount)

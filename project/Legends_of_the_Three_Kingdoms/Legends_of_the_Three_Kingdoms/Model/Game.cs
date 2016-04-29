@@ -105,7 +105,13 @@ namespace LOTK.Model
 
         public Player nextPlayer(int curPlayer, int count)
         {
-            return players[(curPlayer + count) % Num_Player];
+            while (count > 0)
+            {
+                curPlayer = (curPlayer + 1) % Num_Player;
+                if (!players[curPlayer].isDead())
+                    count--;
+            }
+            return players[curPlayer];
         }
 
         public ICardSet cards { get; }
@@ -182,12 +188,13 @@ namespace LOTK.Model
             timerVisit = false;
             while (true)
             {
+                PhaseList followingPhases;
                 if (curPhase is PlayerTurn)
                 { // when turn switches
                     curRoundPlayer = curPhase.player;
                     log("The round of " + curRoundPlayer + " start");
                 }
-                PhaseList followingPhases = curPhase.advance(userAction, this);
+                followingPhases = curPhase.advance(userAction, this);
                 if (followingPhases == null)
                 { // the next state need a user action for future decison
                     return;

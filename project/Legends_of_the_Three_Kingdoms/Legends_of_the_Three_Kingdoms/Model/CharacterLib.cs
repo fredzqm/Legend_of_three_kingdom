@@ -13,10 +13,9 @@ namespace LOTK.Model
      /// create ZhangFei
      /// </summary>
      /// <param name="pos ">this is the position of the player in All player</param>
-        public ZhangFei(int pos) :  base(pos, "Zhang Fei", "Zhang Fei has no restrictions on how many times he can attack during his turn", 4)
-        {
+        public ZhangFei(int pos, PlayerType type) :  base(pos, "Zhang Fei", "Zhang Fei has no restrictions on how many times he can attack during his turn", 4, type) {}
+        public ZhangFei(int pos) :  this(pos, PlayerType.Undefined){}
 
-        }
         /// <summary>
         /// override of Player.canNotAttack()
         /// </summary>
@@ -48,10 +47,10 @@ namespace LOTK.Model
         /// create LiuBei
         /// </summary>
         /// <param name="pos"> this is the position of the player in All player</param>
-        public LiuBei(int pos) : base(pos, "Liu Bei", "Liu Bei's can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health", 4)
-        {
+        public LiuBei(int pos, PlayerType type) : base(pos, "Liu Bei", "Liu Bei's can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health", 4, type) {}
 
-        }
+        public LiuBei(int pos) :  this(pos, PlayerType.Undefined){ }
+
         /// <summary>
         /// override of Player.ability()
         /// </summary>
@@ -82,9 +81,9 @@ namespace LOTK.Model
         /// create CaoCao
         /// </summary>
         /// <param name="pos"> this is the position of the player in All player</param>
-        public CaoCao(int pos) : base(pos, "Cao Cao", "When Cao Cao is damaged by a card, he can immediately put it into his hand", 4)
-        {
-        }
+        public CaoCao(int pos, PlayerType type) : base(pos, "Cao Cao", "When Cao Cao is damaged by a card, he can immediately put it into his hand", 4, type) {}
+        public CaoCao(int pos) :  this(pos, PlayerType.Undefined){ }
+
         /// <summary>
         /// override of Player.harm()
         /// </summary>
@@ -120,10 +119,9 @@ namespace LOTK.Model
      /// create SunQuan
      /// </summary>
      /// <param name="pos ">is the position of the player in All player</param>
-        public SunQuan(int pos) : base(pos, "Sun Quan", "Once during his turn, Sun Quan can discard any number of cards to draw the same number", 4)
-        {
+        public SunQuan(int pos, PlayerType type) : base(pos, "Sun Quan", "Once during his turn, Sun Quan can discard any number of cards to draw the same number", 4, type) { }
+        public SunQuan(int pos) :  this(pos, PlayerType.Undefined){}
 
-        }
         /// <summary>
         /// override Player.abilitySun()
         /// </summary>
@@ -156,10 +154,9 @@ namespace LOTK.Model
         /// Create Lumeng
         /// </summary>
         /// <param name="pos">this is the position of the player in All player</param>
-        public LuMeng(int pos) : base(pos, "Lu Meng", "If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase", 2)
-        {
+        public LuMeng(int pos, PlayerType type) : base(pos, "Lu Meng", "If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase", 4, type) {}
+        public LuMeng(int pos) :  this(pos, PlayerType.Undefined){ }
 
-        }
         /// <summary>
         /// override player.handcardCount()
         /// </summary>

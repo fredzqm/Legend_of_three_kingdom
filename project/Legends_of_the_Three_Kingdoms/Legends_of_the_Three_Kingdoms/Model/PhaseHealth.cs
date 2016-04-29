@@ -100,7 +100,16 @@ namespace LOTK.Model
 
         public override PhaseList advance(IGame game)
         {
+            if (game.hasEnd())
+            {
+                game.log(game.status.ToString());
+            }
             return player.die(game);
+        }
+
+        public override string ToString()
+        {
+            return "Dead phase of " + player;
         }
     }
 }
