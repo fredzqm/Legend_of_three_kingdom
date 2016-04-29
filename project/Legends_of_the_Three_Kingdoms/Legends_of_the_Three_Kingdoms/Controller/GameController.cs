@@ -107,8 +107,17 @@ namespace LOTK.Controller
         /// <returns></returns>
         private PlayerDisplay PlayerToPlayerDisplay(Player player)
         {
-            return new PlayerDisplay(player.isDead() ? player.name + player.playerType.ToString() +" Dead" : player.name,
-                player.description, player.playerID, player.health);
+            String displayedStr;
+            if (player.isDead())
+                displayedStr = player.name + player.playerType.ToString() + " Dead";
+            else if (player.playerType == PlayerType.King)
+            {
+                displayedStr = player.name +  " King";
+            } else
+            {
+                displayedStr = player.name;
+            }
+            return new PlayerDisplay(displayedStr, player.description, player.playerID, player.health);
         }
         /// <summary>
         /// convert cards to display cards
