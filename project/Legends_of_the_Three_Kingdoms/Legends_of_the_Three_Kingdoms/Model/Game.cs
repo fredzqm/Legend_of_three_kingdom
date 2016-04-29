@@ -14,7 +14,7 @@ namespace LOTK.Model
         /// the number of players in the game
         /// </summary>
         int Num_Player { get; }
-        
+
         /// <summary>
         /// the player array of the game
         /// </summary>
@@ -32,12 +32,12 @@ namespace LOTK.Model
         /// the card set of the game
         /// </summary>
         ICardSet cards { get; }
-        
+
         /// <summary>
         /// The current phase of the game
         /// </summary>
         Phase curPhase { get; }
-        
+
         /// <summary>
         /// log a message
         /// </summary>
@@ -73,7 +73,7 @@ namespace LOTK.Model
         void start();
 
         void nextStage(UserAction userAction);
-        
+
         /// <summary>
         /// process the userAction
         /// </summary>
@@ -99,7 +99,7 @@ namespace LOTK.Model
     /// </summary>
     public class Game : IGame
     {
-        public int Num_Player { get { return players.Length; }}
+        public int Num_Player { get { return players.Length; } }
 
         public Player[] players { get; }
 
@@ -111,14 +111,14 @@ namespace LOTK.Model
         public ICardSet cards { get; }
 
         private PhaseList stages;
-       
-        public Phase curPhase {get {return stages.top();}}
+
+        public Phase curPhase { get { return stages.top(); } }
 
         public Player curPhasePlayer { get { return curPhase.player; } }
 
         public Player curRoundPlayer { get; private set; }
 
-        public string logs {get; private set;}
+        public string logs { get; private set; }
 
         public GameStatus status { get; private set; }
 
@@ -139,7 +139,7 @@ namespace LOTK.Model
             stages = new PhaseList();
             logs = "";
         }
-        
+
         /// <summary>
         /// start of game 
         /// </summary>
@@ -185,7 +185,7 @@ namespace LOTK.Model
                 if (curPhase is PlayerTurn)
                 { // when turn switches
                     curRoundPlayer = curPhase.player;
-                    log("The round of " + curRoundPlayer +" start");
+                    log("The round of " + curRoundPlayer + " start");
                 }
                 PhaseList followingPhases = curPhase.advance(userAction, this);
                 if (followingPhases == null)
@@ -207,7 +207,7 @@ namespace LOTK.Model
                 }
             }
         }
-       
+
         /// <summary>
         /// Under certain circumstances, the player might have only one option.
         /// In those cases, we want the game to pause for a small interval
@@ -237,7 +237,7 @@ namespace LOTK.Model
             if (status != GameStatus.NotFinish)
                 return true;
             int king = 0, loyal = 0, rebel = 0, spy = 0;
-            foreach(Player p in players)
+            foreach (Player p in players)
             {
                 if (!p.isDead())
                 {
@@ -260,18 +260,19 @@ namespace LOTK.Model
                             throw new NotImplementedException("There should not be this kind of player type " + p.playerType);
                     }
                 }
-                if (king == 0)
-                {
-                    if (rebel == 0 && loyal == 0 && spy == 1)
-                        status = GameStatus.SpyWin;
-                    else
-                        status = GameStatus.RebelWin;
-                    return true;
-                } else if (rebel == 0 && spy == 0)
-                {
-                    status = GameStatus.KingWin;
-                    return true;
-                }
+            }
+            if (king == 0)
+            {
+                if (rebel == 0 && loyal == 0 && spy == 1)
+                    status = GameStatus.SpyWin;
+                else
+                    status = GameStatus.RebelWin;
+                return true;
+            }
+            else if (rebel == 0 && spy == 0)
+            {
+                status = GameStatus.KingWin;
+                return true;
             }
             return false;
         }
