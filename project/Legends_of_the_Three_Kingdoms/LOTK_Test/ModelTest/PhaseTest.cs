@@ -245,6 +245,25 @@ namespace LOTK_Test.ModelTest
 
         }
 
+
+
+        [TestMethod]
+        public void testDeadPhase()
+        {
+            DeadPhase d = new DeadPhase(new ZhangFei(1), new HarmPhase(new ZhangFei(1), new LiuBei(2), 1, new Attack(CardSuit.Club, (byte)1)));
+            Assert.AreEqual("Dead phase of LOTK.Model.ZhangFei", d.ToString());
+        }
+
+
+        [TestMethod]
+        public void getharmsource()
+        {
+            DeadPhase d = new DeadPhase(new ZhangFei(1), new HarmPhase(new ZhangFei(1), new LiuBei(2), 1, new Attack(CardSuit.Club, (byte)1)));
+            Assert.IsInstanceOfType( d.harmSource,typeof(HarmPhase));
+        }
+
+
+
         [TestMethod]
         public void resAdvanceTest3()
         {
