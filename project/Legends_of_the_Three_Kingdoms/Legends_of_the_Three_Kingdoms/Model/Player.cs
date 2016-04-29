@@ -103,7 +103,7 @@ namespace LOTK.Model
             return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.actionPhase.attackCount >= 1 || curPhase.targets[0] == this);
         }
 
-        internal PhaseList die(IGame game)
+        public PhaseList die(IGame game)
         {
             dead = true;
             return new PhaseList();

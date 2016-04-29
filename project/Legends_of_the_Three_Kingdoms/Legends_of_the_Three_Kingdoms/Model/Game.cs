@@ -87,6 +87,11 @@ namespace LOTK.Model
         /// </summary>
         GameStatus status { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>true if the game has ended</returns>
+        bool hasEnd();
     }
 
     /// <summary>
@@ -227,6 +232,49 @@ namespace LOTK.Model
             return false;
         }
 
+        public bool hasEnd()
+        {
+            if (status != GameStatus.NotFinish)
+                return true;
+            int king = 0, loyal = 0, rebel = 0, spy = 0;
+            foreach(Player p in players)
+            {
+                if (!p.isDead())
+                {
+
+                    switch (p.playerType)
+                    {
+                        case PlayerType.King:
+                            king++;
+                            break;
+                        case PlayerType.Loyal:
+                            loyal++;
+                            break;
+                        case PlayerType.Rebel:
+                            rebel++;
+                            break;
+                        case PlayerType.Spy:
+                            spy++;
+                            break;
+                        default:
+                            throw new NotImplementedException("There should not be this kind of player type " + p.playerType);
+                    }
+                }
+                if (king == 0)
+                {
+                    if (rebel == 0 && loyal == 0 && spy == 1)
+                        status = GameStatus.SpyWin;
+                    else
+                        status = GameStatus.RebelWin;
+                    return true;
+                } else if (rebel == 0 && spy == 0)
+                {
+                    status = GameStatus.KingWin;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     public enum GameStatus
