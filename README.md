@@ -44,3 +44,10 @@ Those exception will be caught and a nice error message will be displayed in GUI
 
 Songyu Wang:
 This week I tried to make the GUI look nicer. So I added one background picture and five players pictures. Also, I changed the fonts and colors of text and the color of components. This week, we did not implement any new feature, so I did not proform system and exploratory testing. 
+
+
+Milestone6:
+Fred zhang:
+This week I implemented the player dying, asking for help and end game feature. When one player gets hurt and has 0 health, he would ask everyone for help. If any of them can save him with sufficient number of peaches, the dying player survive, otherwise he is dead. If some player is dead, the game check if the game had ended.
+I use TDD to create test for all newly added methods and classes and achieve 100% statement coverage as indicated by visual studio. I use parameterized test for testing end game logic. It worked well.
+I also integrated GUI with the model, so the player can see who is dead.
