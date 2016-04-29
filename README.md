@@ -52,4 +52,4 @@ This week I implemented the player dying, asking for help and end game feature. 
 I use TDD to create test for all newly added methods and classes and achieve 100% statement coverage as indicated by visual studio. I use parameterized test for testing end game logic. It worked well.
 I also integrated GUI with the model, so the player can see who is dead.
 Songyu Wang:
-I tried to add tests for previous milestones code. There are too many codes, I wrote about 50 tests but I still not be able to achieve 100% coverage. Also, I tried to install the codecoverage on gitlab, but It seems like this tools does not support Mocking. So I cannot install it. 
+I tried to add tests for previous milestones code. There are too many codes, I wrote about 70 tests but I still not be able to achieve 100% coverage. Also, I tried to install the codecoverage on gitlab, but It seems like this tools does not support Mocking. So I cannot install it. 
