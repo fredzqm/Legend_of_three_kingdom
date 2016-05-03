@@ -15,6 +15,7 @@ namespace LOTK_Test.BDD
         public IGame game;
         public Wine wine;
         public Attack attack;
+        public Peach peach;
 
         [Given(@"There is a game of player A with (.) health and player B has (.) health")]
         public void GivenThereIsAGameOfPlayerAWithHealthAndPlayerBHasHealth(int p0, int p1)
@@ -29,6 +30,8 @@ namespace LOTK_Test.BDD
             ls.Add(wine);
             attack = new Attack(CardSuit.Club, 2);
             ls.Add(attack);
+            peach = new Peach(CardSuit.Heart, 3);
+            ls.Add(peach);
             game = new Game(players, new FakeCardSet(ls));
             game.start(0);
         }
