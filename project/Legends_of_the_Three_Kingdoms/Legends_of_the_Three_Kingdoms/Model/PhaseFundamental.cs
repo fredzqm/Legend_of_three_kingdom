@@ -105,7 +105,19 @@ namespace LOTK.Model
                 Wine wine = card as Wine;
                 if (wine != null)
                 {
+                    if (drunk)
+                        return null;
+                    player.discardCard(wine, game);
                     drunk = true;
+                    return ret;
+                }
+                Peach peach = card as Peach;
+                if (peach != null)
+                {
+                    if (player.health == player.healthLimit)
+                        return null;
+                    player.discardCard(peach, game);
+                    ret.push(new RecoverPhase(player, 1));
                     return ret;
                 }
             }

@@ -38,7 +38,7 @@ namespace BDD_Specflow
         [When(@"Player B uses Peach")]
         public void WhenPlayerBUsesPeach()
         {
-            winesteps.game.processUserInput(0, new UseCardAction(winesteps.wine));
+            winesteps.game.processUserInput(1, new UseCardAction(winesteps.peach));
         }
     }
 }
