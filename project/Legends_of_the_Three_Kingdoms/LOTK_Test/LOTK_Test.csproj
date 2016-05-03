@@ -52,6 +52,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="this.Log, Version=0.0.3.0, Culture=neutral, PublicKeyToken=cbf7544467682e94, processorArchitecture=MSIL">
       <HintPath>..\packages\this.Log.0.0.3.0\lib\net40\this.Log.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +80,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BDD\Wine.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wine.feature</DependentUpon>
+    </Compile>
     <Compile Include="ModelTest\CardLibTest.cs" />
     <Compile Include="ModelTest\ExceptionTest.cs" />
     <Compile Include="ModelTest\UnitTest1.cs" />
@@ -95,8 +104,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BDD\Wine.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Wine.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
