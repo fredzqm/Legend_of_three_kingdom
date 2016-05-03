@@ -20,7 +20,7 @@ namespace LOTK_Test.BDD
             players[0] = playerA;
             players[1] = playerB;
             game = new Game(players, GameController.initialLizeCardSet());
-            game.start();
+            game.start(0);
         }
 
         public ActionPhase actionPhase;
@@ -39,7 +39,7 @@ namespace LOTK_Test.BDD
         [Given(@"Player A uses Wine")]
         public void GivenPlayerAUsesWine()
         {
-            wine = new Wine(CardSuit.Club, 1);
+            wine = new Wine(CardSuit.Club, 2);
             game.processUserInput(0, new UseCardAction(wine));
         }
 

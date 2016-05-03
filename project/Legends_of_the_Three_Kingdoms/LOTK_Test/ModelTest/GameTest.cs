@@ -348,7 +348,7 @@ namespace LOTK_Test.ModelTest
                 players[i] = new Player(i);
             }
             game = new Game(players, cardList);
-            game.start();
+            game.start(4);
 
             cardList = new CardSet(cards);
             players8 = new Player[8];
@@ -357,7 +357,7 @@ namespace LOTK_Test.ModelTest
                 players8[i] = new Player(i);
             }
             game8 = new Game(players8, cardList);
-            game8.start();
+            game8.start(4);
         }
 
 

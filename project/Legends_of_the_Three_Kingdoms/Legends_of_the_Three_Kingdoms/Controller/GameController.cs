@@ -35,7 +35,7 @@ namespace LOTK.Controller
             CardSet cardset = initialLizeCardSet();
             Player[] players = initializePlayers(Num_Of_Player);
             game = new Game(players, cardset);
-            game.start();
+            game.start(4);
 
             view = new GameView[NUM_OF_PLAYER];
             view[0] = new GameView(this, 0);
@@ -155,14 +155,14 @@ namespace LOTK.Controller
         public static CardSet initialLizeCardSet()
         {
             ICollection<Card> ls = new List<Card>();
-            ls.Add(new Attack(CardSuit.Club, 2));
-            ls.Add(new Attack(CardSuit.Club, 3));
-            ls.Add(new Attack(CardSuit.Club, 4));
-            ls.Add(new Attack(CardSuit.Club, 5));
-            ls.Add(new Attack(CardSuit.Club, 6));
-            ls.Add(new Attack(CardSuit.Club, 7));
-            ls.Add(new Attack(CardSuit.Club, 8));
-            ls.Add(new Attack(CardSuit.Club, 9));
+            ls.Add(new Wine(CardSuit.Club, 2));
+            ls.Add(new Wine(CardSuit.Club, 3));
+            ls.Add(new Wine(CardSuit.Club, 4));
+            ls.Add(new Wine(CardSuit.Club, 5));
+            ls.Add(new Wine(CardSuit.Club, 6));
+            ls.Add(new Wine(CardSuit.Club, 7));
+            ls.Add(new Wine(CardSuit.Club, 8));
+            ls.Add(new Wine(CardSuit.Club, 9));
 
             ls.Add(new Attack(CardSuit.Spade, 2));
             ls.Add(new Attack(CardSuit.Spade, 3));

@@ -1,7 +1,9 @@
-﻿using LOTK.Controller;
+﻿using BDD_Specflow;
+using LOTK.Controller;
 using LOTK.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace LOTK_Test.BDD
@@ -11,6 +13,9 @@ namespace LOTK_Test.BDD
     {
         public Player playerA, playerB;
         public IGame game;
+        public Wine wine;
+        public Attack attack;
+
         [Given(@"There is a game of player A with (.) health and player B has (.) health")]
         public void GivenThereIsAGameOfPlayerAWithHealthAndPlayerBHasHealth(int p0, int p1)
         {
@@ -19,8 +24,13 @@ namespace LOTK_Test.BDD
             Player[] players = new Player[2];
             players[0] = playerA;
             players[1] = playerB;
-            game = new Game(players, GameController.initialLizeCardSet());
-            game.start();
+            List<Card> ls = new List<Card>();
+            wine = new Wine(CardSuit.Club, 1);
+            ls.Add(wine);
+            attack = new Attack(CardSuit.Club, 2);
+            ls.Add(attack);
+            game = new Game(players, new FakeCardSet(ls));
+            game.start(0);
         }
 
         public ActionPhase actionPhase;
@@ -35,19 +45,15 @@ namespace LOTK_Test.BDD
             }
         }
 
-        public Wine wine;
         [Given(@"Player A uses Wine")]
         public void GivenPlayerAUsesWine()
         {
-            wine = new Wine(CardSuit.Club, 1);
             game.processUserInput(0, new UseCardAction(wine));
         }
 
-        public Attack attack;
         [Given(@"Player A attack Player B")]
         public void GivenPlayerAAttackPlayerB()
         {
-            attack = new Attack(CardSuit.Club, 2);
             game.processUserInput(0, new UseCardAction(attack, playerB));
         }
 

@@ -3,7 +3,7 @@
 
 @wine
 Scenario: Wine attack
-	Given There is a game of player A with 4 health and player B has 4 health
+	Given There is a game of player A with 4 health and player B has 4 health 
 	And At Player A's actionPhase
 	And Player A uses Wine
 	And Player A attack Player B

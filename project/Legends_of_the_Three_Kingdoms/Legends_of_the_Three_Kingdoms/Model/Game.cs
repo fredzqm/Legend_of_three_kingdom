@@ -70,7 +70,7 @@ namespace LOTK.Model
         /// <summary>
         /// kick off the game
         /// </summary>
-        void start();
+        void start(int initCardNum);
 
         void nextStage(UserAction userAction);
 
@@ -149,11 +149,14 @@ namespace LOTK.Model
         /// <summary>
         /// start of game 
         /// </summary>
-        public void start()
+        public void start(int initCardNum)
         {
-            for (int i = 0; i < Num_Player; i++)
+            if (initCardNum > 0)
             {
-                players[i].drawCards(4, this);
+                for (int i = 0; i < Num_Player; i++)
+                {
+                    players[i].drawCards(initCardNum, this);
+                }
             }
             stages.add(new PlayerTurn(players[0]));
             log("Start the game");
