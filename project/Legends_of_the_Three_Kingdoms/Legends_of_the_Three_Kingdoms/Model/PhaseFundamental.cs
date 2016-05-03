@@ -102,6 +102,12 @@ namespace LOTK.Model
                     ret.push(new AttackPhase(player, attack, targets, this));
                     return ret;
                 }
+                Wine wine = card as Wine;
+                if (wine != null)
+                {
+                    drunk = true;
+                    return ret;
+                }
             }
             else if (card is ToolCard)
             {
