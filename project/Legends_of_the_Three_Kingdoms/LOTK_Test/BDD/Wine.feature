@@ -1,8 +1,8 @@
 ﻿Feature: Wine
 	Use wine can increase hurt by 1
 
-@mytag
-Scenario: Add two numbers
+@wine
+Scenario: Wine attack
 	Given There is a game of player A with 4 health and player B has 4 health
 	And At Player A's actionPhase
     And Player A uses Wine

@@ -92,6 +92,7 @@ namespace LOTK.Model
         {
             return p.playerID;
         }
+
         /// <summary>
         /// check if this player can attack
         /// </summary>

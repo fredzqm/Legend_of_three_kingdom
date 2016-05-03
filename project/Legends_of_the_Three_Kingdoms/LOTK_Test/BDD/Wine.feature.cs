@@ -65,12 +65,12 @@ namespace LOTK_Test.BDD
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("Wine attack")]
+        [NUnit.Framework.CategoryAttribute("wine")]
+        public virtual void WineAttack()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Wine attack", new string[] {
+                        "wine"});
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
