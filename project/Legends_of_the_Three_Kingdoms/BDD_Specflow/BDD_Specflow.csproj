@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8424A8E5-E18E-4A2C-87C8-BEF2C27D4D0A}</ProjectGuid>
+    <ProjectGuid>{562D1510-53FF-404F-BB83-7C6C1760CC21}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LOTK_Test</RootNamespace>
-    <AssemblyName>LOTK_Test</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>BDD_Specflow</RootNamespace>
+    <AssemblyName>BDD_Specflow</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -35,33 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging, Version=2.1.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus, Version=3.1.1.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rhino.ServiceBus.3.1.1.0\lib\4.0\Rhino.ServiceBus.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus.Host, Version=3.1.1.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rhino.ServiceBus.Host.3.1.1.0\lib\4.0\Rhino.ServiceBus.Host.exe</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="TechTalk.SpecFlow, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecFlow.2.0.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="this.Log, Version=0.0.3.0, Culture=neutral, PublicKeyToken=cbf7544467682e94, processorArchitecture=MSIL">
-      <HintPath>..\packages\this.Log.0.0.3.0\lib\net40\this.Log.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="this.Log-RhinoMocks, Version=0.0.3.0, Culture=neutral, PublicKeyToken=cbf7544467682e94, processorArchitecture=MSIL">
-      <HintPath>..\packages\this.Log-RhinoMocks.0.0.3.0\lib\net40\this.Log-RhinoMocks.dll</HintPath>
+    <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -73,24 +49,18 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ModelTest\CardLibTest.cs" />
-    <Compile Include="ModelTest\ExceptionTest.cs" />
-    <Compile Include="ModelTest\DyingTest.cs" />
-    <Compile Include="ModelTest\UserActionTest.cs" />
-    <Compile Include="LogExtensions.cs" />
-    <Compile Include="ModelTest\CardTest.cs" />
-    <Compile Include="ModelTest\PhaseTest.cs" />
-    <Compile Include="ModelTest\PlayerTest.cs" />
-    <Compile Include="ModelTest\GameTest.cs" />
-    <Compile Include="ModelTest\PhaseListTest.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wine.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wine.feature</DependentUpon>
+    </Compile>
     <Compile Include="WineSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,10 +70,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <None Include="Wine.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Wine.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTK_Test", "LOTK_Test\LOTK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCoverageConverter", "CodeCoverageConverter\CodeCoverageConverter.csproj", "{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDD_Specflow", "BDD_Specflow\BDD_Specflow.csproj", "{562D1510-53FF-404F-BB83-7C6C1760CC21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C36C49D-C92D-42F4-BC1F-3A1DE7C1565F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562D1510-53FF-404F-BB83-7C6C1760CC21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562D1510-53FF-404F-BB83-7C6C1760CC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562D1510-53FF-404F-BB83-7C6C1760CC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562D1510-53FF-404F-BB83-7C6C1760CC21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
