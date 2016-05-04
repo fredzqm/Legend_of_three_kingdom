@@ -112,16 +112,23 @@ namespace LOTK.Model
                     ret.push(new RecoverPhase(player, 1));
                     return ret;
                 }
+
             }
             else if (card is ToolCard)
             {
-                throw new NotImplementedException();
+                Wealth wealth = card as Wealth;
+                if (wealth != null)
+                {
+                    player.drawCards(2, game);
+                    return ret;
+                }
             }
             else if (card is Equipment)
             {
                 throw new NotImplementedException();
                 //return new PhaseList(new UseEquipmentPhase(player, card as Equipment), this);
             }
+      
             throw new Exception();
         }
 

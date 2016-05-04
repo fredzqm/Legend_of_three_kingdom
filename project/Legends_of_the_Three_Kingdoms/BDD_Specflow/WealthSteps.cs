@@ -29,7 +29,7 @@ namespace BDD_Specflow
             game.start(0);
         }
         public ActionPhase actionPhase;
-        [Given(@"At Player A's actionPhase")]
+        [Given(@"At Player A's actionPhase2")]
         public void GivenAtPlayerASActionPhase()
         {
 
