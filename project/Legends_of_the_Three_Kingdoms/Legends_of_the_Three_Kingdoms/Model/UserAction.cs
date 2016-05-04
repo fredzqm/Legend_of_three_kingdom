@@ -133,15 +133,12 @@ namespace LOTK.Model
     //    {
     //        this.player = player;
     //    }
-
-
     //    /// <summary>
     //    /// create user action player action
     //    /// </summary>
     //    /// <param name="playerID"></param>
     //    /// <param name="game"></param>
     //    public UserActionPlayer(IGame game, int playerID) : this(game.players[playerID]) { }
-
     //}
 
     /// <summary>

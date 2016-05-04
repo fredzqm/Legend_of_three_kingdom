@@ -64,7 +64,6 @@ namespace LOTK.Model
         /// <param name="player"></param>
         public HiddenPhase(Player player) : base(player) { }
 
-
         public sealed override PhaseList advance(UserAction userAction, IGame game)
         {
             return advance(game);

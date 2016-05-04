@@ -366,10 +366,12 @@ namespace LOTK_Test.ModelTest
         {
             Assert.AreEqual(typeof(JudgePhase), game.curPhase.GetType());
             Assert.AreEqual(0, game.curPhase.playerID);
-            game.nextStage(null);
+            game.tick();
+            game.tick();
             Assert.AreEqual(typeof(DrawingPhase), game.curPhase.GetType());
             Assert.AreEqual(0, game.curPhase.playerID);
-            game.nextStage(null);
+            game.tick();
+            game.tick();
             Assert.AreEqual(typeof(ActionPhase), game.curPhase.GetType());
             Assert.AreEqual(0, game.curPhase.playerID);
             game.nextStage(new YesOrNoAction(false));
@@ -389,10 +391,12 @@ namespace LOTK_Test.ModelTest
                 {
                     Assert.AreEqual(typeof(JudgePhase), game8.curPhase.GetType());
                     Assert.AreEqual(game8.curPhase.playerID, i);
-                    game8.nextStage(null);
+                    game8.tick();
+                    game8.tick();
                     Assert.AreEqual(typeof(DrawingPhase), game8.curPhase.GetType());
                     Assert.AreEqual(game8.curPhase.playerID, i);
-                    game8.nextStage(null);
+                    game8.tick();
+                    game8.tick();
                     Assert.AreEqual(typeof(ActionPhase), game8.curPhase.GetType());
                     Assert.AreEqual(game8.curPhase.playerID, i);
                     game8.nextStage(new YesOrNoAction(false));
@@ -412,10 +416,12 @@ namespace LOTK_Test.ModelTest
                 {
                     Assert.AreEqual(typeof(JudgePhase), game8.curPhase.GetType());
                     Assert.AreEqual(game8.curRoundPlayer, i);
-                    game8.nextStage(null);
+                    game8.tick();
+                    game8.tick();
                     Assert.AreEqual(typeof(DrawingPhase), game8.curPhase.GetType());
                     Assert.AreEqual(game8.curRoundPlayer, i);
-                    game8.nextStage(null);
+                    game8.tick();
+                    game8.tick();
                     Assert.AreEqual(typeof(ActionPhase), game8.curPhase.GetType());
                     Assert.AreEqual(game8.curRoundPlayer, i);
                     game8.nextStage(new YesOrNoAction(false));
