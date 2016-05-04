@@ -60,6 +60,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Peach.feature</DependentUpon>
     </Compile>
+    <Compile Include="PeachGarden.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeachGarden.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PeachGardenSteps.cs" />
     <Compile Include="PeachSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wealth.feature.cs">
@@ -87,6 +93,10 @@
     <None Include="Peach.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Peach.feature.cs</LastGenOutput>
+    </None>
+    <None Include="PeachGarden.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PeachGarden.feature.cs</LastGenOutput>
     </None>
     <None Include="Wealth.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
