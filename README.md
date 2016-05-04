@@ -53,3 +53,7 @@ I use TDD to create test for all newly added methods and classes and achieve 100
 I also integrated GUI with the model, so the player can see who is dead.
 Songyu Wang:
 I tried to add tests for previous milestones code. There are too many codes, I wrote about 70 tests but I still not be able to achieve 100% coverage. Also, I tried to install the codecoverage on gitlab, but It seems like this tools does not support Mocking. So I cannot install it. 
+
+Milestone7:
+Songyu wang:
+This week, I use BDD implemented Wealth card and Peachgarden card. All the tests pass. Also, I tested the code I wrote through GUI and it also works.
