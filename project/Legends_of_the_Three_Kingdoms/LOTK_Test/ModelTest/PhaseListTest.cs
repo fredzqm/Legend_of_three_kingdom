@@ -115,6 +115,11 @@ namespace LOTK_Test.ModelTest
                 throw new NotImplementedException();
             }
 
+            public override int getTimeLeft()
+            {
+                throw new NotImplementedException();
+            }
+
             public override bool needResponse()
             {
                 throw new NotImplementedException();

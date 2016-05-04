@@ -81,7 +81,7 @@ namespace LOTK.Model
         /// create action phase
         /// </summary>
         /// <param name="player"></param>
-        public ActionPhase(Player player) : base(player, 5) { }
+        public ActionPhase(Player player) : base(player, 20) { }
 
         public override PhaseList responseUseCardAction(Card card, Player[] targets, IGame game)
         {
@@ -156,7 +156,7 @@ namespace LOTK.Model
     /// create discard phase
     /// </summary>
     /// <param name="player"></param>
-        public DiscardPhase(Player player) : base(player, 5) { }
+        public DiscardPhase(Player player) : base(player, 10) { }
 
         public override PhaseList autoAdvance(IGame game)
         {

@@ -8,7 +8,7 @@ namespace LOTK.Controller
 {/// <summary>
 /// update to gui
 /// </summary>
-    public delegate void UpdateForm();
+    public delegate void UpdateForm(bool refreshCards);
     /// <summary>
     /// this is the class to connect model and gui
     /// </summary>
@@ -67,8 +67,7 @@ namespace LOTK.Controller
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             Console.Write("Tick");
-            if (game.tick())
-                updateViews();
+            updateViews(game.tick());
         }
 
         /// <summary>
@@ -207,7 +206,7 @@ namespace LOTK.Controller
                         if (useraction != null)
                             game.processUserInput(playerID, useraction);
                         handler.init();
-                        updateViews();
+                        updateViews(true);
                         break;
                     case ButtonID.Cancel:
                         useraction = handler.clickCancel(playerID);
@@ -215,7 +214,7 @@ namespace LOTK.Controller
                             game.processUserInput(playerID, useraction);
                         game.processUserInput(playerID, new YesOrNoAction(false));
                         handler.init();
-                        updateViews();
+                        updateViews(true);
                         break;
                     case ButtonID.Ability:
                         handler.clickAbility(buttonID);

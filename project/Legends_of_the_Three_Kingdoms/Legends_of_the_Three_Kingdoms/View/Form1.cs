@@ -99,12 +99,13 @@ namespace LOTK.View
             }
         }
 
-
+        private bool refresh;
         /// <summary>
         /// Update form after changing the required data package
         /// </summary>
-        public void updateForm()
+        public void updateForm(bool refreshCards)
         {
+            refresh = refreshCards;
             if (this.InvokeRequired)
                 this.Invoke(new updateDelegate(this.updateFormDelegate));
             else
@@ -112,29 +113,30 @@ namespace LOTK.View
         }
 
         private void updateFormDelegate()
-        {   
+        {
             data = controller.getData(position);
-            NumberOfCardsToClick = data.NumberOfCardsToClick;
-            turn.Text = "This is player "+position+"\n"+data.this_player_stage;
-            ThisPlayer.Text = data.players[0].name + " health:"+data.players[0].health;
-            tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
-            tool_defence.Text = data.tool_defence.name + ": " + data.tool_defence.ability;
-            hand_cards.Items.Clear();
-            for (int i = 0; i < data.hold_cards.Count; i++)
+            if (refresh)
             {
+                NumberOfCardsToClick = data.NumberOfCardsToClick;
+                turn.Text = "This is player " + position + "\n" + data.this_player_stage;
+                ThisPlayer.Text = data.players[0].name + " health:" + data.players[0].health;
+                tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
+                tool_defence.Text = data.tool_defence.name + ": " + data.tool_defence.ability;
+                hand_cards.Items.Clear();
+                for (int i = 0; i < data.hold_cards.Count; i++)
+                {
+                    hand_cards.Items.Insert(i, data.hold_cards[i].name + ": " + data.hold_cards[i].ability);
+                }
+                Pool.Text = data.poolText;
+                UpperLeft.Text = data.players[3].name + " health:" + data.players[3].health;
+                UpperRight.Text = data.players[2].name + " health:" + data.players[2].health;
+                LowerLeft.Text = data.players[4].name + " health:" + data.players[4].health;
+                LowerRight.Text = data.players[1].name +  " health:" + data.players[1].health;
 
-                hand_cards.Items.Insert(i, data.hold_cards[i].name+": "+data.hold_cards[i].ability);
+                cardPileCount.Text = "" + data.cardPileCount;
+                addimage();
             }
-            Pool.Text = data.poolText;
-            UpperLeft.Text = data.players[3].name + " health:" + data.players[3].health;
-            UpperRight.Text = data.players[2].name + " health:" + data.players[2].health;
-            LowerLeft.Text = data.players[4].name + " health:" + data.players[4].health;
-            LowerRight.Text = data.players[1].name +  " health:" + data.players[1].health;
-
-            cardPileCount.Text = "" + data.cardPileCount;
-            addimage();
-
-            this.label1.Text = ""+data.timeleft;
+            this.label1.Text = "" + data.timeleft;
         }
 
 
@@ -240,9 +242,5 @@ namespace LOTK.View
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

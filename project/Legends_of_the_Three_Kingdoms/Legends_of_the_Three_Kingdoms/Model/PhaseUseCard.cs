@@ -50,7 +50,7 @@ namespace LOTK.Model
             actionPhase.attackCount++;
             player.handCards.Remove(attack);
             game.cards.discardOne(attack);
-            return new PhaseList(new ResponsePhase(targets[0], this, c => c is Miss, 7), this);
+            return new PhaseList(new ResponsePhase(targets[0], this, c => c is Miss, 5), this);
         }
     }
 
