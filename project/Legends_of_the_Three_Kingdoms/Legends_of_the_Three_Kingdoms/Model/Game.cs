@@ -72,7 +72,7 @@ namespace LOTK.Model
         /// </summary>
         void start(int initCardNum);
 
-        void nextStage(UserAction userAction);
+        bool nextStage(UserAction userAction);
 
         /// <summary>
         /// process the userAction
@@ -179,16 +179,11 @@ namespace LOTK.Model
                 nextStage(userAction);
         }
 
-        private bool timerAutoAdvance;
-        private bool timerVisit;
-
         /// <summary>
         /// Advance the next stage and skip the following stages that do not need user response
         /// </summary>
-        public void nextStage(UserAction userAction)
+        public bool nextStage(UserAction userAction)
         {
-            timerAutoAdvance = false;
-            timerVisit = false;
             while (true)
             {
                 PhaseList followingPhases;
@@ -200,7 +195,10 @@ namespace LOTK.Model
                 followingPhases = curPhase.advance(userAction, this);
                 if (followingPhases == null)
                 { // the next state need a user action for future decison
-                    return;
+                    if (curPhase is HiddenPhase)
+                        throw new InvalidOperationException("Invisible Phase should not give null " + curPhase);
+                    else
+                        return false;
                 }
                 stages.pop();
                 stages.pushList(followingPhases);
@@ -212,8 +210,7 @@ namespace LOTK.Model
                 { // the next state need a user action for future decison
                   // but since it is supposed to be a responsive phase, pause a while before autoadvance
                     log(curPhase.ToString());
-                    timerAutoAdvance = true;
-                    return;
+                    return true;
                 }
             }
         }
@@ -230,16 +227,17 @@ namespace LOTK.Model
         /// <returns>True if the game is auto advanced and the GUI should update correspondedly</returns>
         public bool tick()
         {
-            if (timerAutoAdvance)
-            {
-                if (timerVisit)
-                {
-                    nextStage(null);
-                    return true;
-                }
-                timerVisit = true;
-            }
-            return false;
+            return nextStage(null);
+            //if (timerAutoAdvance)
+            //{
+            //    if (timerVisit)
+            //    {
+            //        nextStage(null);
+            //        return true;
+            //    }
+            //    timerVisit = true;
+            //}
+            //return false;
         }
 
         public bool hasEnd()

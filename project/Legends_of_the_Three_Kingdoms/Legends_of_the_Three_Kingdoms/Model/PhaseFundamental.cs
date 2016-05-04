@@ -35,9 +35,9 @@ namespace LOTK.Model
     /// create judge phase
     /// </summary>
     /// <param name="player"></param>
-        public JudgePhase(Player player) : base(player, 1) { }
+        public JudgePhase(Player player) : base(player, 2) { }
 
-        public override PhaseList advance(IGame game)
+        public override PhaseList timeOutAdvance(IGame game)
         {
             return new PhaseList(new DrawingPhase(player), new ActionPhase(player));
         }
@@ -56,9 +56,9 @@ namespace LOTK.Model
     /// create draw phase
     /// </summary>
     /// <param name="player"></param>
-        public DrawingPhase(Player player) : base(player, 1) { }
+        public DrawingPhase(Player player) : base(player, 2) { }
 
-        public override PhaseList advance(IGame game)
+        public override PhaseList timeOutAdvance(IGame game)
         {
             player.drawCards(2, game);
             return new PhaseList();
@@ -81,14 +81,15 @@ namespace LOTK.Model
         /// create action phase
         /// </summary>
         /// <param name="player"></param>
-        public ActionPhase(Player player) : base(player, 20) { }
+        public ActionPhase(Player player) : base(player, 5) { }
+
 
         public override PhaseList responseYesOrNo(bool yes, IGame game)
         {
             if (yes)
                 return null;
             else
-                return new PhaseList(new DiscardPhase(player));
+                return timeOutAdvance(game);
         }
 
         public override PhaseList responseUseCardAction(Card card, Player[] targets, IGame game)
@@ -133,6 +134,11 @@ namespace LOTK.Model
             throw new Exception();
         }
 
+        public override PhaseList timeOutAdvance(IGame game)
+        {
+            return new PhaseList(new DiscardPhase(player));
+        }
+
         public override PhaseList responseAbilityAction(AbilityAction abilityAction, IGame game)
         {
             player.ability(abilityAction, game);
@@ -149,6 +155,7 @@ namespace LOTK.Model
         {
             return "Plyaer " + playerID + " at ActionPhase";
         }
+
     }
     /// <summary>
     /// subclass of useractionphase
@@ -168,6 +175,7 @@ namespace LOTK.Model
             }
             return new PhaseList(this);
         }
+
         public override PhaseList responseYesOrNo(bool yes, IGame game)
         {
             if (!yes)

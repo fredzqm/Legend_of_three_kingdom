@@ -54,7 +54,8 @@ namespace LOTK_Test.BDD
             actionPhase = game.curPhase as ActionPhase;
             while (actionPhase == null || actionPhase.player != playerA)
             {
-                game.tick();
+                game.processUserInput(0, new YesOrNoAction(false));
+                game.processUserInput(1, new YesOrNoAction(false));
                 actionPhase = game.curPhase as ActionPhase;
             }
         }

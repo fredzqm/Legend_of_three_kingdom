@@ -66,6 +66,7 @@ namespace LOTK.Controller
         /// <param name="e"></param>
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
+            Console.Write("Tick");
             if (game.tick())
                 updateViews();
         }

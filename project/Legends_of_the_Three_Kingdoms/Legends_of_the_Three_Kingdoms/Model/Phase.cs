@@ -96,17 +96,62 @@ namespace LOTK.Model
         /// <summary>
         /// If this game can be processed without userinput, this is the time that the game model should wait before processing it.
         /// </summary>
-        public int waitTime { get; }
+        public int timeOutTime { get; }
+        public int timer { get; private set; }
+
         /// <summary>
         /// create visible phase
         /// </summary>
-        /// <param name="player"></param>
-        /// <param name="waitTime"></param>
-        public VisiblePhase(Player player, int waitTime) : base(player)
+        /// <param name="player">whose phase</param>
+        /// <param name="timeOutTime">The time for the game to wait for response</param>
+        public VisiblePhase(Player player, int timeOutTime) : base(player)
         {
-            if (waitTime < 0)
+            if (timeOutTime < 0)
                 throw new Exception("waitTime should not be negative");
-            this.waitTime = waitTime;
+            this.timeOutTime = timeOutTime;
+            this.timer = 0;
+        }
+
+        public sealed override PhaseList advance(UserAction userAction, IGame game)
+        {
+            if (userAction != null)
+                return handleUserAction(userAction, game);
+            timer++;
+            if (timer >= timeOutTime)
+            {
+                PhaseList ls = timeOutAdvance(game);
+                if (ls == null)
+                    throw new InvalidOperationException("timeOutAdvance cannot return null");
+                return ls;
+            }
+            return autoAdvance(game);
+        }
+
+        /// <summary>
+        /// Hanlde user action happened in this phase
+        /// </summary>
+        /// <param name="userAction"></param>
+        /// <param name="game"></param>
+        /// <returns></returns>
+        public abstract PhaseList handleUserAction(UserAction userAction, IGame game);
+
+        /// <summary>
+        /// This method is called when the time runs out for the player, the phase needed to handled.
+        /// This method should return null
+        /// </summary>
+        /// <param name="game"></param>
+        /// <returns></returns>
+        public abstract PhaseList timeOutAdvance(IGame game);
+
+        /// <summary>
+        /// This method is called when the time is not out,
+        /// so it can check the time and see if it is necessary to auto advance the game
+        /// </summary>
+        /// <param name="game">The game status</param>
+        /// <returns>the following phases produced</returns>
+        public virtual PhaseList autoAdvance(IGame game)
+        {
+            return null;
         }
 
         /// <summary>
@@ -131,20 +176,13 @@ namespace LOTK.Model
         /// create pause phase
         /// </summary>
         /// <param name="player"></param>
-        /// <param name="waitTime"></param>
-        public PausePhase(Player player, int waitTime) : base(player, waitTime) { }
+        /// <param name="timeOutTime"></param>
+        public PausePhase(Player player, int timeOutTime) : base(player, timeOutTime) { }
 
-        public sealed override PhaseList advance(UserAction userAction, IGame game)
+        public override sealed PhaseList handleUserAction(UserAction userAction, IGame game)
         {
-            return advance(game);
+            return timeOutAdvance(game);
         }
-
-        /// <summary>
-        /// A PuasePhase does not get processed immediately, but it does not need any userinput. Its solely purpose is to display some message to the player
-        /// </summary>
-        /// <param name="game">The game status</param>
-        /// <returns>the following phases produced</returns>
-        public abstract PhaseList advance(IGame game);
 
     }
 
@@ -154,47 +192,27 @@ namespace LOTK.Model
     /// </summary>
     public abstract class UserActionPhase : VisiblePhase
     {
-        /// <summary>
-        /// the time the player has to make this reaction
-        /// </summary>
-        public int timeOutTime { get; }
-
-        private int timer;
 
         /// <summary>
         /// create a UserAction phase with different waitTime and TimeOut
         /// </summary>
         /// <param name="player"></param>
-        /// <param name="waitTime"></param>
-        /// <param name="timeOut"></param>
-        public UserActionPhase(Player player, int waitTime, int timeOut) : base(player, waitTime)
+        /// <param name="timeOutTime"></param>
+        /// <param name="autoProcessTime"></param>
+        public UserActionPhase(Player player, int timeOutTime) : base(player, timeOutTime)
         {
-            this.timeOutTime = timeOut;
         }
-        /// <summary>
-        /// creates a UserActionPhase with identical waitTime and TimeOut, since often they are the same
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="waitTime"></param>
-        public UserActionPhase(Player player, int waitTime) : this(player, waitTime, waitTime) { }
 
         /// <summary>
         /// It figures out the type of userAction and calls corresponding methods.
         /// Those methods will return null as default value, which means to do nothing.
         /// </summary>
-        /// <param name="userAction"></param>
+        /// <param name="userAction">userAction to be handled, cannot be null</param>
         /// <param name="game"></param>
         /// <returns>the following phased produced</returns>
-        public sealed override PhaseList advance(UserAction userAction, IGame game)
+        public override sealed PhaseList handleUserAction(UserAction userAction, IGame game)
         {
-            if (userAction != null)
-                return userAction.processedBy(this, game);
-            timer++;
-            if (timer >= timeOutTime)
-                return timeOutAdvance(game);
-            if (timer >= waitTime)
-                return autoAdvance(game);
-            return null;
+            return userAction.processedBy(this, game);
         }
 
         /// <summary>
@@ -207,6 +225,7 @@ namespace LOTK.Model
         {
             return null;
         }
+
         /// <summary>
         /// this method is only for Sun Quan's ability
         /// </summary>
@@ -214,23 +233,6 @@ namespace LOTK.Model
         /// <param name="game"></param>
         /// <returns></returns>
         public virtual PhaseList responseAbilityActionSun(AbilityActionSun abilityAction, IGame game)
-        {
-            return null;
-        }
-
-        /// <summary>
-        /// If userAction is null, the game is checking whether this Phase can be auto-advanced.
-        /// A UserAction can be auto-advanced if the player obviously have only one choice.
-        /// In this cases, the game will make the dicision for the player after <seealso cref="VisiblePhase.waitTime"/> is elapsed.
-        /// </summary>
-        /// <param name="game">The game status</param>
-        /// <returns></returns>
-        public virtual PhaseList autoAdvance(IGame game)
-        {
-            return null;
-        }
-
-        public virtual PhaseList timeOutAdvance(IGame game)
         {
             return null;
         }
@@ -286,7 +288,7 @@ namespace LOTK.Model
         /// <param name="player">who needs to provide a response</param>
         /// <param name="responseTo">The Phase to report the response result</param>
         /// <param name="allowed">A predicate that determines what kind of card is allowed</param>
-        public ResponsePhase(Player player, NeedResponsePhase responseTo, Func<Card, bool> allowed) : base(player, 10)
+        public ResponsePhase(Player player, NeedResponsePhase responseTo, Func<Card, bool> allowed, int timeOutTime) : base(player, timeOutTime)
         {
             this.allowed = allowed;
             this.responseTo = responseTo;
@@ -325,10 +327,26 @@ namespace LOTK.Model
             return null;
         }
 
+        public override PhaseList timeOutAdvance(IGame game)
+        {
+            responseTo.responseWith(null);
+            return new PhaseList();
+        }
+
+        public override PhaseList autoAdvance(IGame game)
+        {
+            if (player.handCards.Count == 0)
+            {
+                responseTo.responseWith(null);
+            }
+            return new PhaseList();
+        }
+
         public override string ToString()
         {
             return "Response Phase of " + playerID;
         }
+
     }
 
     /// <summary>

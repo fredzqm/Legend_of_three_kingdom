@@ -54,9 +54,9 @@ namespace LOTK.Model
             }
             Player helpProvider = g.nextPlayer(g.curRoundPlayer, count);
             if (player == helpProvider)
-                return new PhaseList(new ResponsePhase(helpProvider, this, c => (c is Peach) || (c is Wine)), this);
+                return new PhaseList(new ResponsePhase(helpProvider, this, c => (c is Peach) || (c is Wine), 5), this);
             else
-                return new PhaseList(new ResponsePhase(helpProvider, this, c => c is Peach), this);
+                return new PhaseList(new ResponsePhase(helpProvider, this, c => c is Peach, 5), this);
         }
 
         public override PhaseList handleResponse(int count, Card respondCard, IGame g)

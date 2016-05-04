@@ -62,7 +62,7 @@ namespace LOTK_Test.ModelTest
             Assert.IsTrue(ls.isEmpty());
 
             ls = (new DiscardPhase(p)).advance(null, testgame);
-            Assert.IsNull(ls); // in the future this will be changed to true
+            Assert.IsTrue(ls.isEmpty()); // in the future this will be changed to true
             ls = (new DiscardPhase(p)).advance(new YesOrNoAction(true), testgame);
             Assert.IsTrue(ls.isEmpty());
             ls = (new DiscardPhase(p)).advance(new YesOrNoAction(false), testgame);
@@ -279,9 +279,9 @@ namespace LOTK_Test.ModelTest
 
             // ActionPhase produces attackPhase
             UserActionPhase a = new ActionPhase(p1);
-
-            Assert.AreEqual(a.timeOutAdvance(game), null);
-
+            PhaseList ls = a.timeOutAdvance(game);
+            Assert.IsInstanceOfType(ls.pop(), typeof(DiscardPhase));
+            Assert.IsTrue(ls.isEmpty());
         }
 
         [TestMethod]
@@ -563,11 +563,11 @@ namespace LOTK_Test.ModelTest
 
         }
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void resPhasetest()
         {
 
-            VisiblePhase p = new Testvisphase(new Player(1), -1);
+            Phase p = new PlayerTurn(new Player(-1));
 
         }
 
@@ -652,20 +652,14 @@ namespace LOTK_Test.ModelTest
         }
 
 
-        public class Testvisphase : PausePhase
-        {
-            public Testvisphase(Player p, int i) : base(p, i) { }
-
-            public override PhaseList advance(IGame game)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public class Testuserphase : UserActionPhase
         {
             public Testuserphase(Player p, int i) : base(p, i) { }
-          
+
+            public override PhaseList timeOutAdvance(IGame game)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         

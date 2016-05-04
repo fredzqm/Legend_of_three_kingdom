@@ -85,7 +85,7 @@ namespace LOTK_Test.ModelTest
                 game.nextStage(null);
                 Assert.Fail("EmptyException not thrown");
             }
-            catch (EmptyException e) { }
+            catch (EmptyException e) {}
         }
 
 
