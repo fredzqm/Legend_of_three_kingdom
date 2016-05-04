@@ -413,8 +413,8 @@ namespace LOTK_Test.ModelTest
         [TestMethod]
         public void ResPhasetest()
         {
-            Player p1 = mocks.Stub<Player>(0);
-            Player p2 = mocks.Stub<Player>(1);
+            Player p1 = new Player(0);
+            Player p2 = new Player(1);
             IGame game = mocks.Stub<IGame>();
 
             Card attack = new Attack(CardSuit.Spade, 1);
@@ -425,7 +425,7 @@ namespace LOTK_Test.ModelTest
             AttackPhase b2 = b as AttackPhase;
             Miss miss = new Miss(CardSuit.Diamond, 2);
             p1.handCards.Add(attack);
-            p1.handCards.Add(miss);
+            p2.handCards.Add(miss);
             p1.health = 1;
 
             Player[] p = new Player[1];
@@ -434,7 +434,7 @@ namespace LOTK_Test.ModelTest
             Phase c = ret.pop();
             ResponsePhase c_ = c as ResponsePhase;
 
-            Assert.AreEqual(c_.responseYesOrNo(true, game), null);
+            Assert.IsNull(c_.responseYesOrNo(true, game));
 
         }
 

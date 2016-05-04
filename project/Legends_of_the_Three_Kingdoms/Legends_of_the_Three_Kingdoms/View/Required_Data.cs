@@ -21,6 +21,8 @@ namespace LOTK.View
         public string poolText;
         public int cardPileCount;
         public int discardPile;
+        public int timeleft;
+
         /// <summary>
         /// Setting all the required data to default
         /// </summary>

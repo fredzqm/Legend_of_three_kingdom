@@ -95,6 +95,7 @@ namespace LOTK.Controller
             rd.poolText = game.logs;
             rd.cardPileCount = game.cards.cardPileCount;
             rd.discardPile = game.cards.discardPileCount;
+            rd.timeleft = game.curPhase.getTimeLeft();
             return rd;
         }
 

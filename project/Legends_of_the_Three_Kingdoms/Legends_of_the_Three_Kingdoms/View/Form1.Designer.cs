@@ -40,6 +40,7 @@ namespace LOTK.View
             this.Cancel = new System.Windows.Forms.Button();
             this.ThisPlayer = new System.Windows.Forms.Button();
             this.cardPileCount = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // turn
@@ -213,12 +214,22 @@ namespace LOTK.View
             this.cardPileCount.TabIndex = 23;
             this.cardPileCount.Text = "100";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(527, 351);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "label1";
+            // 
             // GameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cardPileCount);
             this.Controls.Add(this.ThisPlayer);
             this.Controls.Add(this.Cancel);
@@ -257,6 +268,7 @@ namespace LOTK.View
         private Button ThisPlayer;
         public int NumberOfCardsToClick;
         private Label cardPileCount;
+        private Label label1;
     }
 }
 

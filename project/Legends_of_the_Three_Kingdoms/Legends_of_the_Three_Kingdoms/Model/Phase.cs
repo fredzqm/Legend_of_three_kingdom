@@ -50,6 +50,11 @@ namespace LOTK.Model
         /// <returns>The following phases this phase leads</returns>
         public abstract PhaseList advance(UserAction userAction, IGame game);
 
+        /// <summary>
+        /// Get the time left for the user to make action
+        /// </summary>
+        /// <returns>time left</returns>
+        public abstract int getTimeLeft();
     }
 
     /// <summary>
@@ -83,6 +88,11 @@ namespace LOTK.Model
         public sealed override bool needResponse()
         {
             return false;
+        }
+
+        public override int getTimeLeft()
+        {
+            return 0;
         }
     }
 
@@ -143,8 +153,10 @@ namespace LOTK.Model
         public abstract PhaseList timeOutAdvance(IGame game);
 
         /// <summary>
-        /// This method is called when the time is not out,
-        /// so it can check the time and see if it is necessary to auto advance the game
+        /// This method is called when the the clock tick but not yet timeout
+        /// Sometime is might be helpful to check timer to see which clock tick it is
+        /// By default, it should do nothing, but this method can be used to implemented auto response.
+        /// 
         /// </summary>
         /// <param name="game">The game status</param>
         /// <returns>the following phases produced</returns>
@@ -160,6 +172,11 @@ namespace LOTK.Model
         public sealed override bool needResponse()
         {
             return true;
+        }
+
+        public override int getTimeLeft()
+        {
+            return timeOutTime - timer;
         }
     }
 
@@ -244,7 +261,9 @@ namespace LOTK.Model
         /// <returns>the following phased produced</returns>
         public virtual PhaseList responseYesOrNo(bool yes, IGame game)
         {
-            return null;
+            if (yes)
+                return autoAdvance(game);
+            return timeOutAdvance(game);
         }
 
         /// <summary>
@@ -280,7 +299,7 @@ namespace LOTK.Model
     {
         private Func<Card, bool> allowed;
         private NeedResponsePhase responseTo;
-
+        private string descript;
         /// <summary>
         /// Constructs a ResponsePhase of "player" and reports to "responseTo", a card that matches "allowd" is responded.
         /// </summary>
@@ -291,22 +310,12 @@ namespace LOTK.Model
         {
             this.allowed = allowed;
             this.responseTo = responseTo;
+            this.descript = "Response Phase of " + playerID;
         }
 
-        /// <summary>
-        /// The player can choose to cancel. This is a vaild response represented with null.
-        /// </summary>
-        /// <param name="yes">yes or no</param>
-        /// <param name="game">The game status</param>
-        /// <returns>the following phased produced</returns>
-        public override PhaseList responseYesOrNo(bool yes, IGame game)
+        public ResponsePhase(Player player, NeedResponsePhase responseTo, Func<Card, bool> allowed, int timeOutTime, string descript): this(player, responseTo, allowed, timeOutTime)
         {
-            if (!yes)
-            {
-                responseTo.responseWith(null);
-                return new PhaseList();
-            }
-            return null;
+            this.descript = descript;
         }
 
         /// <summary>
@@ -336,14 +345,14 @@ namespace LOTK.Model
         {
             if (player.handCards.Count == 0)
             {
-                responseTo.responseWith(null);
+                return timeOutAdvance(game);
             }
-            return new PhaseList();
+            return null;
         }
 
         public override string ToString()
         {
-            return "Response Phase of " + playerID;
+            return descript;
         }
 
     }

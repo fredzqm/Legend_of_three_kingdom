@@ -133,6 +133,8 @@ namespace LOTK.View
 
             cardPileCount.Text = "" + data.cardPileCount;
             addimage();
+
+            this.label1.Text = ""+data.timeleft;
         }
 
 

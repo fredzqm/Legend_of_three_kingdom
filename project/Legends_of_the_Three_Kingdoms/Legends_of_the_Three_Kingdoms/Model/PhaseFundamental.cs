@@ -83,15 +83,6 @@ namespace LOTK.Model
         /// <param name="player"></param>
         public ActionPhase(Player player) : base(player, 5) { }
 
-
-        public override PhaseList responseYesOrNo(bool yes, IGame game)
-        {
-            if (yes)
-                return null;
-            else
-                return timeOutAdvance(game);
-        }
-
         public override PhaseList responseUseCardAction(Card card, Player[] targets, IGame game)
         {
             PhaseList ret = new PhaseList(this);
@@ -174,13 +165,6 @@ namespace LOTK.Model
                 return new PhaseList();
             }
             return new PhaseList(this);
-        }
-
-        public override PhaseList responseYesOrNo(bool yes, IGame game)
-        {
-            if (!yes)
-                return timeOutAdvance(game);
-            return autoAdvance(game);
         }
 
         public override PhaseList timeOutAdvance(IGame game)
