@@ -120,6 +120,7 @@ namespace LOTK.Model
                 if (wealth != null)
                 {
                     player.drawCards(2, game);
+                    player.discardCard(wealth, game);
                     return ret;
                 }
             }

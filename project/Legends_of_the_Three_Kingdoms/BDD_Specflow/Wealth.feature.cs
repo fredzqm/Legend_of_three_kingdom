@@ -85,7 +85,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 10
  testRunner.When("Player A uses Wealth", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then("Player A has 4 cards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Player A has 3 cards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
