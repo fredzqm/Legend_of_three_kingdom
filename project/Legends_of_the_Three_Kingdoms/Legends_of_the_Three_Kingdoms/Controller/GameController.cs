@@ -156,31 +156,31 @@ namespace LOTK.Controller
         public static CardSet initialLizeCardSet()
         {
             ICollection<Card> ls = new List<Card>();
-            ls.Add(new Wine(CardSuit.Club, 2));
-            ls.Add(new Wine(CardSuit.Club, 3));
-            ls.Add(new Wine(CardSuit.Club, 4));
+            ls.Add(new PeachGarden(CardSuit.Club, 2));
+            ls.Add(new PeachGarden(CardSuit.Club, 3));
+            ls.Add(new PeachGarden(CardSuit.Club, 4));
             ls.Add(new Wine(CardSuit.Club, 5));
-            ls.Add(new Wealth(CardSuit.Club, 6));
-            ls.Add(new Wealth(CardSuit.Club, 7));
-            ls.Add(new Wealth(CardSuit.Club, 8));
+            ls.Add(new PeachGarden(CardSuit.Club, 6));
+            ls.Add(new PeachGarden(CardSuit.Club, 7));
+            ls.Add(new PeachGarden(CardSuit.Club, 8));
             ls.Add(new Wealth(CardSuit.Club, 9));
 
-            ls.Add(new Wealth(CardSuit.Spade, 2));
-            ls.Add(new Wealth(CardSuit.Spade, 3));
-            ls.Add(new Wealth(CardSuit.Spade, 4));
+            ls.Add(new PeachGarden(CardSuit.Spade, 2));
+            ls.Add(new PeachGarden(CardSuit.Spade, 3));
+            ls.Add(new PeachGarden(CardSuit.Spade, 4));
             ls.Add(new Wealth(CardSuit.Spade, 5));
             ls.Add(new Attack(CardSuit.Spade, 6));
             ls.Add(new Attack(CardSuit.Spade, 7));
             ls.Add(new Attack(CardSuit.Spade, 8));
             ls.Add(new Attack(CardSuit.Spade, 9));
 
-            ls.Add(new Wealth(CardSuit.Diamond, 2));
+            ls.Add(new PeachGarden(CardSuit.Diamond, 2));
             ls.Add(new Wealth(CardSuit.Diamond, 3));
             ls.Add(new Wealth(CardSuit.Diamond, 4));
-            ls.Add(new Wealth(CardSuit.Diamond, 5));
-            ls.Add(new Miss(CardSuit.Diamond, 6));
-            ls.Add(new Miss(CardSuit.Diamond, 7));
-            ls.Add(new Miss(CardSuit.Diamond, 8));
+            ls.Add(new PeachGarden(CardSuit.Diamond, 5));
+            ls.Add(new PeachGarden(CardSuit.Diamond, 6));
+            ls.Add(new PeachGarden(CardSuit.Diamond, 7));
+            ls.Add(new PeachGarden(CardSuit.Diamond, 8));
             ls.Add(new Miss(CardSuit.Diamond, 9));
 
             ls.Add(new Wealth(CardSuit.Heart, 2));

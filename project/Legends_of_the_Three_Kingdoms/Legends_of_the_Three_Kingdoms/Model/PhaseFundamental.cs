@@ -128,11 +128,11 @@ namespace LOTK.Model
                 if (peachgarden != null)
                 {
                     player.discardCard(peachgarden, game);
-                    foreach(Player x in targets)
+
+                    foreach(Player x in game.players)
                     {
                         ret.push(new RecoverPhase(x, 1));
                     }
-                    ret.push(new RecoverPhase(player, 1));
                     
                     return ret;
                 }

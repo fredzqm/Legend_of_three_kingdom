@@ -15,7 +15,7 @@ namespace BDD_Specflow
         [Given(@"There is a game of player A with (.*) health and player B has (.*) health2")]
         public void GivenThereIsAGameOfPlayerAWithHealthAndPlayerBHasHealth(int p0, int p1)
         {
-            playerA = new Player(0, "PA", "Player A", p0);
+            playerA = new Player(0, "PA", "Player A", p0+1);
             playerB = new Player(1, "PB", "Player B", p1);
             Player[] players = new Player[2];
             players[0] = playerA;

@@ -136,7 +136,10 @@ namespace LOTK.Model
         /// <returns></returns>
         public virtual PhaseList recover(RecoverPhase recoverPhase, IGame game)
         {
-            health += recoverPhase.recover;
+            if (this.healthLimit >= health + recoverPhase.recover)
+            {
+                health += recoverPhase.recover;
+            }
             return new PhaseList();
         }
         /// <summary>
