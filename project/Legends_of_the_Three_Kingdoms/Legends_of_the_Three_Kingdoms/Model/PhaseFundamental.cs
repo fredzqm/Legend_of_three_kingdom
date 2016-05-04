@@ -123,6 +123,19 @@ namespace LOTK.Model
                     player.discardCard(wealth, game);
                     return ret;
                 }
+
+                PeachGarden peachgarden = card as PeachGarden;
+                if (peachgarden != null)
+                {
+                    player.discardCard(peachgarden, game);
+                    foreach(Player x in targets)
+                    {
+                        ret.push(new RecoverPhase(x, 1));
+                    }
+                    ret.push(new RecoverPhase(player, 1));
+                    
+                    return ret;
+                }
             }
             else if (card is Equipment)
             {

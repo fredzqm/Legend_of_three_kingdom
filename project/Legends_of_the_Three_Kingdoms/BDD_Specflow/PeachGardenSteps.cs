@@ -12,7 +12,7 @@ namespace BDD_Specflow
         public Player playerA, playerB;
         public IGame game;
         public PeachGarden c;
-        [Given(@"There is a game of player A with (.*) health and player B has (.*) health")]
+        [Given(@"There is a game of player A with (.*) health and player B has (.*) health2")]
         public void GivenThereIsAGameOfPlayerAWithHealthAndPlayerBHasHealth(int p0, int p1)
         {
             playerA = new Player(0, "PA", "Player A", p0);
@@ -31,7 +31,7 @@ namespace BDD_Specflow
             game.start(0);
         }
         public ActionPhase actionPhase;
-        [Given(@"At Player A's actionPhase")]
+        [Given(@"At Player A's actionPhase3")]
         public void GivenAtPlayerASActionPhase()
         {
             actionPhase = game.curPhase as ActionPhase;
@@ -50,13 +50,13 @@ namespace BDD_Specflow
 
         }
 
-        [Then(@"Player A should has (.*) health")]
+        [Then(@"Player A should has (.*) health2")]
         public void ThenPlayerAShouldHasHealth(int p0)
         {
             Assert.AreEqual(p0, playerA.health);
         }
         
-        [Then(@"Player B should has (.*) health")]
+        [Then(@"Player B should has (.*) health2")]
         public void ThenPlayerBShouldHasHealth(int p0)
         {
             Assert.AreEqual(p0, playerB.health);
