@@ -55,5 +55,9 @@ Songyu Wang:
 I tried to add tests for previous milestones code. There are too many codes, I wrote about 70 tests but I still not be able to achieve 100% coverage. Also, I tried to install the codecoverage on gitlab, but It seems like this tools does not support Mocking. So I cannot install it. 
 
 Milestone7:
+Fred Zhang:
+This week, I used BDD to implement wine and peach used in actionphase. After use wine, the next attack has one extra hurt. When the player is hurt, he can use a peach to gain one health.
+I also implement the timer to display the time left for each player to response. As we can see, when the timer counts down to zero, the player's response phase timeout and default behaviour is applied.
+
 Songyu wang:
 This week, I use BDD implemented Wealth card and Peachgarden card. All the tests pass. Also, I tested the code I wrote through GUI and it also works.
