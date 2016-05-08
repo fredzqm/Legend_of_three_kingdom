@@ -38,6 +38,7 @@ namespace LOTK.Model
         /// <summary>
         /// discard one card to the discard card pile
         /// </summary>
+        /// <exception cref="NoCardException">This exception is thrown when this card does not belong to this cardset</exception>
         /// <param name="card"></param>
         void discardOne(Card card);
 
@@ -78,19 +79,21 @@ namespace LOTK.Model
         /// <summary>
         /// create a cardset given an list of cards
         /// </summary>
-        /// <param name="cls">A collection for all cards</param>
-        public CardSet(ICollection<Card> cls)
+        /// <param name="cardLs">A collection for all cards</param>
+        public CardSet(ICollection<Card> cardLs)
         {
-            cardLs = new Card[cls.Count];
+            if (cardLs == null)
+                throw new NullReferenceException("Card collection for a carset cannot be null");
+            this.cardLs = new Card[cardLs.Count];
             cardIDs = new Dictionary<Card, int>();
-            IEnumerator<Card> itr = cls.GetEnumerator();
-            for (int i = 0; i < cls.Count; i++)
+            IEnumerator<Card> itr = cardLs.GetEnumerator();
+            for (int i = 0; i < cardLs.Count; i++)
             {
                 itr.MoveNext();
-                cardLs[i] = itr.Current;
-                cardIDs[cardLs[i]] = i;
+                this.cardLs[i] = itr.Current;
+                cardIDs[this.cardLs[i]] = i;
             }
-            cardPile = new LinkedList<Card>(cardLs.OrderBy(a => Guid.NewGuid()));
+            cardPile = new LinkedList<Card>(this.cardLs.OrderBy(a => Guid.NewGuid()));
             discardPile = new LinkedList<Card>();
         }
 
