@@ -80,6 +80,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FuzzTest\Randomizor.cs" />
     <Compile Include="ModelTest\CardLibTest.cs" />
     <Compile Include="ModelTest\ExceptionTest.cs" />
     <Compile Include="ModelTest\DyingTest.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="ModelTest\GameTest.cs" />
     <Compile Include="ModelTest\PhaseListTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FuzzTest\Random.cs" />
     <Compile Include="WineSteps.cs" />
   </ItemGroup>
   <ItemGroup>
