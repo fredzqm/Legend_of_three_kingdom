@@ -92,6 +92,13 @@ namespace LOTK.Model
         /// </summary>
         /// <returns>true if the game has ended</returns>
         bool hasEnd();
+
+        /// <summary>
+        /// for test only
+        /// </summary>
+        /// <param name="p"></param>
+        void addstage(Phase p);
+        
     }
 
     /// <summary>
@@ -128,6 +135,11 @@ namespace LOTK.Model
 
         public GameStatus status { get; private set; }
 
+
+        public void addstage(Phase p)
+        {
+            stages.add(p);
+        }
         /// <summary>
         /// construct a game given player and cardlist
         /// It uses dependency injection, so players and carlist can be easily tested.
