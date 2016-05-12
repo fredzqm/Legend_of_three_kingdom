@@ -23,7 +23,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Plyaer " + playerID + " at PlayerTurn";
+            return "Plyaer " + player.ToString() + " at PlayerTurn";
         }
     }
 
@@ -44,7 +44,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Plyaer " + playerID + " at JudgePhase";
+            return "Plyaer " + player.ToString() + " at JudgePhase";
         }
     }
 
@@ -66,7 +66,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Plyaer " + playerID + " at DrawingPhase";
+            return "Plyaer " + player.ToString() + " at DrawingPhase";
         }
     }
 
@@ -142,6 +142,7 @@ namespace LOTK.Model
                 throw new NotImplementedException();
                 //return new PhaseList(new UseEquipmentPhase(player, card as Equipment), this);
             }
+            game.log("Cannot find this type of card "+ card.ToString());
       
             throw new Exception();
         }
@@ -165,7 +166,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Plyaer " + playerID + " at ActionPhase";
+            return "Plyaer " + player.ToString() + " at ActionPhase";
         }
 
     }
@@ -207,7 +208,7 @@ namespace LOTK.Model
 
         public override string ToString()
         { 
-            return "Plyaer " + playerID + " at DiscardPhase";
+            return "Plyaer " + player.ToString() + " at DiscardPhase";
         }
     }
 }

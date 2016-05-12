@@ -24,15 +24,16 @@ namespace LOTK_Test.FuzzTest
             
             for (int i = 0; i < num; i++)
             {
-                try {
-                    randomInputResponse(); }
-                catch(Exception e)
-                {
-                    String s = i + " has bug" + e.Message;
-                    System.Diagnostics.Debug.Print(s);
+            //    try {
+                    randomInputResponse();
+            //}
+            //    catch(Exception e)
+             //   {
+               //     String s = i + " has bug " + e.Message+e.Source+" "+e.StackTrace;
+                //    System.Diagnostics.Debug.Print(s);
                 
 
-                }
+//                }
             }
         }
 

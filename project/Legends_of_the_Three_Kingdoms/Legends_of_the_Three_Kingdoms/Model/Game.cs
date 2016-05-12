@@ -207,7 +207,7 @@ namespace LOTK.Model
                 if (curPhase is PlayerTurn)
                 { // when turn switches
                     curRoundPlayer = curPhase.player;
-                    log("The round of " + curRoundPlayer + " start");
+                    log("The round of " + curRoundPlayer.ToString() + " start");
                 }
                 followingPhases = curPhase.advance(userAction, this);
                 if (followingPhases == null)
@@ -304,7 +304,7 @@ namespace LOTK.Model
 
         void IGame.log(string v)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(v);
         }
     }
 

@@ -15,7 +15,10 @@ namespace LOTK.Model
      /// <param name="pos ">this is the position of the player in All player</param>
         public ZhangFei(int pos, PlayerType type) :  base(pos, "Zhang Fei", "Zhang Fei has no restrictions on how many times he can attack during his turn", 4, type) {}
         public ZhangFei(int pos) :  this(pos, PlayerType.Undefined){}
-
+        public override string ToString()
+        {
+            return "ZhangFei";
+        }
         /// <summary>
         /// override of Player.canNotAttack()
         /// </summary>
@@ -48,7 +51,10 @@ namespace LOTK.Model
         /// </summary>
         /// <param name="pos"> this is the position of the player in All player</param>
         public LiuBei(int pos, PlayerType type) : base(pos, "Liu Bei", "Liu Bei's can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health", 4, type) {}
-
+        public override string ToString()
+        {
+            return "LiuBei";
+        }
         public LiuBei(int pos) :  this(pos, PlayerType.Undefined){ }
 
         /// <summary>
@@ -83,7 +89,10 @@ namespace LOTK.Model
         /// <param name="pos"> this is the position of the player in All player</param>
         public CaoCao(int pos, PlayerType type) : base(pos, "Cao Cao", "When Cao Cao is damaged by a card, he can immediately put it into his hand", 4, type) {}
         public CaoCao(int pos) :  this(pos, PlayerType.Undefined){ }
-
+        public override string ToString()
+        {
+            return "CaoCao";
+        }
         /// <summary>
         /// override of Player.harm()
         /// </summary>
@@ -121,7 +130,10 @@ namespace LOTK.Model
      /// <param name="pos ">is the position of the player in All player</param>
         public SunQuan(int pos, PlayerType type) : base(pos, "Sun Quan", "Once during his turn, Sun Quan can discard any number of cards to draw the same number", 4, type) { }
         public SunQuan(int pos) :  this(pos, PlayerType.Undefined){}
-
+        public override string ToString()
+        {
+            return "SunQuan";
+        }
         /// <summary>
         /// override Player.abilitySun()
         /// </summary>
@@ -157,6 +169,10 @@ namespace LOTK.Model
         public LuMeng(int pos, PlayerType type) : base(pos, "Lu Meng", "If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase", 4, type) {}
         public LuMeng(int pos) :  this(pos, PlayerType.Undefined){ }
 
+        public override string ToString()
+        {
+            return "LuMeng";
+        }
         /// <summary>
         /// override player.handcardCount()
         /// </summary>
