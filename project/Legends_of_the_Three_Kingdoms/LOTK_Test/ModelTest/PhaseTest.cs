@@ -257,13 +257,6 @@ namespace LOTK_Test.ModelTest
 
 
 
-        [TestMethod]
-        public void testDeadPhase()
-        {
-            DeadPhase d = new DeadPhase(new ZhangFei(1), new HarmPhase(new ZhangFei(1), new LiuBei(2), 1, new Attack(CardSuit.Club, (byte)1)));
-            Assert.AreEqual("Dead phase of LOTK.Model.ZhangFei", d.ToString());
-        }
-
 
         [TestMethod]
         public void getharmsource()
@@ -581,41 +574,14 @@ namespace LOTK_Test.ModelTest
 
         }
 
-        [TestMethod]
-        public void playerturntest()
-        {
 
 
-            Player p = mocks.Stub<Player>(0);
-            Player p2 = mocks.Stub<Player>(0);
-            Player p3 = mocks.Stub<Player>(0);
-            IGame testgame = mocks.Stub<IGame>();
-            PhaseList ls;
-            ls = (new PlayerTurn(p)).advance(null, testgame);
-            Assert.AreEqual(new PlayerTurn(p).ToString(), "Plyaer " + 0 + " at PlayerTurn");
-        }
-
-        [TestMethod]
-        public void nodeStringtest()
-        {
-            PhaseList.Node n = new PhaseList.Node(new ActionPhase(new Player(1)));
-            Assert.AreEqual("Plyaer 1 at ActionPhase", n.ToString());
-        }
 
         [TestMethod]
         public void nodenexttest()
         {
             PhaseList.Node n = new PhaseList.Node(new ActionPhase(new Player(1)));
            Assert.IsInstanceOfType( n.setNext(n),typeof(PhaseList.Node));
-        }
-
-        [TestMethod]
-        public void phaseCurrenttest()
-        {
-            PhaseList p = new PhaseList();
-            p.add(new ActionPhase(new ZhangFei(1)));
-
-            Assert.AreEqual("[Plyaer 1 at ActionPhase,]", p.ToString());
         }
 
         [TestMethod]

@@ -20,7 +20,7 @@ namespace LOTK_Test.FuzzTest
 
         public void start(int num)
         {
-            //for(int i = 0; i < random.Next(); i++) { game.addstage(randomPhase()); }
+          //  for(int i = 0; i < random.Next(); i++) { game.addstage(randomPhase()); }
             
             for (int i = 0; i < num; i++)
             {

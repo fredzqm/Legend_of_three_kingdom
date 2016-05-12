@@ -19,9 +19,9 @@ namespace LOTK_Test.FuzzTest {
 
             game.logEvent += standardPrint;
 
-            game.start(0);
+            game.start(4);
             Randomizor tester = new Randomizor(game);
-            tester.start(100);
+            tester.start(100000);
         }
 
         private void standardPrint(string str)

@@ -57,6 +57,10 @@ namespace LOTK.Model
         /// <returns></returns>
         public abstract string getDescription();
 
+        public override string ToString()
+        {
+            return type.ToString();
+        }
     }
     /// <summary>
     /// subclass of card 

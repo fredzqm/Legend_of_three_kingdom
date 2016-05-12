@@ -277,7 +277,7 @@ namespace LOTK.Model
         /// <returns>the following phased produced</returns>
         public virtual PhaseList responseUseCardAction(Card card, Player[] targets, IGame game)
         {
-            game.log("Player " + player.ToString() + " try to use card");
+            game.log("Player " + player.ToString() + " try to use " + card);
             return null;
         }
 

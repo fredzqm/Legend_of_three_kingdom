@@ -301,11 +301,6 @@ namespace LOTK.Model
             }
             return false;
         }
-
-        void IGame.log(string v)
-        {
-            Console.WriteLine(v);
-        }
     }
 
     public enum GameStatus

@@ -142,9 +142,8 @@ namespace LOTK.Model
                 throw new NotImplementedException();
                 //return new PhaseList(new UseEquipmentPhase(player, card as Equipment), this);
             }
-            game.log("Cannot find this type of card "+ card.ToString());
-      
-            throw new Exception();
+            game.log(""+card+"Cannot be uese");
+            return null;
         }
 
         public override PhaseList timeOutAdvance(IGame game)

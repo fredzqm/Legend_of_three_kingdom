@@ -61,3 +61,7 @@ I also implement the timer to display the time left for each player to response.
 
 Songyu wang:
 This week, I use BDD implemented Wealth card and Peachgarden card. All the tests pass. Also, I tested the code I wrote through GUI and it also works.
+
+Milestone8:
+Songyu Wang:
+This week, we apply fuzz test to our project. I wrote half of the random generator. Also, I add some logs format to allow us knowing better what is going wrong.
