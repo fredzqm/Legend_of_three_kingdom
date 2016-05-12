@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LOTK.Controller;
+using LOTK.Model;
 
 namespace LOTK_Test.FuzzTest { 
 
@@ -12,8 +13,12 @@ namespace LOTK_Test.FuzzTest {
         [TestMethod]
         public void TestMethod1()
         {
-            GameController game = new GameController();
-            Randomizor tester = new Randomizor(game.game);
+            CardSet cardset = GameController.initialLizeCardSet();
+            Player[] players = GameController.initializePlayers(5);
+            IGame game = new Game(players, cardset);
+            game.start(4);
+
+            Randomizor tester = new Randomizor(game);
             tester.start(100);
         }
     }

@@ -5,6 +5,8 @@ using LOTK.Controller;
 
 namespace LOTK.Model
 {
+    public delegate void PrintString(string str);
+
     /// <summary>
     /// This is created for the purpose of dependency injection
     /// </summary>
@@ -42,17 +44,19 @@ namespace LOTK.Model
         /// log a message
         /// </summary>
         /// <param name="message"></param>
-        void log(string message);
+        //void logEvent(string message);
+        event PrintString logEvent;
+
+        /// <summary>
+        /// broadcast the log information to all listeners
+        /// </summary>
+        /// <param name="v"></param>
+        void log(string v);
 
         /// <summary>
         /// the player under whose turn the game is in
         /// </summary>
         Player curRoundPlayer { get; }
-
-        /// <summary>
-        /// the logs of the game, should be printed out or displayed
-        /// </summary>
-        string logs { get; }
 
         /// <summary>
         /// Under certain circumstances, the player might have only one option.
@@ -94,6 +98,8 @@ namespace LOTK.Model
         bool hasEnd();
     }
 
+
+
     /// <summary>
     /// The main model representing the game
     /// </summary>
@@ -124,9 +130,14 @@ namespace LOTK.Model
 
         public Player curRoundPlayer { get; private set; }
 
-        public string logs { get; private set; }
+        public event PrintString logEvent;
 
         public GameStatus status { get; private set; }
+
+        public void log(string v)
+        {
+            logEvent?.Invoke(v);
+        }
 
         /// <summary>
         /// construct a game given player and cardlist
@@ -143,7 +154,6 @@ namespace LOTK.Model
 
             status = GameStatus.NotFinish;
             stages = new PhaseList();
-            logs = "";
         }
 
         /// <summary>
@@ -161,11 +171,6 @@ namespace LOTK.Model
             stages.add(new PlayerTurn(players[0]));
             log("Start the game");
             nextStage(null);
-        }
-
-        public void log(String message)
-        {
-            logs = logs + message + "\n";
         }
 
         /// <summary>
@@ -283,6 +288,11 @@ namespace LOTK.Model
                 return true;
             }
             return false;
+        }
+
+        void IGame.log(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 

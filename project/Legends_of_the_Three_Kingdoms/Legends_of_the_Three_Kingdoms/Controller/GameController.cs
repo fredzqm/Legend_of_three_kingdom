@@ -22,10 +22,12 @@ namespace LOTK.Controller
 
         public int Num_Of_Player { get { return NUM_OF_PLAYER; } }
         public event UpdateForm updateViews;
-
+ 
         private System.Timers.Timer aTimer;
 
         private UserActionHandler handler;
+
+        private string logs;
 
         /// <summary>
         /// create controller
@@ -57,6 +59,14 @@ namespace LOTK.Controller
             //aTimer.Dispose();
 
             handler = new UserActionHandler(game);
+
+            logs = "";
+            game.logEvent += addLog;
+        }
+
+        private void addLog(string str)
+        {
+            logs += str + "\n";
         }
 
         /// <summary>
@@ -91,7 +101,7 @@ namespace LOTK.Controller
             rd.this_player_stage = game.curPhase.ToString();
             rd.tool_attack = CardToCardDisplay(game.players[ownPlayer].weapon);
             rd.tool_defence = CardToCardDisplay(game.players[ownPlayer].shield);
-            rd.poolText = game.logs;
+            rd.poolText = logs;
             rd.cardPileCount = game.cards.cardPileCount;
             rd.discardPile = game.cards.discardPileCount;
             rd.timeleft = game.curPhase.getTimeLeft();
