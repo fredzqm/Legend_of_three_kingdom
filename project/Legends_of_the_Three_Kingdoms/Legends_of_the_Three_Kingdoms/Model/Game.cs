@@ -96,6 +96,13 @@ namespace LOTK.Model
         /// </summary>
         /// <returns>true if the game has ended</returns>
         bool hasEnd();
+
+        /// <summary>
+        /// for test only
+        /// </summary>
+        /// <param name="p"></param>
+        void addstage(Phase p);
+        
     }
 
 
@@ -137,6 +144,11 @@ namespace LOTK.Model
         public void log(string v)
         {
             logEvent?.Invoke(v);
+        }
+
+        public void addstage(Phase p)
+        {
+            stages.add(p);
         }
 
         /// <summary>

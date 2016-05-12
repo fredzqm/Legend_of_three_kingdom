@@ -16,10 +16,17 @@ namespace LOTK_Test.FuzzTest {
             CardSet cardset = GameController.initialLizeCardSet();
             Player[] players = GameController.initializePlayers(5);
             IGame game = new Game(players, cardset);
-            game.start(4);
 
+            game.logEvent += standardPrint;
+
+            game.start(0);
             Randomizor tester = new Randomizor(game);
             tester.start(100);
+        }
+
+        private void standardPrint(string str)
+        {
+            Console.WriteLine(str);
         }
     }
 }
