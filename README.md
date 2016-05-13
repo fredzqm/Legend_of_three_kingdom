@@ -63,5 +63,10 @@ Songyu wang:
 This week, I use BDD implemented Wealth card and Peachgarden card. All the tests pass. Also, I tested the code I wrote through GUI and it also works.
 
 Milestone8:
+Fred Zhang:
+This week, we write the fuzz test random generator together.
+To make sure that fuzzing testing shows what's going on, I create an logEvent in game, so it broadcast all listners what happened.
+Therefore, we can redirect the logs from GUI window to standard out. The test can have outputs showing what went wrong.
+
 Songyu Wang:
 This week, we apply fuzz test to our project. I wrote half of the random generator. Also, I add some logs format to allow us knowing better what is going wrong.
