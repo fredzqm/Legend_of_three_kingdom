@@ -38,19 +38,19 @@ namespace LOTK.Model
         {
             if (pos < 0)
             {
-                throw new ArgumentOutOfRangeException("pos is negative");
+                throw new ArgumentOutOfRangeException(Legends_of_the_Three_Kingdoms.Properties.Resources.pos_is_negative);
             }
             else if (name == null)
             {
-                throw new EmptyException("name is null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.name_is_null);
             }
             else if (descript == null)
             {
-                throw new EmptyException("descripty is null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.descripty_is_null);
             }
             else if (healthLimit < 0)
             {
-                throw new ArgumentOutOfRangeException("healthlimit is negative");
+                throw new ArgumentOutOfRangeException(Legends_of_the_Three_Kingdoms.Properties.Resources.healthlimit_is_negative);
             }
             playerID = pos;
             handCards = new List<Card>();
@@ -78,7 +78,7 @@ namespace LOTK.Model
         /// create player 
         /// </summary>
         /// <param name="pos"></param>
-        public Player(int pos) : this(pos, "Player Name", "Player Description at" + pos, 4){}
+        public Player(int pos) : this(pos, Legends_of_the_Three_Kingdoms.Properties.Resources.Player_Name, Legends_of_the_Three_Kingdoms.Properties.Resources.Player_Description_at + pos, 4){}
 
         /// <summary>
         /// create player 
@@ -167,7 +167,7 @@ namespace LOTK.Model
                 handCards.AddRange(game.cards.drawCard(num));
             }catch (NoCardException e)
             {
-                throw new NoCardException("cannot draw card", e);
+                throw new NoCardException(Legends_of_the_Three_Kingdoms.Properties.Resources.cannot_draw_card, e);
             }
             return new PhaseList();
         }

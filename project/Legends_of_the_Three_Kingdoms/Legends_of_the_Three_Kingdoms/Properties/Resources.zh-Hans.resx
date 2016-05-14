@@ -117,405 +117,256 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="_at_ActionPhase" xml:space="preserve">
-    <value> at ActionPhase</value>
-  </data>
-  <data name="_at_DiscardPhase" xml:space="preserve">
-    <value> at DiscardPhase</value>
-  </data>
-  <data name="_at_DrawingPhase" xml:space="preserve">
-    <value> at DrawingPhase</value>
-  </data>
   <data name="_at_JudgePhase" xml:space="preserve">
-    <value> at JudgePhase</value>
+    <value>在判定阶段</value>
   </data>
   <data name="_at_PlayerTurn" xml:space="preserve">
-    <value> at PlayerTurn</value>
+    <value>在玩家回合</value>
   </data>
   <data name="_Dead" xml:space="preserve">
-    <value> Dead</value>
+    <value>死亡</value>
   </data>
   <data name="_Don_t_have_the_ability" xml:space="preserve">
-    <value> Don't have the ability</value>
+    <value>无此能力</value>
   </data>
   <data name="_health" xml:space="preserve">
-    <value> health:</value>
+    <value> 生命：</value>
   </data>
   <data name="_King" xml:space="preserve">
-    <value> King</value>
+    <value>主公</value>
   </data>
   <data name="_response_card" xml:space="preserve">
-    <value> response card</value>
+    <value>回复卡片</value>
   </data>
   <data name="_start" xml:space="preserve">
-    <value> start</value>
-  </data>
-  <data name="_try_to_use" xml:space="preserve">
-    <value> try to use </value>
-  </data>
-  <data name="Ability_of_Liu_is_given_no_car" xml:space="preserve">
-    <value>Ability of Liu is given no card</value>
-  </data>
-  <data name="Ability_of_Sun_is_given_no_car" xml:space="preserve">
-    <value>Ability of Sun is given no card</value>
+    <value> 开始</value>
   </data>
   <data name="abilityaction_null" xml:space="preserve">
-    <value>abilityaction null</value>
+    <value>无能力</value>
   </data>
   <data name="abilityActon_null" xml:space="preserve">
-    <value>abilityActon null</value>
+    <value>无能力</value>
   </data>
   <data name="Attack" xml:space="preserve">
-    <value>Attack</value>
+    <value>杀</value>
   </data>
   <data name="Attack_Description" xml:space="preserve">
-    <value>Attack Description</value>
+    <value>杀描述</value>
   </data>
   <data name="Barbarians" xml:space="preserve">
-    <value>Barbarians</value>
+    <value>南蛮入侵</value>
   </data>
   <data name="Barbarians_Description" xml:space="preserve">
-    <value>Barbarians Description</value>
+    <value>南蛮入侵描述</value>
   </data>
   <data name="BlackShield" xml:space="preserve">
-    <value>BlackShield</value>
+    <value>仁王盾</value>
   </data>
   <data name="BlackShield_Description" xml:space="preserve">
-    <value>BlackShield Description</value>
+    <value>仁王盾描述</value>
   </data>
   <data name="Break" xml:space="preserve">
-    <value>Break</value>
+    <value>过河拆桥</value>
   </data>
   <data name="Break_Description" xml:space="preserve">
-    <value>Break Description</value>
+    <value>过河拆桥描述</value>
   </data>
   <data name="Button_type_not_found" xml:space="preserve">
-    <value>Button type not found!</value>
-  </data>
-  <data name="Cannot_be_uese" xml:space="preserve">
-    <value>Cannot be uese</value>
-  </data>
-  <data name="cannot_draw_card" xml:space="preserve">
-    <value>cannot draw card</value>
+    <value>按钮未找到</value>
   </data>
   <data name="Cao_Cao" xml:space="preserve">
-    <value>Cao Cao</value>
+    <value>曹操</value>
   </data>
   <data name="CaoCao" xml:space="preserve">
-    <value>CaoCao</value>
+    <value>曹操</value>
   </data>
   <data name="Capture" xml:space="preserve">
-    <value>Capture</value>
+    <value>乐不思蜀</value>
   </data>
   <data name="Capture_Description" xml:space="preserve">
-    <value>Capture Description</value>
-  </data>
-  <data name="Card_collection_for_a_carset_c" xml:space="preserve">
-    <value>Card collection for a carset cannot be null</value>
+    <value>乐不思蜀描述</value>
   </data>
   <data name="CardList_is_not_defined" xml:space="preserve">
-    <value>CardList is not defined</value>
+    <value>卡排列未定义</value>
   </data>
   <data name="Crossbow" xml:space="preserve">
-    <value>Crossbow</value>
+    <value>诸葛连弩</value>
   </data>
   <data name="Crossbow_Description" xml:space="preserve">
-    <value>Crossbow Description</value>
+    <value>诸葛连弩描述</value>
   </data>
   <data name="curphase_null" xml:space="preserve">
-    <value>curphase null</value>
-  </data>
-  <data name="Dead_phase_of" xml:space="preserve">
-    <value>Dead phase of </value>
-  </data>
-  <data name="descripty_is_null" xml:space="preserve">
-    <value>descripty is null</value>
-  </data>
-  <data name="downleft_player" xml:space="preserve">
-    <value>downleft_player</value>
-  </data>
-  <data name="downleft_player_ab" xml:space="preserve">
-    <value>downleft_player_ab</value>
-  </data>
-  <data name="downright_player" xml:space="preserve">
-    <value>downright_player</value>
-  </data>
-  <data name="downright_player_ab" xml:space="preserve">
-    <value>downright_player_ab</value>
+    <value>当前阶段 无</value>
   </data>
   <data name="EightTrigrams" xml:space="preserve">
-    <value>EightTrigrams</value>
+    <value>八卦阵</value>
   </data>
   <data name="EightTrigrams_Description" xml:space="preserve">
-    <value>EightTrigrams Description</value>
-  </data>
-  <data name="Empty_PhaseList_Exception" xml:space="preserve">
-    <value>Empty PhaseList Exception</value>
+    <value>八卦阵描述</value>
   </data>
   <data name="game_null" xml:space="preserve">
-    <value>game null</value>
+    <value>游戏 无</value>
   </data>
   <data name="HailofArrow" xml:space="preserve">
-    <value>HailofArrow</value>
+    <value>万箭齐发</value>
   </data>
   <data name="HailofArrow_Description" xml:space="preserve">
-    <value>HailofArrow Description</value>
+    <value>万箭齐发描述</value>
   </data>
   <data name="harmPhase_null" xml:space="preserve">
-    <value>harmPhase null</value>
-  </data>
-  <data name="healthlimit_is_negative" xml:space="preserve">
-    <value>healthlimit is negative</value>
-  </data>
-  <data name="hold_cards" xml:space="preserve">
-    <value>hold_cards</value>
+    <value>伤害阶段</value>
   </data>
   <data name="IceSword" xml:space="preserve">
-    <value>IceSword</value>
+    <value>寒冰箭</value>
   </data>
   <data name="IceSword_Description" xml:space="preserve">
-    <value>IceSword Description</value>
+    <value>寒冰箭描述</value>
   </data>
   <data name="If_Lu_Meng_does_not_use_any_At" xml:space="preserve">
-    <value>If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase</value>
-  </data>
-  <data name="Invalid_operation" xml:space="preserve">
-    <value>Invalid operation</value>
+    <value>如果吕蒙未受伤害，无需弃牌</value>
   </data>
   <data name="Invisible_Phase_should_not_giv" xml:space="preserve">
-    <value>Invisible Phase should not give null </value>
+    <value>不可见阶段不应给</value>
   </data>
   <data name="Liu_Bei" xml:space="preserve">
-    <value>Liu Bei</value>
+    <value>刘备</value>
   </data>
   <data name="Liu_Bei_s_can_give_any_number_" xml:space="preserve">
-    <value>Liu Bei's can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health</value>
+    <value>刘备可以给其他玩家卡</value>
   </data>
   <data name="LiuBei" xml:space="preserve">
-    <value>LiuBei</value>
+    <value>刘备</value>
   </data>
   <data name="Lu_Meng" xml:space="preserve">
-    <value>Lu Meng</value>
+    <value>吕蒙</value>
   </data>
   <data name="LuMeng" xml:space="preserve">
-    <value>LuMeng</value>
-  </data>
-  <data name="Messages" xml:space="preserve">
-    <value>Messages</value>
+    <value>吕蒙</value>
   </data>
   <data name="Miss" xml:space="preserve">
-    <value>Miss</value>
+    <value>闪</value>
   </data>
   <data name="Miss_Description" xml:space="preserve">
-    <value>Miss Description</value>
-  </data>
-  <data name="name_is_null" xml:space="preserve">
-    <value>name is null</value>
+    <value>闪描述</value>
   </data>
   <data name="Negate" xml:space="preserve">
-    <value>Negate</value>
+    <value>无懈可击</value>
   </data>
   <data name="Negate_Description" xml:space="preserve">
-    <value>Negate Description</value>
+    <value>无懈可击描述</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>否</value>
   </data>
   <data name="no_card_in_hands" xml:space="preserve">
-    <value>no card in hands</value>
+    <value>手中无牌</value>
   </data>
   <data name="Once_during_his_turn_Sun_Quan_" xml:space="preserve">
-    <value>Once during his turn, Sun Quan can discard any number of cards to draw the same number</value>
+    <value>孙权可以换牌</value>
   </data>
   <data name="Peach" xml:space="preserve">
-    <value>Peach</value>
+    <value>桃</value>
   </data>
   <data name="Peach_Description" xml:space="preserve">
-    <value>Peach Description</value>
+    <value>桃描述</value>
   </data>
   <data name="PeachGarden" xml:space="preserve">
-    <value>PeachGarden</value>
+    <value>桃园结义</value>
   </data>
   <data name="PeachGarden_Description" xml:space="preserve">
-    <value>PeachGarden Description</value>
-  </data>
-  <data name="Phaselist_is_empty" xml:space="preserve">
-    <value>Phaselist is empty</value>
+    <value>桃园结义描述</value>
   </data>
   <data name="Player" xml:space="preserve">
-    <value>Player </value>
-  </data>
-  <data name="Player_Description_at" xml:space="preserve">
-    <value>Player Description at</value>
-  </data>
-  <data name="Player_Name" xml:space="preserve">
-    <value>Player Name</value>
+    <value>玩家</value>
   </data>
   <data name="Plyaer" xml:space="preserve">
-    <value>Plyaer </value>
-  </data>
-  <data name="pos_is_negative" xml:space="preserve">
-    <value>pos is negative</value>
-  </data>
-  <data name="res" xml:space="preserve">
-    <value>
-</value>
-  </data>
-  <data name="res0" xml:space="preserve">
-    <value>: </value>
-  </data>
-  <data name="res1" xml:space="preserve">
-    <value>[</value>
-  </data>
-  <data name="res2" xml:space="preserve">
-    <value>, </value>
-  </data>
-  <data name="res3" xml:space="preserve">
-    <value>]</value>
+    <value>玩家</value>
   </data>
   <data name="Response_Phase_of" xml:space="preserve">
-    <value>Response Phase of </value>
+    <value>回复阶段</value>
   </data>
   <data name="response_with_card" xml:space="preserve">
-    <value>response with card </value>
-  </data>
-  <data name="Run_out_of_cards" xml:space="preserve">
-    <value>Run out of cards</value>
+    <value>回复卡片阶段</value>
   </data>
   <data name="Scimitar" xml:space="preserve">
-    <value>Scimitar</value>
+    <value>古锭刀</value>
   </data>
   <data name="Scimitar_Description" xml:space="preserve">
-    <value>Scimitar Description</value>
+    <value>古锭刀描述</value>
   </data>
   <data name="Start_the_game" xml:space="preserve">
-    <value>Start the game</value>
+    <value>开始游戏</value>
   </data>
   <data name="Starvation" xml:space="preserve">
-    <value>Starvation</value>
+    <value>兵粮寸断</value>
   </data>
   <data name="Starvation_Description" xml:space="preserve">
-    <value>Starvation Description</value>
+    <value>兵粮寸断描述</value>
   </data>
   <data name="Steal" xml:space="preserve">
-    <value>Steal</value>
+    <value>顺手牵羊</value>
   </data>
   <data name="Steal_Description" xml:space="preserve">
-    <value>Steal Description</value>
-  </data>
-  <data name="Such_Card_Cannot_be_Found" xml:space="preserve">
-    <value>Such Card Cannot be Found</value>
+    <value>顺手牵羊描述</value>
   </data>
   <data name="Sun_Quan" xml:space="preserve">
-    <value>Sun Quan</value>
+    <value>孙权</value>
   </data>
   <data name="SunQuan" xml:space="preserve">
-    <value>SunQuan</value>
-  </data>
-  <data name="The_card_stack_is_empty" xml:space="preserve">
-    <value>The card stack is empty</value>
+    <value>孙权</value>
   </data>
   <data name="The_game_has_ended" xml:space="preserve">
-    <value>The game has ended </value>
+    <value>游戏结束</value>
   </data>
   <data name="The_round_of" xml:space="preserve">
-    <value>The round of </value>
+    <value>回合</value>
   </data>
   <data name="The_stages_stack_is_empty" xml:space="preserve">
-    <value>The stages stack is empty</value>
+    <value>阶段列空</value>
   </data>
   <data name="There_should_not_be_this_kind_" xml:space="preserve">
-    <value>There should not be this kind of player type </value>
+    <value>玩家类型不对</value>
   </data>
   <data name="This_is_player" xml:space="preserve">
-    <value>This is player </value>
-  </data>
-  <data name="this_player" xml:space="preserve">
-    <value>this_player</value>
-  </data>
-  <data name="this_player_ab" xml:space="preserve">
-    <value>this_player_ab</value>
-  </data>
-  <data name="this_player_stage" xml:space="preserve">
-    <value>this_player_stage</value>
+    <value>本玩家</value>
   </data>
   <data name="Tick" xml:space="preserve">
-    <value>Tick</value>
+    <value>时间</value>
   </data>
   <data name="timeout" xml:space="preserve">
-    <value>timeout</value>
+    <value>超时</value>
   </data>
   <data name="timeOutAdvance_cannot_return_n" xml:space="preserve">
-    <value>timeOutAdvance cannot return null</value>
-  </data>
-  <data name="tool_attack" xml:space="preserve">
-    <value>tool_attack</value>
-  </data>
-  <data name="tool_attack_ab" xml:space="preserve">
-    <value>tool_attack_ab</value>
-  </data>
-  <data name="tool_defence" xml:space="preserve">
-    <value>tool_defence</value>
-  </data>
-  <data name="upleft_player" xml:space="preserve">
-    <value>upleft_player</value>
-  </data>
-  <data name="upleft_player_ab" xml:space="preserve">
-    <value>upleft_player_ab</value>
-  </data>
-  <data name="upright_player" xml:space="preserve">
-    <value>upright_player</value>
-  </data>
-  <data name="upright_player_ab" xml:space="preserve">
-    <value>upright_player_ab</value>
+    <value>超时不能反悔空</value>
   </data>
   <data name="waitTime_should_not_be_negativ" xml:space="preserve">
-    <value>waitTime should not be negative</value>
+    <value>等待时间不应为负数</value>
   </data>
   <data name="Wealth" xml:space="preserve">
-    <value>Wealth</value>
+    <value>富甲天下</value>
   </data>
   <data name="Wealth_Description" xml:space="preserve">
-    <value>Wealth Description</value>
+    <value>富甲天下描述</value>
   </data>
   <data name="When_Cao_Cao_is_damaged_by_a_c" xml:space="preserve">
-    <value>When Cao Cao is damaged by a card, he can immediately put it into his hand</value>
+    <value>曹操可以得到伤害他的卡</value>
   </data>
   <data name="Wine" xml:space="preserve">
-    <value>Wine</value>
+    <value>酒</value>
   </data>
   <data name="Wine_Description" xml:space="preserve">
-    <value>Wine Description</value>
+    <value>酒描述</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>是</value>
   </data>
   <data name="Zhang_Fei" xml:space="preserve">
-    <value>Zhang Fei</value>
+    <value>张飞</value>
   </data>
   <data name="Zhang_Fei_has_no_restrictions_" xml:space="preserve">
-    <value>Zhang Fei has no restrictions on how many times he can attack during his turn</value>
+    <value>张飞可无限出杀</value>
   </data>
   <data name="ZhangFei" xml:space="preserve">
-    <value>ZhangFei</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaoCao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>CaoCao.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LiuBei1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>LiuBei.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LuMeng1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>LuMeng.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SunQuan1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>SunQuan.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ZhangFei1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>ZhangFei.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>张飞</value>
   </data>
 </root>

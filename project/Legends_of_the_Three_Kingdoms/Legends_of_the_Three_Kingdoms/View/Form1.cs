@@ -74,25 +74,25 @@ namespace LOTK.View
 
         private void addimagehelper(Button b)
         {
-            if (b.Text.Contains("Liu Bei"))
+            if (b.Text.Contains(Legends_of_the_Three_Kingdoms.Properties.Resources.Liu_Bei))
             {
-                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.LiuBei;
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.LiuBei1;
             }
-            else if (b.Text.Contains("Zhang Fei"))
+            else if (b.Text.Contains(Legends_of_the_Three_Kingdoms.Properties.Resources.Zhang_Fei))
             {
-                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.ZhangFei;
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.ZhangFei1;
             }
-            else if (b.Text.Contains("Cao Cao"))
+            else if (b.Text.Contains(Legends_of_the_Three_Kingdoms.Properties.Resources.Cao_Cao))
             {
-                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.CaoCao;
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.CaoCao1;
             }
-            else if (b.Text.Contains("Sun Quan"))
+            else if (b.Text.Contains(Legends_of_the_Three_Kingdoms.Properties.Resources.Sun_Quan))
             {
-                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.SunQuan;
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.SunQuan1;
             }
-            else if (b.Text.Contains("Lu Meng"))
+            else if (b.Text.Contains(Legends_of_the_Three_Kingdoms.Properties.Resources.Lu_Meng))
             {
-                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.LuMeng;
+                b.BackgroundImage = global::Legends_of_the_Three_Kingdoms.Properties.Resources.LuMeng1;
             }
             else
             {
@@ -118,20 +118,20 @@ namespace LOTK.View
             if (refresh)
             {
                 NumberOfCardsToClick = data.NumberOfCardsToClick;
-                turn.Text = "This is player " + position + "\n" + data.this_player_stage;
-                ThisPlayer.Text = data.players[0].name + " health:" + data.players[0].health;
-                tool_attack.Text = data.tool_attack.name + ": " + data.tool_attack.ability;
-                tool_defence.Text = data.tool_defence.name + ": " + data.tool_defence.ability;
+                turn.Text = Legends_of_the_Three_Kingdoms.Properties.Resources.This_is_player + position + Legends_of_the_Three_Kingdoms.Properties.Resources.res + data.this_player_stage;
+                ThisPlayer.Text = data.players[0].name + Legends_of_the_Three_Kingdoms.Properties.Resources._health + data.players[0].health;
+                tool_attack.Text = data.tool_attack.name + Legends_of_the_Three_Kingdoms.Properties.Resources.res0 + data.tool_attack.ability;
+                tool_defence.Text = data.tool_defence.name + Legends_of_the_Three_Kingdoms.Properties.Resources.res0 + data.tool_defence.ability;
                 hand_cards.Items.Clear();
                 for (int i = 0; i < data.hold_cards.Count; i++)
                 {
-                    hand_cards.Items.Insert(i, data.hold_cards[i].name + ": " + data.hold_cards[i].ability);
+                    hand_cards.Items.Insert(i, data.hold_cards[i].name + Legends_of_the_Three_Kingdoms.Properties.Resources.res0 + data.hold_cards[i].ability);
                 }
                 Pool.Text = data.poolText;
-                UpperLeft.Text = data.players[3].name + " health:" + data.players[3].health;
-                UpperRight.Text = data.players[2].name + " health:" + data.players[2].health;
-                LowerLeft.Text = data.players[4].name + " health:" + data.players[4].health;
-                LowerRight.Text = data.players[1].name +  " health:" + data.players[1].health;
+                UpperLeft.Text = data.players[3].name + Legends_of_the_Three_Kingdoms.Properties.Resources._health + data.players[3].health;
+                UpperRight.Text = data.players[2].name + Legends_of_the_Three_Kingdoms.Properties.Resources._health + data.players[2].health;
+                LowerLeft.Text = data.players[4].name + Legends_of_the_Three_Kingdoms.Properties.Resources._health + data.players[4].health;
+                LowerRight.Text = data.players[1].name +  Legends_of_the_Three_Kingdoms.Properties.Resources._health + data.players[1].health;
 
                 cardPileCount.Text = "" + data.cardPileCount;
                 addimage();
@@ -234,7 +234,7 @@ namespace LOTK.View
                 int id = -1;
                 for (int i = 0; i < data.hold_cards.Count; i++)
                 {
-                    if (hand_cards.CheckedItems.Count > 0 && hand_cards.CheckedItems[0].Equals(data.hold_cards.ElementAt(i).name + ": " + data.hold_cards.ElementAt(i).ability)){
+                    if (hand_cards.CheckedItems.Count > 0 && hand_cards.CheckedItems[0].Equals(data.hold_cards.ElementAt(i).name + Legends_of_the_Three_Kingdoms.Properties.Resources.res0 + data.hold_cards.ElementAt(i).ability)){
                         id = data.hold_cards.ElementAt(i).id;
                     }
                 }

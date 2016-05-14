@@ -21,7 +21,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Attack Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Attack_Description;
         }
 
         public override int numOfTargets()
@@ -31,7 +31,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Attack";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Attack;
         }
     }
     /// <summary>
@@ -48,7 +48,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Miss Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Miss_Description;
         }
         public override int numOfTargets()
         {
@@ -57,7 +57,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Miss";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Miss;
         }
     }
     /// <summary>
@@ -75,7 +75,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Wine Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Wine_Description;
         }
         public override int numOfTargets()
         {
@@ -84,7 +84,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Wine";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Wine;
         }
     }
     /// <summary>
@@ -101,7 +101,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Peach Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Peach_Description;
         }
         public override int numOfTargets()
         {
@@ -110,7 +110,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Peach";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Peach;
         }
     }
     /// <summary>
@@ -128,7 +128,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Negate Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Negate_Description;
         }
         public override int numOfTargets()
         {
@@ -137,7 +137,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Negate";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Negate;
         }
     }
     /// <summary>
@@ -154,7 +154,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Barbarians Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Barbarians_Description;
         }
         public override int numOfTargets()
         {
@@ -163,7 +163,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Barbarians";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Barbarians;
         }
     }
     /// <summary>
@@ -180,7 +180,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "HailofArrow Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.HailofArrow_Description;
         }
         public override int numOfTargets()
         {
@@ -189,7 +189,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "HailofArrow";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.HailofArrow;
         }
     }
     /// <summary>
@@ -206,7 +206,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "PeachGarden Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.PeachGarden_Description;
         }
         public override int numOfTargets()
         {
@@ -215,7 +215,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "PeachGarden";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.PeachGarden;
         }
     }
     /// <summary>
@@ -231,7 +231,7 @@ namespace LOTK.Model
         /// <returns></returns>
         public override string getDescription()
         {
-            return "Wealth Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Wealth_Description;
         }
         public override int numOfTargets()
         {
@@ -240,7 +240,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Wealth";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Wealth;
         }
     }
     /// <summary>
@@ -257,7 +257,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Steal Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Steal_Description;
         }
         public override int numOfTargets()
         {
@@ -266,7 +266,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Steal";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Steal;
         }
     }
     /// <summary>
@@ -283,7 +283,7 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Break Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Break_Description;
         }
         public override int numOfTargets()
         {
@@ -292,7 +292,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Break";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Break;
         }
     }
     /// <summary>
@@ -309,12 +309,12 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Capture Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Capture_Description;
         }
 
         public override string ToString()
         {
-            return "Capture";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Capture;
         }
     }
     /// <summary>
@@ -331,12 +331,12 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Starvation Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Starvation_Description;
         }
 
         public override string ToString()
         {
-            return "Starvation";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Starvation;
         }
     }
     /// <summary>
@@ -353,12 +353,12 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Crossbow Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Crossbow_Description;
         }
 
         public override string ToString()
         {
-            return "Crossbow";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Crossbow;
         }
     }
     /// <summary>
@@ -375,12 +375,12 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "IceSword Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.IceSword_Description;
         }
 
         public override string ToString()
         {
-            return "IceSword";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.IceSword;
         }
     }
     /// <summary>
@@ -397,12 +397,12 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "Scimitar Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Scimitar_Description;
         }
 
         public override string ToString()
         {
-            return "Scimitar";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Scimitar;
         }
     }
     /// <summary>
@@ -419,12 +419,12 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "BlackShield Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.BlackShield_Description;
         }
 
         public override string ToString()
         {
-            return "BlackShield";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.BlackShield;
         }
     }
     /// <summary>
@@ -441,12 +441,12 @@ namespace LOTK.Model
 
         public override string getDescription()
         {
-            return "EightTrigrams Description";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.EightTrigrams_Description;
         }
 
         public override string ToString()
         {
-            return "EightTrigrams";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.EightTrigrams;
         }
     }
 

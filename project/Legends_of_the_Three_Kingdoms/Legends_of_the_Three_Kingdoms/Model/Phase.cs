@@ -116,7 +116,7 @@ namespace LOTK.Model
         public VisiblePhase(Player player, int timeOutTime) : base(player)
         {
             if (timeOutTime < 0)
-                throw new Exception("waitTime should not be negative");
+                throw new Exception(Legends_of_the_Three_Kingdoms.Properties.Resources.waitTime_should_not_be_negativ);
             this.timeOutTime = timeOutTime;
             this.timer = 0;
         }
@@ -130,7 +130,7 @@ namespace LOTK.Model
             {
                 PhaseList ls = timeOutAdvance(game);
                 if (ls == null)
-                    throw new InvalidOperationException("timeOutAdvance cannot return null");
+                    throw new InvalidOperationException(Legends_of_the_Three_Kingdoms.Properties.Resources.timeOutAdvance_cannot_return_n);
                 return ls;
             }
             return autoAdvance(game);
@@ -239,7 +239,7 @@ namespace LOTK.Model
         /// <returns></returns>
         public virtual PhaseList responseAbilityAction(AbilityAction abilityAction, IGame game)
         {
-            game.log("Player " + player.ToString() + " Don't have the ability");
+            game.log(Legends_of_the_Three_Kingdoms.Properties.Resources.Player + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._Don_t_have_the_ability);
             return null;
         }
 
@@ -251,7 +251,7 @@ namespace LOTK.Model
         /// <returns></returns>
         public virtual PhaseList responseAbilityActionSun(AbilityActionSun abilityAction, IGame game)
         {
-            game.log("Player " + player.ToString() + " Don't have the ability");
+            game.log(Legends_of_the_Three_Kingdoms.Properties.Resources.Player + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._Don_t_have_the_ability);
             return null;
         }
 
@@ -277,7 +277,7 @@ namespace LOTK.Model
         /// <returns>the following phased produced</returns>
         public virtual PhaseList responseUseCardAction(Card card, Player[] targets, IGame game)
         {
-            game.log("Player " + player.ToString() + " try to use " + card);
+            game.log(Legends_of_the_Three_Kingdoms.Properties.Resources.Player + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._try_to_use + card);
             return null;
         }
 
@@ -289,7 +289,7 @@ namespace LOTK.Model
         /// <returns>the following phased produced</returns>
         public virtual PhaseList responseCardAction(Card card, IGame game)
         {
-                   game.log("Player " + player.ToString() + " response card");
+                   game.log(Legends_of_the_Three_Kingdoms.Properties.Resources.Player + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._response_card);
             return null;
         }
 
@@ -314,7 +314,7 @@ namespace LOTK.Model
         {
             this.allowed = allowed;
             this.responseTo = responseTo;
-            this.descript = "Response Phase of " + playerID;
+            this.descript = Legends_of_the_Three_Kingdoms.Properties.Resources.Response_Phase_of + playerID;
         }
 
         public ResponsePhase(Player player, NeedResponsePhase responseTo, Func<Card, bool> allowed, int timeOutTime, string descript): this(player, responseTo, allowed, timeOutTime)
@@ -336,13 +336,13 @@ namespace LOTK.Model
                 responseTo.responseWith(card);
                 return player.discardCard(card, game);
             }
-            game.log("response with card " + card.ToString());
+            game.log(Legends_of_the_Three_Kingdoms.Properties.Resources.response_with_card + card.ToString());
             return null;
         }
 
         public override PhaseList timeOutAdvance(IGame game)
         {
-            game.log("timeout");
+            game.log(Legends_of_the_Three_Kingdoms.Properties.Resources.timeout);
             responseTo.responseWith(null);
             return new PhaseList();
         }
@@ -351,7 +351,7 @@ namespace LOTK.Model
         {
             if (player.handCards.Count == 0)
             {
-                game.log("no card in hands");
+                game.log(Legends_of_the_Three_Kingdoms.Properties.Resources.no_card_in_hands);
                 return timeOutAdvance(game);
             }
             return null;

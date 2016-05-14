@@ -83,7 +83,7 @@ namespace LOTK.Model
         public CardSet(ICollection<Card> cardLs)
         {
             if (cardLs == null)
-                throw new NullReferenceException("Card collection for a carset cannot be null");
+                throw new NullReferenceException(Legends_of_the_Three_Kingdoms.Properties.Resources.Card_collection_for_a_carset_c);
             this.cardLs = new Card[cardLs.Count];
             cardIDs = new Dictionary<Card, int>();
             IEnumerator<Card> itr = cardLs.GetEnumerator();
@@ -120,7 +120,7 @@ namespace LOTK.Model
                 cardPile = new LinkedList<Card>(discardPile.OrderBy(a => Guid.NewGuid()));
                 discardPile = new LinkedList<Card>();
                 if (cardPile.Count == 0)
-                    throw new NoCardException("Run out of cards");
+                    throw new NoCardException(Legends_of_the_Three_Kingdoms.Properties.Resources.Run_out_of_cards);
             }
             Card ret = cardPile.First();
             cardPile.RemoveFirst();
@@ -130,7 +130,7 @@ namespace LOTK.Model
         public void discardOne(Card c)
         {
             if (!cardIDs.ContainsKey(c))
-                throw new NoCardException("Such Card Cannot be Found");
+                throw new NoCardException(Legends_of_the_Three_Kingdoms.Properties.Resources.Such_Card_Cannot_be_Found);
             discardPile.AddFirst(c);
         }
 
@@ -145,7 +145,7 @@ namespace LOTK.Model
             }
             catch (NoCardException e)
             {
-                throw new NoCardException("The card stack is empty", e);
+                throw new NoCardException(Legends_of_the_Three_Kingdoms.Properties.Resources.The_card_stack_is_empty, e);
             }
             return cards;
         }
@@ -236,7 +236,7 @@ namespace LOTK.Model
         {
             if (isEmpty())
             {
-                throw new EmptyException("Empty PhaseList Exception");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.Empty_PhaseList_Exception);
             }
             Phase retStage = head.data;
             if (head == tail)
@@ -276,7 +276,7 @@ namespace LOTK.Model
         public Phase top()
         {
             if (isEmpty())
-                throw new EmptyException("Phaselist is empty");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.Phaselist_is_empty);
             return head.data;
         }
         /// <summary>
@@ -353,14 +353,14 @@ namespace LOTK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("[");
+            sb.Append(Legends_of_the_Three_Kingdoms.Properties.Resources.res1);
             foreach (Phase p in this)
             {
                 sb.Append(p.ToString());
-                sb.Append(", ");
+                sb.Append(Legends_of_the_Three_Kingdoms.Properties.Resources.res2);
             }
             sb.Remove(sb.Length - 1, 1);
-            sb.Append("]");
+            sb.Append(Legends_of_the_Three_Kingdoms.Properties.Resources.res3);
             return sb.ToString();
         }
 

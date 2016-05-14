@@ -61,6 +61,168 @@ namespace Legends_of_the_Three_Kingdoms.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  at ActionPhase.
+        /// </summary>
+        internal static string _at_ActionPhase {
+            get {
+                return ResourceManager.GetString("_at_ActionPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  at DiscardPhase.
+        /// </summary>
+        internal static string _at_DiscardPhase {
+            get {
+                return ResourceManager.GetString("_at_DiscardPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  at DrawingPhase.
+        /// </summary>
+        internal static string _at_DrawingPhase {
+            get {
+                return ResourceManager.GetString("_at_DrawingPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  at JudgePhase.
+        /// </summary>
+        internal static string _at_JudgePhase {
+            get {
+                return ResourceManager.GetString("_at_JudgePhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  at PlayerTurn.
+        /// </summary>
+        internal static string _at_PlayerTurn {
+            get {
+                return ResourceManager.GetString("_at_PlayerTurn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Dead.
+        /// </summary>
+        internal static string _Dead {
+            get {
+                return ResourceManager.GetString("_Dead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Don&apos;t have the ability.
+        /// </summary>
+        internal static string _Don_t_have_the_ability {
+            get {
+                return ResourceManager.GetString("_Don_t_have_the_ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  health:.
+        /// </summary>
+        internal static string _health {
+            get {
+                return ResourceManager.GetString("_health", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  King.
+        /// </summary>
+        internal static string _King {
+            get {
+                return ResourceManager.GetString("_King", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  response card.
+        /// </summary>
+        internal static string _response_card {
+            get {
+                return ResourceManager.GetString("_response_card", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  start.
+        /// </summary>
+        internal static string _start {
+            get {
+                return ResourceManager.GetString("_start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  try to use .
+        /// </summary>
+        internal static string _try_to_use {
+            get {
+                return ResourceManager.GetString("_try_to_use", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ability of Liu is given no card.
+        /// </summary>
+        internal static string Ability_of_Liu_is_given_no_car {
+            get {
+                return ResourceManager.GetString("Ability_of_Liu_is_given_no_car", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ability of Sun is given no card.
+        /// </summary>
+        internal static string Ability_of_Sun_is_given_no_car {
+            get {
+                return ResourceManager.GetString("Ability_of_Sun_is_given_no_car", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to abilityaction null.
+        /// </summary>
+        internal static string abilityaction_null {
+            get {
+                return ResourceManager.GetString("abilityaction_null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to abilityActon null.
+        /// </summary>
+        internal static string abilityActon_null {
+            get {
+                return ResourceManager.GetString("abilityActon_null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack.
+        /// </summary>
+        internal static string Attack {
+            get {
+                return ResourceManager.GetString("Attack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack Description.
+        /// </summary>
+        internal static string Attack_Description {
+            get {
+                return ResourceManager.GetString("Attack_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap background {
@@ -71,51 +233,1033 @@ namespace Legends_of_the_Three_Kingdoms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Barbarians.
         /// </summary>
-        internal static System.Drawing.Bitmap CaoCao {
+        internal static string Barbarians {
             get {
-                object obj = ResourceManager.GetObject("CaoCao", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Barbarians", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barbarians Description.
+        /// </summary>
+        internal static string Barbarians_Description {
+            get {
+                return ResourceManager.GetString("Barbarians_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BlackShield.
+        /// </summary>
+        internal static string BlackShield {
+            get {
+                return ResourceManager.GetString("BlackShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BlackShield Description.
+        /// </summary>
+        internal static string BlackShield_Description {
+            get {
+                return ResourceManager.GetString("BlackShield_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Break.
+        /// </summary>
+        internal static string Break {
+            get {
+                return ResourceManager.GetString("Break", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Break Description.
+        /// </summary>
+        internal static string Break_Description {
+            get {
+                return ResourceManager.GetString("Break_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Button type not found!.
+        /// </summary>
+        internal static string Button_type_not_found {
+            get {
+                return ResourceManager.GetString("Button_type_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot be uese.
+        /// </summary>
+        internal static string Cannot_be_uese {
+            get {
+                return ResourceManager.GetString("Cannot_be_uese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to cannot draw card.
+        /// </summary>
+        internal static string cannot_draw_card {
+            get {
+                return ResourceManager.GetString("cannot_draw_card", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cao Cao.
+        /// </summary>
+        internal static string Cao_Cao {
+            get {
+                return ResourceManager.GetString("Cao_Cao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CaoCao.
+        /// </summary>
+        internal static string CaoCao {
+            get {
+                return ResourceManager.GetString("CaoCao", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LiuBei {
+        internal static System.Drawing.Bitmap CaoCao1 {
             get {
-                object obj = ResourceManager.GetObject("LiuBei", resourceCulture);
+                object obj = ResourceManager.GetObject("CaoCao1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Capture.
+        /// </summary>
+        internal static string Capture {
+            get {
+                return ResourceManager.GetString("Capture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Capture Description.
+        /// </summary>
+        internal static string Capture_Description {
+            get {
+                return ResourceManager.GetString("Capture_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card collection for a carset cannot be null.
+        /// </summary>
+        internal static string Card_collection_for_a_carset_c {
+            get {
+                return ResourceManager.GetString("Card_collection_for_a_carset_c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CardList is not defined.
+        /// </summary>
+        internal static string CardList_is_not_defined {
+            get {
+                return ResourceManager.GetString("CardList_is_not_defined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crossbow.
+        /// </summary>
+        internal static string Crossbow {
+            get {
+                return ResourceManager.GetString("Crossbow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crossbow Description.
+        /// </summary>
+        internal static string Crossbow_Description {
+            get {
+                return ResourceManager.GetString("Crossbow_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to curphase null.
+        /// </summary>
+        internal static string curphase_null {
+            get {
+                return ResourceManager.GetString("curphase_null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dead phase of .
+        /// </summary>
+        internal static string Dead_phase_of {
+            get {
+                return ResourceManager.GetString("Dead_phase_of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to descripty is null.
+        /// </summary>
+        internal static string descripty_is_null {
+            get {
+                return ResourceManager.GetString("descripty_is_null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to downleft_player.
+        /// </summary>
+        internal static string downleft_player {
+            get {
+                return ResourceManager.GetString("downleft_player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to downleft_player_ab.
+        /// </summary>
+        internal static string downleft_player_ab {
+            get {
+                return ResourceManager.GetString("downleft_player_ab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to downright_player.
+        /// </summary>
+        internal static string downright_player {
+            get {
+                return ResourceManager.GetString("downright_player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to downright_player_ab.
+        /// </summary>
+        internal static string downright_player_ab {
+            get {
+                return ResourceManager.GetString("downright_player_ab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EightTrigrams.
+        /// </summary>
+        internal static string EightTrigrams {
+            get {
+                return ResourceManager.GetString("EightTrigrams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EightTrigrams Description.
+        /// </summary>
+        internal static string EightTrigrams_Description {
+            get {
+                return ResourceManager.GetString("EightTrigrams_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty PhaseList Exception.
+        /// </summary>
+        internal static string Empty_PhaseList_Exception {
+            get {
+                return ResourceManager.GetString("Empty_PhaseList_Exception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to game null.
+        /// </summary>
+        internal static string game_null {
+            get {
+                return ResourceManager.GetString("game_null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HailofArrow.
+        /// </summary>
+        internal static string HailofArrow {
+            get {
+                return ResourceManager.GetString("HailofArrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HailofArrow Description.
+        /// </summary>
+        internal static string HailofArrow_Description {
+            get {
+                return ResourceManager.GetString("HailofArrow_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to harmPhase null.
+        /// </summary>
+        internal static string harmPhase_null {
+            get {
+                return ResourceManager.GetString("harmPhase_null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to healthlimit is negative.
+        /// </summary>
+        internal static string healthlimit_is_negative {
+            get {
+                return ResourceManager.GetString("healthlimit_is_negative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hold_cards.
+        /// </summary>
+        internal static string hold_cards {
+            get {
+                return ResourceManager.GetString("hold_cards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IceSword.
+        /// </summary>
+        internal static string IceSword {
+            get {
+                return ResourceManager.GetString("IceSword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IceSword Description.
+        /// </summary>
+        internal static string IceSword_Description {
+            get {
+                return ResourceManager.GetString("IceSword_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase.
+        /// </summary>
+        internal static string If_Lu_Meng_does_not_use_any_At {
+            get {
+                return ResourceManager.GetString("If_Lu_Meng_does_not_use_any_At", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid operation.
+        /// </summary>
+        internal static string Invalid_operation {
+            get {
+                return ResourceManager.GetString("Invalid_operation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invisible Phase should not give null .
+        /// </summary>
+        internal static string Invisible_Phase_should_not_giv {
+            get {
+                return ResourceManager.GetString("Invisible_Phase_should_not_giv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liu Bei.
+        /// </summary>
+        internal static string Liu_Bei {
+            get {
+                return ResourceManager.GetString("Liu_Bei", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liu Bei&apos;s can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health.
+        /// </summary>
+        internal static string Liu_Bei_s_can_give_any_number_ {
+            get {
+                return ResourceManager.GetString("Liu_Bei_s_can_give_any_number_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LiuBei.
+        /// </summary>
+        internal static string LiuBei {
+            get {
+                return ResourceManager.GetString("LiuBei", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LuMeng {
+        internal static System.Drawing.Bitmap LiuBei1 {
             get {
-                object obj = ResourceManager.GetObject("LuMeng", resourceCulture);
+                object obj = ResourceManager.GetObject("LiuBei1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lu Meng.
+        /// </summary>
+        internal static string Lu_Meng {
+            get {
+                return ResourceManager.GetString("Lu_Meng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LuMeng.
+        /// </summary>
+        internal static string LuMeng {
+            get {
+                return ResourceManager.GetString("LuMeng", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SunQuan {
+        internal static System.Drawing.Bitmap LuMeng1 {
             get {
-                object obj = ResourceManager.GetObject("SunQuan", resourceCulture);
+                object obj = ResourceManager.GetObject("LuMeng1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Messages.
+        /// </summary>
+        internal static string Messages {
+            get {
+                return ResourceManager.GetString("Messages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miss.
+        /// </summary>
+        internal static string Miss {
+            get {
+                return ResourceManager.GetString("Miss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miss Description.
+        /// </summary>
+        internal static string Miss_Description {
+            get {
+                return ResourceManager.GetString("Miss_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to name is null.
+        /// </summary>
+        internal static string name_is_null {
+            get {
+                return ResourceManager.GetString("name_is_null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Negate.
+        /// </summary>
+        internal static string Negate {
+            get {
+                return ResourceManager.GetString("Negate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Negate Description.
+        /// </summary>
+        internal static string Negate_Description {
+            get {
+                return ResourceManager.GetString("Negate_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to no card in hands.
+        /// </summary>
+        internal static string no_card_in_hands {
+            get {
+                return ResourceManager.GetString("no_card_in_hands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once during his turn, Sun Quan can discard any number of cards to draw the same number.
+        /// </summary>
+        internal static string Once_during_his_turn_Sun_Quan_ {
+            get {
+                return ResourceManager.GetString("Once_during_his_turn_Sun_Quan_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Peach.
+        /// </summary>
+        internal static string Peach {
+            get {
+                return ResourceManager.GetString("Peach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Peach Description.
+        /// </summary>
+        internal static string Peach_Description {
+            get {
+                return ResourceManager.GetString("Peach_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PeachGarden.
+        /// </summary>
+        internal static string PeachGarden {
+            get {
+                return ResourceManager.GetString("PeachGarden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PeachGarden Description.
+        /// </summary>
+        internal static string PeachGarden_Description {
+            get {
+                return ResourceManager.GetString("PeachGarden_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phaselist is empty.
+        /// </summary>
+        internal static string Phaselist_is_empty {
+            get {
+                return ResourceManager.GetString("Phaselist_is_empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player .
+        /// </summary>
+        internal static string Player {
+            get {
+                return ResourceManager.GetString("Player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Description at.
+        /// </summary>
+        internal static string Player_Description_at {
+            get {
+                return ResourceManager.GetString("Player_Description_at", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Name.
+        /// </summary>
+        internal static string Player_Name {
+            get {
+                return ResourceManager.GetString("Player_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plyaer .
+        /// </summary>
+        internal static string Plyaer {
+            get {
+                return ResourceManager.GetString("Plyaer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pos is negative.
+        /// </summary>
+        internal static string pos_is_negative {
+            get {
+                return ResourceManager.GetString("pos_is_negative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///.
+        /// </summary>
+        internal static string res {
+            get {
+                return ResourceManager.GetString("res", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to : .
+        /// </summary>
+        internal static string res0 {
+            get {
+                return ResourceManager.GetString("res0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [.
+        /// </summary>
+        internal static string res1 {
+            get {
+                return ResourceManager.GetString("res1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to , .
+        /// </summary>
+        internal static string res2 {
+            get {
+                return ResourceManager.GetString("res2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ].
+        /// </summary>
+        internal static string res3 {
+            get {
+                return ResourceManager.GetString("res3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Response Phase of .
+        /// </summary>
+        internal static string Response_Phase_of {
+            get {
+                return ResourceManager.GetString("Response_Phase_of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to response with card .
+        /// </summary>
+        internal static string response_with_card {
+            get {
+                return ResourceManager.GetString("response_with_card", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run out of cards.
+        /// </summary>
+        internal static string Run_out_of_cards {
+            get {
+                return ResourceManager.GetString("Run_out_of_cards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scimitar.
+        /// </summary>
+        internal static string Scimitar {
+            get {
+                return ResourceManager.GetString("Scimitar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scimitar Description.
+        /// </summary>
+        internal static string Scimitar_Description {
+            get {
+                return ResourceManager.GetString("Scimitar_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start the game.
+        /// </summary>
+        internal static string Start_the_game {
+            get {
+                return ResourceManager.GetString("Start_the_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starvation.
+        /// </summary>
+        internal static string Starvation {
+            get {
+                return ResourceManager.GetString("Starvation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starvation Description.
+        /// </summary>
+        internal static string Starvation_Description {
+            get {
+                return ResourceManager.GetString("Starvation_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steal.
+        /// </summary>
+        internal static string Steal {
+            get {
+                return ResourceManager.GetString("Steal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steal Description.
+        /// </summary>
+        internal static string Steal_Description {
+            get {
+                return ResourceManager.GetString("Steal_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Such Card Cannot be Found.
+        /// </summary>
+        internal static string Such_Card_Cannot_be_Found {
+            get {
+                return ResourceManager.GetString("Such_Card_Cannot_be_Found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sun Quan.
+        /// </summary>
+        internal static string Sun_Quan {
+            get {
+                return ResourceManager.GetString("Sun_Quan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SunQuan.
+        /// </summary>
+        internal static string SunQuan {
+            get {
+                return ResourceManager.GetString("SunQuan", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ZhangFei {
+        internal static System.Drawing.Bitmap SunQuan1 {
             get {
-                object obj = ResourceManager.GetObject("ZhangFei", resourceCulture);
+                object obj = ResourceManager.GetObject("SunQuan1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The card stack is empty.
+        /// </summary>
+        internal static string The_card_stack_is_empty {
+            get {
+                return ResourceManager.GetString("The_card_stack_is_empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The game has ended .
+        /// </summary>
+        internal static string The_game_has_ended {
+            get {
+                return ResourceManager.GetString("The_game_has_ended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The round of .
+        /// </summary>
+        internal static string The_round_of {
+            get {
+                return ResourceManager.GetString("The_round_of", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The stages stack is empty.
+        /// </summary>
+        internal static string The_stages_stack_is_empty {
+            get {
+                return ResourceManager.GetString("The_stages_stack_is_empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There should not be this kind of player type .
+        /// </summary>
+        internal static string There_should_not_be_this_kind_ {
+            get {
+                return ResourceManager.GetString("There_should_not_be_this_kind_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is player .
+        /// </summary>
+        internal static string This_is_player {
+            get {
+                return ResourceManager.GetString("This_is_player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to this_player.
+        /// </summary>
+        internal static string this_player {
+            get {
+                return ResourceManager.GetString("this_player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to this_player_ab.
+        /// </summary>
+        internal static string this_player_ab {
+            get {
+                return ResourceManager.GetString("this_player_ab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to this_player_stage.
+        /// </summary>
+        internal static string this_player_stage {
+            get {
+                return ResourceManager.GetString("this_player_stage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tick.
+        /// </summary>
+        internal static string Tick {
+            get {
+                return ResourceManager.GetString("Tick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to timeout.
+        /// </summary>
+        internal static string timeout {
+            get {
+                return ResourceManager.GetString("timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to timeOutAdvance cannot return null.
+        /// </summary>
+        internal static string timeOutAdvance_cannot_return_n {
+            get {
+                return ResourceManager.GetString("timeOutAdvance_cannot_return_n", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tool_attack.
+        /// </summary>
+        internal static string tool_attack {
+            get {
+                return ResourceManager.GetString("tool_attack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tool_attack_ab.
+        /// </summary>
+        internal static string tool_attack_ab {
+            get {
+                return ResourceManager.GetString("tool_attack_ab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tool_defence.
+        /// </summary>
+        internal static string tool_defence {
+            get {
+                return ResourceManager.GetString("tool_defence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to upleft_player.
+        /// </summary>
+        internal static string upleft_player {
+            get {
+                return ResourceManager.GetString("upleft_player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to upleft_player_ab.
+        /// </summary>
+        internal static string upleft_player_ab {
+            get {
+                return ResourceManager.GetString("upleft_player_ab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to upright_player.
+        /// </summary>
+        internal static string upright_player {
+            get {
+                return ResourceManager.GetString("upright_player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to upright_player_ab.
+        /// </summary>
+        internal static string upright_player_ab {
+            get {
+                return ResourceManager.GetString("upright_player_ab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to waitTime should not be negative.
+        /// </summary>
+        internal static string waitTime_should_not_be_negativ {
+            get {
+                return ResourceManager.GetString("waitTime_should_not_be_negativ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wealth.
+        /// </summary>
+        internal static string Wealth {
+            get {
+                return ResourceManager.GetString("Wealth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wealth Description.
+        /// </summary>
+        internal static string Wealth_Description {
+            get {
+                return ResourceManager.GetString("Wealth_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When Cao Cao is damaged by a card, he can immediately put it into his hand.
+        /// </summary>
+        internal static string When_Cao_Cao_is_damaged_by_a_c {
+            get {
+                return ResourceManager.GetString("When_Cao_Cao_is_damaged_by_a_c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wine.
+        /// </summary>
+        internal static string Wine {
+            get {
+                return ResourceManager.GetString("Wine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wine Description.
+        /// </summary>
+        internal static string Wine_Description {
+            get {
+                return ResourceManager.GetString("Wine_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zhang Fei.
+        /// </summary>
+        internal static string Zhang_Fei {
+            get {
+                return ResourceManager.GetString("Zhang_Fei", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zhang Fei has no restrictions on how many times he can attack during his turn.
+        /// </summary>
+        internal static string Zhang_Fei_has_no_restrictions_ {
+            get {
+                return ResourceManager.GetString("Zhang_Fei_has_no_restrictions_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZhangFei.
+        /// </summary>
+        internal static string ZhangFei {
+            get {
+                return ResourceManager.GetString("ZhangFei", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZhangFei1 {
+            get {
+                object obj = ResourceManager.GetObject("ZhangFei1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

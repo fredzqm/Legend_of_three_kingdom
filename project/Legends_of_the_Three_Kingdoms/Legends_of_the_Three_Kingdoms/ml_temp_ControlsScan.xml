@@ -1,0 +1,575 @@
+<?xml version="1.0" standalone="yes"?>
+<ControlsScanResultsCache xmlns="http://tempuri.org/ControlsScanResults.xsd">
+  <ControlsScanResults>
+    <ControlsScanID>1</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Form1.cs</FullName>
+    <ShortName>Form1.cs</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Form</ProgID>
+    <OriginalText />
+    <SortKey>Form1.cs</SortKey>
+    <NodeType>0</NodeType>
+    <Expanded>true</Expanded>
+    <ItemLevel>0</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>2</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Ability</FullName>
+    <ShortName>Ability</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>BAbility</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>3</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Ability.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>Ability</OriginalText>
+    <SortKey>BAAbility.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>Ability.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>4</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Cancel</FullName>
+    <ShortName>Cancel</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>BCancel</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>5</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Cancel.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>Cancel</OriginalText>
+    <SortKey>BACancel.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>Cancel.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>6</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>cardPileCount</FullName>
+    <ShortName>cardPileCount</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Label</ProgID>
+    <OriginalText />
+    <SortKey>BcardPileCount</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>7</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>cardPileCount.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Label</ProgID>
+    <OriginalText>100</OriginalText>
+    <SortKey>BAcardPileCount.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>cardPileCount.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>8</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>hand_cards</FullName>
+    <ShortName>hand_cards</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.CheckedListBox</ProgID>
+    <OriginalText />
+    <SortKey>Bhand_cards</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>9</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>hand_cards.Items[0]</FullName>
+    <ShortName>Items</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.CheckedListBox</ProgID>
+    <OriginalText>Hand Card name
+Hand card description</OriginalText>
+    <SortKey>BAhand_cards.Items[0]</SortKey>
+    <NodeType>8965</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>0</ArrayIndexOrCount>
+    <CompilerName>hand_cards.Items[0]</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>10</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>hand_cards.Items[1]</FullName>
+    <ShortName>Items</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.CheckedListBox</ProgID>
+    <OriginalText>Hand Card name2
+Hand card description2</OriginalText>
+    <SortKey>BAhand_cards.Items[1]</SortKey>
+    <NodeType>8965</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>1</ArrayIndexOrCount>
+    <CompilerName>hand_cards.Items[1]</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>11</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>label1</FullName>
+    <ShortName>label1</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Label</ProgID>
+    <OriginalText />
+    <SortKey>Blabel1</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>12</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>label1.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Label</ProgID>
+    <OriginalText>label1</OriginalText>
+    <SortKey>BAlabel1.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>label1.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>13</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>LowerLeft</FullName>
+    <ShortName>LowerLeft</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>BLowerLeft</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>14</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>LowerLeft.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>LowerLeft</OriginalText>
+    <SortKey>BALowerLeft.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>LowerLeft.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>15</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>LowerRight</FullName>
+    <ShortName>LowerRight</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>BLowerRight</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>16</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>LowerRight.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>LowerRight</OriginalText>
+    <SortKey>BALowerRight.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>LowerRight.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>17</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>OK</FullName>
+    <ShortName>OK</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>BOK</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>18</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>OK.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>OK</OriginalText>
+    <SortKey>BAOK.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>OK.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>19</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Pool</FullName>
+    <ShortName>Pool</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText />
+    <SortKey>BPool</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>20</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Pool.Lines</FullName>
+    <ShortName>Lines</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText />
+    <SortKey>BAPool.Lines</SortKey>
+    <NodeType>8196</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>1</ArrayIndexOrCount>
+    <CompilerName>Pool.Lines</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>21</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Pool.Lines[0]</FullName>
+    <ShortName>Lines</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText>Pool Cards</OriginalText>
+    <SortKey>BLines(0000)</SortKey>
+    <NodeType>8965</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>3</ItemLevel>
+    <ArrayIndexOrCount>0</ArrayIndexOrCount>
+    <CompilerName>Pool.Lines[0]</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>22</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>Pool.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText>Pool Cards</OriginalText>
+    <SortKey>BAPool.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>Pool.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>23</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>ThisPlayer</FullName>
+    <ShortName>ThisPlayer</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>BThisPlayer</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>24</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>ThisPlayer.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>ThisPlayer</OriginalText>
+    <SortKey>BAThisPlayer.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>ThisPlayer.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>25</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>tool_attack</FullName>
+    <ShortName>tool_attack</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText />
+    <SortKey>Btool_attack</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>26</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>tool_attack.Lines</FullName>
+    <ShortName>Lines</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText />
+    <SortKey>BAtool_attack.Lines</SortKey>
+    <NodeType>8196</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>1</ArrayIndexOrCount>
+    <CompilerName>tool_attack.Lines</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>27</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>tool_attack.Lines[0]</FullName>
+    <ShortName>Lines</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText>Weapon</OriginalText>
+    <SortKey>BLines(0000)</SortKey>
+    <NodeType>8965</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>3</ItemLevel>
+    <ArrayIndexOrCount>0</ArrayIndexOrCount>
+    <CompilerName>tool_attack.Lines[0]</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>28</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>tool_attack.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText>Weapon</OriginalText>
+    <SortKey>BAtool_attack.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>tool_attack.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>29</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>tool_defence</FullName>
+    <ShortName>tool_defence</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText />
+    <SortKey>Btool_defence</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>30</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>tool_defence.Lines</FullName>
+    <ShortName>Lines</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText />
+    <SortKey>BAtool_defence.Lines</SortKey>
+    <NodeType>8196</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>1</ArrayIndexOrCount>
+    <CompilerName>tool_defence.Lines</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>31</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>tool_defence.Lines[0]</FullName>
+    <ShortName>Lines</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText>Shield</OriginalText>
+    <SortKey>BLines(0000)</SortKey>
+    <NodeType>8965</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>3</ItemLevel>
+    <ArrayIndexOrCount>0</ArrayIndexOrCount>
+    <CompilerName>tool_defence.Lines[0]</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>32</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>tool_defence.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.RichTextBox</ProgID>
+    <OriginalText>Shield</OriginalText>
+    <SortKey>BAtool_defence.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>tool_defence.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>33</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>turn</FullName>
+    <ShortName>turn</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Label</ProgID>
+    <OriginalText />
+    <SortKey>Bturn</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>34</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>turn.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Label</ProgID>
+    <OriginalText>Turn</OriginalText>
+    <SortKey>BAturn.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>turn.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>35</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>UpperLeft</FullName>
+    <ShortName>UpperLeft</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>BUpperLeft</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>36</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>UpperLeft.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>UpperLeft</OriginalText>
+    <SortKey>BAUpperLeft.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>UpperLeft.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>37</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>UpperRight</FullName>
+    <ShortName>UpperRight</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>BUpperRight</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>38</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>UpperRight.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>UpperRight</OriginalText>
+    <SortKey>BAUpperRight.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>UpperRight.Text</CompilerName>
+  </ControlsScanResults>
+</ControlsScanResultsCache>

@@ -23,7 +23,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Plyaer " + player.ToString() + " at PlayerTurn";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Plyaer + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._at_PlayerTurn;
         }
     }
 
@@ -44,7 +44,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Plyaer " + player.ToString() + " at JudgePhase";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Plyaer + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._at_JudgePhase;
         }
     }
 
@@ -66,7 +66,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Plyaer " + player.ToString() + " at DrawingPhase";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Plyaer + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._at_DrawingPhase;
         }
     }
 
@@ -142,7 +142,7 @@ namespace LOTK.Model
                 throw new NotImplementedException();
                 //return new PhaseList(new UseEquipmentPhase(player, card as Equipment), this);
             }
-            game.log(""+card+"Cannot be uese");
+            game.log(""+card+Legends_of_the_Three_Kingdoms.Properties.Resources.Cannot_be_uese);
             return null;
         }
 
@@ -165,7 +165,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Plyaer " + player.ToString() + " at ActionPhase";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Plyaer + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._at_ActionPhase;
         }
 
     }
@@ -207,7 +207,7 @@ namespace LOTK.Model
 
         public override string ToString()
         { 
-            return "Plyaer " + player.ToString() + " at DiscardPhase";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Plyaer + player.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._at_DiscardPhase;
         }
     }
 }

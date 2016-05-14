@@ -66,7 +66,7 @@ namespace LOTK.Controller
 
         private void addLog(string str)
         {
-            logs += str + "\n";
+            logs += str + Legends_of_the_Three_Kingdoms.Properties.Resources.res;
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace LOTK.Controller
         /// <param name="e"></param>
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            Console.Write("Tick");
+            Console.Write(Legends_of_the_Three_Kingdoms.Properties.Resources.Tick);
             updateViews(game.tick());
         }
 
@@ -89,7 +89,7 @@ namespace LOTK.Controller
         {
             if (game.hasEnd())
             {
-                game.log("The game has ended " + game.status.ToString());
+                game.log(Legends_of_the_Three_Kingdoms.Properties.Resources.The_game_has_ended + game.status.ToString());
             }
             Required_Data rd = new Required_Data();
             for (int i = 0; i < NUM_OF_PLAYER; i++)
@@ -120,10 +120,10 @@ namespace LOTK.Controller
         {
             String displayedStr;
             if (player.isDead())
-                displayedStr = player.name + player.playerType.ToString() + " Dead";
+                displayedStr = player.name + player.playerType.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._Dead;
             else if (player.playerType == PlayerType.King)
             {
-                displayedStr = player.name +  " King";
+                displayedStr = player.name +  Legends_of_the_Three_Kingdoms.Properties.Resources._King;
             } else
             {
                 displayedStr = player.name;
@@ -230,7 +230,7 @@ namespace LOTK.Controller
                         handler.clickAbility(buttonID);
                         break;
                     default:
-                        throw new InvalidOperationException("Button type not found!");
+                        throw new InvalidOperationException(Legends_of_the_Three_Kingdoms.Properties.Resources.Button_type_not_found);
                 }
             }catch (InvalidOperationException e)
             {

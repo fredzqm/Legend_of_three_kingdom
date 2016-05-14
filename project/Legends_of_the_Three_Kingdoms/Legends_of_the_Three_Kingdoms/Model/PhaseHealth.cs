@@ -109,7 +109,7 @@ namespace LOTK.Model
 
         public override string ToString()
         {
-            return "Dead phase of " + player;
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.Dead_phase_of + player;
         }
     }
 }

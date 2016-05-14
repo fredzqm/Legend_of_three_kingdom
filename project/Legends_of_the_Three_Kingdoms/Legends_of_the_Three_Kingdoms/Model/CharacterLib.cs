@@ -13,11 +13,11 @@ namespace LOTK.Model
      /// create ZhangFei
      /// </summary>
      /// <param name="pos ">this is the position of the player in All player</param>
-        public ZhangFei(int pos, PlayerType type) :  base(pos, "Zhang Fei", "Zhang Fei has no restrictions on how many times he can attack during his turn", 4, type) {}
+        public ZhangFei(int pos, PlayerType type) :  base(pos, Legends_of_the_Three_Kingdoms.Properties.Resources.Zhang_Fei, Legends_of_the_Three_Kingdoms.Properties.Resources.Zhang_Fei_has_no_restrictions_, 4, type) {}
         public ZhangFei(int pos) :  this(pos, PlayerType.Undefined){}
         public override string ToString()
         {
-            return "ZhangFei";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.ZhangFei;
         }
         /// <summary>
         /// override of Player.canNotAttack()
@@ -29,11 +29,11 @@ namespace LOTK.Model
         {
             if (curPhase == null)
             {
-                throw new EmptyException("curphase null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.curphase_null);
             }
             else if (game == null)
             {
-                throw new EmptyException("game null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.game_null);
             }
             else {
                 return (curPhase.targets.Length > curPhase.attack.numOfTargets() || curPhase.targets.Length == 0 || curPhase.targets[0] == this);
@@ -50,10 +50,10 @@ namespace LOTK.Model
         /// create LiuBei
         /// </summary>
         /// <param name="pos"> this is the position of the player in All player</param>
-        public LiuBei(int pos, PlayerType type) : base(pos, "Liu Bei", "Liu Bei's can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health", 4, type) {}
+        public LiuBei(int pos, PlayerType type) : base(pos, Legends_of_the_Three_Kingdoms.Properties.Resources.Liu_Bei, Legends_of_the_Three_Kingdoms.Properties.Resources.Liu_Bei_s_can_give_any_number_, 4, type) {}
         public override string ToString()
         {
-            return "LiuBei";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.LiuBei;
         }
         public LiuBei(int pos) :  this(pos, PlayerType.Undefined){ }
 
@@ -67,11 +67,11 @@ namespace LOTK.Model
         {
             if (abilityAction == null)
             {
-                throw new EmptyException("abilityaction null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.abilityaction_null);
             }
             else if (game == null)
             {
-                throw new EmptyException("game null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.game_null);
             }
             this.handCards.Remove(abilityAction.card);
             abilityAction.targets[0].handCards.Add(abilityAction.card);
@@ -87,11 +87,11 @@ namespace LOTK.Model
         /// create CaoCao
         /// </summary>
         /// <param name="pos"> this is the position of the player in All player</param>
-        public CaoCao(int pos, PlayerType type) : base(pos, "Cao Cao", "When Cao Cao is damaged by a card, he can immediately put it into his hand", 4, type) {}
+        public CaoCao(int pos, PlayerType type) : base(pos, Legends_of_the_Three_Kingdoms.Properties.Resources.Cao_Cao, Legends_of_the_Three_Kingdoms.Properties.Resources.When_Cao_Cao_is_damaged_by_a_c, 4, type) {}
         public CaoCao(int pos) :  this(pos, PlayerType.Undefined){ }
         public override string ToString()
         {
-            return "CaoCao";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.CaoCao;
         }
         /// <summary>
         /// override of Player.harm()
@@ -103,11 +103,11 @@ namespace LOTK.Model
         {
             if (harmPhase == null)
             {
-                throw new EmptyException("harmPhase null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.harmPhase_null);
             }
             else if (game == null)
             {
-                throw new EmptyException("game null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.game_null);
             }
             this.health -= harmPhase.harm;
             this.handCards.Add(harmPhase.card);
@@ -128,11 +128,11 @@ namespace LOTK.Model
      /// create SunQuan
      /// </summary>
      /// <param name="pos ">is the position of the player in All player</param>
-        public SunQuan(int pos, PlayerType type) : base(pos, "Sun Quan", "Once during his turn, Sun Quan can discard any number of cards to draw the same number", 4, type) { }
+        public SunQuan(int pos, PlayerType type) : base(pos, Legends_of_the_Three_Kingdoms.Properties.Resources.Sun_Quan, Legends_of_the_Three_Kingdoms.Properties.Resources.Once_during_his_turn_Sun_Quan_, 4, type) { }
         public SunQuan(int pos) :  this(pos, PlayerType.Undefined){}
         public override string ToString()
         {
-            return "SunQuan";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.SunQuan;
         }
         /// <summary>
         /// override Player.abilitySun()
@@ -145,11 +145,11 @@ namespace LOTK.Model
 
             if (abilityAction == null)
             {
-                throw new EmptyException("abilityActon null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.abilityActon_null);
             }
             else if (game == null)
             {
-                throw new EmptyException("game null");
+                throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.game_null);
             }
 
             this.drawCards(1, game);
@@ -166,12 +166,12 @@ namespace LOTK.Model
         /// Create Lumeng
         /// </summary>
         /// <param name="pos">this is the position of the player in All player</param>
-        public LuMeng(int pos, PlayerType type) : base(pos, "Lu Meng", "If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase", 4, type) {}
+        public LuMeng(int pos, PlayerType type) : base(pos, Legends_of_the_Three_Kingdoms.Properties.Resources.Lu_Meng, Legends_of_the_Three_Kingdoms.Properties.Resources.If_Lu_Meng_does_not_use_any_At, 4, type) {}
         public LuMeng(int pos) :  this(pos, PlayerType.Undefined){ }
 
         public override string ToString()
         {
-            return "LuMeng";
+            return Legends_of_the_Three_Kingdoms.Properties.Resources.LuMeng;
         }
         /// <summary>
         /// override player.handcardCount()

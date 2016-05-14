@@ -157,11 +157,11 @@ namespace LOTK.Model
         public Game(Player[] players, ICardSet cardList)
         {
             if (cardList == null)
-                throw new NotDefinedException("CardList is not defined");
+                throw new NotDefinedException(Legends_of_the_Three_Kingdoms.Properties.Resources.CardList_is_not_defined);
             cards = cardList;
 
             if (players == null)
-                throw new NotDefinedException("CardList is not defined");
+                throw new NotDefinedException(Legends_of_the_Three_Kingdoms.Properties.Resources.CardList_is_not_defined);
             this.players = players;
 
             status = GameStatus.NotFinish;
@@ -181,7 +181,7 @@ namespace LOTK.Model
                 }
             }
             stages.add(new PlayerTurn(players[0]));
-            log("Start the game");
+            log(Legends_of_the_Three_Kingdoms.Properties.Resources.Start_the_game);
             nextStage(null);
         }
 
@@ -207,13 +207,13 @@ namespace LOTK.Model
                 if (curPhase is PlayerTurn)
                 { // when turn switches
                     curRoundPlayer = curPhase.player;
-                    log("The round of " + curRoundPlayer.ToString() + " start");
+                    log(Legends_of_the_Three_Kingdoms.Properties.Resources.The_round_of + curRoundPlayer.ToString() + Legends_of_the_Three_Kingdoms.Properties.Resources._start);
                 }
                 followingPhases = curPhase.advance(userAction, this);
                 if (followingPhases == null)
                 { // the next state need a user action for future decison
                     if (curPhase is HiddenPhase)
-                        throw new InvalidOperationException("Invisible Phase should not give null " + curPhase);
+                        throw new InvalidOperationException(Legends_of_the_Three_Kingdoms.Properties.Resources.Invisible_Phase_should_not_giv + curPhase);
                     else
                         return false;
                 }
@@ -221,7 +221,7 @@ namespace LOTK.Model
                 stages.pushList(followingPhases);
                 if (stages.isEmpty())
                 {
-                    throw new EmptyException("The stages stack is empty");
+                    throw new EmptyException(Legends_of_the_Three_Kingdoms.Properties.Resources.The_stages_stack_is_empty);
                 }
                 if (curPhase.needResponse())
                 { // the next state need a user action for future decison
@@ -282,7 +282,7 @@ namespace LOTK.Model
                             spy++;
                             break;
                         default:
-                            throw new NotImplementedException("There should not be this kind of player type " + p.playerType);
+                            throw new NotImplementedException(Legends_of_the_Three_Kingdoms.Properties.Resources.There_should_not_be_this_kind_ + p.playerType);
                     }
                 }
             }

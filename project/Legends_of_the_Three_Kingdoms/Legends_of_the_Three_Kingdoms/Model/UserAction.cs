@@ -41,9 +41,9 @@ namespace LOTK.Model
         public string toString()
         {
             if (yes)
-                return "Yes";
+                return Legends_of_the_Three_Kingdoms.Properties.Resources.Yes;
             else
-                return "No";
+                return Legends_of_the_Three_Kingdoms.Properties.Resources.No;
         }
 
         public override PhaseList processedBy(UserActionPhase userActionPhase, IGame game)

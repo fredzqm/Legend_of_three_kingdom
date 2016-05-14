@@ -53,13 +53,13 @@ namespace LOTK.Controller
             if (Ifabi == 1 && ClickUser >= 0)
             {
                 if (SelectCardId < 0)
-                    throw new InvalidOperationException("Ability of Liu is given no card");
+                    throw new InvalidOperationException(Legends_of_the_Three_Kingdoms.Properties.Resources.Ability_of_Liu_is_given_no_car);
                 return new AbilityAction(game, SelectCardId, ClickUser);
             }
             else if (Ifabi == 1 && ClickUser < 0)
             {
                 if (SelectCardId < 0)
-                    throw new InvalidOperationException("Ability of Sun is given no card");
+                    throw new InvalidOperationException(Legends_of_the_Three_Kingdoms.Properties.Resources.Ability_of_Sun_is_given_no_car);
                 return new AbilityActionSun(game, SelectCardId);
             }
             else if (SelectCardId < 0 && ClickUser < 0)
@@ -75,7 +75,7 @@ namespace LOTK.Controller
                 return new UseCardAction(game, SelectCardId, ClickUser);
             }else
             {
-                throw new InvalidOperationException("Invalid operation");
+                throw new InvalidOperationException(Legends_of_the_Three_Kingdoms.Properties.Resources.Invalid_operation);
             }
         }
 
