@@ -432,6 +432,10 @@
   <GeneralIds>
     <StringID>202</StringID>
   </GeneralIds>
+  <GeneralIds>
+    <StringID>203</StringID>
+    <Comment>Previous text: Language</Comment>
+  </GeneralIds>
   <Languages>
     <LanguageID>1033</LanguageID>
     <LanguageName>English (United States)</LanguageName>
@@ -443,6 +447,12 @@
     <LanguageName>Chinese (Simplified)</LanguageName>
     <IetfLanguageTag>zh-Hans</IetfLanguageTag>
     <ColumnNumber>1</ColumnNumber>
+  </Languages>
+  <Languages>
+    <LanguageID>9</LanguageID>
+    <LanguageName>English</LanguageName>
+    <IetfLanguageTag>en</IetfLanguageTag>
+    <ColumnNumber>2</ColumnNumber>
   </Languages>
   <GeneralTexts>
     <StringID>1</StringID>
@@ -1911,6 +1921,536 @@ Hand card description2</LanguageText>
     <LanguageText>]</LanguageText>
     <Status>1</Status>
   </GeneralTexts>
+  <GeneralTexts>
+    <StringID>165</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText> 在行动阶段</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>166</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText> 在弃牌阶段</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>160</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText> 在摸牌阶段</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>163</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>尝试使用</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>191</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>刘备无能力卡</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>192</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>孙权无能力卡</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>164</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>无法使用</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>174</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>无法摸卡</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>194</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>卡堆不能为空</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>167</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>Dead phase of </LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>170</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>无描述</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>187</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>左下玩家</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>186</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>左下玩家能力</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>181</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>右下玩家</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>180</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>右下玩家能力</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>198</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>空阶段例外</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>171</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>生命上限为负数</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>188</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>手牌</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>193</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>非法操作</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>189</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>信息</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>169</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>名字为空</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>199</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>空阶段列表</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>173</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>玩家描述在</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>168</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>位置为负数</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>195</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>卡用光</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>196</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>无法找到此卡</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>197</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>卡堆为空</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>179</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>本玩家</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>178</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>本玩家能力</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>190</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>本玩家阶段</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>175</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>攻击工具</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>176</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>攻击工具能力</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>177</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>防御工具</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>185</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>左上玩家</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>184</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>左上玩家能力</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>183</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>右上玩家</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>182</StringID>
+    <LanguageID>4</LanguageID>
+    <LanguageText>右上玩家能力</LanguageText>
+    <Status>6</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>203</StringID>
+    <LanguageID>1033</LanguageID>
+    <LanguageText>button1</LanguageText>
+    <Status>1</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>7</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Ability</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>13</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Cancel</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>15</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>100</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>4</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Hand Card name
+Hand card description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>5</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Hand Card name2
+Hand card description2</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>16</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>label1</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>11</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>LowerLeft</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>12</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>LowerRight</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>8</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>OK</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>6</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Pool Cards</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>14</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>ThisPlayer</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>2</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Weapon</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>3</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Shield</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>1</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Turn</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>9</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>UpperLeft</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>10</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>UpperRight</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>18</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Attack Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>19</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Attack</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>20</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Miss Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>21</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Miss</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>22</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Wine Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>23</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Wine</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>24</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Peach Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>25</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Peach</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>26</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Negate Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>27</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Negate</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>28</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Barbarians Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>29</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Barbarians</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>30</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>HailofArrow Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>31</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>HailofArrow</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>32</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>PeachGarden Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>33</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>PeachGarden</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>34</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Wealth Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>35</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Wealth</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>36</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Steal Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>37</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Steal</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>38</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Break Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>39</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Break</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>40</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Capture Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>41</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Capture</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>42</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Starvation Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>43</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Starvation</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>44</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Crossbow Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>45</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Crossbow</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>46</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>IceSword Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>47</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>IceSword</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>48</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Scimitar Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>49</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>Scimitar</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>50</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>BlackShield Description</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
+  <GeneralTexts>
+    <StringID>51</StringID>
+    <LanguageID>9</LanguageID>
+    <LanguageText>BlackShield</LanguageText>
+    <Status>3</Status>
+  </GeneralTexts>
   <Properties>
     <Component>Form1.cs</Component>
     <Name>turn.Text</Name>
@@ -2817,14 +3357,6 @@ Hand card description2</LanguageText>
   </Properties>
   <Properties>
     <Component>Resources.resx</Component>
-    <Name>Player_Name</Name>
-    <StringID>172</StringID>
-    <Selected>true</Selected>
-    <ResourceName>Player_Name</ResourceName>
-    <Hidden>false</Hidden>
-  </Properties>
-  <Properties>
-    <Component>Resources.resx</Component>
     <Name>Player_Description_at</Name>
     <StringID>173</StringID>
     <Selected>true</Selected>
@@ -3079,6 +3611,14 @@ Hand card description2</LanguageText>
     <ResourceName>res3</ResourceName>
     <Hidden>false</Hidden>
   </Properties>
+  <Properties>
+    <Component>Form1.cs</Component>
+    <Name>button1.Text</Name>
+    <StringID>203</StringID>
+    <Selected>true</Selected>
+    <ResourceName>button1.Text</ResourceName>
+    <Hidden>false</Hidden>
+  </Properties>
   <GeneralAttributes>
     <Name>XmlDatabaseVersion</Name>
     <TextValue>1</TextValue>
@@ -3086,7 +3626,7 @@ Hand card description2</LanguageText>
   </GeneralAttributes>
   <GeneralAttributes>
     <Name>StatusHash</Name>
-    <TextValue>Bf5AV1MWbxJVWefJrFWGVPEHx+k=</TextValue>
+    <TextValue>c5s1zLzHYsw9OM1cm+gbTqXIkTc=</TextValue>
     <NumValue>0</NumValue>
   </GeneralAttributes>
   <GeneralAttributes>

@@ -117,11 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Ability.Text" xml:space="preserve">
-    <value>能力</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="turn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
   </data>
-  <data name="Cancel.Text" xml:space="preserve">
-    <value>取消</value>
+  <data name="turn.Text" xml:space="preserve">
+    <value>回合</value>
+  </data>
+  <data name="tool_attack.Text" xml:space="preserve">
+    <value>武器</value>
+  </data>
+  <data name="tool_defence.Text" xml:space="preserve">
+    <value>盾牌</value>
   </data>
   <data name="hand_cards.Items" xml:space="preserve">
     <value>手牌名称 手牌描述</value>
@@ -129,8 +136,20 @@
   <data name="hand_cards.Items1" xml:space="preserve">
     <value>手牌名称2 手牌描述2</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>标牌</value>
+  <data name="Pool.Text" xml:space="preserve">
+    <value>手牌池</value>
+  </data>
+  <data name="Ability.Text" xml:space="preserve">
+    <value>能力</value>
+  </data>
+  <data name="OK.Text" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="UpperLeft.Text" xml:space="preserve">
+    <value>左上</value>
+  </data>
+  <data name="UpperRight.Text" xml:space="preserve">
+    <value>右上</value>
   </data>
   <data name="LowerLeft.Text" xml:space="preserve">
     <value>左下</value>
@@ -138,37 +157,16 @@
   <data name="LowerRight.Text" xml:space="preserve">
     <value>右下</value>
   </data>
-  <data name="OK.Text" xml:space="preserve">
-    <value>确定</value>
-  </data>
-  <data name="Pool.Lines[0]" xml:space="preserve">
-    <value>手牌池</value>
-  </data>
-  <data name="Pool.Text" xml:space="preserve">
-    <value>手牌池</value>
+  <data name="Cancel.Text" xml:space="preserve">
+    <value>取消</value>
   </data>
   <data name="ThisPlayer.Text" xml:space="preserve">
     <value>本玩家</value>
   </data>
-  <data name="tool_attack.Lines[0]" xml:space="preserve">
-    <value>武器</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
   </data>
-  <data name="tool_attack.Text" xml:space="preserve">
-    <value>武器</value>
-  </data>
-  <data name="tool_defence.Lines[0]" xml:space="preserve">
-    <value>盾牌</value>
-  </data>
-  <data name="tool_defence.Text" xml:space="preserve">
-    <value>盾牌</value>
-  </data>
-  <data name="turn.Text" xml:space="preserve">
-    <value>回合</value>
-  </data>
-  <data name="UpperLeft.Text" xml:space="preserve">
-    <value>左上</value>
-  </data>
-  <data name="UpperRight.Text" xml:space="preserve">
-    <value>右上</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>标牌</value>
   </data>
 </root>

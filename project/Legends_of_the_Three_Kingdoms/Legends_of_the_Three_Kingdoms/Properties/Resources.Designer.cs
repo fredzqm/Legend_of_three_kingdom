@@ -794,15 +794,6 @@ namespace Legends_of_the_Three_Kingdoms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Player Name.
-        /// </summary>
-        internal static string Player_Name {
-            get {
-                return ResourceManager.GetString("Player_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Plyaer .
         /// </summary>
         internal static string Plyaer {

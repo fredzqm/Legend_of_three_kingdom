@@ -117,67 +117,106 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Ability.Text" xml:space="preserve">
-    <value>Ability</value>
+  <data name="Attack" xml:space="preserve">
+    <value>Attack</value>
   </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>button1</value>
-    <comment>Previous text: Language</comment>
+  <data name="Attack_Description" xml:space="preserve">
+    <value>Attack Description</value>
   </data>
-  <data name="Cancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="Barbarians" xml:space="preserve">
+    <value>Barbarians</value>
   </data>
-  <data name="cardPileCount.Text" xml:space="preserve">
-    <value>100</value>
+  <data name="Barbarians_Description" xml:space="preserve">
+    <value>Barbarians Description</value>
   </data>
-  <data name="hand_cards.Items" xml:space="preserve">
-    <value>Hand Card name
-Hand card description</value>
+  <data name="BlackShield" xml:space="preserve">
+    <value>BlackShield</value>
   </data>
-  <data name="hand_cards.Items1" xml:space="preserve">
-    <value>Hand Card name2
-Hand card description2</value>
+  <data name="BlackShield_Description" xml:space="preserve">
+    <value>BlackShield Description</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>label1</value>
+  <data name="Break" xml:space="preserve">
+    <value>Break</value>
   </data>
-  <data name="LowerLeft.Text" xml:space="preserve">
-    <value>LowerLeft</value>
+  <data name="Break_Description" xml:space="preserve">
+    <value>Break Description</value>
   </data>
-  <data name="LowerRight.Text" xml:space="preserve">
-    <value>LowerRight</value>
+  <data name="Capture" xml:space="preserve">
+    <value>Capture</value>
   </data>
-  <data name="OK.Text" xml:space="preserve">
-    <value>OK</value>
+  <data name="Capture_Description" xml:space="preserve">
+    <value>Capture Description</value>
   </data>
-  <data name="Pool.Lines[0]" xml:space="preserve">
-    <value>Pool Cards</value>
+  <data name="Crossbow" xml:space="preserve">
+    <value>Crossbow</value>
   </data>
-  <data name="Pool.Text" xml:space="preserve">
-    <value>Pool Cards</value>
+  <data name="Crossbow_Description" xml:space="preserve">
+    <value>Crossbow Description</value>
   </data>
-  <data name="ThisPlayer.Text" xml:space="preserve">
-    <value>ThisPlayer</value>
+  <data name="HailofArrow" xml:space="preserve">
+    <value>HailofArrow</value>
   </data>
-  <data name="tool_attack.Lines[0]" xml:space="preserve">
-    <value>Weapon</value>
+  <data name="HailofArrow_Description" xml:space="preserve">
+    <value>HailofArrow Description</value>
   </data>
-  <data name="tool_attack.Text" xml:space="preserve">
-    <value>Weapon</value>
+  <data name="IceSword" xml:space="preserve">
+    <value>IceSword</value>
   </data>
-  <data name="tool_defence.Lines[0]" xml:space="preserve">
-    <value>Shield</value>
+  <data name="IceSword_Description" xml:space="preserve">
+    <value>IceSword Description</value>
   </data>
-  <data name="tool_defence.Text" xml:space="preserve">
-    <value>Shield</value>
+  <data name="Miss" xml:space="preserve">
+    <value>Miss</value>
   </data>
-  <data name="turn.Text" xml:space="preserve">
-    <value>Turn</value>
+  <data name="Miss_Description" xml:space="preserve">
+    <value>Miss Description</value>
   </data>
-  <data name="UpperLeft.Text" xml:space="preserve">
-    <value>UpperLeft</value>
+  <data name="Negate" xml:space="preserve">
+    <value>Negate</value>
   </data>
-  <data name="UpperRight.Text" xml:space="preserve">
-    <value>UpperRight</value>
+  <data name="Negate_Description" xml:space="preserve">
+    <value>Negate Description</value>
+  </data>
+  <data name="Peach" xml:space="preserve">
+    <value>Peach</value>
+  </data>
+  <data name="Peach_Description" xml:space="preserve">
+    <value>Peach Description</value>
+  </data>
+  <data name="PeachGarden" xml:space="preserve">
+    <value>PeachGarden</value>
+  </data>
+  <data name="PeachGarden_Description" xml:space="preserve">
+    <value>PeachGarden Description</value>
+  </data>
+  <data name="Scimitar" xml:space="preserve">
+    <value>Scimitar</value>
+  </data>
+  <data name="Scimitar_Description" xml:space="preserve">
+    <value>Scimitar Description</value>
+  </data>
+  <data name="Starvation" xml:space="preserve">
+    <value>Starvation</value>
+  </data>
+  <data name="Starvation_Description" xml:space="preserve">
+    <value>Starvation Description</value>
+  </data>
+  <data name="Steal" xml:space="preserve">
+    <value>Steal</value>
+  </data>
+  <data name="Steal_Description" xml:space="preserve">
+    <value>Steal Description</value>
+  </data>
+  <data name="Wealth" xml:space="preserve">
+    <value>Wealth</value>
+  </data>
+  <data name="Wealth_Description" xml:space="preserve">
+    <value>Wealth Description</value>
+  </data>
+  <data name="Wine" xml:space="preserve">
+    <value>Wine</value>
+  </data>
+  <data name="Wine_Description" xml:space="preserve">
+    <value>Wine Description</value>
   </data>
 </root>

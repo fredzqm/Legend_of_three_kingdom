@@ -120,10 +120,6 @@
   <data name="Ability.Text" xml:space="preserve">
     <value>Ability</value>
   </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>button1</value>
-    <comment>Previous text: Language</comment>
-  </data>
   <data name="Cancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -179,5 +175,9 @@ Hand card description2</value>
   </data>
   <data name="UpperRight.Text" xml:space="preserve">
     <value>UpperRight</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 28</value>
   </data>
 </root>

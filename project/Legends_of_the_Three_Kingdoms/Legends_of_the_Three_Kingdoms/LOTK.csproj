@@ -83,10 +83,16 @@
     <EmbeddedResource Include="Properties\Resources.en-US.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.en.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh-Hans.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.en-US.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form1.en.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">

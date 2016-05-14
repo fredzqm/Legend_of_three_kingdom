@@ -4,7 +4,7 @@
     <SourceScanID>1</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>24</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>18</StringID>
     <OriginalText>Attack Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -22,7 +22,7 @@
     <SourceScanID>2</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>34</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>19</StringID>
     <OriginalText>Attack</OriginalText>
     <IsHidden>false</IsHidden>
@@ -40,7 +40,7 @@
     <SourceScanID>3</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>51</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>20</StringID>
     <OriginalText>Miss Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -58,7 +58,7 @@
     <SourceScanID>4</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>60</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>21</StringID>
     <OriginalText>Miss</OriginalText>
     <IsHidden>false</IsHidden>
@@ -76,7 +76,7 @@
     <SourceScanID>5</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>78</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>22</StringID>
     <OriginalText>Wine Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -94,7 +94,7 @@
     <SourceScanID>6</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>87</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>23</StringID>
     <OriginalText>Wine</OriginalText>
     <IsHidden>false</IsHidden>
@@ -112,7 +112,7 @@
     <SourceScanID>7</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>104</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>24</StringID>
     <OriginalText>Peach Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -130,7 +130,7 @@
     <SourceScanID>8</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>113</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>25</StringID>
     <OriginalText>Peach</OriginalText>
     <IsHidden>false</IsHidden>
@@ -148,7 +148,7 @@
     <SourceScanID>9</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>131</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>26</StringID>
     <OriginalText>Negate Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -166,7 +166,7 @@
     <SourceScanID>10</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>140</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>27</StringID>
     <OriginalText>Negate</OriginalText>
     <IsHidden>false</IsHidden>
@@ -184,7 +184,7 @@
     <SourceScanID>11</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>157</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>28</StringID>
     <OriginalText>Barbarians Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -202,7 +202,7 @@
     <SourceScanID>12</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>166</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>29</StringID>
     <OriginalText>Barbarians</OriginalText>
     <IsHidden>false</IsHidden>
@@ -220,7 +220,7 @@
     <SourceScanID>13</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>183</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>30</StringID>
     <OriginalText>HailofArrow Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -238,7 +238,7 @@
     <SourceScanID>14</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>192</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>31</StringID>
     <OriginalText>HailofArrow</OriginalText>
     <IsHidden>false</IsHidden>
@@ -256,7 +256,7 @@
     <SourceScanID>15</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>209</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>32</StringID>
     <OriginalText>PeachGarden Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -274,7 +274,7 @@
     <SourceScanID>16</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>218</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>33</StringID>
     <OriginalText>PeachGarden</OriginalText>
     <IsHidden>false</IsHidden>
@@ -292,7 +292,7 @@
     <SourceScanID>17</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>234</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>34</StringID>
     <OriginalText>Wealth Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -310,7 +310,7 @@
     <SourceScanID>18</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>243</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>35</StringID>
     <OriginalText>Wealth</OriginalText>
     <IsHidden>false</IsHidden>
@@ -328,7 +328,7 @@
     <SourceScanID>19</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>260</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>36</StringID>
     <OriginalText>Steal Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -346,7 +346,7 @@
     <SourceScanID>20</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>269</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>37</StringID>
     <OriginalText>Steal</OriginalText>
     <IsHidden>false</IsHidden>
@@ -364,7 +364,7 @@
     <SourceScanID>21</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>286</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>38</StringID>
     <OriginalText>Break Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -382,7 +382,7 @@
     <SourceScanID>22</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>295</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>39</StringID>
     <OriginalText>Break</OriginalText>
     <IsHidden>false</IsHidden>
@@ -400,7 +400,7 @@
     <SourceScanID>23</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>312</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>40</StringID>
     <OriginalText>Capture Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -418,7 +418,7 @@
     <SourceScanID>24</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>317</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>41</StringID>
     <OriginalText>Capture</OriginalText>
     <IsHidden>false</IsHidden>
@@ -436,7 +436,7 @@
     <SourceScanID>25</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>334</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>42</StringID>
     <OriginalText>Starvation Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -454,7 +454,7 @@
     <SourceScanID>26</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>339</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>43</StringID>
     <OriginalText>Starvation</OriginalText>
     <IsHidden>false</IsHidden>
@@ -472,7 +472,7 @@
     <SourceScanID>27</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>356</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>44</StringID>
     <OriginalText>Crossbow Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -490,7 +490,7 @@
     <SourceScanID>28</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>361</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>45</StringID>
     <OriginalText>Crossbow</OriginalText>
     <IsHidden>false</IsHidden>
@@ -508,7 +508,7 @@
     <SourceScanID>29</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>378</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>46</StringID>
     <OriginalText>IceSword Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -526,7 +526,7 @@
     <SourceScanID>30</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>383</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>47</StringID>
     <OriginalText>IceSword</OriginalText>
     <IsHidden>false</IsHidden>
@@ -544,7 +544,7 @@
     <SourceScanID>31</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>400</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>48</StringID>
     <OriginalText>Scimitar Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -562,7 +562,7 @@
     <SourceScanID>32</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>405</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>49</StringID>
     <OriginalText>Scimitar</OriginalText>
     <IsHidden>false</IsHidden>
@@ -580,7 +580,7 @@
     <SourceScanID>33</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>422</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>50</StringID>
     <OriginalText>BlackShield Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -598,7 +598,7 @@
     <SourceScanID>34</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>427</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>51</StringID>
     <OriginalText>BlackShield</OriginalText>
     <IsHidden>false</IsHidden>
@@ -616,7 +616,7 @@
     <SourceScanID>35</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>444</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>52</StringID>
     <OriginalText>EightTrigrams Description</OriginalText>
     <IsHidden>false</IsHidden>
@@ -634,7 +634,7 @@
     <SourceScanID>36</SourceScanID>
     <ModuleName>CardLib.cs</ModuleName>
     <LineNumber>449</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>53</StringID>
     <OriginalText>EightTrigrams</OriginalText>
     <IsHidden>false</IsHidden>
@@ -652,7 +652,7 @@
     <SourceScanID>37</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>16</LineNumber>
-    <ColumnNumber>65</ColumnNumber>
+    <ColumnNumber>64</ColumnNumber>
     <StringID>111</StringID>
     <OriginalText>Zhang Fei</OriginalText>
     <IsHidden>false</IsHidden>
@@ -670,7 +670,7 @@
     <SourceScanID>38</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>16</LineNumber>
-    <ColumnNumber>78</ColumnNumber>
+    <ColumnNumber>126</ColumnNumber>
     <StringID>112</StringID>
     <OriginalText>Zhang Fei has no restrictions on how many times he can attack during his turn</OriginalText>
     <IsHidden>false</IsHidden>
@@ -688,7 +688,7 @@
     <SourceScanID>39</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>20</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>113</StringID>
     <OriginalText>ZhangFei</OriginalText>
     <IsHidden>false</IsHidden>
@@ -706,7 +706,7 @@
     <SourceScanID>40</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>32</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>114</StringID>
     <OriginalText>curphase null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -724,7 +724,7 @@
     <SourceScanID>41</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>36</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>115</StringID>
     <OriginalText>game null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -742,7 +742,7 @@
     <SourceScanID>42</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>53</LineNumber>
-    <ColumnNumber>62</ColumnNumber>
+    <ColumnNumber>61</ColumnNumber>
     <StringID>116</StringID>
     <OriginalText>Liu Bei</OriginalText>
     <IsHidden>false</IsHidden>
@@ -760,7 +760,7 @@
     <SourceScanID>43</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>53</LineNumber>
-    <ColumnNumber>73</ColumnNumber>
+    <ColumnNumber>121</ColumnNumber>
     <StringID>117</StringID>
     <OriginalText>Liu Bei's can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health</OriginalText>
     <IsHidden>false</IsHidden>
@@ -778,7 +778,7 @@
     <SourceScanID>44</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>56</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>118</StringID>
     <OriginalText>LiuBei</OriginalText>
     <IsHidden>false</IsHidden>
@@ -796,7 +796,7 @@
     <SourceScanID>45</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>70</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>119</StringID>
     <OriginalText>abilityaction null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -814,7 +814,7 @@
     <SourceScanID>46</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>74</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>115</StringID>
     <OriginalText>game null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -832,7 +832,7 @@
     <SourceScanID>47</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>90</LineNumber>
-    <ColumnNumber>62</ColumnNumber>
+    <ColumnNumber>61</ColumnNumber>
     <StringID>120</StringID>
     <OriginalText>Cao Cao</OriginalText>
     <IsHidden>false</IsHidden>
@@ -850,7 +850,7 @@
     <SourceScanID>48</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>90</LineNumber>
-    <ColumnNumber>73</ColumnNumber>
+    <ColumnNumber>121</ColumnNumber>
     <StringID>121</StringID>
     <OriginalText>When Cao Cao is damaged by a card, he can immediately put it into his hand</OriginalText>
     <IsHidden>false</IsHidden>
@@ -868,7 +868,7 @@
     <SourceScanID>49</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>94</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>122</StringID>
     <OriginalText>CaoCao</OriginalText>
     <IsHidden>false</IsHidden>
@@ -886,7 +886,7 @@
     <SourceScanID>50</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>106</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>123</StringID>
     <OriginalText>harmPhase null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -904,7 +904,7 @@
     <SourceScanID>51</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>110</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>115</StringID>
     <OriginalText>game null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -922,7 +922,7 @@
     <SourceScanID>52</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>131</LineNumber>
-    <ColumnNumber>63</ColumnNumber>
+    <ColumnNumber>62</ColumnNumber>
     <StringID>124</StringID>
     <OriginalText>Sun Quan</OriginalText>
     <IsHidden>false</IsHidden>
@@ -940,7 +940,7 @@
     <SourceScanID>53</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>131</LineNumber>
-    <ColumnNumber>75</ColumnNumber>
+    <ColumnNumber>123</ColumnNumber>
     <StringID>125</StringID>
     <OriginalText>Once during his turn, Sun Quan can discard any number of cards to draw the same number</OriginalText>
     <IsHidden>false</IsHidden>
@@ -958,7 +958,7 @@
     <SourceScanID>54</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>135</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>126</StringID>
     <OriginalText>SunQuan</OriginalText>
     <IsHidden>false</IsHidden>
@@ -976,7 +976,7 @@
     <SourceScanID>55</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>148</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>127</StringID>
     <OriginalText>abilityActon null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -994,7 +994,7 @@
     <SourceScanID>56</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>152</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>115</StringID>
     <OriginalText>game null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1012,7 +1012,7 @@
     <SourceScanID>57</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>169</LineNumber>
-    <ColumnNumber>62</ColumnNumber>
+    <ColumnNumber>61</ColumnNumber>
     <StringID>128</StringID>
     <OriginalText>Lu Meng</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1030,7 +1030,7 @@
     <SourceScanID>58</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>169</LineNumber>
-    <ColumnNumber>73</ColumnNumber>
+    <ColumnNumber>121</ColumnNumber>
     <StringID>129</StringID>
     <OriginalText>If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1048,7 +1048,7 @@
     <SourceScanID>59</SourceScanID>
     <ModuleName>CharacterLib.cs</ModuleName>
     <LineNumber>174</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>130</StringID>
     <OriginalText>LuMeng</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1065,14 +1065,14 @@
   <SourceScanResults>
     <SourceScanID>60</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>77</LineNumber>
-    <ColumnNumber>34</ColumnNumber>
+    <LineNumber>79</LineNumber>
+    <ColumnNumber>33</ColumnNumber>
     <StringID>116</StringID>
     <OriginalText>Liu Bei</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>77</StartOfStatement>
-    <EndOfStatement>77</EndOfStatement>
+    <StartOfStatement>79</StartOfStatement>
+    <EndOfStatement>79</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>addimagehelper</CodeElement>
@@ -1083,14 +1083,14 @@
   <SourceScanResults>
     <SourceScanID>61</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>81</LineNumber>
-    <ColumnNumber>39</ColumnNumber>
+    <LineNumber>83</LineNumber>
+    <ColumnNumber>38</ColumnNumber>
     <StringID>111</StringID>
     <OriginalText>Zhang Fei</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>81</StartOfStatement>
-    <EndOfStatement>81</EndOfStatement>
+    <StartOfStatement>83</StartOfStatement>
+    <EndOfStatement>83</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>addimagehelper</CodeElement>
@@ -1101,14 +1101,14 @@
   <SourceScanResults>
     <SourceScanID>62</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>85</LineNumber>
-    <ColumnNumber>39</ColumnNumber>
+    <LineNumber>87</LineNumber>
+    <ColumnNumber>38</ColumnNumber>
     <StringID>120</StringID>
     <OriginalText>Cao Cao</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>85</StartOfStatement>
-    <EndOfStatement>85</EndOfStatement>
+    <StartOfStatement>87</StartOfStatement>
+    <EndOfStatement>87</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>addimagehelper</CodeElement>
@@ -1119,14 +1119,14 @@
   <SourceScanResults>
     <SourceScanID>63</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>89</LineNumber>
-    <ColumnNumber>39</ColumnNumber>
+    <LineNumber>91</LineNumber>
+    <ColumnNumber>38</ColumnNumber>
     <StringID>124</StringID>
     <OriginalText>Sun Quan</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>89</StartOfStatement>
-    <EndOfStatement>89</EndOfStatement>
+    <StartOfStatement>91</StartOfStatement>
+    <EndOfStatement>91</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>addimagehelper</CodeElement>
@@ -1137,14 +1137,14 @@
   <SourceScanResults>
     <SourceScanID>64</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>93</LineNumber>
-    <ColumnNumber>39</ColumnNumber>
+    <LineNumber>95</LineNumber>
+    <ColumnNumber>38</ColumnNumber>
     <StringID>128</StringID>
     <OriginalText>Lu Meng</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>93</StartOfStatement>
-    <EndOfStatement>93</EndOfStatement>
+    <StartOfStatement>95</StartOfStatement>
+    <EndOfStatement>95</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>addimagehelper</CodeElement>
@@ -1155,14 +1155,14 @@
   <SourceScanResults>
     <SourceScanID>65</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>121</LineNumber>
-    <ColumnNumber>30</ColumnNumber>
+    <LineNumber>123</LineNumber>
+    <ColumnNumber>29</ColumnNumber>
     <StringID>131</StringID>
     <OriginalText>This is player </OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>121</StartOfStatement>
-    <EndOfStatement>121</EndOfStatement>
+    <StartOfStatement>123</StartOfStatement>
+    <EndOfStatement>123</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1173,15 +1173,15 @@
   <SourceScanResults>
     <SourceScanID>66</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>121</LineNumber>
-    <ColumnNumber>61</ColumnNumber>
+    <LineNumber>123</LineNumber>
+    <ColumnNumber>108</ColumnNumber>
     <StringID>161</StringID>
     <OriginalText xml:space="preserve">
 </OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>1</IndexOnLine>
-    <StartOfStatement>121</StartOfStatement>
-    <EndOfStatement>121</EndOfStatement>
+    <StartOfStatement>123</StartOfStatement>
+    <EndOfStatement>123</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1192,14 +1192,14 @@
   <SourceScanResults>
     <SourceScanID>67</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>122</LineNumber>
-    <ColumnNumber>59</ColumnNumber>
+    <LineNumber>124</LineNumber>
+    <ColumnNumber>58</ColumnNumber>
     <StringID>133</StringID>
     <OriginalText> health:</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>122</StartOfStatement>
-    <EndOfStatement>122</EndOfStatement>
+    <StartOfStatement>124</StartOfStatement>
+    <EndOfStatement>124</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1210,14 +1210,14 @@
   <SourceScanResults>
     <SourceScanID>68</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>123</LineNumber>
-    <ColumnNumber>61</ColumnNumber>
+    <LineNumber>125</LineNumber>
+    <ColumnNumber>60</ColumnNumber>
     <StringID>162</StringID>
     <OriginalText>: </OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>123</StartOfStatement>
-    <EndOfStatement>123</EndOfStatement>
+    <StartOfStatement>125</StartOfStatement>
+    <EndOfStatement>125</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1228,14 +1228,14 @@
   <SourceScanResults>
     <SourceScanID>69</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>124</LineNumber>
-    <ColumnNumber>63</ColumnNumber>
+    <LineNumber>126</LineNumber>
+    <ColumnNumber>62</ColumnNumber>
     <StringID>162</StringID>
     <OriginalText>: </OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>124</StartOfStatement>
-    <EndOfStatement>124</EndOfStatement>
+    <StartOfStatement>126</StartOfStatement>
+    <EndOfStatement>126</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1246,14 +1246,14 @@
   <SourceScanResults>
     <SourceScanID>70</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>128</LineNumber>
-    <ColumnNumber>75</ColumnNumber>
+    <LineNumber>130</LineNumber>
+    <ColumnNumber>74</ColumnNumber>
     <StringID>162</StringID>
     <OriginalText>: </OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>128</StartOfStatement>
-    <EndOfStatement>128</EndOfStatement>
+    <StartOfStatement>130</StartOfStatement>
+    <EndOfStatement>130</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1264,14 +1264,14 @@
   <SourceScanResults>
     <SourceScanID>71</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>131</LineNumber>
-    <ColumnNumber>58</ColumnNumber>
+    <LineNumber>133</LineNumber>
+    <ColumnNumber>57</ColumnNumber>
     <StringID>133</StringID>
     <OriginalText> health:</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>131</StartOfStatement>
-    <EndOfStatement>131</EndOfStatement>
+    <StartOfStatement>133</StartOfStatement>
+    <EndOfStatement>133</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1282,14 +1282,14 @@
   <SourceScanResults>
     <SourceScanID>72</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>132</LineNumber>
-    <ColumnNumber>59</ColumnNumber>
+    <LineNumber>134</LineNumber>
+    <ColumnNumber>58</ColumnNumber>
     <StringID>133</StringID>
     <OriginalText> health:</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>132</StartOfStatement>
-    <EndOfStatement>132</EndOfStatement>
+    <StartOfStatement>134</StartOfStatement>
+    <EndOfStatement>134</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1300,14 +1300,14 @@
   <SourceScanResults>
     <SourceScanID>73</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>133</LineNumber>
-    <ColumnNumber>58</ColumnNumber>
+    <LineNumber>135</LineNumber>
+    <ColumnNumber>57</ColumnNumber>
     <StringID>133</StringID>
     <OriginalText> health:</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>133</StartOfStatement>
-    <EndOfStatement>133</EndOfStatement>
+    <StartOfStatement>135</StartOfStatement>
+    <EndOfStatement>135</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1318,14 +1318,14 @@
   <SourceScanResults>
     <SourceScanID>74</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>134</LineNumber>
-    <ColumnNumber>60</ColumnNumber>
+    <LineNumber>136</LineNumber>
+    <ColumnNumber>59</ColumnNumber>
     <StringID>133</StringID>
     <OriginalText> health:</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>134</StartOfStatement>
-    <EndOfStatement>134</EndOfStatement>
+    <StartOfStatement>136</StartOfStatement>
+    <EndOfStatement>136</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>updateFormDelegate</CodeElement>
@@ -1336,14 +1336,14 @@
   <SourceScanResults>
     <SourceScanID>75</SourceScanID>
     <ModuleName>Form1.cs</ModuleName>
-    <LineNumber>237</LineNumber>
-    <ColumnNumber>133</ColumnNumber>
+    <LineNumber>239</LineNumber>
+    <ColumnNumber>132</ColumnNumber>
     <StringID>162</StringID>
     <OriginalText>: </OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
-    <StartOfStatement>237</StartOfStatement>
-    <EndOfStatement>237</EndOfStatement>
+    <StartOfStatement>239</StartOfStatement>
+    <EndOfStatement>239</EndOfStatement>
     <IsVerbatim>false</IsVerbatim>
     <IsHiddenBlock>false</IsHiddenBlock>
     <CodeElement>hand_cards_SelectedIndexChanged</CodeElement>
@@ -1355,7 +1355,7 @@
     <SourceScanID>76</SourceScanID>
     <ModuleName>Game.cs</ModuleName>
     <LineNumber>160</LineNumber>
-    <ColumnNumber>48</ColumnNumber>
+    <ColumnNumber>47</ColumnNumber>
     <StringID>135</StringID>
     <OriginalText>CardList is not defined</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1373,7 +1373,7 @@
     <SourceScanID>77</SourceScanID>
     <ModuleName>Game.cs</ModuleName>
     <LineNumber>164</LineNumber>
-    <ColumnNumber>48</ColumnNumber>
+    <ColumnNumber>47</ColumnNumber>
     <StringID>135</StringID>
     <OriginalText>CardList is not defined</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1391,7 +1391,7 @@
     <SourceScanID>78</SourceScanID>
     <ModuleName>Game.cs</ModuleName>
     <LineNumber>184</LineNumber>
-    <ColumnNumber>18</ColumnNumber>
+    <ColumnNumber>17</ColumnNumber>
     <StringID>136</StringID>
     <OriginalText>Start the game</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1409,7 +1409,7 @@
     <SourceScanID>79</SourceScanID>
     <ModuleName>Game.cs</ModuleName>
     <LineNumber>210</LineNumber>
-    <ColumnNumber>26</ColumnNumber>
+    <ColumnNumber>25</ColumnNumber>
     <StringID>137</StringID>
     <OriginalText>The round of </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1427,7 +1427,7 @@
     <SourceScanID>80</SourceScanID>
     <ModuleName>Game.cs</ModuleName>
     <LineNumber>210</LineNumber>
-    <ColumnNumber>72</ColumnNumber>
+    <ColumnNumber>119</ColumnNumber>
     <StringID>138</StringID>
     <OriginalText> start</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1445,7 +1445,7 @@
     <SourceScanID>81</SourceScanID>
     <ModuleName>Game.cs</ModuleName>
     <LineNumber>216</LineNumber>
-    <ColumnNumber>62</ColumnNumber>
+    <ColumnNumber>61</ColumnNumber>
     <StringID>139</StringID>
     <OriginalText>Invisible Phase should not give null </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1463,7 +1463,7 @@
     <SourceScanID>82</SourceScanID>
     <ModuleName>Game.cs</ModuleName>
     <LineNumber>224</LineNumber>
-    <ColumnNumber>47</ColumnNumber>
+    <ColumnNumber>46</ColumnNumber>
     <StringID>140</StringID>
     <OriginalText>The stages stack is empty</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1481,7 +1481,7 @@
     <SourceScanID>83</SourceScanID>
     <ModuleName>Game.cs</ModuleName>
     <LineNumber>285</LineNumber>
-    <ColumnNumber>64</ColumnNumber>
+    <ColumnNumber>63</ColumnNumber>
     <StringID>141</StringID>
     <OriginalText>There should not be this kind of player type </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1499,7 +1499,7 @@
     <SourceScanID>84</SourceScanID>
     <ModuleName>GameController.cs</ModuleName>
     <LineNumber>69</LineNumber>
-    <ColumnNumber>28</ColumnNumber>
+    <ColumnNumber>27</ColumnNumber>
     <StringID>161</StringID>
     <OriginalText xml:space="preserve">
 </OriginalText>
@@ -1518,7 +1518,7 @@
     <SourceScanID>85</SourceScanID>
     <ModuleName>GameController.cs</ModuleName>
     <LineNumber>79</LineNumber>
-    <ColumnNumber>28</ColumnNumber>
+    <ColumnNumber>27</ColumnNumber>
     <StringID>142</StringID>
     <OriginalText>Tick</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1536,7 +1536,7 @@
     <SourceScanID>86</SourceScanID>
     <ModuleName>GameController.cs</ModuleName>
     <LineNumber>92</LineNumber>
-    <ColumnNumber>27</ColumnNumber>
+    <ColumnNumber>26</ColumnNumber>
     <StringID>143</StringID>
     <OriginalText>The game has ended </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1554,7 +1554,7 @@
     <SourceScanID>87</SourceScanID>
     <ModuleName>GameController.cs</ModuleName>
     <LineNumber>123</LineNumber>
-    <ColumnNumber>78</ColumnNumber>
+    <ColumnNumber>77</ColumnNumber>
     <StringID>144</StringID>
     <OriginalText> Dead</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1572,7 +1572,7 @@
     <SourceScanID>88</SourceScanID>
     <ModuleName>GameController.cs</ModuleName>
     <LineNumber>126</LineNumber>
-    <ColumnNumber>48</ColumnNumber>
+    <ColumnNumber>47</ColumnNumber>
     <StringID>145</StringID>
     <OriginalText> King</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1590,7 +1590,7 @@
     <SourceScanID>89</SourceScanID>
     <ModuleName>GameController.cs</ModuleName>
     <LineNumber>233</LineNumber>
-    <ColumnNumber>62</ColumnNumber>
+    <ColumnNumber>61</ColumnNumber>
     <StringID>146</StringID>
     <OriginalText>Button type not found!</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1608,7 +1608,7 @@
     <SourceScanID>90</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>119</LineNumber>
-    <ColumnNumber>38</ColumnNumber>
+    <ColumnNumber>37</ColumnNumber>
     <StringID>147</StringID>
     <OriginalText>waitTime should not be negative</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1626,7 +1626,7 @@
     <SourceScanID>91</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>133</LineNumber>
-    <ColumnNumber>58</ColumnNumber>
+    <ColumnNumber>57</ColumnNumber>
     <StringID>148</StringID>
     <OriginalText>timeOutAdvance cannot return null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1644,7 +1644,7 @@
     <SourceScanID>92</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>242</LineNumber>
-    <ColumnNumber>23</ColumnNumber>
+    <ColumnNumber>22</ColumnNumber>
     <StringID>149</StringID>
     <OriginalText>Player </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1662,7 +1662,7 @@
     <SourceScanID>93</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>242</LineNumber>
-    <ColumnNumber>55</ColumnNumber>
+    <ColumnNumber>102</ColumnNumber>
     <StringID>150</StringID>
     <OriginalText> Don't have the ability</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1680,7 +1680,7 @@
     <SourceScanID>94</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>254</LineNumber>
-    <ColumnNumber>23</ColumnNumber>
+    <ColumnNumber>22</ColumnNumber>
     <StringID>149</StringID>
     <OriginalText>Player </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1698,7 +1698,7 @@
     <SourceScanID>95</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>254</LineNumber>
-    <ColumnNumber>55</ColumnNumber>
+    <ColumnNumber>102</ColumnNumber>
     <StringID>150</StringID>
     <OriginalText> Don't have the ability</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1716,7 +1716,7 @@
     <SourceScanID>96</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>280</LineNumber>
-    <ColumnNumber>23</ColumnNumber>
+    <ColumnNumber>22</ColumnNumber>
     <StringID>149</StringID>
     <OriginalText>Player </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1734,7 +1734,7 @@
     <SourceScanID>97</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>280</LineNumber>
-    <ColumnNumber>55</ColumnNumber>
+    <ColumnNumber>102</ColumnNumber>
     <StringID>163</StringID>
     <OriginalText> try to use </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1752,7 +1752,7 @@
     <SourceScanID>98</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>292</LineNumber>
-    <ColumnNumber>30</ColumnNumber>
+    <ColumnNumber>29</ColumnNumber>
     <StringID>149</StringID>
     <OriginalText>Player </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1770,7 +1770,7 @@
     <SourceScanID>99</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>292</LineNumber>
-    <ColumnNumber>62</ColumnNumber>
+    <ColumnNumber>109</ColumnNumber>
     <StringID>152</StringID>
     <OriginalText> response card</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1788,7 +1788,7 @@
     <SourceScanID>100</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>317</LineNumber>
-    <ColumnNumber>30</ColumnNumber>
+    <ColumnNumber>29</ColumnNumber>
     <StringID>153</StringID>
     <OriginalText>Response Phase of </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1806,7 +1806,7 @@
     <SourceScanID>101</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>339</LineNumber>
-    <ColumnNumber>23</ColumnNumber>
+    <ColumnNumber>22</ColumnNumber>
     <StringID>154</StringID>
     <OriginalText>response with card </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1824,7 +1824,7 @@
     <SourceScanID>102</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>345</LineNumber>
-    <ColumnNumber>23</ColumnNumber>
+    <ColumnNumber>22</ColumnNumber>
     <StringID>155</StringID>
     <OriginalText>timeout</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1842,7 +1842,7 @@
     <SourceScanID>103</SourceScanID>
     <ModuleName>Phase.cs</ModuleName>
     <LineNumber>354</LineNumber>
-    <ColumnNumber>27</ColumnNumber>
+    <ColumnNumber>26</ColumnNumber>
     <StringID>156</StringID>
     <OriginalText>no card in hands</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1860,7 +1860,7 @@
     <SourceScanID>104</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>26</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>157</StringID>
     <OriginalText>Plyaer </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1878,7 +1878,7 @@
     <SourceScanID>105</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>26</LineNumber>
-    <ColumnNumber>53</ColumnNumber>
+    <ColumnNumber>100</ColumnNumber>
     <StringID>158</StringID>
     <OriginalText> at PlayerTurn</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1896,7 +1896,7 @@
     <SourceScanID>106</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>47</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>157</StringID>
     <OriginalText>Plyaer </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1914,7 +1914,7 @@
     <SourceScanID>107</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>47</LineNumber>
-    <ColumnNumber>53</ColumnNumber>
+    <ColumnNumber>100</ColumnNumber>
     <StringID>159</StringID>
     <OriginalText> at JudgePhase</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1932,7 +1932,7 @@
     <SourceScanID>108</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>69</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>157</StringID>
     <OriginalText>Plyaer </OriginalText>
     <IsHidden>false</IsHidden>
@@ -1950,7 +1950,7 @@
     <SourceScanID>109</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>69</LineNumber>
-    <ColumnNumber>53</ColumnNumber>
+    <ColumnNumber>100</ColumnNumber>
     <StringID>160</StringID>
     <OriginalText> at DrawingPhase</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1968,7 +1968,7 @@
     <SourceScanID>110</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>145</LineNumber>
-    <ColumnNumber>31</ColumnNumber>
+    <ColumnNumber>30</ColumnNumber>
     <StringID>164</StringID>
     <OriginalText>Cannot be uese</OriginalText>
     <IsHidden>false</IsHidden>
@@ -1986,7 +1986,7 @@
     <SourceScanID>111</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>168</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>157</StringID>
     <OriginalText>Plyaer </OriginalText>
     <IsHidden>false</IsHidden>
@@ -2004,7 +2004,7 @@
     <SourceScanID>112</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>168</LineNumber>
-    <ColumnNumber>53</ColumnNumber>
+    <ColumnNumber>100</ColumnNumber>
     <StringID>165</StringID>
     <OriginalText> at ActionPhase</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2022,7 +2022,7 @@
     <SourceScanID>113</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>210</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>157</StringID>
     <OriginalText>Plyaer </OriginalText>
     <IsHidden>false</IsHidden>
@@ -2040,7 +2040,7 @@
     <SourceScanID>114</SourceScanID>
     <ModuleName>PhaseFundamental.cs</ModuleName>
     <LineNumber>210</LineNumber>
-    <ColumnNumber>53</ColumnNumber>
+    <ColumnNumber>100</ColumnNumber>
     <StringID>166</StringID>
     <OriginalText> at DiscardPhase</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2058,7 +2058,7 @@
     <SourceScanID>115</SourceScanID>
     <ModuleName>PhaseHealth.cs</ModuleName>
     <LineNumber>112</LineNumber>
-    <ColumnNumber>21</ColumnNumber>
+    <ColumnNumber>20</ColumnNumber>
     <StringID>167</StringID>
     <OriginalText>Dead phase of </OriginalText>
     <IsHidden>false</IsHidden>
@@ -2076,7 +2076,7 @@
     <SourceScanID>116</SourceScanID>
     <ModuleName>Player.cs</ModuleName>
     <LineNumber>41</LineNumber>
-    <ColumnNumber>56</ColumnNumber>
+    <ColumnNumber>55</ColumnNumber>
     <StringID>168</StringID>
     <OriginalText>pos is negative</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2094,7 +2094,7 @@
     <SourceScanID>117</SourceScanID>
     <ModuleName>Player.cs</ModuleName>
     <LineNumber>45</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>169</StringID>
     <OriginalText>name is null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2112,7 +2112,7 @@
     <SourceScanID>118</SourceScanID>
     <ModuleName>Player.cs</ModuleName>
     <LineNumber>49</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>170</StringID>
     <OriginalText>descripty is null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2130,7 +2130,7 @@
     <SourceScanID>119</SourceScanID>
     <ModuleName>Player.cs</ModuleName>
     <LineNumber>53</LineNumber>
-    <ColumnNumber>56</ColumnNumber>
+    <ColumnNumber>55</ColumnNumber>
     <StringID>171</StringID>
     <OriginalText>healthlimit is negative</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2148,8 +2148,7 @@
     <SourceScanID>120</SourceScanID>
     <ModuleName>Player.cs</ModuleName>
     <LineNumber>81</LineNumber>
-    <ColumnNumber>45</ColumnNumber>
-    <StringID>172</StringID>
+    <ColumnNumber>44</ColumnNumber>
     <OriginalText>Player Name</OriginalText>
     <IsHidden>false</IsHidden>
     <IndexOnLine>0</IndexOnLine>
@@ -2166,7 +2165,7 @@
     <SourceScanID>121</SourceScanID>
     <ModuleName>Player.cs</ModuleName>
     <LineNumber>81</LineNumber>
-    <ColumnNumber>60</ColumnNumber>
+    <ColumnNumber>108</ColumnNumber>
     <StringID>173</StringID>
     <OriginalText>Player Description at</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2184,7 +2183,7 @@
     <SourceScanID>122</SourceScanID>
     <ModuleName>Player.cs</ModuleName>
     <LineNumber>170</LineNumber>
-    <ColumnNumber>44</ColumnNumber>
+    <ColumnNumber>43</ColumnNumber>
     <StringID>174</StringID>
     <OriginalText>cannot draw card</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2202,7 +2201,7 @@
     <SourceScanID>123</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>32</LineNumber>
-    <ColumnNumber>33</ColumnNumber>
+    <ColumnNumber>32</ColumnNumber>
     <StringID>175</StringID>
     <OriginalText>tool_attack</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2220,7 +2219,7 @@
     <SourceScanID>124</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>33</LineNumber>
-    <ColumnNumber>36</ColumnNumber>
+    <ColumnNumber>35</ColumnNumber>
     <StringID>176</StringID>
     <OriginalText>tool_attack_ab</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2238,7 +2237,7 @@
     <SourceScanID>125</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>34</LineNumber>
-    <ColumnNumber>34</ColumnNumber>
+    <ColumnNumber>33</ColumnNumber>
     <StringID>177</StringID>
     <OriginalText>tool_defence</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2256,7 +2255,7 @@
     <SourceScanID>126</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>35</LineNumber>
-    <ColumnNumber>37</ColumnNumber>
+    <ColumnNumber>36</ColumnNumber>
     <StringID>177</StringID>
     <OriginalText>tool_defence</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2274,7 +2273,7 @@
     <SourceScanID>127</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>37</LineNumber>
-    <ColumnNumber>35</ColumnNumber>
+    <ColumnNumber>34</ColumnNumber>
     <StringID>178</StringID>
     <OriginalText>this_player_ab</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2292,7 +2291,7 @@
     <SourceScanID>128</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>38</LineNumber>
-    <ColumnNumber>32</ColumnNumber>
+    <ColumnNumber>31</ColumnNumber>
     <StringID>179</StringID>
     <OriginalText>this_player</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2310,7 +2309,7 @@
     <SourceScanID>129</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>40</LineNumber>
-    <ColumnNumber>35</ColumnNumber>
+    <ColumnNumber>34</ColumnNumber>
     <StringID>180</StringID>
     <OriginalText>downright_player_ab</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2328,7 +2327,7 @@
     <SourceScanID>130</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>41</LineNumber>
-    <ColumnNumber>32</ColumnNumber>
+    <ColumnNumber>31</ColumnNumber>
     <StringID>181</StringID>
     <OriginalText>downright_player</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2346,7 +2345,7 @@
     <SourceScanID>131</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>43</LineNumber>
-    <ColumnNumber>35</ColumnNumber>
+    <ColumnNumber>34</ColumnNumber>
     <StringID>182</StringID>
     <OriginalText>upright_player_ab</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2364,7 +2363,7 @@
     <SourceScanID>132</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>44</LineNumber>
-    <ColumnNumber>32</ColumnNumber>
+    <ColumnNumber>31</ColumnNumber>
     <StringID>183</StringID>
     <OriginalText>upright_player</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2382,7 +2381,7 @@
     <SourceScanID>133</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>46</LineNumber>
-    <ColumnNumber>35</ColumnNumber>
+    <ColumnNumber>34</ColumnNumber>
     <StringID>184</StringID>
     <OriginalText>upleft_player_ab</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2400,7 +2399,7 @@
     <SourceScanID>134</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>47</LineNumber>
-    <ColumnNumber>32</ColumnNumber>
+    <ColumnNumber>31</ColumnNumber>
     <StringID>185</StringID>
     <OriginalText>upleft_player</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2418,7 +2417,7 @@
     <SourceScanID>135</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>49</LineNumber>
-    <ColumnNumber>35</ColumnNumber>
+    <ColumnNumber>34</ColumnNumber>
     <StringID>186</StringID>
     <OriginalText>downleft_player_ab</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2436,7 +2435,7 @@
     <SourceScanID>136</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>50</LineNumber>
-    <ColumnNumber>32</ColumnNumber>
+    <ColumnNumber>31</ColumnNumber>
     <StringID>187</StringID>
     <OriginalText>downleft_player</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2454,7 +2453,7 @@
     <SourceScanID>137</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>53</LineNumber>
-    <ColumnNumber>45</ColumnNumber>
+    <ColumnNumber>44</ColumnNumber>
     <StringID>188</StringID>
     <OriginalText>hold_cards</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2472,7 +2471,7 @@
     <SourceScanID>138</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>54</LineNumber>
-    <ColumnNumber>45</ColumnNumber>
+    <ColumnNumber>44</ColumnNumber>
     <StringID>188</StringID>
     <OriginalText>hold_cards</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2490,7 +2489,7 @@
     <SourceScanID>139</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>55</LineNumber>
-    <ColumnNumber>45</ColumnNumber>
+    <ColumnNumber>44</ColumnNumber>
     <StringID>188</StringID>
     <OriginalText>hold_cards</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2508,7 +2507,7 @@
     <SourceScanID>140</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>56</LineNumber>
-    <ColumnNumber>45</ColumnNumber>
+    <ColumnNumber>44</ColumnNumber>
     <StringID>188</StringID>
     <OriginalText>hold_cards</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2526,7 +2525,7 @@
     <SourceScanID>141</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>60</LineNumber>
-    <ColumnNumber>25</ColumnNumber>
+    <ColumnNumber>24</ColumnNumber>
     <StringID>189</StringID>
     <OriginalText>Messages</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2544,7 +2543,7 @@
     <SourceScanID>142</SourceScanID>
     <ModuleName>Required_Data.cs</ModuleName>
     <LineNumber>61</LineNumber>
-    <ColumnNumber>34</ColumnNumber>
+    <ColumnNumber>33</ColumnNumber>
     <StringID>190</StringID>
     <OriginalText>this_player_stage</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2562,7 +2561,7 @@
     <SourceScanID>143</SourceScanID>
     <ModuleName>UserAction.cs</ModuleName>
     <LineNumber>44</LineNumber>
-    <ColumnNumber>25</ColumnNumber>
+    <ColumnNumber>24</ColumnNumber>
     <StringID>95</StringID>
     <OriginalText>Yes</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2580,7 +2579,7 @@
     <SourceScanID>144</SourceScanID>
     <ModuleName>UserAction.cs</ModuleName>
     <LineNumber>46</LineNumber>
-    <ColumnNumber>25</ColumnNumber>
+    <ColumnNumber>24</ColumnNumber>
     <StringID>96</StringID>
     <OriginalText>No</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2598,7 +2597,7 @@
     <SourceScanID>145</SourceScanID>
     <ModuleName>UserActionHandler.cs</ModuleName>
     <LineNumber>56</LineNumber>
-    <ColumnNumber>58</ColumnNumber>
+    <ColumnNumber>57</ColumnNumber>
     <StringID>191</StringID>
     <OriginalText>Ability of Liu is given no card</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2616,7 +2615,7 @@
     <SourceScanID>146</SourceScanID>
     <ModuleName>UserActionHandler.cs</ModuleName>
     <LineNumber>62</LineNumber>
-    <ColumnNumber>58</ColumnNumber>
+    <ColumnNumber>57</ColumnNumber>
     <StringID>192</StringID>
     <OriginalText>Ability of Sun is given no card</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2634,7 +2633,7 @@
     <SourceScanID>147</SourceScanID>
     <ModuleName>UserActionHandler.cs</ModuleName>
     <LineNumber>78</LineNumber>
-    <ColumnNumber>54</ColumnNumber>
+    <ColumnNumber>53</ColumnNumber>
     <StringID>193</StringID>
     <OriginalText>Invalid operation</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2652,7 +2651,7 @@
     <SourceScanID>148</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>86</LineNumber>
-    <ColumnNumber>51</ColumnNumber>
+    <ColumnNumber>50</ColumnNumber>
     <StringID>194</StringID>
     <OriginalText>Card collection for a carset cannot be null</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2670,7 +2669,7 @@
     <SourceScanID>149</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>123</LineNumber>
-    <ColumnNumber>48</ColumnNumber>
+    <ColumnNumber>47</ColumnNumber>
     <StringID>195</StringID>
     <OriginalText>Run out of cards</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2688,7 +2687,7 @@
     <SourceScanID>150</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>133</LineNumber>
-    <ColumnNumber>44</ColumnNumber>
+    <ColumnNumber>43</ColumnNumber>
     <StringID>196</StringID>
     <OriginalText>Such Card Cannot be Found</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2706,7 +2705,7 @@
     <SourceScanID>151</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>148</LineNumber>
-    <ColumnNumber>44</ColumnNumber>
+    <ColumnNumber>43</ColumnNumber>
     <StringID>197</StringID>
     <OriginalText>The card stack is empty</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2724,7 +2723,7 @@
     <SourceScanID>152</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>239</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>198</StringID>
     <OriginalText>Empty PhaseList Exception</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2742,7 +2741,7 @@
     <SourceScanID>153</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>279</LineNumber>
-    <ColumnNumber>43</ColumnNumber>
+    <ColumnNumber>42</ColumnNumber>
     <StringID>199</StringID>
     <OriginalText>Phaselist is empty</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2760,7 +2759,7 @@
     <SourceScanID>154</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>356</LineNumber>
-    <ColumnNumber>24</ColumnNumber>
+    <ColumnNumber>23</ColumnNumber>
     <StringID>200</StringID>
     <OriginalText>[</OriginalText>
     <IsHidden>false</IsHidden>
@@ -2778,7 +2777,7 @@
     <SourceScanID>155</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>360</LineNumber>
-    <ColumnNumber>28</ColumnNumber>
+    <ColumnNumber>27</ColumnNumber>
     <StringID>201</StringID>
     <OriginalText>, </OriginalText>
     <IsHidden>false</IsHidden>
@@ -2796,7 +2795,7 @@
     <SourceScanID>156</SourceScanID>
     <ModuleName>Utility.cs</ModuleName>
     <LineNumber>363</LineNumber>
-    <ColumnNumber>24</ColumnNumber>
+    <ColumnNumber>23</ColumnNumber>
     <StringID>202</StringID>
     <OriginalText>]</OriginalText>
     <IsHidden>false</IsHidden>

@@ -78,7 +78,7 @@ namespace LOTK.Model
         /// create player 
         /// </summary>
         /// <param name="pos"></param>
-        public Player(int pos) : this(pos, Legends_of_the_Three_Kingdoms.Properties.Resources.Player_Name, Legends_of_the_Three_Kingdoms.Properties.Resources.Player_Description_at + pos, 4){}
+        public Player(int pos) : this(pos, "Player Name", Legends_of_the_Three_Kingdoms.Properties.Resources.Player_Description_at + pos, 4){}
 
         /// <summary>
         /// create player 

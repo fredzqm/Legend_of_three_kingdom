@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_at_ActionPhase" xml:space="preserve">
+    <value> 在行动阶段</value>
+  </data>
+  <data name="_at_DiscardPhase" xml:space="preserve">
+    <value> 在弃牌阶段</value>
+  </data>
+  <data name="_at_DrawingPhase" xml:space="preserve">
+    <value> 在摸牌阶段</value>
+  </data>
   <data name="_at_JudgePhase" xml:space="preserve">
     <value>在判定阶段</value>
   </data>
@@ -140,6 +149,15 @@
   </data>
   <data name="_start" xml:space="preserve">
     <value> 开始</value>
+  </data>
+  <data name="_try_to_use" xml:space="preserve">
+    <value>尝试使用</value>
+  </data>
+  <data name="Ability_of_Liu_is_given_no_car" xml:space="preserve">
+    <value>刘备无能力卡</value>
+  </data>
+  <data name="Ability_of_Sun_is_given_no_car" xml:space="preserve">
+    <value>孙权无能力卡</value>
   </data>
   <data name="abilityaction_null" xml:space="preserve">
     <value>无能力</value>
@@ -174,6 +192,12 @@
   <data name="Button_type_not_found" xml:space="preserve">
     <value>按钮未找到</value>
   </data>
+  <data name="Cannot_be_uese" xml:space="preserve">
+    <value>无法使用</value>
+  </data>
+  <data name="cannot_draw_card" xml:space="preserve">
+    <value>无法摸卡</value>
+  </data>
   <data name="Cao_Cao" xml:space="preserve">
     <value>曹操</value>
   </data>
@@ -185,6 +209,9 @@
   </data>
   <data name="Capture_Description" xml:space="preserve">
     <value>乐不思蜀描述</value>
+  </data>
+  <data name="Card_collection_for_a_carset_c" xml:space="preserve">
+    <value>卡堆不能为空</value>
   </data>
   <data name="CardList_is_not_defined" xml:space="preserve">
     <value>卡排列未定义</value>
@@ -198,11 +225,32 @@
   <data name="curphase_null" xml:space="preserve">
     <value>当前阶段 无</value>
   </data>
+  <data name="Dead_phase_of" xml:space="preserve">
+    <value>死亡阶段</value>
+  </data>
+  <data name="descripty_is_null" xml:space="preserve">
+    <value>无描述</value>
+  </data>
+  <data name="downleft_player" xml:space="preserve">
+    <value>左下玩家</value>
+  </data>
+  <data name="downleft_player_ab" xml:space="preserve">
+    <value>左下玩家能力</value>
+  </data>
+  <data name="downright_player" xml:space="preserve">
+    <value>右下玩家</value>
+  </data>
+  <data name="downright_player_ab" xml:space="preserve">
+    <value>右下玩家能力</value>
+  </data>
   <data name="EightTrigrams" xml:space="preserve">
     <value>八卦阵</value>
   </data>
   <data name="EightTrigrams_Description" xml:space="preserve">
     <value>八卦阵描述</value>
+  </data>
+  <data name="Empty_PhaseList_Exception" xml:space="preserve">
+    <value>空阶段例外</value>
   </data>
   <data name="game_null" xml:space="preserve">
     <value>游戏 无</value>
@@ -216,6 +264,12 @@
   <data name="harmPhase_null" xml:space="preserve">
     <value>伤害阶段</value>
   </data>
+  <data name="healthlimit_is_negative" xml:space="preserve">
+    <value>生命上限为负数</value>
+  </data>
+  <data name="hold_cards" xml:space="preserve">
+    <value>手牌</value>
+  </data>
   <data name="IceSword" xml:space="preserve">
     <value>寒冰箭</value>
   </data>
@@ -224,6 +278,9 @@
   </data>
   <data name="If_Lu_Meng_does_not_use_any_At" xml:space="preserve">
     <value>如果吕蒙未受伤害，无需弃牌</value>
+  </data>
+  <data name="Invalid_operation" xml:space="preserve">
+    <value>非法操作</value>
   </data>
   <data name="Invisible_Phase_should_not_giv" xml:space="preserve">
     <value>不可见阶段不应给</value>
@@ -243,11 +300,17 @@
   <data name="LuMeng" xml:space="preserve">
     <value>吕蒙</value>
   </data>
+  <data name="Messages" xml:space="preserve">
+    <value>信息</value>
+  </data>
   <data name="Miss" xml:space="preserve">
     <value>闪</value>
   </data>
   <data name="Miss_Description" xml:space="preserve">
     <value>闪描述</value>
+  </data>
+  <data name="name_is_null" xml:space="preserve">
+    <value>名字为空</value>
   </data>
   <data name="Negate" xml:space="preserve">
     <value>无懈可击</value>
@@ -276,17 +339,29 @@
   <data name="PeachGarden_Description" xml:space="preserve">
     <value>桃园结义描述</value>
   </data>
+  <data name="Phaselist_is_empty" xml:space="preserve">
+    <value>空阶段列表</value>
+  </data>
   <data name="Player" xml:space="preserve">
     <value>玩家</value>
   </data>
+  <data name="Player_Description_at" xml:space="preserve">
+    <value>玩家描述在</value>
+  </data>
   <data name="Plyaer" xml:space="preserve">
     <value>玩家</value>
+  </data>
+  <data name="pos_is_negative" xml:space="preserve">
+    <value>位置为负数</value>
   </data>
   <data name="Response_Phase_of" xml:space="preserve">
     <value>回复阶段</value>
   </data>
   <data name="response_with_card" xml:space="preserve">
     <value>回复卡片阶段</value>
+  </data>
+  <data name="Run_out_of_cards" xml:space="preserve">
+    <value>卡用光</value>
   </data>
   <data name="Scimitar" xml:space="preserve">
     <value>古锭刀</value>
@@ -309,11 +384,17 @@
   <data name="Steal_Description" xml:space="preserve">
     <value>顺手牵羊描述</value>
   </data>
+  <data name="Such_Card_Cannot_be_Found" xml:space="preserve">
+    <value>无法找到此卡</value>
+  </data>
   <data name="Sun_Quan" xml:space="preserve">
     <value>孙权</value>
   </data>
   <data name="SunQuan" xml:space="preserve">
     <value>孙权</value>
+  </data>
+  <data name="The_card_stack_is_empty" xml:space="preserve">
+    <value>卡堆为空</value>
   </data>
   <data name="The_game_has_ended" xml:space="preserve">
     <value>游戏结束</value>
@@ -330,6 +411,15 @@
   <data name="This_is_player" xml:space="preserve">
     <value>本玩家</value>
   </data>
+  <data name="this_player" xml:space="preserve">
+    <value>本玩家</value>
+  </data>
+  <data name="this_player_ab" xml:space="preserve">
+    <value>本玩家能力</value>
+  </data>
+  <data name="this_player_stage" xml:space="preserve">
+    <value>本玩家阶段</value>
+  </data>
   <data name="Tick" xml:space="preserve">
     <value>时间</value>
   </data>
@@ -338,6 +428,27 @@
   </data>
   <data name="timeOutAdvance_cannot_return_n" xml:space="preserve">
     <value>超时不能反悔空</value>
+  </data>
+  <data name="tool_attack" xml:space="preserve">
+    <value>攻击工具</value>
+  </data>
+  <data name="tool_attack_ab" xml:space="preserve">
+    <value>攻击工具能力</value>
+  </data>
+  <data name="tool_defence" xml:space="preserve">
+    <value>防御工具</value>
+  </data>
+  <data name="upleft_player" xml:space="preserve">
+    <value>左上玩家</value>
+  </data>
+  <data name="upleft_player_ab" xml:space="preserve">
+    <value>左上玩家能力</value>
+  </data>
+  <data name="upright_player" xml:space="preserve">
+    <value>右上玩家</value>
+  </data>
+  <data name="upright_player_ab" xml:space="preserve">
+    <value>右上玩家能力</value>
   </data>
   <data name="waitTime_should_not_be_negativ" xml:space="preserve">
     <value>等待时间不应为负数</value>

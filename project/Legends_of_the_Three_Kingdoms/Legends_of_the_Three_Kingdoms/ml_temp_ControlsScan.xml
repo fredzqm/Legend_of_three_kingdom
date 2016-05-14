@@ -48,6 +48,36 @@
   <ControlsScanResults>
     <ControlsScanID>4</ControlsScanID>
     <Component>Form1.cs</Component>
+    <FullName>button1</FullName>
+    <ShortName>button1</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText />
+    <SortKey>Bbutton1</SortKey>
+    <NodeType>8193</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>1</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName />
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>5</ControlsScanID>
+    <Component>Form1.cs</Component>
+    <FullName>button1.Text</FullName>
+    <ShortName>Text</ShortName>
+    <XPath />
+    <ProgID>System.Windows.Forms.Button</ProgID>
+    <OriginalText>button1</OriginalText>
+    <SortKey>BAbutton1.Text</SortKey>
+    <NodeType>8963</NodeType>
+    <Expanded>false</Expanded>
+    <ItemLevel>2</ItemLevel>
+    <ArrayIndexOrCount>-1</ArrayIndexOrCount>
+    <CompilerName>button1.Text</CompilerName>
+  </ControlsScanResults>
+  <ControlsScanResults>
+    <ControlsScanID>6</ControlsScanID>
+    <Component>Form1.cs</Component>
     <FullName>Cancel</FullName>
     <ShortName>Cancel</ShortName>
     <XPath />
@@ -61,7 +91,7 @@
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>5</ControlsScanID>
+    <ControlsScanID>7</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>Cancel.Text</FullName>
     <ShortName>Text</ShortName>
@@ -76,7 +106,7 @@
     <CompilerName>Cancel.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>6</ControlsScanID>
+    <ControlsScanID>8</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>cardPileCount</FullName>
     <ShortName>cardPileCount</ShortName>
@@ -91,7 +121,7 @@
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>7</ControlsScanID>
+    <ControlsScanID>9</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>cardPileCount.Text</FullName>
     <ShortName>Text</ShortName>
@@ -106,7 +136,7 @@
     <CompilerName>cardPileCount.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>8</ControlsScanID>
+    <ControlsScanID>10</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>hand_cards</FullName>
     <ShortName>hand_cards</ShortName>
@@ -121,7 +151,7 @@
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>9</ControlsScanID>
+    <ControlsScanID>11</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>hand_cards.Items[0]</FullName>
     <ShortName>Items</ShortName>
@@ -137,7 +167,7 @@ Hand card description</OriginalText>
     <CompilerName>hand_cards.Items[0]</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>10</ControlsScanID>
+    <ControlsScanID>12</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>hand_cards.Items[1]</FullName>
     <ShortName>Items</ShortName>
@@ -153,7 +183,7 @@ Hand card description2</OriginalText>
     <CompilerName>hand_cards.Items[1]</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>11</ControlsScanID>
+    <ControlsScanID>13</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>label1</FullName>
     <ShortName>label1</ShortName>
@@ -168,7 +198,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>12</ControlsScanID>
+    <ControlsScanID>14</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>label1.Text</FullName>
     <ShortName>Text</ShortName>
@@ -183,7 +213,7 @@ Hand card description2</OriginalText>
     <CompilerName>label1.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>13</ControlsScanID>
+    <ControlsScanID>15</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>LowerLeft</FullName>
     <ShortName>LowerLeft</ShortName>
@@ -198,7 +228,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>14</ControlsScanID>
+    <ControlsScanID>16</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>LowerLeft.Text</FullName>
     <ShortName>Text</ShortName>
@@ -213,7 +243,7 @@ Hand card description2</OriginalText>
     <CompilerName>LowerLeft.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>15</ControlsScanID>
+    <ControlsScanID>17</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>LowerRight</FullName>
     <ShortName>LowerRight</ShortName>
@@ -228,7 +258,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>16</ControlsScanID>
+    <ControlsScanID>18</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>LowerRight.Text</FullName>
     <ShortName>Text</ShortName>
@@ -243,7 +273,7 @@ Hand card description2</OriginalText>
     <CompilerName>LowerRight.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>17</ControlsScanID>
+    <ControlsScanID>19</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>OK</FullName>
     <ShortName>OK</ShortName>
@@ -258,7 +288,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>18</ControlsScanID>
+    <ControlsScanID>20</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>OK.Text</FullName>
     <ShortName>Text</ShortName>
@@ -273,7 +303,7 @@ Hand card description2</OriginalText>
     <CompilerName>OK.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>19</ControlsScanID>
+    <ControlsScanID>21</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>Pool</FullName>
     <ShortName>Pool</ShortName>
@@ -288,7 +318,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>20</ControlsScanID>
+    <ControlsScanID>22</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>Pool.Lines</FullName>
     <ShortName>Lines</ShortName>
@@ -303,7 +333,7 @@ Hand card description2</OriginalText>
     <CompilerName>Pool.Lines</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>21</ControlsScanID>
+    <ControlsScanID>23</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>Pool.Lines[0]</FullName>
     <ShortName>Lines</ShortName>
@@ -318,7 +348,7 @@ Hand card description2</OriginalText>
     <CompilerName>Pool.Lines[0]</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>22</ControlsScanID>
+    <ControlsScanID>24</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>Pool.Text</FullName>
     <ShortName>Text</ShortName>
@@ -333,7 +363,7 @@ Hand card description2</OriginalText>
     <CompilerName>Pool.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>23</ControlsScanID>
+    <ControlsScanID>25</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>ThisPlayer</FullName>
     <ShortName>ThisPlayer</ShortName>
@@ -348,7 +378,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>24</ControlsScanID>
+    <ControlsScanID>26</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>ThisPlayer.Text</FullName>
     <ShortName>Text</ShortName>
@@ -363,7 +393,7 @@ Hand card description2</OriginalText>
     <CompilerName>ThisPlayer.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>25</ControlsScanID>
+    <ControlsScanID>27</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>tool_attack</FullName>
     <ShortName>tool_attack</ShortName>
@@ -378,7 +408,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>26</ControlsScanID>
+    <ControlsScanID>28</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>tool_attack.Lines</FullName>
     <ShortName>Lines</ShortName>
@@ -393,7 +423,7 @@ Hand card description2</OriginalText>
     <CompilerName>tool_attack.Lines</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>27</ControlsScanID>
+    <ControlsScanID>29</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>tool_attack.Lines[0]</FullName>
     <ShortName>Lines</ShortName>
@@ -408,7 +438,7 @@ Hand card description2</OriginalText>
     <CompilerName>tool_attack.Lines[0]</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>28</ControlsScanID>
+    <ControlsScanID>30</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>tool_attack.Text</FullName>
     <ShortName>Text</ShortName>
@@ -423,7 +453,7 @@ Hand card description2</OriginalText>
     <CompilerName>tool_attack.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>29</ControlsScanID>
+    <ControlsScanID>31</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>tool_defence</FullName>
     <ShortName>tool_defence</ShortName>
@@ -438,7 +468,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>30</ControlsScanID>
+    <ControlsScanID>32</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>tool_defence.Lines</FullName>
     <ShortName>Lines</ShortName>
@@ -453,7 +483,7 @@ Hand card description2</OriginalText>
     <CompilerName>tool_defence.Lines</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>31</ControlsScanID>
+    <ControlsScanID>33</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>tool_defence.Lines[0]</FullName>
     <ShortName>Lines</ShortName>
@@ -468,7 +498,7 @@ Hand card description2</OriginalText>
     <CompilerName>tool_defence.Lines[0]</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>32</ControlsScanID>
+    <ControlsScanID>34</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>tool_defence.Text</FullName>
     <ShortName>Text</ShortName>
@@ -483,7 +513,7 @@ Hand card description2</OriginalText>
     <CompilerName>tool_defence.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>33</ControlsScanID>
+    <ControlsScanID>35</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>turn</FullName>
     <ShortName>turn</ShortName>
@@ -498,7 +528,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>34</ControlsScanID>
+    <ControlsScanID>36</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>turn.Text</FullName>
     <ShortName>Text</ShortName>
@@ -513,7 +543,7 @@ Hand card description2</OriginalText>
     <CompilerName>turn.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>35</ControlsScanID>
+    <ControlsScanID>37</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>UpperLeft</FullName>
     <ShortName>UpperLeft</ShortName>
@@ -528,7 +558,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>36</ControlsScanID>
+    <ControlsScanID>38</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>UpperLeft.Text</FullName>
     <ShortName>Text</ShortName>
@@ -543,7 +573,7 @@ Hand card description2</OriginalText>
     <CompilerName>UpperLeft.Text</CompilerName>
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>37</ControlsScanID>
+    <ControlsScanID>39</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>UpperRight</FullName>
     <ShortName>UpperRight</ShortName>
@@ -558,7 +588,7 @@ Hand card description2</OriginalText>
     <CompilerName />
   </ControlsScanResults>
   <ControlsScanResults>
-    <ControlsScanID>38</ControlsScanID>
+    <ControlsScanID>40</ControlsScanID>
     <Component>Form1.cs</Component>
     <FullName>UpperRight.Text</FullName>
     <ShortName>Text</ShortName>

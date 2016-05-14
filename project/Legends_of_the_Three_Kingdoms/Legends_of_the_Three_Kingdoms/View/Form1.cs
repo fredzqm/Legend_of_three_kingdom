@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LOTK.Controller;
+using System.Globalization;
+using System.Threading;
 
 namespace LOTK.View
 {   
@@ -241,6 +243,6 @@ namespace LOTK.View
                 clickcard(position, id);
             }
         }
-
+    
     }
 }
