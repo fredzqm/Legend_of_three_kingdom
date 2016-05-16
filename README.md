@@ -70,3 +70,67 @@ Therefore, we can redirect the logs from GUI window to standard out. The test ca
 
 Songyu Wang:
 This week, we apply fuzz test to our project. I wrote half of the random generator. Also, I add some logs format to allow us knowing better what is going wrong.
+
+Final:
+completed features:
+1.This game needs five players. Each player will randomly receive a character card.
+	Liu Bei: Liu Bei's can give any number of his hand cards to any players. If he gives away more than one card, he recovers one unit of health.
+	Zhang Fei: Zhang Fei has no restrictions on how many times he can attack during his turn.
+	Cao Cao: When Cao Cao is damaged by a card, he can immediately put it into his hand.
+	Sun Quan: Once during his turn, Sun Quan can discard any number of cards to draw the same number.
+	lu Meng: If Lu Meng does not use any Attack cards during his turn, he can skip his discard phase.
+2.Game start rules
+	Each player will play as king, rebel, loyalist or spy. In one game, there is usually one king, one loyalist, one spy and two rebels. Each play is assigned an identity and character statically in GameController. Each player draws four initial cards.
+	Then the game starts with the king¡¯s round and go counterclockwise.
+3.Game ending rules (objective of each identity)
+	The king and the loyalist are on the same team. Their objective is to protect the king and kill rebels and spy (everybody else) at the very end. If the king dies, they lose the game immediately. As long as the king survive, the loyalist does not have to survive to win the game. 
+	A player gains nothing for killing a loyalist, but if the king kills a loyalist, the king loses all his cards.
+	The rebels form one team. Their objective is to kill the king. When the king dies, and there are more than two people left or there is any rebel left, the rebels win. 
+	Someone who killed a rebel can draw three cards as the rewards.
+	The spy is all on his own even if there are two spies. The spy wants to kill all other players, and then kill the king at the very end. The spy has to protect the king until there are only two players (the spy and the king) left.
+	Players do not gain anything for killing the spy.
+4.Each player has four stages in one round.
+	Judgment Phase: If there are delay tools (Capture and Starvation) on the player, judge them sequentially. (Judge: show the top card in the stack, and perform specific operations based on the delay tools).
+	Drawing Phase: The player draw two cards in this phase.
+	Action Phase: Here, players can play cards from their hand or use character abilities.  Players can use any number of tool or equipment cards, but they can only use one attack and one wine. The player can choose the order to use their cards or trigger character ability (The very fun part).
+	Discard Phase: Specific character ability might be triggered in this phase. By default, the player can only keep only as many hand cards as they have health and is forced to discard the rest.
+5.Based on the game rules, we decided to implement some cards from the official cards domain to keep the project in a appropriate size (all the cards have four suits). 
+	Basic cards are:
+		¡°Attack¡±: During their action phase, a player can use at most one ¡°attack¡± towards any player. They can play an escape or 			suffer one damage. 
+		¡±Escape¡±: When attacked, a player use an ¡°escape¡± to avoid damage.
+		¡°Peach¡±: During their action phase, a player can use a peach to increase their health by one. When a dying player requests 			help, the player can use ¡°peach¡± to give them one unit of health. (See death rules)
+		¡°Wine¡±: During their action phase, a player can use at most one ¡°wine¡±. If they do, the damage of the next attack in the 			same round causes one more damage.
+	Tool cards are:
+		¡°PeachGarden¡±: The player targets all player, let them restore one heath (not above health limit).
+		¡°Wealth¡±: The player targets himself, draws two cards.
+6.Each player play one round and move to next player.
+7.If any player win, game over.
+
+
+unimplemented features:
+Based on the game rules, we decided to implement some cards from the official cards domain to keep the project in a appropriate size (all the cards have four suits). 
+Tool cards are:
+¡°Negate¡±: When another tool cards is taking effect (delay tool at judge phase), this card can be used to negate the effect of that card towards specific target. (including ¡°Negate¡± itself)
+¡°Barbarians¡±:  The player targets all other players, ask them to play an ¡°attack¡± or take one damage.
+¡°HailofArrow¡±: The player targets all other players, ask them to play an ¡°escape¡± or take one damage.
+¡°Steal¡±: The player targets another player, acquires one car from him (including his hand cards, equipment and delay tool on him)
+¡°Break¡±: The player targets another player, removes one card from him (including his hand cards, equipment and delay tool on him.)
+¡°Capture¡±: The player can put this delay tool on any target player.  The target must do a judgment in his next round.  If it is not a heart, he skips his action phase.
+¡°Starvation¡±: The player can put this delay tool on any target player.  The target must do a judgment in his next round.  If it is not a club, he skips his drawing phase.
+Equipment cards are:
+Weapons: (There are more, we will choose only a few)
+¡°Crossbow¡±: With this equipped, a player may attack as much as desired during their round.
+¡°Ice Sword¡± :When an attack hits its target, the player with the weapon has a choice. They can either damage the target or chose to remove two cards from the target.
+¡°Ancient Scimitar¡±: When the target of an attack receives damage and does not have any hand cards, the damage is increased by one.
+Armor:
+¡°BlackShield¡±: Black ¡°attack¡± cannot hit the wearer.
+¡°Eight Trigrams¡±: When an ¡°escape¡± is needed, the wearer can perform a judgment. If it is red, consider the ¡°escape¡± is provided. 
+
+known issues:
+N/A
+
+Songyu Wang:
+This week, I translated the game from English to Chinese. Now The game can display different languages based on the system language. 
+
+Fred Zhang:
+This week, I did the performance analysis of the game. It turns out that the majority of the CPU usage is not even in the code we generate, but the code C# used to maintain GUI, so I guess we don't have a performance issue. 
